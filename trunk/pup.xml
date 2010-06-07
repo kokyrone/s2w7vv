@@ -2,10 +2,10 @@
 <spellcast>
     <config
         RestingSet = "Rest"
-        NormalSet = "$meleeset"/>
+        NormalSet = "Idle"
+	EngagedSet = "$meleeset"/>
     <sets>
         <group default = "true" name = "Melee">
-        	<set name = "Idle" BaseSet = "TP"/>
             <set name = "TP">
                 <sub/>
                 <range>Turbo Animator</range>
@@ -23,6 +23,7 @@
                 <legs>Puppetry Churidars</legs>
                 <feet>Tabin Boots +1</feet>
             </set>
+	<set name = "Idle" BaseSet = "TP"/>
             <set name = "Eva" BaseSet="TP">
                 <head>Empress Hairpin</head>
                 <neck>Evasion Torque</neck>
@@ -78,7 +79,7 @@
         </rule>
         <rule Spell = "*Maneuver">
             <action type = "Equip" when = "Before" set = "Maneuver"/>
-            <action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
+            <action type = "Equip" when = "After" Delay = "1" set = "$meleeset"/>
         </rule>
         <rule Spell = "Raging Fists|Howling Fist|Dragon Kick">
             <action type = "Equip" when = "Before" set = "Weapon Skill"/>
