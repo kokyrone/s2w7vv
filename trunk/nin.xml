@@ -59,11 +59,11 @@
             </set>
             <set name = "Rest" BaseSet = "$meleeset"/>
             <set name = "Haste" BaseSet = "$meleeset">
-                <head>Walahra Turban</head>
-                <hands>Dusk Gloves</hands>
-                <waist>Swift Belt</waist>
-                <legs>Byakko's Haidate</legs>
-                <feet>Fuma sune-ate</feet>
+                <head lock="yes">Walahra Turban</head>
+                <hands lock="yes">Dusk Gloves</hands>
+                <waist lock="yes">Swift Belt</waist>
+                <legs lock="yes">Byakko's Haidate</legs>
+                <feet lock="yes">Fuma sune-ate</feet>
             </set>
             <set name = "RAcc" BaseSet = "$meleeset">
                 <body>Scorpion Harness</body>
@@ -103,7 +103,7 @@
         </rule>
         <rule Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*">
             <action type = "Equip" when = "Before" set = "Ninjutsu"/>
-            <action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
+            <action type = "Equip" when = "After" set = "$meleeset"/>
         </rule>
         <!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin -->
 		<if Spell="Monomi: Ichi" BuffActive="Sneak" SpellTargetType="Self">
@@ -111,7 +111,7 @@
 			<action type="midcastdelay" delay="3.0" />
 		</if>
 		<if spell="Utsusemi*">
-			<action type = "Equip" when = "Before" set = "Haste"/>
+			<action type = "Equip" when = "Before" set = "Haste|Enmity"/>
 			<if HPPLT="76" TPLT="100">
 				<action type="Equip" when = "Before"><rring>Shinobi ring</rring></action>
 			</if>
