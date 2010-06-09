@@ -2,7 +2,8 @@
 <spellcast>
     <config
         RestingSet = "Rest"
-        NormalSet = "Idle"/>
+        NormalSet = "Idle"
+        EngagedSet = "$meleeset"/>
     <sets>
         <group default = "true" name = "Melee">
         	<set name = "Idle"  BaseSet = "$meleeset">
@@ -33,6 +34,7 @@
                 <hands>Seiryu's Kote</hands>
                 <lring>Garrulous Ring</lring>
                 <rring>Ecphoria Ring</rring>
+                <back/>
                 <waist>Survival Belt</waist>
                 <legs>Koga Hakama</legs>
                 <feet>Fuma sune-ate</feet>
@@ -42,7 +44,7 @@
                 <rear>Eris' Earring</rear>
                 <waist>Warwolf Belt</waist>
             </set>
-            <set name = "Ninjutsu" BaseSet = "Enmity">
+            <set name = "Ninjutsu">
                 <head>Ninja Hatsubari</head>
             </set>
             <set name = "Weapon Skill" BaseSet = "$meleeset">
@@ -97,12 +99,16 @@
             <action type = "Equip" when = "Before" set = "Weapon Skill"/>
             <action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
         </rule>
-        <rule Spell = "Provoke|Animated Flourish|Warcry">
+        <rule Spell = "Provoke|Animated Flourish|Warcry|Berserk">
             <action type = "Equip" when = "Before" set = "Enmity"/>
             <action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
         </rule>
         <rule Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*">
-            <action type = "Equip" when = "Before" set = "Ninjutsu"/>
+            <action type = "Equip" when = "Before" set = "Enmity|Ninjutsu"/>
+            <action type = "Equip" when = "After" set = "$meleeset"/>
+        </rule>
+        <rule Spell = "Doton*|Suiton*|Huton*|Katon*|Hyoton*|Raiton*">
+            <action type = "Equip" when = "Before" set = "Enmity|Ninjutsu"/>
             <action type = "Equip" when = "After" set = "$meleeset"/>
         </rule>
         <!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin -->
