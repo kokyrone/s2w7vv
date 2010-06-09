@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<spellcast>
+    <config
+        RestingSet = "Rest"
+        NormalSet = "Idle"
+	EngagedSet = "$meleeset"/>
+    <sets>
+        <group default = "true" name = "Melee">
+            <set name = "TP">
+                <sub/>
+                <range>Turbo Animator</range>
+                <ammo>Automaton Oil +2</ammo>
+                <head>Puppetry Taj</head>
+                <neck>Peacock Charm</neck>
+                <lear>Spike Earring</lear>
+                <rear>Coral Earring</rear>
+                <body>Puppetry Tobe</body>
+                <hands>Tabin Bracers +1</hands>
+                <lring>Garrulous Ring</lring>
+                <rring>Ecphoria Ring</rring>
+                <back>Bellicose Mantle</back>
+                <waist>Swift Belt</waist>
+                <legs>Puppetry Churidars</legs>
+                <feet>Tabin Boots +1</feet>
+            </set>
+	<set name = "Idle" BaseSet = "TP"/>
+            <set name = "Eva" BaseSet="TP">
+                <head>Empress Hairpin</head>
+                <neck>Evasion Torque</neck>
+                <lear>Velocity Earring</lear>
+                <rear>Dodge Earring</rear>
+                <lring>Jelly Ring</lring>
+                <back>Dodge Cape</back>
+                <legs>Combat Caster's Slacks</legs>
+                <feet>Tabin Boots +1</feet>
+            </set>
+            <set name = "Acc" BaseSet="TP">
+                <lring>Sniper's Ring</lring>
+                <waist>Life Belt</waist>
+            </set>
+            <set name = "Repair" BaseSet = "$meleeset">
+                <feet>Puppetry Babouches</feet>
+            </set>
+            <set name = "Maneuver" BaseSet = "$meleeset">
+                <hands>Puppetry Dastanas</hands>
+                <neck>Buffon's Collar</neck>
+            </set>
+            <set name = "Weapon Skill" BaseSet = "TP">
+                <rring>Sun Ring</rring>
+                <waist>Life Belt</waist>
+                <legs>Wonder Braccae</legs>
+                <feet>Creek M clomps</feet>
+            </set>
+            <set name = "Rest" BaseSet = "TP"/>
+        </group>
+    </sets>
+    
+    <variables>
+    	<!-- Engaged Melee Gear -->
+    	<var name="meleeset">TP</var>
+        <!-- Init with day set will update after first cast/ja etc.-->
+    	<var name="DayOrNight">Day</var>
+	</variables>
+    
+    <rules>
+		<action type="equip" when="idle" set="Idle" />
+		<action type="equip" when="engaged" set="$meleeset" />
+    	<!-- BEGIN Timecheck-->
+		<if mode="OR" TimeLT="6.00" TimeGT="17.59">
+			<action type="var" cmd="set DayOrNight Night" />
+		</if>
+		<else>
+			<action type="var" cmd="set DayOrNight Day" />
+		</else>
+		<!-- END Timecheck -->
+        <rule Spell = "Repair">
+            <action type = "Equip" when = "Before" set = "Repair"/>
+            <action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
+        </rule>
+        <rule Spell = "*Maneuver">
+            <action type = "Equip" when = "Before" set = "Maneuver"/>
+            <action type = "Equip" when = "After" Delay = "1" set = "$meleeset"/>
+        </rule>
+        <rule Spell = "Raging Fists|Howling Fist|Dragon Kick">
+            <action type = "Equip" when = "Before" set = "Weapon Skill"/>
+            <action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
+        </rule>
+    </rules>
+</spellcast>

@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<spellcast>
+	<config AutoLoadXML="true" Debug="true" FishingSet="GoFish"/>
+	<variables />
+	<sets />
+	<rules />
+</spellcast>
