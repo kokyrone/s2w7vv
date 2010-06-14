@@ -1,311 +1,343 @@
 <?xml version="1.0" ?>
 <!-- 
-===================================================
-  ||
-  ||       Aikar's BLM SpellCast Template
-  ||
-  || This file is designed to be easily used by others.
-  || Simply editing in your own gear and modifying the variables up top
-  || should be all that is needed to make use of this file.
-  ||
-  || Please be sure to configure the variables prior to use.
-  ||
-  || If you have any questions - Please post on the forums.
-===================================================
- -->
-<spellcast>
-	<config RequireVersion="2.22" />
-	<variables>
-		<!-- Sleep timers, announces to chat when sleep is wearing off. Set to 0 to not use. -->
-		<!-- (note: this is sort of very obvious usage of 3rd party programs, so turn off when around people you dont trust -->
-		<var name="SleepTimers">0</var>
-		<!-- use BLM AF2 pants or not? Set to 0 if you do not have it -->
-		<var name="BLMAF2Pants">1</var>
-		<!-- use Sorc ring or not? set to 0 if you do not have it or dangerous location -->
-		<var name="Ring">0</var>
-		<!-- use Ugg Pendant or not? set to 0 if you do not have it. -->
-		<var name="UggPendant">0</var>
-		<!-- Set HP Variables for what the maximum amount of HP you can have to trigger sorc ring is for each subjob -->
-		<var name="RDMRingHP">597</var>
-		<var name="WHMRingHP">583</var>
-		<var name="NINRingHP">597</var>
-		<!-- Elemental Grips, set to 1 for each you have -->
-		<var name="LightGrip">1</var>
-		<var name="DarkGrip">1</var>
-		<var name="ThunderGrip">1</var>
-		<var name="IceGrip">0</var>
-		<var name="FireGrip">0</var>
-		<var name="WindGrip">0</var>
-		<var name="WaterGrip">0</var>
-		<var name="EarthGrip">0</var>
-		<!-- Elemental Staffs, input what staff to use for each element here -->
-		<var name="IceStaff">Aquilo's Staff</var>
-		<var name="DarkStaff">Pluto's Staff</var>
-		<var name="ThunderStaff">Jupiter's Staff</var>
-		<var name="WindStaff">Wind Staff</var>
-		<var name="FireStaff">Fire Staff</var>
-		<var name="EarthStaff">Earth Staff</var>
-		<var name="LightStaff">Light Staff</var>
-		<var name="WaterStaff">Water Staff</var>
-		<!-- Elemental Obi's, set to 1 for the ones you have. -->
-		<var name="DarkObi">0</var>
-		<var name="LightObi">0</var>
-		<var name="ThunderObi">0</var>
-		<var name="IceObi">0</var>
-		<var name="FireObi">0</var>
-		<var name="WindObi">0</var>
-		<var name="WaterObi">0</var>
-		<var name="EarthObi">0</var>
-	</variables>
-	<sets>
-		<group name="Main" default="yes">
-			<set name="Standard">
-				<main>$EarthStaff</main>
-				<sub>Bugard Strap +1</sub>
-				<ammo>Phantom Tathlum</ammo>
-				<neck>Elemental Torque</neck>
-				<lear>Moldavite Earring</lear>
-				<rear>Phantom Earring</rear>
-				<head>Wizard's Petasos</head>
-				<body>Sorcerer's Coat</body>
-				<hands>Wizard's Gloves</hands>
-				<lring>Diamond Ring</lring>
-				<rring>Diamond Ring</rring>
-				<back>Rainbow Cape</back>
-				<waist>Penitent's Rope</waist>
-				<legs>Mahatma Slops</legs>
-				<feet>Cobra Crackows</feet>
-			</set>
-			<set name="FastCast" />
-			<!--
-				<feet>Rostrum Pumps</feet>
-				<rear>Loquac. Earring</rear>
-				-->
-			<set name="Resting" BaseSet="Standard">
-				<body>Errant Hpl.</body>
-				<main>$DarkStaff</main>
-				<sub>Ariesian Grip</sub>
-				<head>Cobra Hat</head>
-				<waist>Qiqirn Sash +1</waist>
-				<!--
-				<feet>Numerist Pumps</feet>
-				<hands>Oracle's Gloves</hands>
-				-->
-				<neck>Beak Necklace +1</neck>
-				<!--
-				<lear>Relaxing Earring</lear>
-				-->
-				<rear>Antivenom Earring</rear>
-				<!--
-				<legs>Baron's Slops</legs>
-				<back>Invigorating Cape</back>
-				-->
-			</set>
-			<set name="MinusHP">
-				<head>Zenith Crown</head>
-				<back>Ixion Cape</back>
-				<hands>Zenith Mitts</hands>
-				<neck>Morgana's Choker</neck>
-				<feet>Rostrum Pumps</feet>
-				<ammo>White Tathlum</ammo>
-			</set>
-			<set name="FullDamage" BaseSet="Standard">
-				<head>Wzd. Petasos</head>
-				<body>Igqira Weskit</body>
-			</set>
-			<set name="HighResist" BaseSet="FullDamage">
-				<head>Sorcerer's Petas.</head>
-				<feet>Sorcerer's Sabots</feet>
-			</set>
-			<set name="MidResist" BaseSet="FullDamage">
-				<head>Sorcerer's Petas.</head>
-			</set>			
-			<set name="LightResist" BaseSet="FullDamage">
- 
-			</set>					
-			<set name="DarkMagic">
-				<legs>Wizard's Tonban</legs>
-				<head>Nashira Turban</head>
-				<neck>Dark Torque</neck>
-				<body>Errant Hpl.</body>
-				<hands>Sorcerer's Gloves</hands>
-			</set>
-			<set name="EnfeeblingMagic">
-				<body>Wizard's Coat</body>
-				<head>Igqira Tiara</head>
-				<neck>Enfeebling Torque</neck>
-				<hands>Master Caster's bracelets</hands>
-				<lear>Enfeebling Earring</lear>
-				<legs>Igqira Lappa</legs>
-			</set>
-			<set name="HealingMagic" />
-			<set name="DivineMagic" />
-			<set name="EnhancingMagic">
-				<main lock="yes">$WaterStaff</main>
-				<sub>Raptor Strap +1</sub>
-				<body>Errant Hpl.</body>
-				<neck>Promise Badge</neck>
-				<legs>Mahatma Slops</legs>
-				<feet>Cobra Crackows</feet>
-				<hands>Sorcerer's Gloves</hands>
-				<lring>Sapphire Ring</lring>
-				<rring>Sapphire Ring</rring>
-			</set>
-		</group>
-	</sets>
-	<rules>
- 
-		<!-- utility: if targetting a monster, but casting a spell that can not be cast on monsters, then cast on self (buffs). -->
-		<if SpellTargetType="MONSTER" NotValidTarget="*Enemy*" ValidTarget="*Self*>
-			<action type="changetarget" target="&lt;me&gt;" />
-		</if>	
-		<!-- <if SpellTargetType="NONE" ValidTarget="*Self*">
-		 	<action type="changetarget" target="&lt;me&gt;" />
-		</if> -->
-		<if Spell="Escape|Warp|Warp II|Retrace|Teleport-*|Reraise|Tractor"> <action type="return" /> </if>
-		<!-- set of gear to equip when finished casting a spell or coming back from resting mp (idle set) -->
-		<action type="equip" when="Idle|aftercast" set="Standard" />
-		<!-- set of gear to equip when resting -->
-		<action type="equip" when="Resting" set="Resting" />
- 
-		<if Spell="Stun">
-			<!-- equip gear that helps stun, and nothing else -->
-			<action type="equip" set="DarkMagic|FastCast">
-				<main>$ThunderStaff</main>
-			</action>
-		</if>
-		<else>
-			<!-- equip fast cast gear -->
-			<action type="equip" Set="FastCast" />
-			<!-- Elemental Grip checks. Are we casting an enfeeble, or are we casting on a resistant mob? -->
-			<if mode="OR" NotSkill="ElementalMagic" Spell="Frost|Drown|Rasp|Burn|Shock|Choke" SpellTargetName="Tiamat|Genbu|Suzaku|Seiryu|Byakko|Kirin|Jormungand|Ouryu|Vrtra|Cerberus|Khimaira|Fafnir|Nidhogg|Aspidochelone|King Behemoth|Tinnin|Sarameya|Tyger|Jailer of Love">
-				<if Advanced='"$%SpellElementGrip" == "1"'>
-					<action type="equip" when="midcast">
-						<sub lock="true">%SpellElement Grip</sub>
-					</action>
-				</if>
-			</if>
-			<!-- if were handling spells -->
-			<if Skill="*Magic">
-				<!-- if this is elemental magic (nukes/dot's, then do special handling -->
-				<if Skill="ElementalMagic">
-					<if Spell="Frost|Drown|Rasp|Burn|Shock|Choke">
-						<!-- equip elemental/INT gear for DoT's -->
-						<action type="equip" when="precast|midcast" Set="HighResist" />	
-					</if>
-					<else>
-						<!-- this is an actual nuke. Check target to be a known high resist mob (and that ES is not active) -->
-						<if SpellTargetName="Tiamat|Genbu|Suzaku|Seiryu|Byakko|Kirin|Jormungand|Vrtra|Cerberus|Khimaira|Tyger|Jailer of Love|Sarameya" NotBuffActive="Elemental Seal">
-							<action type="equip" when="precast|midcast" Set="HighResist" />	
-						</if>
-						<else>
-							<!-- if mob is not high resist, is it a mid resist mob? -->
-							<if SpellTargetName="Fafnir|Nidhogg|Aspidochelone|King Behemoth|Tinnin|Ouryu" NotBuffActive="Elemental Seal">
-								<action type="equip" when="precast|midcast" Set="MidResist" />	
-							</if>
-							<else>
-								<!-- Normal mob, go full damage gear. -->
-								<if mode="or" Area="Dynamis *|Hazhalm*" SpellTargetName="Lambton Worm|Sandworm|Guivre|King Arthro|Serket">
-									<if NotBuffActive="Elemental Seal">
-										<action type="equip" when="precast|midcast" Set="LightResist" />
-									</if>
-									<else>
-										<action type="equip" when="precast|midcast" Set="FullDamage" />	
-									</else>
-								</if>
-								<else>
-									<action type="equip" when="precast|midcast" Set="FullDamage" />	
-								</else>
-								<!-- only equip pendant in situations you would equip full damage gear -->
-								<if MPPAfterCastLT="50" Advanced="$UggPendant==1">
-									<action type="equip" when="midcast">
-										<neck lock="yes">Uggalepih Pendant</neck>
-									</action>
-								</if>
-							</else>
-							<!-- check for Sorc Ring if mid or low resist mob. HP values to compare to are in variables above. -->
-							<if Advanced='$Ring == 1'>
-								<!-- make sure we have an HP variable set for current subjob -->
-								<if Advanced='"$%SubJobRingHP" !="\$%SubJobRingHP"'>
-									<if Advanced='%HP &gt; $%SubJobRingHP'>
-										<!-- if you have too much HP at the time of casting, equip minus hp -->
-										<action type="equip" set="MinusHP" />
-									</if>
-								</if>
-								<else>
-									<!-- if no HP amount is specified for the current subjob, just always equip minushp as precast -->
-									<action type="equip" set="MinusHP" />
-								</else>
- 
-								<action type="equip" when="midcast">
-										<lring>Sorcerer's Ring</lring>
-								</action>
-							</if>
-						</else>
-					</else>
-				</if>
-				<else>
-					<!-- for any other type of spell, just equip matching set name. -->
-					<action type="equip" when="precast|midcast" Set="Standard|%Skill" />	
-				</else>
-			</if>
-			<else>
-				<action type="equip" when="precast|midcast" Set="Standard" />
-			</else>				
-			<!-- so i can see in general how much my drain did. If Ring=0 then its a dangerous spot and shouldnt drop HP. -->
-			<if Spell="Drain" Advanced="$Ring==1">
-					<action type="equip" set="MinusHP" />
-			</if>
-			<!-- Handle Elemental Obi's -->
-			<if Advanced='("%SpellElement" = "%WeatherElement" OR "%SpellElement" = "%DayElement") AND "$%SpellElementObi" = "1"'>
-				<if     Element="Dark"><action type="equip" when="midcast"><waist lock="yes">Anrin Obi</waist></action></if>
-				<elseif Element="Light"><action type="equip" when="midcast"><waist lock="yes">Korin Obi</waist></action></elseif>
-				<elseif Element="Thunder"><action type="equip" when="midcast"><waist lock="yes">Rairin Obi</waist></action></elseif>
-				<elseif Element="Ice"><action type="equip" when="midcast"><waist lock="yes">Hyorin Obi</waist></action></elseif>
-				<elseif Element="Fire"><action type="equip" when="midcast"><waist lock="yes">Karin Obi</waist></action></elseif>
-				<elseif Element="Wind"><action type="equip" when="midcast"><waist lock="yes">Furin Obi</waist></action></elseif>
-				<elseif Element="Water"><action type="equip" when="midcast"><waist lock="yes">Suirin Obi</waist></action></elseif>
-				<elseif Element="Earth"><action type="equip" when="midcast"><waist lock="yes">Dorin Obi</waist></action></elseif>
-			</if>
-			<!-- Handle AFv2 Pants, but do not equip pants if we already have Weather x2 and day bonuses from obi alone as obi alone hits the 35% damage cap. -->
-			<if Advanced='(!((regex)%Weather=^.* x2$(/regex) AND "%WeatherElement" = "%SpellElement" AND "$%SpellElementObi" = "1") OR !("%WeatherElement" = "%spellElement")) AND ("%SpellElement" = "%DayElement" AND "$BLMAF2Pants" = "1") AND ("%skill"="ElementalMagic")'>
-				<action type="equip" when="midcast">
-					<legs lock="yes">Sorcerer's Tonban</legs>
-				</action>
-			</if>
-			<!-- Timers for when sleep is wearing off. -->
-			<if advanced='"$SleepTimers"="1"'>
-				<if Spell="Sleep II|Sleepga II">
-					<action type="command" when="aftercast">spellcast var inc sleepid;wait 45;input /p [$sleepid:%spell] &lt;%target&gt; Wearing off in 45s</action>
-					<action type="command" when="aftercast">wait 75;input /p [$sleepid:%spell] &lt;%target&gt; Wearing off in 15s</action>
-					<action type="command" when="aftercast">wait 85;input /p [$sleepid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec sleepid;</action>
-				</if>
-				<elseif Spell="Sleep|Sleepga">
-					<action type="command" when="aftercast">spellcast var inc sleepid;wait 45;input /p [$sleepid:%spell] &lt;%target&gt; Wearing off in 15s</action>
-					<action type="command" when="aftercast">wait 55;input /p [$sleepid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec sleepid;</action>
-				</elseif>
-			</if>
-			<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin -->
-			<if Spell="Sneak" BuffActive="Sneak" SpellTargetType="Self">
-				<action type="command" when="midcast">cancel 71</action>
-				<action type="midcastdelay" delay="1.8" />
-			</if>
-			<if spell="Utsusemi: Ichi" BuffActive="Copy Image">
-				<action type="midcastdelay" delay="3.0" />
-				<action type="Command" when="midcast">cancel 66</action>
-			</if>
-			<elseif Spell="Stoneskin" BuffActive="Stoneskin">
-				<action type="command" when="midcast">cancel 37</action>
-				<action type="midcastdelay" delay="4.8" />
-			</elseif>
-			<elseif Spell="Blink" BuffActive="Blink">
-				<action type="command" when="midcast">cancel 36</action>
-				<action type="midcastdelay" delay="4.5" />
-			</elseif>
-			<!-- finally, equip our staff! -->
-			<action type="equip" when="midcast">
-				<main>$%SpellElementStaff</main>
-			</action>
-		</else>
-	</rules>
+    ===================================================
+    ||
+    ||       Aikar's BLM SpellCast Template
+    ||
+    || This file is designed to be easily used by others.
+    || Simply editing in your own gear and modifying the variables up top
+    || should be all that is needed to make use of this file.
+    ||
+    || Please be sure to configure the variables prior to use.
+    ||
+    || If you have any questions - Please post on the forums.
+    ===================================================
+    -->
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+    <config
+        RequireVersion="2.22"
+        />
+    <variables>
+        <!-- Sleep timers, announces to chat when sleep is wearing off. Set to 0 to not use. -->
+        <!-- (note: this is sort of very obvious usage of 3rd party programs, so turn off when around people you dont trust -->
+        <var name="SleepTimers">0</var>
+        <!-- use BLM AF2 pants or not? Set to 0 if you do not have it -->
+        <var name="BLMAF2Pants">1</var>
+        <!-- use Sorc ring or not? set to 0 if you do not have it or dangerous location -->
+        <var name="Ring">0</var>
+        <!-- use Ugg Pendant or not? set to 0 if you do not have it. -->
+        <var name="UggPendant">0</var>
+        <!-- Set HP Variables for what the maximum amount of HP you can have to trigger sorc ring is for each subjob -->
+        <var name="RDMRingHP">597</var>
+        <var name="WHMRingHP">583</var>
+        <var name="NINRingHP">597</var>
+        <!-- Elemental Grips, set to 1 for each you have -->
+        <var name="LightGrip">1</var>
+        <var name="DarkGrip">1</var>
+        <var name="ThunderGrip">1</var>
+        <var name="IceGrip">0</var>
+        <var name="FireGrip">0</var>
+        <var name="WindGrip">0</var>
+        <var name="WaterGrip">0</var>
+        <var name="EarthGrip">0</var>
+        <!-- Elemental Staffs, input what staff to use for each element here -->
+        <var name="IceStaff">Aquilo's Staff</var>
+        <var name="DarkStaff">Pluto's Staff</var>
+        <var name="ThunderStaff">Jupiter's Staff</var>
+        <var name="WindStaff">Wind Staff</var>
+        <var name="FireStaff">Fire Staff</var>
+        <var name="EarthStaff">Earth Staff</var>
+        <var name="LightStaff">Light Staff</var>
+        <var name="WaterStaff">Water Staff</var>
+        <!-- Elemental Obi's, set to 1 for the ones you have. -->
+        <var name="DarkObi">0</var>
+        <var name="LightObi">0</var>
+        <var name="ThunderObi">0</var>
+        <var name="IceObi">0</var>
+        <var name="FireObi">0</var>
+        <var name="WindObi">0</var>
+        <var name="WaterObi">0</var>
+        <var name="EarthObi">0</var>
+    </variables>
+    <sets>
+        <group name="Main" default="yes">
+            <set name="Standard">
+                <main>$EarthStaff</main>
+                <sub>Bugard Strap +1</sub>
+                <ammo>Phantom Tathlum</ammo>
+                <neck>Elemental Torque</neck>
+                <lear>Moldavite Earring</lear>
+                <rear>Phantom Earring</rear>
+                <head>Wizard's Petasos</head>
+                <body>Sorcerer's Coat</body>
+                <hands>Wizard's Gloves</hands>
+                <lring>Diamond Ring</lring>
+                <rring>Diamond Ring</rring>
+                <back>Hecate's Cape</back>
+                <waist>Penitent's Rope</waist>
+                <legs>Mahatma Slops</legs>
+                <feet>Cobra Crackows</feet>
+            </set>
+            <set name="FastCast" />
+            <!--
+                <feet>Rostrum Pumps</feet>
+                <rear>Loquac. Earring</rear>
+                -->
+            <set name="Resting" BaseSet="Standard">
+                <body>Errant Hpl.</body>
+                <main>$DarkStaff</main>
+                <sub>Ariesian Grip</sub>
+                <head>Cobra Hat</head>
+                <waist>Qiqirn Sash +1</waist>
+                <!--
+                    <feet>Numerist Pumps</feet>
+                    <hands>Oracle's Gloves</hands>
+                    -->
+                <neck>Beak Necklace +1</neck>
+                <!--
+                    <lear>Relaxing Earring</lear>
+                    -->
+                <rear>Antivenom Earring</rear>
+                <!--
+                    <legs>Baron's Slops</legs>
+                    <back>Invigorating Cape</back>
+                    -->
+            </set>
+            <set name="MinusHP">
+                <head>Zenith Crown</head>
+                <back>Ixion Cape</back>
+                <hands>Zenith Mitts</hands>
+                <neck>Morgana's Choker</neck>
+                <feet>Rostrum Pumps</feet>
+                <ammo>White Tathlum</ammo>
+            </set>
+            <set name="FullDamage" BaseSet="Standard">
+                <head>Wzd. Petasos</head>
+                <body>Igqira Weskit</body>
+                <back>Rainbow Cape</back>
+            </set>
+            <set name="HighResist" BaseSet="FullDamage">
+                <head>Sorcerer's Petas.</head>
+                <feet>Sorcerer's Sabots</feet>
+            </set>
+            <set name="MidResist" BaseSet="FullDamage">
+                <head>Sorcerer's Petas.</head>
+            </set>
+            <set name="LightResist" BaseSet="FullDamage" />
+            <set name="DarkMagic">
+                <legs>Wizard's Tonban</legs>
+                <head>Nashira Turban</head>
+                <neck>Dark Torque</neck>
+                <body>Errant Hpl.</body>
+                <hands>Sorcerer's Gloves</hands>
+            </set>
+            <set name="EnfeeblingMagic">
+                <body>Wizard's Coat</body>
+                <head>Igqira Tiara</head>
+                <neck>Enfeebling Torque</neck>
+                <hands>Master Caster's bracelets</hands>
+                <lear>Enfeebling Earring</lear>
+                <legs>Igqira Lappa</legs>
+            </set>
+            <set name="HealingMagic" />
+            <set name="DivineMagic" />
+            <set name="EnhancingMagic">
+                <main lock="yes">$WaterStaff</main>
+                <sub>Raptor Strap +1</sub>
+                <body>Errant Hpl.</body>
+                <neck>Promise Badge</neck>
+                <legs>Mahatma Slops</legs>
+                <feet>Cobra Crackows</feet>
+                <hands>Sorcerer's Gloves</hands>
+                <lring>Sapphire Ring</lring>
+                <rring>Sapphire Ring</rring>
+            </set>
+        </group>
+    </sets>
+    <rules>
+        <!-- utility: if targetting a monster, but casting a spell that can not be cast on monsters, then cast on self (buffs). -->
+        <if SpellTargetType="MONSTER" NotValidTarget="*Enemy*" ValidTarget="*Self*">
+            <changetarget target="&lt;me&gt;" />
+        </if>
+        <!-- <if SpellTargetType="NONE" ValidTarget="*Self*">
+            <changetarget target="&lt;me&gt;" />
+            </if> -->
+        <if Spell="Escape|Warp|Warp II|Retrace|Teleport-*|Reraise|Tractor">
+            <return />
+        </if>
+        <!-- set of gear to equip when finished casting a spell or coming back from resting mp (idle set) -->
+        <equip when="Idle|aftercast" set="Standard" />
+        <!-- set of gear to equip when resting -->
+        <equip when="Resting" set="Resting" />
+        <if Spell="Stun">
+            <!-- equip gear that helps stun, and nothing else -->
+            <equip set="DarkMagic|FastCast">
+                <main>$ThunderStaff</main>
+            </equip>
+        </if>
+        <else>
+            <!-- equip fast cast gear -->
+            <equip Set="FastCast" />
+            <!-- Elemental Grip checks. Are we casting an enfeeble, or are we casting on a resistant mob? -->
+            <if mode="OR" NotSkill="ElementalMagic" Spell="Frost|Drown|Rasp|Burn|Shock|Choke" SpellTargetName="Tiamat|Genbu|Suzaku|Seiryu|Byakko|Kirin|Jormungand|Ouryu|Vrtra|Cerberus|Khimaira|Fafnir|Nidhogg|Aspidochelone|King Behemoth|Tinnin|Sarameya|Tyger|Jailer of Love">
+                <if Advanced='"$%SpellElementGrip" == "1"'>
+                    <equip when="midcast">
+                        <sub lock="true">%SpellElement Grip</sub>
+                    </equip>
+                </if>
+            </if>
+            <!-- if were handling spells -->
+            <if Skill="*Magic">
+                <!-- if this is elemental magic (nukes/dot's, then do special handling -->
+                <if Skill="ElementalMagic">
+                    <if Spell="Frost|Drown|Rasp|Burn|Shock|Choke">
+                        <!-- equip elemental/INT gear for DoT's -->
+                        <equip when="precast|midcast" Set="HighResist" />
+                    </if>
+                    <else>
+                        <!-- this is an actual nuke. Check target to be a known high resist mob (and that ES is not active) -->
+                        <if SpellTargetName="Tiamat|Genbu|Suzaku|Seiryu|Byakko|Kirin|Jormungand|Vrtra|Cerberus|Khimaira|Tyger|Jailer of Love|Sarameya" NotBuffActive="Elemental Seal">
+                            <equip when="precast|midcast" Set="HighResist" />
+                        </if>
+                        <else>
+                            <!-- if mob is not high resist, is it a mid resist mob? -->
+                            <if SpellTargetName="Fafnir|Nidhogg|Aspidochelone|King Behemoth|Tinnin|Ouryu" NotBuffActive="Elemental Seal">
+                                <equip when="precast|midcast" Set="MidResist" />
+                            </if>
+                            <else>
+                                <!-- Normal mob, go full damage gear. -->
+                                <if mode="or" Area="Dynamis *|Hazhalm*" SpellTargetName="Lambton Worm|Sandworm|Guivre|King Arthro|Serket">
+                                    <if NotBuffActive="Elemental Seal">
+                                        <equip when="precast|midcast" Set="LightResist" />
+                                    </if>
+                                    <else>
+                                        <equip when="precast|midcast" Set="FullDamage" />
+                                    </else>
+                                </if>
+                                <else>
+                                    <equip when="precast|midcast" Set="FullDamage" />
+                                </else>
+                                <!-- only equip pendant in situations you would equip full damage gear -->
+                                <if MPPAfterCastLT="50" Advanced="$UggPendant==1">
+                                    <equip when="midcast">
+                                        <neck lock="yes">Uggalepih Pendant</neck>
+                                    </equip>
+                                </if>
+                            </else>
+                            <!-- check for Sorc Ring if mid or low resist mob. HP values to compare to are in variables above. -->
+                            <if Advanced='$Ring == 1'>
+                                <!-- make sure we have an HP variable set for current subjob -->
+                                <if Advanced='"$%SubJobRingHP" !="$%SubJobRingHP"'>
+                                    <if Advanced='%HP &gt; $%SubJobRingHP'>
+                                        <!-- if you have too much HP at the time of casting, equip minus hp -->
+                                        <equip set="MinusHP" />
+                                    </if>
+                                </if>
+                                <else>
+                                    <!-- if no HP amount is specified for the current subjob, just always equip minushp as precast -->
+                                    <equip set="MinusHP" />
+                                </else>
+                                <equip when="midcast">
+                                    <lring>Sorcerer's Ring</lring>
+                                </equip>
+                            </if>
+                        </else>
+                    </else>
+                </if>
+                <else>
+                    <!-- for any other type of spell, just equip matching set name. -->
+                    <equip when="precast|midcast" Set="Standard|%Skill" />
+                </else>
+            </if>
+            <else>
+                <equip when="precast|midcast" Set="Standard" />
+            </else>
+            <!-- so i can see in general how much my drain did. If Ring=0 then its a dangerous spot and shouldnt drop HP. -->
+            <if Spell="Drain" Advanced="$Ring==1">
+                <equip set="MinusHP" />
+            </if>
+            <!-- Handle Elemental Obi's -->
+            <!-- <if Advanced='("%SpellElement" = "%WeatherElement" OR "%SpellElement" = "%DayElement") AND "$%SpellElementObi" = "1"'>
+                <if     Element="Dark">
+                    <equip when="midcast">
+                        <waist lock="yes">Anrin Obi</waist>
+                    </equip>
+                </if>
+                <elseif Element="Light">
+                    <equip when="midcast">
+                        <waist lock="yes">Korin Obi</waist>
+                    </equip>
+                </elseif>
+                <elseif Element="Thunder">
+                    <equip when="midcast">
+                        <waist lock="yes">Rairin Obi</waist>
+                    </equip>
+                </elseif>
+                <elseif Element="Ice">
+                    <equip when="midcast">
+                        <waist lock="yes">Hyorin Obi</waist>
+                    </equip>
+                </elseif>
+                <elseif Element="Fire">
+                    <equip when="midcast">
+                        <waist lock="yes">Karin Obi</waist>
+                    </equip>
+                </elseif>
+                <elseif Element="Wind">
+                    <equip when="midcast">
+                        <waist lock="yes">Furin Obi</waist>
+                    </equip>
+                </elseif>
+                <elseif Element="Water">
+                    <equip when="midcast">
+                        <waist lock="yes">Suirin Obi</waist>
+                    </equip>
+                </elseif>
+                <elseif Element="Earth">
+                    <equip when="midcast">
+                        <waist lock="yes">Dorin Obi</waist>
+                    </equip>
+                </elseif>
+            </if>-->
+            <!-- Handle AFv2 Pants, but do not equip pants if we already have Weather x2 and day bonuses from obi alone as obi alone hits the 35% damage cap. -->
+            <!-- <if Advanced='(!(regex("%Weather","^.* x2$") AND "%WeatherElement" = "%SpellElement" AND "$%SpellElementObi" = "1") OR !("%WeatherElement" = "%spellElement")) AND ("%SpellElement" = "%DayElement" AND "$BLMAF2Pants" = "1") AND ("%skill"="ElementalMagic")'>
+                <equip when="midcast">
+                    <legs lock="yes">Sorcerer's Tonban</legs>
+                </equip>
+            </if> -->
+            <!-- Timers for when sleep is wearing off. -->
+            <if advanced='"$SleepTimers"="1"'>
+                <if Spell="Sleep II|Sleepga II">
+                    <command when="aftercast">spellcast var inc sleepid;wait 45;input /p [$sleepid:%spell] &lt;%target&gt; Wearing off in 45s</command>
+                    <command when="aftercast">wait 75;input /p [$sleepid:%spell] &lt;%target&gt; Wearing off in 15s</command>
+                    <command when="aftercast">wait 85;input /p [$sleepid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec sleepid;</command>
+                </if>
+                <elseif Spell="Sleep|Sleepga">
+                    <command when="aftercast">spellcast var inc sleepid;wait 45;input /p [$sleepid:%spell] &lt;%target&gt; Wearing off in 15s</command>
+                    <command when="aftercast">wait 55;input /p [$sleepid:%spell] &lt;%target&gt; Wearing off in 5s;spellcast var dec sleepid;</command>
+                </elseif>
+            </if>
+            <!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin -->
+            <if Spell="Sneak" BuffActive="Sneak" SpellTargetType="Self">
+                <command when="midcast">cancel 71</command>
+                <midcastdelay delay="1.8" />
+            </if>
+            <if spell="Utsusemi: Ichi" BuffActive="Copy Image">
+                <midcastdelay delay="3.0" />
+                <command when="midcast">cancel 66</command>
+            </if>
+            <elseif Spell="Stoneskin" BuffActive="Stoneskin">
+                <command when="midcast">cancel 37</command>
+                <midcastdelay delay="4.8" />
+            </elseif>
+            <elseif Spell="Blink" BuffActive="Blink">
+                <command when="midcast">cancel 36</command>
+                <midcastdelay delay="4.5" />
+            </elseif>
+            <!-- finally, equip our staff! -->
+            <equip when="midcast">
+                <main>$%SpellElementStaff</main>
+            </equip>
+        </else>
+    </rules>
 </spellcast>
