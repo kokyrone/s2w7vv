@@ -1,22 +1,62 @@
 <?xml version="1.0" ?>
-<spellcast>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
     <config
-        RestingSet = "Rest"
-        NormalSet = "Idle"
-	EngagedSet = "$meleeset"/>
+        RestingSet="Idle"
+        NormalSet="Idle"
+        EngagedSet="$meleeset"
+        />
     <sets>
         <group default = "true" name = "Melee">
-        	<set name = "Idle"  BaseSet = "$meleeset">
-        		<hands>Seiryu's Kote</hands>
-        		<feet>Ninja Kyahan</feet>
-        	</set>
+            <set name = "Idle" BaseSet = "$meleeset">
+                <hands>Seiryu's Kote</hands>
+                <feet>Ninja Kyahan</feet>
+            </set>
             <set name = "TP">
-                <sub/>
+                <sub />
+                <ammo>Bomb Core</ammo>
                 <head>Walahra Turban</head>
                 <neck>Peacock Charm</neck>
                 <lear>Suppanomimi</lear>
                 <rear>Brutal Earring</rear>
                 <body>Ninja Chainmail</body>
+                <hands>Dusk Gloves</hands>
+                <lring>Spinel Ring</lring>
+                <rring>Ecphoria Ring</rring>
+                <back>Amemet Mantle +1</back>
+                <waist>Swift Belt</waist>
+                <legs>Byakko's Haidate</legs>
+                <feet>Fuma sune-ate</feet>
+            </set>
+            <set name = "Eva">
+            	<ammo>Bomb Core</ammo>
+                <head>Optical Hat</head>
+                <neck>Evasion Torque</neck>
+                <lear>Velocity Earring</lear>
+                <rear>Dodge Earring</rear>
+                <body>Scorpion Harness</body>
+                <hands>Seiryu's Kote</hands>
+                <lring>Spinel Ring</lring>
+                <rring>Ecphoria Ring</rring>
+                <back />
+                <waist>Survival Belt</waist>
+                <legs>Koga Hakama</legs>
+                <feet>Fuma sune-ate</feet>
+            </set>
+            <set name = "Acc" BaseSet = "TP">
+                <sub />
+                <head>Optical Hat</head>
+                <neck>Peacock Charm</neck>
+                <body>Scorpion Harness</body>
+                <waist>Life Belt</waist>
+            </set>
+            <set name = "Tnk" BaseSet = "TP">
+                <sub />
+                <ammo>Bomb Core</ammo>
+                <head>Walahra Turban</head>
+                <neck>Peacock Charm</neck>
+                <lear>Suppanomimi</lear>
+                <rear>Brutal Earring</rear>
+                <body>Scorpion Harness</body>
                 <hands>Dusk Gloves</hands>
                 <lring>Garrulous Ring</lring>
                 <rring>Ecphoria Ring</rring>
@@ -25,27 +65,15 @@
                 <legs>Byakko's Haidate</legs>
                 <feet>Fuma sune-ate</feet>
             </set>
-            <set name = "Eva">
-                <head>Optical Hat</head>
-                <neck>Evasion Torque</neck>
-                <lear>Velocity Earring</lear>
-                <rear>Dodge Earring</rear>
-                <body>Scorpion Harness</body>
-                <hands>Seiryu's Kote</hands>
-                <lring>Garrulous Ring</lring>
-                <rring>Ecphoria Ring</rring>
-		<back/>
-                <waist>Survival Belt</waist>
-                <legs>Koga Hakama</legs>
-                <feet>Fuma sune-ate</feet>
-            </set>
             <set name = "Enmity" BaseSet = "$meleeset">
+            	<ammo>Nokizaru Shuriken</ammo>
                 <neck>Harmonia's Torque</neck>
                 <rear>Eris' Earring</rear>
+                <!--<lring>Mermaid's Ring</lring>-->
                 <waist>Warwolf Belt</waist>
             </set>
             <set name = "Ninjutsu">
-                <head>Ninja Hatsubari</head>
+                <head>Ninja Hatsuburi</head>
             </set>
             <set name = "Weapon Skill" BaseSet = "$meleeset">
                 <head>Optical Hat</head>
@@ -55,7 +83,7 @@
                 <hands>Fourth Division Hentzes</hands>
                 <lring>Ruby Ring</lring>
                 <rring>Ruby Ring</rring>
-		<back/>
+                <back />
                 <waist>Warwolf Belt</waist>
                 <legs>Byakko's Haidate</legs>
                 <feet>Creek M clomps</feet>
@@ -77,61 +105,61 @@
             </set>
         </group>
     </sets>
-    
     <variables>
-    	<!-- Engaged Melee Gear -->
-    	<var name="meleeset">TP</var>
-    	<!-- Init with day set will update after first cast/ja etc.-->
-    	<var name="DayOrNight">Day</var>
-	</variables>
-    
+        <!-- Engaged Melee Gear -->
+        <var name="meleeset">TP</var>
+        <!-- Init with day set will update after first cast/ja etc.-->
+        <var name="DayOrNight">Day</var>
+    </variables>
     <rules>
-		<action type="equip" when="idle" set="Idle" />
-		<action type="equip" when="engaged" set="$meleeset" />
-    	<!-- BEGIN Timecheck-->
-		<if mode="OR" TimeLT="6.00" TimeGT="17.59">
-			<action type="var" cmd="set DayOrNight Night" />
-		</if>
-		<else>
-			<action type="var" cmd="set DayOrNight Day" />
-		</else>
-		<!-- END Timecheck -->
-        <rule Spell = "Blade:*">
-            <action type = "Equip" when = "Before" set = "Weapon Skill"/>
-            <action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
-        </rule>
-        <rule Spell = "Provoke|Animated Flourish|Warcry|Berserk">
-            <action type = "Equip" when = "Before" set = "Enmity"/>
-            <action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
-        </rule>
-        <rule Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*">
-            <action type = "Equip" when = "Before" set = "Enmity|Ninjutsu"/>
-            <action type = "Equip" when = "After" set = "$meleeset"/>
-        </rule>
-        <rule Spell = "Doton*|Suiton*|Huton*|Katon*|Hyoton*|Raiton*">
-            <action type = "Equip" when = "Before" set = "Ninjutsu"/>
-            <action type = "Equip" when = "After" set = "$meleeset"/>
-        </rule>
+        <equip when="idle" set="Idle" />
+        <equip when="engaged" set="$meleeset" />
+        <!-- BEGIN Timecheck-->
+        <if mode="OR" TimeLT="6.00" TimeGT="17.59">
+            <var cmd="set DayOrNight Night" />
+        </if>
+        <else>
+            <var cmd="set DayOrNight Day" />
+        </else>
+        <!-- END Timecheck -->
+        <if Spell = "Blade:*">
+            <equip when = "Before" set = "Weapon Skill" />
+            <equip when = "After" Delay = "2" set = "$meleeset" />
+        </if>
+        <if Spell = "Provoke|Animated Flourish|Warcry|Berserk">
+            <equip when = "Before" set = "Enmity" />
+            <equip when = "After" Delay = "1" set = "$meleeset" />
+        </if>
+        <if Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*">
+            <equip when = "Before" set = "Enmity|Ninjutsu" />
+            <equip when = "After" set = "$meleeset" />
+        </if>
+        <if Spell = "Doton*|Suiton*|Huton*|Katon*|Hyoton*|Raiton*">
+            <equip when = "Before" set = "Ninjutsu" />
+            <equip when = "After" set = "$meleeset" />
+        </if>
         <!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin -->
-		<if Spell="Monomi: Ichi" BuffActive="Sneak" SpellTargetType="Self">
-			<action type="command" when="midcast">cancel 71</action>
-			<action type="midcastdelay" delay="3.0" />
-		</if>
-		<if spell="Utsusemi*">
-			<action type = "Equip" when = "Before" set = "Haste|Enmity"/>
-			<if HPPLT="76" TPLT="100">
-				<action type="Equip" when = "Before"><rring>Shinobi ring</rring></action>
-			</if>
-			<if spell="Utsusemi: Ichi" BuffActive="Copy Image">
-				<action type="midcastdelay" delay="3.0" />
-				<action type="Command" when="midcast">cancel 66</action>
-			</if>
-			<if Status="engaged">
-				<action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
-			</if>
-			<else>
-				<action type = "Equip" when = "After" Delay = "2" set = "Idle"/>
-			</else>
-		</if>
+        <if Spell="Monomi: Ichi" BuffActive="Sneak" SpellTargetType="Self">
+            <command when="midcast">cancel 71</command>
+            <midcastdelay delay="3.0" />
+        </if>
+        <if spell="Utsusemi*">
+            <equip when = "Before" set = "Haste|Enmity" />
+            <if HPPLT="76" TPLT="100">
+                <equip when = "Before">
+                    <rring>Shinobi ring</rring>
+                </equip>
+            </if>
+            <if spell="Utsusemi: Ichi" BuffActive="Copy Image">
+                <midcastdelay delay="3.0" />
+                <command when="midcast">cancel 66</command>
+            </if>
+            <if Status="engaged">
+                <equip when = "After" Delay = "2" set = "$meleeset" />
+            </if>
+            <else>
+                <equip when = "After" Delay = "2" set = "Idle" />
+            </else>
+        </if>
     </rules>
 </spellcast>
