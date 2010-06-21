@@ -26,14 +26,14 @@
 		<var name="WaterGrip">0</var>
 		<var name="EarthGrip">0</var>
 		<!-- Elemental Staffs, input what staff to use for each element here -->
-        <var name="IceStaff">Aquilo's Staff</var>
-        <var name="DarkStaff">Pluto's Staff</var>
-        <var name="ThunderStaff">Jupiter's Staff</var>
-        <var name="WindStaff">Wind Staff</var>
-        <var name="FireStaff">Fire Staff</var>
-        <var name="EarthStaff">Earth Staff</var>
-        <var name="LightStaff">Light Staff</var>
-        <var name="WaterStaff">Water Staff</var>
+		<var name="IceStaff">Aquilo's Staff</var>
+		<var name="DarkStaff">Pluto's Staff</var>
+		<var name="ThunderStaff">Jupiter's Staff</var>
+		<var name="WindStaff">Wind Staff</var>
+		<var name="FireStaff">Fire Staff</var>
+		<var name="EarthStaff">Earth Staff</var>
+		<var name="LightStaff">Light Staff</var>
+		<var name="WaterStaff">Water Staff</var>
 		<!-- Elemental Obi's, set to 1 for the ones you have. -->
 		<var name="DarkObi">0</var>
 		<var name="LightObi">0</var>
@@ -54,26 +54,26 @@
 		<group name="Main" default="yes">
 			<set name="Standard">
 				<main>$EarthStaff</main>
-                <sub>Bugard Strap +1</sub>
-                <ammo>Phantom Tathlum</ammo>
-                <head>Wizard's Petasos</head>
-                <neck>Elemental Torque</neck>
-                <lear>Moldavite Earring</lear>
-                <rear>Phantom Earring</rear>
-                <body>Sorcerer's Coat</body>
-                <hands>Wizard's Gloves</hands>
-                <lring>Diamond Ring</lring>
-                <rring>Diamond Ring</rring>
-                <back>Hecate's Cape</back>
-                <waist>Penitent's Rope</waist>
-                <legs>Mahatma Slops</legs>
-                <feet>Cobra Crackows</feet>
+				<sub>Bugard Strap +1</sub>
+				<ammo>Phantom Tathlum</ammo>
+				<head>Wizard's Petasos</head>
+				<neck>Elemental Torque</neck>
+				<lear>Moldavite Earring</lear>
+				<rear>Phantom Earring</rear>
+				<body>Sorcerer's Coat</body>
+				<hands>Wizard's Gloves</hands>
+				<lring>Diamond Ring</lring>
+				<rring>Diamond Ring</rring>
+				<back>Hecate's Cape</back>
+				<waist>Penitent's Rope</waist>
+				<legs>Mahatma Slops</legs>
+				<feet>Cobra Crackows</feet>
 			</set>
 			<set name="FastCast">
-            <!--
-                <feet>Rostrum Pumps</feet>
-                <rear>Loquac. Earring</rear>
-                -->
+			<!--
+				<feet>Rostrum Pumps</feet>
+				<rear>Loquac. Earring</rear>
+				-->
 			</set>
 			<set name="Resting" BaseSet="Standard">
 				<main>$DarkStaff</main>
@@ -99,14 +99,14 @@
 				<body>Igqira Weskit</body>
 			</set>
 			<set name="HighResist" BaseSet="FullDamage">
-                <head>Sorcerer's Petas.</head>
-                <feet>Sorcerer's Sabots</feet>
+				<head>Sorcerer's Petas.</head>
+				<feet>Sorcerer's Sabots</feet>
 			</set>
 			<set name="MidResist" BaseSet="FullDamage">
-                <head>Sorcerer's Petas.</head>
+				<head>Sorcerer's Petas.</head>
 			</set>			
 			<set name="LightResist" BaseSet="FullDamage">
-                <head>Sorcerer's Petas.</head>
+				<head>Sorcerer's Petas.</head>
 			</set>					
 			<set name="DarkMagic">
 				<hands>Sorcerer's Gloves</hands>
@@ -130,14 +130,14 @@
 			<set name="DivineMagic" />
 			<set name="EnhancingMagic" BaseSet="Standard">
 				<main lock="yes">$WaterStaff</main>
-                <sub>Raptor Strap +1</sub>
-                <neck>Promise Badge</neck>
+				<sub>Raptor Strap +1</sub>
+				<neck>Promise Badge</neck>
 				<body>Errant Hpl.</body>
 				<lring>Sapphire Ring</lring>
-                <rring>Sapphire Ring</rring>
-                <back>Rainbow Cape</back>
+				<rring>Sapphire Ring</rring>
+				<back>Rainbow Cape</back>
 				<legs>Mahatma Slops</legs>
-                <feet>Cobra Crackows</feet>
+				<feet>Cobra Crackows</feet>
 			</set>
 		</group>
 		<group name="Melee">
@@ -179,14 +179,14 @@
 		</if>
 		<if Spell="Stun">
 			<!-- equip gear that helps stun, and nothing else -->
-            <equip set="FullDamage|DarkMagic|FastCast">
-                <main lock="true">$ThunderStaff</main>
-                <if Advanced='"$ThunderGrip" == "1"'>
+			<equip set="FullDamage|DarkMagic|FastCast">
+				<main lock="true">$ThunderStaff</main>
+				<if Advanced='"$ThunderGrip" == "1"'>
 					<equip when="midcast">
 						<sub lock="true">Thunder Grip</sub>
 					</equip>
 				</if>
-            </equip>
+			</equip>
 			<!-- these codes just print Stun in auto translate into chat. -->
 			<action type="command">input /p \xFD\x07\x02\x12\xFC\xFD %SpellTarget</action>
 		</if>
@@ -277,7 +277,7 @@
 			</else>
 			<!-- Handle Elemental Obi's -->
 			<if Advanced='("%SpellElement" = "%WeatherElement" OR "%SpellElement" = "%DayElement") AND "$%SpellElementObi" = "1"'>
-				<if     Element="Dark"><equip when="midcast"><waist lock="yes">Anrin Obi</waist></equip></if>
+				<if	 Element="Dark"><equip when="midcast"><waist lock="yes">Anrin Obi</waist></equip></if>
 				<elseif Element="Light"><equip when="midcast"><waist lock="yes">Korin Obi</waist></equip></elseif>
 				<elseif Element="Thunder"><equip when="midcast"><waist lock="yes">Rairin Obi</waist></equip></elseif>
 				<elseif Element="Ice"><equip when="midcast"><waist lock="yes">Hyorin Obi</waist></equip></elseif>
