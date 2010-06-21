@@ -97,7 +97,8 @@
                 <feet lock="yes">Fuma sune-ate</feet>
             </set>
             <set name = "RAcc" BaseSet = "$meleeset">
-                <body>Scorpion Harness</body>
+            	<ammo>Aht Urhgan Dart</ammo>
+                <head>Optical Hat</head>
                 <hands>Ninja Tekko</hands>
                 <lring>Behemoth Ring</lring>
                 <rring>Behemoth Ring</rring>
@@ -142,6 +143,10 @@
         <if Spell="Monomi: Ichi" BuffActive="Sneak" SpellTargetType="Self">
             <command when="midcast">cancel 71</command>
             <midcastdelay delay="3.0" />
+        </if>
+        <if Spell = "Ranged">
+            <equip when = "Before" Delay = "1" set = "RAcc" />
+            <equip when = "After" Delay = "1" set = "$meleeset" />
         </if>
         <if spell="Utsusemi*">
             <equip when = "Before" set = "Haste|Enmity" />

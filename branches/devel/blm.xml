@@ -196,7 +196,7 @@
                     </if>
                     <else>
                         <!-- this is an actual nuke. Check target to be a known high resist mob (and that ES is not active) -->
-                        <if SpellTargetName="Tiamat|Genbu|Suzaku|Seiryu|Byakko|Kirin|Jormungand|Vrtra|Cerberus|Khimaira|Tyger|Jailer of Love|Sarameya" NotBuffActive="Elemental Seal">
+                        <if SpellTargetName="Armed Gears|Tiamat|Genbu|Suzaku|Seiryu|Byakko|Kirin|Jormungand|Vrtra|Cerberus|Khimaira|Tyger|Jailer of Love|Sarameya" NotBuffActive="Elemental Seal">
                             <equip when="precast|midcast" Set="HighResist" />
                         </if>
                         <else>
