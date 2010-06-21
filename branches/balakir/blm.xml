@@ -152,7 +152,7 @@
 				<feet>Goliard Clogs</feet>
 			</set>
 			<set name="Stun">
-				<main lock="true">$ThunderStaff</main>
+				<main>$ThunderStaff</main>
 				<sub>Thunder Grip</sub>
 				<head>Wzd. Petasos +1</head>
 				<neck>Aesir Torque</neck>
@@ -230,7 +230,6 @@
 		<equip when="Resting" set="Resting" />
 		<if Spell="Escape|Warp|Warp II|Retrace|Teleport-*|Reraise|Tractor">
 			<equip when="Precast" set="FastCast" />
-			<return />
 		</if>
 		<if Spell="Stun">
 			<!-- equip gear that helps stun, and nothing else -->
@@ -247,9 +246,9 @@
 		</if>
 		<else>
 			<!-- equip fast cast gear -->
-			<equip when="precast" Set="FastCast" />
+			<equip Set="FastCast" />
 			<!-- Elemental Grip checks. Are we casting an enfeeble, or are we casting on a resistant mob? -->
-			<if mode="OR" NotSkill="ElementalMagic" NotSpell="Frost|Drown|Rasp|Burn|Shock|Choke" SpellTargetName="$HighResist|$MidResist">
+			<if mode="OR" NotSkill="ElementalMagic" Spell="Frost|Drown|Rasp|Burn|Shock|Choke" SpellTargetName="$HighResist|$MidResist">
 				<if Advanced='"$%SpellElementGrip" == "1"'>
 					<equip when="midcast">
 						<sub lock="true">%SpellElement Grip</sub>
@@ -263,37 +262,36 @@
 				<if Skill="ElementalMagic">
 					<if Spell="Frost|Drown|Rasp|Burn|Shock|Choke">
 						<!-- equip elemental/INT gear for DoT's -->
+						<equip when="precast" Set="FastCast" />	
 						<equip when="midcast" Set="Eledebuff" />	
 					</if>
 					<else>
 					<action type="MidcastDelay" Delay="2.0" />
 						<!-- this is an actual nuke. Check target to be a known high resist mob (and that ES is not active) -->
 						<if SpellTargetName="$HighResist" NotBuffActive="Elemental Seal">
+							<equip when="precast" Set="FastCast" />
 							<equip when="midcast" Set="HighResist" />	
 						</if>
 						<else>
-							<!-- check for Sorc Ring if mid or low resist mob. An equip HP down if needed-->
-							<if advanced='$Ring == 1'>
-								<if HPPGT="74">
-									<equip set="MinusHP" />
-								</if>
-							</if>
 							<!-- if mob is not high resist, is it a mid resist mob? -->
 							<if SpellTargetName="$MidResist" NotBuffActive="Elemental Seal">
+								<equip when="precast" Set="FastCast" />	
 								<equip when="midcast" Set="MidResist" />
 							</if>
 							<else>
 								<!-- Normal mob, go full damage gear. -->
 								<if mode="or" Area="Dynamis *|Hazhalm*" SpellTargetName="$LightResist">
 									<if NotBuffActive="Elemental Seal">
+										<equip when="precast" Set="FastCast" />
 										<equip when="midcast" Set="LightResist" />
 									</if>
 									<else>
-										<equip when="midcast" Set="FullDamage" />	
+										<equip when="precast|midcast" Set="FullDamage" />	
 									</else>
 								</if>
 								<else>
-									<equip when="midcast" Set="FullDamage" />	
+									<equip when="precast|midcast" Set="FastCast" />
+									<equip when="precast|midcast" Set="FullDamage" />	
 								</else>
 								<!-- only equip pendant in situations you would equip full damage gear -->
 								<if MLvlGT="69">
@@ -304,11 +302,20 @@
 									</if>
 								</if>	
 							</else>
-							<!-- Equip Sorc Ring if mid or low resist mob.-->
+							<!-- check for Sorc Ring if mid or low resist mob. HP values to compare to are in variables above. -->
 							<if advanced='$Ring == 1'>
-								<equip when="midcast">
-									<lring lock="yes">Sorcerer's Ring</lring>
-								</equip>
+								<if HPPGT="74">
+									<equip set="MinusHP" />
+									
+									<equip when="midcast">
+										<lring lock="yes">Sorcerer's Ring</lring>
+									</equip>
+								</if>
+								<else>
+									<equip when="midcast">
+										<lring lock="yes">Sorcerer's Ring</lring>
+									</equip>
+								</else>
 							</if>
 						</else>
 					</else>
@@ -327,17 +334,30 @@
 						</equip>
 					</if>
 					<else>
-						<equip when="precast" set="Standard|FastCast" />
+						<equip when="precast" set="FastCast" />
 						<equip when="midcast" set="%Skill" />
+					</else>
+					<if Advanced='"$%SpellElementGrip" == "1"'>
+						<equip when="midcast">
+							<sub lock="true">%SpellElement Grip</sub>
+						</equip>
+					</if>
+					<else>
+						<equip when="midcast">
+							<sub lock="true">Bugard Strap +1</sub>
+						</equip>
 					</else>
 				</if>	
 				<if NotSkill="ElementalMagic|EnfeeblingMagic">
 					<!-- FastCast only for these spells -->
-					<if spell="Bio*">
+					<if spell="Tractor|Warp*|Retrace|Teleport*">
+						<euqip when="precast|midcast" set="FastCast" />
+					</if>
+					<elseif spell="Bio*">
 						<equip when="precast">
 							<legs lock="true">Mahatma Slops</legs>
 						</equip>
-					</if>
+					</elseif>
 					<else>
 						<!-- for any other type of spell, just equip matching set name. -->
 						<equip when="precast" Set="FastCast" />
