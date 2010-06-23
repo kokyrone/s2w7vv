@@ -1,7 +1,10 @@
 <?xml version="1.0" ?>
-<spellcast>
-	<config AutoLoadXML="true" Debug="true" FishingSet="GoFish"/>
-	<variables />
-	<sets />
-	<rules />
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+    <config
+        Debug="true"
+        FishingSet="GoFish"
+        />
+    <variables />
+    <sets />
+    <rules />
 </spellcast>
