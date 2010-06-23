@@ -114,6 +114,8 @@
 	</variables>
 	<rules>
 		<equip when="idle" set="Idle" />
+		<!-- Equip town gears :) -->
+		<xi:include href="inc.xml" xpointer="/includes/include[@name='TownSettings']/*" />
 		<equip when="engaged" set="$meleeset" />
 		<!-- BEGIN Timecheck-->
 		<if mode="OR" TimeLT="6.00" TimeGT="17.59">

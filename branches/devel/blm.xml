@@ -171,6 +171,8 @@
 		
 		<!-- set of gear to equip when finished casting a spell or coming back from resting mp (idle set) -->
 		<equip when="Idle|aftercast" set="Standard" />
+		<!-- Equip town gears :) -->
+		<xi:include href="inc.xml" xpointer="/includes/include[@name='TownSettings']/*" />
 		<!-- set of gear to equip when resting -->
 		<equip when="Resting" set="Resting" />
 		<if Spell="Escape|Warp|Warp II|Retrace|Teleport-*|Reraise|Tractor">
