@@ -276,7 +276,8 @@
 				<equip when="precast|midcast" Set="Standard" />
 			</else>
 			<!-- Handle Elemental Obi's -->
-			<if Advanced='("%SpellElement" = "%WeatherElement" OR "%SpellElement" = "%DayElement") AND "$%SpellElementObi" = "1"'>
+			<xi:include href="inc.xml" xpointer="/includes/include[@name='ObiRules']/*" />
+			<!--<if Advanced='("%SpellElement" = "%WeatherElement" OR "%SpellElement" = "%DayElement") AND "$%SpellElementObi" = "1"'>
 				<if	 Element="Dark"><equip when="midcast"><waist lock="yes">Anrin Obi</waist></equip></if>
 				<elseif Element="Light"><equip when="midcast"><waist lock="yes">Korin Obi</waist></equip></elseif>
 				<elseif Element="Thunder"><equip when="midcast"><waist lock="yes">Rairin Obi</waist></equip></elseif>
@@ -285,7 +286,7 @@
 				<elseif Element="Wind"><equip when="midcast"><waist lock="yes">Furin Obi</waist></equip></elseif>
 				<elseif Element="Water"><equip when="midcast"><waist lock="yes">Suirin Obi</waist></equip></elseif>
 				<elseif Element="Earth"><equip when="midcast"><waist lock="yes">Dorin Obi</waist></equip></elseif>
-			</if>
+			</if>-->
 			<!-- Handle AFv2 Pants, but do not equip pants if we already have Weather x2 and day bonuses from obi alone as obi alone hits the 35% damage cap. -->
 			<if Advanced='(!((bool)strmatch("* x2","%Weather") AND "%WeatherElement" = "%SpellElement" AND "$%SpellElementObi" = "1") OR !("%WeatherElement" = "%spellElement")) AND ("%SpellElement" = "%DayElement" AND "$BLMAF2Pants" = "1") AND ("%skill"="ElementalMagic")'>
 				<equip when="midcast">
@@ -305,22 +306,7 @@
 				</elseif>
 			</if>
 			<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin -->
-			<if Spell="Sneak" BuffActive="Sneak" SpellTargetType="Self">
-				<action type="command" when="midcast">cancel 71</action>
-				<action type="midcastdelay" delay="1.8" />
-			</if>
-			<if spell="Utsusemi: Ichi" BuffActive="Copy Image">
-				<action type="midcastdelay" delay="3.0" />
-				<action type="Command" when="midcast">cancel 66</action>
-			</if>
-			<elseif Spell="Stoneskin" BuffActive="Stoneskin">
-				<action type="command" when="midcast">cancel 37</action>
-				<action type="midcastdelay" delay="4.8" />
-			</elseif>
-			<elseif Spell="Blink" BuffActive="Blink">
-				<action type="command" when="midcast">cancel 36</action>
-				<action type="midcastdelay" delay="4.5" />
-			</elseif>
+			<xi:include href="inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
 			<!-- finally, equip our staff! -->
 			<equip when="midcast">
 				<main>$%SpellElementStaff</main>
