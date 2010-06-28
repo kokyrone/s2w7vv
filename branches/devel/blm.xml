@@ -69,6 +69,7 @@
 				<legs>Mahatma Slops</legs>
 				<feet>Cobra Crackows</feet>
 			</set>
+			<set name="Town" BaseSet="Standard"/>
 			<set name="FastCast">
 			<!--
 				<feet>Rostrum Pumps</feet>
@@ -172,7 +173,7 @@
 		<!-- set of gear to equip when finished casting a spell or coming back from resting mp (idle set) -->
 		<equip when="Idle|aftercast" set="Standard" />
 		<!-- Equip town gears :) -->
-		<xi:include href="inc.xml" xpointer="/includes/include[@name='TownSettings']/*" />
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TownSettings']/*" />
 		<!-- set of gear to equip when resting -->
 		<equip when="Resting" set="Resting" />
 		<if Spell="Escape|Warp|Warp II|Retrace|Teleport-*|Reraise|Tractor">
@@ -278,7 +279,7 @@
 				<equip when="precast|midcast" Set="Standard" />
 			</else>
 			<!-- Handle Elemental Obi's -->
-			<xi:include href="inc.xml" xpointer="/includes/include[@name='ObiRules']/*" />
+			<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='ObiRules']/*" />
 			<!--<if Advanced='("%SpellElement" = "%WeatherElement" OR "%SpellElement" = "%DayElement") AND "$%SpellElementObi" = "1"'>
 				<if	 Element="Dark"><equip when="midcast"><waist lock="yes">Anrin Obi</waist></equip></if>
 				<elseif Element="Light"><equip when="midcast"><waist lock="yes">Korin Obi</waist></equip></elseif>
@@ -308,7 +309,7 @@
 				</elseif>
 			</if>
 			<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin -->
-			<xi:include href="inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
+			<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
 			<!-- finally, equip our staff! -->
 			<equip when="midcast">
 				<main>$%SpellElementStaff</main>

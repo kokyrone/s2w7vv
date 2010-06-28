@@ -4,6 +4,9 @@
 		RestingSet="Idle"
 		NormalSet="Idle"
 		EngagedSet="$meleeset"
+		RequireVersion="2.22"
+		ShowGearSwaps="false"
+		Debug="True"
 		/>
 	<sets>
 		<group default = "true" name = "Melee">
@@ -69,7 +72,7 @@
 				<ammo>Nokizaru Shuriken</ammo>
 				<neck>Harmonia's Torque</neck>
 				<rear>Eris' Earring</rear>
-				<!--<lring>Mermaid's Ring</lring>-->
+				<lring>Mermaid Ring</lring>
 				<waist>Warwolf Belt</waist>
 			</set>
 			<set name = "Ninjutsu">
@@ -88,7 +91,8 @@
 				<legs>Byakko's Haidate</legs>
 				<feet>Creek M clomps</feet>
 			</set>
-			<set name = "Rest" BaseSet = "$meleeset"/>
+			<set name = "Rest" BaseSet = "Idle"/>
+			<set name = "Town" BaseSet = "Idle"/>
 			<set name = "Haste" BaseSet = "$meleeset">
 				<head lock="yes">Walahra Turban</head>
 				<hands lock="yes">Dusk Gloves</hands>
@@ -114,8 +118,8 @@
 	</variables>
 	<rules>
 		<equip when="idle" set="Idle" />
-		<!-- Equip town gears :) -->
-		<xi:include href="inc.xml" xpointer="/includes/include[@name='TownSettings']/*" />
+		<!-- Equip town gears :)-->
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TownSettings']/*" />
 		<equip when="engaged" set="$meleeset" />
 		<!-- BEGIN Timecheck-->
 		<if mode="OR" TimeLT="6.00" TimeGT="17.59">
@@ -149,12 +153,12 @@
 			<equip when = "Before" set = "RAcc" />
 			<equip when = "After" Delay = "1.5" set = "$meleeset" />
 		</if>
-		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin -->
-		<xi:include href="inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
-		<!--<if Spell="Monomi: Ichi" BuffActive="Sneak" SpellTargetType="Self">
+		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
+		<xi:include href="/includes/inc.xml" xpointer="//include[@name='CancelRules']/*" />
+		<if Spell="Monomi: Ichi" BuffActive="Sneak" SpellTargetType="Self">
 			<command when="midcast">cancel 71</command>
 			<midcastdelay delay="3.0" />
-		</if>-->
+		</if>
 		<if spell="Utsusemi*">
 			<equip when = "Before" set = "Haste|Enmity" />
 			<if HPPLT="76" TPLT="100">

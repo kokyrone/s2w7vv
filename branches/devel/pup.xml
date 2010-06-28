@@ -3,19 +3,21 @@
 	<config
 		RestingSet="Rest"
 		NormalSet="Idle"
-		EngagedSet="$meleeset"
+		EngagedSet="$MeleeSet"
+		ShowGearSwaps="false"
+		Debug="True"
 		/>
 	<sets>
-		<group default = "true" name = "Melee">
+		<group default = "true" name = "Standard">
 			<set name = "TP">
 				<sub />
 				<range>Turbo Animator</range>
 				<ammo>Automaton Oil +2</ammo>
-				<head>Puppetry Taj</head>
+				<head>Optical Hat</head>
 				<neck>Peacock Charm</neck>
 				<lear>Spike Earring</lear>
 				<rear>Coral Earring</rear>
-				<body>Puppetry Tobe</body>
+				<body>Cobra Unit harness</body>
 				<hands>Tabin Bracers +1</hands>
 				<lring>Garrulous Ring</lring>
 				<rring>Ecphoria Ring</rring>
@@ -24,9 +26,9 @@
 				<legs>Puppetry Churidars</legs>
 				<feet>Tabin Boots +1</feet>
 			</set>
-			<set name = "Idle"/>
+			<set name = "Idle" BaseSet="$MeleeSet"/>
 			<set name = "Eva"  BaseSet = "TP">
-				<head>Empress Hairpin</head>
+				<head>Optical Hat</head>
 				<neck>Evasion Torque</neck>
 				<lear>Velocity Earring</lear>
 				<rear>Dodge Earring</rear>
@@ -40,33 +42,63 @@
 				<lring>Sniper's Ring</lring>
 				<waist>Life Belt</waist>
 			</set>
-			<set name = "Repair" BaseSet = "$meleeset">
+			<set name = "Repair" BaseSet = "$MeleeSet">
 				<feet>Puppetry Babouches</feet>
 			</set>
-			<set name = "Maneuver" BaseSet = "$meleeset">
+			<set name = "Maneuver" BaseSet = "$MeleeSet">
 				<hands>Puppetry Dastanas</hands>
 				<neck>Buffoon's Collar</neck>
 			</set>
-			<set name = "Weapon Skill" BaseSet = "TP">
+			<set name = "WS" BaseSet = "TP">
 				<rring>Sun Ring</rring>
 				<waist>Life Belt</waist>
 				<legs>Wonder Braccae</legs>
 				<feet>Creek M clomps</feet>
 			</set>
-			<set name = "Rest" BaseSet = "TP"/>
+			<set name = "Rest" BaseSet = "TP">
+				<head>Puppetry Taj</head>
+			</set>
+			<set name = "Town" BaseSet = "TP"/>
+			<set name = "Enmity" BaseSet = "$MeleeSet">
+				<!-- <neck>Harmonia's Torque</neck>-->
+				<lring>Mermaid Ring</lring>
+			</set>
+		</group>
+		<group name = "Camp" inherit = "Standard">
+			<set name = "WS" BaseSet = "TP">
+				<lring>Sniper's Ring</lring>
+				<waist>Life Belt</waist>
+				<legs>Wonder Braccae</legs>
+				<feet>Creek M clomps</feet>
+			</set>
 		</group>
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
-		<var name="meleeset">TP</var>
+		<var name="MeleeSet">TP</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
 		<var name="DayOrNight">Day</var>
+		<var name="BattleArea">Standard</var>
 	</variables>
 	<rules>
 		<equip when="idle" set="Idle" />
 		<!-- Equip town gears :) -->
-		<xi:include href="inc.xml" xpointer="/includes/include[@name='TownSettings']/*" />
-		<equip when="engaged" set="$meleeset" />
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TownSettings']/*" />
+		<equip when="engaged" set="$MeleeSet" />
+		<!-- Check to see if we are in a battlefield type thing -->
+		<if BuffActive="Allied Tags">
+			<var cmd="set BattleArea Camp" />
+		</if>
+		<elseif BuffActive="Besieged">
+			<var cmd="set BattleArea Siege" />
+		</elseif>
+		<elseif area="Nyzul*|Leujaoam*|Mamool*|Periqia|Lebros*|Ilrusi*|*Remnants">
+			<var cmd="set BattleArea Assault" />
+		</elseif>
+		<else>
+			<var cmd="set BattleArea Standard" />
+		</else>
+		<command>input /echo We're fighting in $BattleArea mode</command>
 		<!-- BEGIN Timecheck-->
 		<if mode="OR" TimeLT="6.00" TimeGT="17.59">
 			<var cmd="set DayOrNight Night" />
@@ -75,17 +107,23 @@
 			<var cmd="set DayOrNight Day" />
 		</else>
 		<!-- END Timecheck -->
+		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
+		<xi:include href="/includes/inc.xml" xpointer="//include[@name='CancelRules']/*" />
 		<if Spell = "Repair">
-			<equip when = "Before" set = "Repair" />
-			<equip when = "After" Delay = "2" set = "$meleeset" />
+			<equip setgroup="$BattleArea" when = "Before" set = "Repair" />
+			<equip setgroup="$BattleArea" when = "After" Delay = "2" set = "$MeleeSet" />
 		</if>
 		<if Spell = "*Maneuver">
-			<equip when = "Before" set = "Maneuver" />
-			<equip when = "After" Delay = "1" set = "$meleeset" />
+			<equip setgroup="$BattleArea" when = "Before" set = "Maneuver" />
+			<equip setgroup="$BattleArea" when = "After" Delay = "1" set = "$MeleeSet" />
+		</if>
+		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk">
+			<equip setgroup="$BattleArea" when = "Before" set = "Enmity" />
+			<equip setgroup="$BattleArea" when = "After" Delay = "1" set = "$MeleeSet" />
 		</if>
 		<if Spell = "Raging Fists|Howling Fist|Dragon Kick">
-			<equip when = "Before" set = "Weapon Skill" />
-			<equip when = "After" Delay = "2" set = "$meleeset" />
+			<equip setgroup="$BattleArea" when = "Before" set = "WS" />
+			<equip setgroup="$BattleArea" when = "After" Delay = "2" set = "$MeleeSet" />
 		</if>
 	</rules>
 </spellcast>
