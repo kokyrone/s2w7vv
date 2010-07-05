@@ -98,19 +98,19 @@
 		<equip when="idle" set="Idle" />
 		<!-- rules for job abilities and actions -->
 		<if Spell = "Repair">
-			<equip setgroup = "$BattleArea" when = "precast" set = "Repair" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "Repair" />
 			<equip when = "aftercast" Delay = "2" />
 		</if>
 		<if Spell = "*Maneuver">
-			<equip setgroup = "$BattleArea" when = "precast" set = "Maneuver" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "Maneuver" />
 			<equip when = "aftercast" Delay = "1" />
 		</if>
 		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk">
-			<equip setgroup = "$BattleArea" when = "precast" set = "Enmity" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity" />
 			<equip when = "aftercast" Delay = "1" />
 		</if>
 		<if Spell = "Raging Fists|Howling Fist|Dragon Kick">
-			<equip setgroup = "$BattleArea" when = "precast" set = "WS" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
 			<equip when = "aftercast" Delay = "3" />
 		</if>
 	</rules>
