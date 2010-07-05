@@ -70,6 +70,9 @@
 				<feet>Cobra Crackows</feet>
 			</set>
 			<set name="Town" BaseSet="Standard"/>
+			<set name="Idle" BaseSet="Standard">
+				<lring>Jelly Ring</lring>
+			</set>
 			<set name="FastCast">
 			<!--
 				<feet>Rostrum Pumps</feet>
@@ -171,7 +174,7 @@
 		</if>
 		
 		<!-- set of gear to equip when finished casting a spell or coming back from resting mp (idle set) -->
-		<equip when="Idle|aftercast" set="Standard" />
+		<equip when="Idle|aftercast" set="Idle" />
 		<!-- Equip town gears :) -->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TownSettings']/*" />
 		<!-- set of gear to equip when resting -->
@@ -266,14 +269,7 @@
 							<hands>Mst.Cst. Bracelets</hands>
 						</equip>
 					</if>
-					<else>
-						<equip when="midcast" set="%Skill" />
-					</else>
 				</if>	
-				<else>
-						<!-- for any other type of spell, just equip matching set name. -->
-						<equip when="midcast" Set="%Skill" />
-				</else>
 			</if>
 			<else>
 				<equip when="precast|midcast" Set="Standard" />
