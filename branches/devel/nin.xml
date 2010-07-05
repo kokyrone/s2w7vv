@@ -152,29 +152,29 @@
 		<equip when = "idle" set = "Idle" />
 		<!-- rules for job abilities and actions -->
 		<if Spell = "Blade:*">
-			<equip when = "precast" set = "WS" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
 			<equip when = "aftercast" Delay = "2" />
 		</if>
 		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk">
-			<equip when = "precast" set = "Enmity" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity" />
 			<equip when = "aftercast" Delay = "1" />
 		</if>
 		<if Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*">
-			<equip when = "precast" set = "Enmity|Ninjutsu" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity|Ninjutsu" />
 		</if>
 		<if Spell = "Doton*|Suiton*|Huton*|Katon*|Hyoton*|Raiton*">
-			<equip when = "precast" set = "Ninjutsu" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "Ninjutsu" />
 		</if>
 		<if Spell = "Ranged">
 			<if EquipAmmo="Nokizaru Shuriken">
 				<cancelspell />
 				<return />
 			</if>
-			<equip when = "precast" set = "RAcc" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "RAcc" />
 			<equip when = "aftercast" Delay = "1.5" />
 		</if>
 		<if spell="Utsusemi*">
-			<equip when = "precast" set = "Haste|Enmity" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "Haste|Enmity" />
 			<if HPPLT="76" TPLT="100">
 				<equip when = "precast">
 					<rring>Shinobi ring</rring>
