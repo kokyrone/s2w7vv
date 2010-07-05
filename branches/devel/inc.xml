@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+	<include name="ObiRules">
+		<if advanced='("%SpellElement" = "%WeatherElement" OR "%SpellElement" = "%DayElement") AND "$%SpellElementObi" = "1"'>
+			<if	  Element="Dark"><action type="equip" when="midcast"><waist lock="yes">Anrin Obi</waist></action></if>
+			<elseif Element="Light"><action type="equip" when="midcast"><waist lock="yes">Korin Obi</waist></action></elseif>
+			<elseif Element="Thunder"><action type="equip" when="midcast"><waist lock="yes">Rairin Obi</waist></action></elseif>
+			<elseif Element="Ice"><action type="equip" when="midcast"><waist lock="yes">Hyorin Obi</waist></action></elseif>
+			<elseif Element="Fire"><action type="equip" when="midcast"><waist lock="yes">Karin Obi</waist></action></elseif>
+			<elseif Element="Wind"><action type="equip" when="midcast"><waist lock="yes">Furin Obi</waist></action></elseif>
+			<elseif Element="Water"><action type="equip" when="midcast"><waist lock="yes">Suirin Obi</waist></action></elseif>
+			<elseif Element="Earth"><action type="equip" when="midcast"><waist lock="yes">Dorin Obi</waist></action></elseif>
+		</if>
+	</include>
+	<include name="CancelRules">
+		<if Spell="Sneak" BuffActive="Sneak" advanced='"%SpellTargetName"="%PlayerName"'>
+			<action type="command" when="midcast">cancel 71</action>
+			<action type="midcastdelay" delay="2.3" />
+		</if>
+		<if spell="Monomi: Ichi" BuffActive="Sneak" SpellTargetType="Self">
+			<command when="midcast">cancel 71</command>
+			<midcastdelay delay="3.0" />
+		</if>
+		<elseif Spell="Stoneskin" BuffActive="Stoneskin">
+			<action type="command" when="midcast">cancel 37</action>
+			<action type="midcastdelay" delay="5.9" />
+		</elseif>
+		<elseif Spell="Blink" BuffActive="Blink">
+			<action type="command" when="midcast">cancel 36</action>
+			<action type="midcastdelay" delay="5.2" />
+		</elseif>
+		<elseif Spell="Spectral Jig">
+			<command When="PreCast">cancel 71</command>
+		</elseif>
+	</include>
+	<include name="TownSettings">
+		<if Area="*San d'Oria*|*Bastok*|*Jeuno*|*Whitegate|Al Zahbi|Nashmau|Selbina|Mhaura|Kazham|Norg|Rabao|Tavnasian safehold" NotArea="Dynamis*|*[S]" NotBuffActive="Allied Tags|Besieged">
+			<action type="equip" when="idle" set="Town"/>
+		</if>
+		<if Area="*Windurst*|Heaven's Tower" NotArea="Dynamis*|*[S]">
+			<action type="equip" when="idle" set="Town">
+				<body lock="true">Federation Aketon</body>
+			</action>
+		</if>
+		<!--<if area="Leujaoam Sanctum|Mamool Ja Training Grounds|Lebros Cavern|Periqia|Ilrusi Atoll|Nyzul Isle">
+		</if>-->
+		<if Area="Windurst Waters [S]" NotBuffActive="Allied Tags">
+			<action type="equip" when="idle" set="Town">
+				<body lock="true">Ptr.Prt. Livery</body>
+			</action>
+		</if>
+		<if Area="Bastok Markets [S]" NotBuffActive="Allied Tags">
+			<action type="equip" when="idle" set="Town">
+				<body lock="true">Mythril Musketeer Livery</body>
+			</action>
+		</if>
+	</include>
+	<include name="BattleArea">
+		<if BuffActive="Allied Tags">
+			<var cmd="set BattleArea Camp" />
+		</if>
+		<elseif BuffActive="Besieged">
+			<var cmd="set BattleArea Siege" />
+		</elseif>
+		<elseif area="Nyzul*|Leujaoam*|Mamool*|Periqia|Lebros*|Ilrusi*|*Remnants">
+			<var cmd="set BattleArea Assault" />
+		</elseif>
+		<else>
+			<var cmd="set BattleArea Standard" />
+		</else>
+	</include>
+	<include name="TimeCheck">
+		<if mode="OR" TimeLT="6.00" TimeGT="17.59">
+			<var cmd="set DayOrNight Night" />
+		</if>
+		<else>
+			<var cmd="set DayOrNight Day" />
+		</else>
+	</include>
+</includes>
