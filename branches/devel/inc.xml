@@ -70,9 +70,15 @@
 		</else>
 	</include>
 	<include name="TimeCheck">
-		<if mode="OR" TimeLT="6.00" TimeGT="17.59">
-			<var cmd="set DayOrNight Night" />
+		<!-- Dusk to Dawn -->
+		<if mode="OR" TimeLT="7.00" TimeGT="16.59">
+			<var cmd="set DayOrNight Night+1" />
 		</if>
+		<!-- Night -->
+		<elseif mode="OR" TimeLT="6.00" TimeGT="17.59">
+			<var cmd="set DayOrNight Night" />
+		</elseif>
+		<!-- Day -->
 		<else>
 			<var cmd="set DayOrNight Day" />
 		</else>
