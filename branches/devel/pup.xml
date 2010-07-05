@@ -23,12 +23,12 @@
 				<rring>Ecphoria Ring</rring>
 				<back>Bellicose Mantle</back>
 				<waist>Swift Belt</waist>
-				<legs>Puppetry Churidars</legs>
+				<legs>Pantin Churidars</legs>
 				<feet>Tabin Boots +1</feet>
 			</set>
 			<set name = "Idle" BaseSet="$MeleeSet"/>
 			<set name = "Eva"  BaseSet = "TP">
-				<head>Optical Hat</head>
+				<head>Empress Hairpin</head>
 				<neck>Evasion Torque</neck>
 				<lear>Velocity Earring</lear>
 				<rear>Dodge Earring</rear>
@@ -52,7 +52,6 @@
 			<set name = "WS" BaseSet = "TP">
 				<rring>Sun Ring</rring>
 				<waist>Life Belt</waist>
-				<legs>Wonder Braccae</legs>
 				<feet>Creek M clomps</feet>
 			</set>
 			<set name = "Rest" BaseSet = "TP">
@@ -64,14 +63,17 @@
 				<lring>Mermaid Ring</lring>
 			</set>
 		</group>
+		<!-- Campaign Battle gear - only used when Allied Tags are on -->
 		<group name = "Camp" inherit = "Standard">
 			<set name = "WS" BaseSet = "TP">
+				<neck>Bull Necklace</neck>
 				<lring>Sniper's Ring</lring>
 				<waist>Life Belt</waist>
-				<legs>Wonder Braccae</legs>
 				<feet>Creek M clomps</feet>
 			</set>
 		</group>
+		<group name = "Siege" inherit = "Standard" />
+		<group name = "Assault" inherit = "Standard" />
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
@@ -81,49 +83,35 @@
 		<var name="BattleArea">Standard</var>
 	</variables>
 	<rules>
-		<equip when="idle" set="Idle" />
 		<!-- Equip town gears :) -->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TownSettings']/*" />
-		<equip when="engaged" set="$MeleeSet" />
 		<!-- Check to see if we are in a battlefield type thing -->
-		<if BuffActive="Allied Tags">
-			<var cmd="set BattleArea Camp" />
-		</if>
-		<elseif BuffActive="Besieged">
-			<var cmd="set BattleArea Siege" />
-		</elseif>
-		<elseif area="Nyzul*|Leujaoam*|Mamool*|Periqia|Lebros*|Ilrusi*|*Remnants">
-			<var cmd="set BattleArea Assault" />
-		</elseif>
-		<else>
-			<var cmd="set BattleArea Standard" />
-		</else>
-		<command>input /echo We're fighting in $BattleArea mode</command>
-		<!-- BEGIN Timecheck-->
-		<if mode="OR" TimeLT="6.00" TimeGT="17.59">
-			<var cmd="set DayOrNight Night" />
-		</if>
-		<else>
-			<var cmd="set DayOrNight Day" />
-		</else>
-		<!-- END Timecheck -->
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='BattleArea']/*" />
+		<!-- Timecheck -->
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TimeCheck']/*" />
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
-		<xi:include href="/includes/inc.xml" xpointer="//include[@name='CancelRules']/*" />
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
+		<!-- Default melee gears engaged and after any action -->
+		<equip when="engaged" setgroup="$BattleArea" set="$MeleeSet" />
+		<equip when="aftercast" setgroup="$BattleArea" set = "$MeleeSet" />
+		<!-- Idle gear movement speed, refresh and phys dmg down -->
+		<equip when="idle" set="Idle" />
+		<!-- rules for job abilities and actions -->
 		<if Spell = "Repair">
 			<equip setgroup="$BattleArea" when = "Before" set = "Repair" />
-			<equip setgroup="$BattleArea" when = "After" Delay = "2" set = "$MeleeSet" />
+			<equip when = "aftercast" Delay = "2" />
 		</if>
 		<if Spell = "*Maneuver">
 			<equip setgroup="$BattleArea" when = "Before" set = "Maneuver" />
-			<equip setgroup="$BattleArea" when = "After" Delay = "1" set = "$MeleeSet" />
+			<equip when = "aftercast" Delay = "1" />
 		</if>
 		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk">
 			<equip setgroup="$BattleArea" when = "Before" set = "Enmity" />
-			<equip setgroup="$BattleArea" when = "After" Delay = "1" set = "$MeleeSet" />
+			<equip when = "aftercast" Delay = "1" />
 		</if>
 		<if Spell = "Raging Fists|Howling Fist|Dragon Kick">
 			<equip setgroup="$BattleArea" when = "Before" set = "WS" />
-			<equip setgroup="$BattleArea" when = "After" Delay = "2" set = "$MeleeSet" />
+			<equip when = "aftercast" Delay = "3" />
 		</if>
 	</rules>
 </spellcast>
