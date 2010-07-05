@@ -3,14 +3,14 @@
 	<config
 		RestingSet="Idle"
 		NormalSet="Idle"
-		EngagedSet="$meleeset"
+		EngagedSet="$MeleeSet"
 		RequireVersion="2.22"
 		ShowGearSwaps="false"
 		Debug="True"
 		/>
 	<sets>
-		<group default = "true" name = "Melee">
-			<set name = "Idle" BaseSet = "$meleeset">
+		<group default = "true" name = "Standard">
+			<set name = "Idle" BaseSet = "$MeleeSet">
 				<hands>Seiryu's Kote</hands>
 				<feet>Ninja Kyahan</feet>
 			</set>
@@ -68,7 +68,7 @@
 				<legs>Byakko's Haidate</legs>
 				<feet>Fuma sune-ate</feet>
 			</set>
-			<set name = "Enmity" BaseSet = "$meleeset">
+			<set name = "Enmity" BaseSet = "$MeleeSet">
 				<ammo>Nokizaru Shuriken</ammo>
 				<neck>Harmonia's Torque</neck>
 				<rear>Eris' Earring</rear>
@@ -78,7 +78,7 @@
 			<set name = "Ninjutsu">
 				<head>Ninja Hatsuburi</head>
 			</set>
-			<set name = "Weapon Skill" BaseSet = "$meleeset">
+			<set name = "WS" BaseSet = "$MeleeSet">
 				<head>Optical Hat</head>
 				<lear>Coral Earring</lear>
 				<rear>Brutal Earring</rear>
@@ -93,14 +93,14 @@
 			</set>
 			<set name = "Rest" BaseSet = "Idle"/>
 			<set name = "Town" BaseSet = "Idle"/>
-			<set name = "Haste" BaseSet = "$meleeset">
+			<set name = "Haste" BaseSet = "$MeleeSet">
 				<head lock="yes">Walahra Turban</head>
 				<hands lock="yes">Dusk Gloves</hands>
 				<waist lock="yes">Swift Belt</waist>
 				<legs lock="yes">Byakko's Haidate</legs>
 				<feet lock="yes">Fuma sune-ate</feet>
 			</set>
-			<set name = "RAcc" BaseSet = "$meleeset">
+			<set name = "RAcc" BaseSet = "$MeleeSet">
 				<ammo>Aht Urhgan Dart</ammo>
 				<head>Optical Hat</head>
 				<hands>Ninja Tekko</hands>
@@ -109,72 +109,86 @@
 				<legs>Ninja Hakama</legs>
 			</set>
 		</group>
+		<!-- Campaign Battle gear - only used when Allied Tags are on -->
+		<group name = "Camp" inherit = "Standard">
+			<set name = "WS" BaseSet = "TP">
+				<head>Optical Hat</head>
+				<neck>Bull Necklace</neck>
+				<lear>Coral Earring</lear>
+				<rear>Brutal Earring</rear>
+				<body>Haubergeon</body>
+				<hands>Fourth Division Hentzes</hands>
+				<lring>Ruby Ring</lring>
+				<rring>Ruby Ring</rring>
+				<back />
+				<waist>Warwolf Belt</waist>
+				<legs>Byakko's Haidate</legs>
+				<feet>Creek M clomps</feet>
+			</set>
+		</group>
+		<group name = "Siege" inherit = "Standard" />
+		<group name = "Assault" inherit = "Standard" />
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
 		<var name="meleeset">TP</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
 		<var name="DayOrNight">Day</var>
+		<var name="BattleArea">Standard</var>
 	</variables>
 	<rules>
-		<equip when="idle" set="Idle" />
-		<!-- Equip town gears :)-->
+		<!-- Equip town gears :) -->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TownSettings']/*" />
-		<equip when="engaged" set="$meleeset" />
-		<!-- BEGIN Timecheck-->
-		<if mode="OR" TimeLT="6.00" TimeGT="17.59">
-			<var cmd="set DayOrNight Night" />
-		</if>
-		<else>
-			<var cmd="set DayOrNight Day" />
-		</else>
-		<!-- END Timecheck -->
+		<!-- Check to see if we are in a battlefield type thing -->
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='BattleArea']/*" />
+		<!-- Timecheck -->
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TimeCheck']/*" />
+		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
+		<!-- Default melee gears engaged and after any action -->
+		<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet" />
+		<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet" />
+		<!-- Idle gear movement speed, refresh and phys dmg down -->
+		<equip when = "idle" set = "Idle" />
+		<!-- rules for job abilities and actions -->
 		<if Spell = "Blade:*">
-			<equip when = "Before" set = "Weapon Skill" />
-			<equip when = "After" Delay = "2" set = "$meleeset" />
+			<equip when = "precast" set = "WS" />
+			<equip when = "aftercast" Delay = "2" />
 		</if>
 		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk">
-			<equip when = "Before" set = "Enmity" />
-			<equip when = "After" Delay = "1" set = "$meleeset" />
+			<equip when = "precast" set = "Enmity" />
+			<equip when = "aftercast" Delay = "1" />
 		</if>
 		<if Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*">
-			<equip when = "Before" set = "Enmity|Ninjutsu" />
-			<equip when = "After" set = "$meleeset" />
+			<equip when = "precast" set = "Enmity|Ninjutsu" />
 		</if>
 		<if Spell = "Doton*|Suiton*|Huton*|Katon*|Hyoton*|Raiton*">
-			<equip when = "Before" set = "Ninjutsu" />
-			<equip when = "After" set = "$meleeset" />
+			<equip when = "precast" set = "Ninjutsu" />
 		</if>
 		<if Spell = "Ranged">
 			<if EquipAmmo="Nokizaru Shuriken">
 				<cancelspell />
 				<return />
 			</if>
-			<equip when = "Before" set = "RAcc" />
-			<equip when = "After" Delay = "1.5" set = "$meleeset" />
-		</if>
-		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
-		<xi:include href="/includes/inc.xml" xpointer="//include[@name='CancelRules']/*" />
-		<if Spell="Monomi: Ichi" BuffActive="Sneak" SpellTargetType="Self">
-			<command when="midcast">cancel 71</command>
-			<midcastdelay delay="3.0" />
+			<equip when = "precast" set = "RAcc" />
+			<equip when = "aftercast" Delay = "1.5" />
 		</if>
 		<if spell="Utsusemi*">
-			<equip when = "Before" set = "Haste|Enmity" />
+			<equip when = "precast" set = "Haste|Enmity" />
 			<if HPPLT="76" TPLT="100">
-				<equip when = "Before">
+				<equip when = "precast">
 					<rring>Shinobi ring</rring>
 				</equip>
 			</if>
 			<if spell="Utsusemi: Ichi" BuffActive="Copy Image">
 				<midcastdelay delay="3.0" />
-				<command when="midcast">cancel 66</command>
+				<command when = "midcast">cancel 66</command>
 			</if>
 			<if Status="engaged">
-				<equip when = "After" Delay = "2" set = "$meleeset" />
+				<equip when = "aftercast" Delay = "2" />
 			</if>
 			<else>
-				<equip when = "After" Delay = "2" set = "Idle" />
+				<equip when = "aftercast" Delay = "2" setgroup = "$BattleArea" set = "Idle" />
 			</else>
 		</if>
 	</rules>
