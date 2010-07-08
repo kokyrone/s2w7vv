@@ -20,7 +20,7 @@
 				<body>Cobra Unit harness</body>
 				<hands>Tabin Bracers +1</hands>
 				<lring>Garrulous Ring</lring>
-				<rring>Ecphoria Ring</rring>
+				<rring>Ruby Ring</rring>
 				<back>Bellicose Mantle</back>
 				<waist>Swift Belt</waist>
 				<legs>Pantin Churidars</legs>
@@ -40,6 +40,7 @@
 			</set>
 			<set name = "Acc" BaseSet = "TP">
 				<lring>Sniper's Ring</lring>
+				<rring>Ecphoria Ring</rring>
 				<waist>Life Belt</waist>
 			</set>
 			<set name = "Repair" BaseSet = "$MeleeSet">
@@ -50,8 +51,8 @@
 				<neck>Buffoon's Collar</neck>
 			</set>
 			<set name = "WS" BaseSet = "TP">
-				<rring>Sun Ring</rring>
-				<waist>Life Belt</waist>
+				<lring>Ruby Ring</lring>
+				<rring>Ruby Ring</rring>
 				<feet>Creek M clomps</feet>
 			</set>
 			<set name = "Rest" BaseSet = "TP">
@@ -59,16 +60,16 @@
 			</set>
 			<set name = "Town" BaseSet = "TP"/>
 			<set name = "Enmity" BaseSet = "$MeleeSet">
-				<!-- <neck>Harmonia's Torque</neck>-->
+				<neck>Harmonia's Torque</neck>
 				<lring>Mermaid Ring</lring>
 			</set>
 		</group>
 		<!-- Campaign Battle gear - only used when Allied Tags are on -->
 		<group name = "Camp" inherit = "Standard">
 			<set name = "WS" BaseSet = "TP">
+				<lring>Ruby Ring</lring>
+				<rring>Ruby Ring</rring>
 				<neck>Bull Necklace</neck>
-				<lring>Sniper's Ring</lring>
-				<waist>Life Belt</waist>
 				<feet>Creek M clomps</feet>
 			</set>
 		</group>
@@ -109,7 +110,11 @@
 			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity" />
 			<equip when = "aftercast" Delay = "1" />
 		</if>
-		<if Spell = "Raging Fists|Howling Fist|Dragon Kick">
+		<if Spell = "Raging Fists">
+			<equip when = "precast" setgroup = "$BattleArea" set = "WS|Acc" />
+			<equip when = "aftercast" Delay = "3" />
+		</if>
+		<if Spell = "Howling Fist|Dragon Kick">
 			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
 			<equip when = "aftercast" Delay = "3" />
 		</if>
