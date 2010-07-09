@@ -19,8 +19,8 @@
 				<rear>Coral Earring</rear>
 				<body>Cobra Unit harness</body>
 				<hands>Tabin Bracers +1</hands>
-				<lring>Garrulous Ring</lring>
-				<rring>Ruby Ring</rring>
+				<lring>Ruby Ring</lring>
+				<rring>Ecphoria Ring</rring>
 				<back>Bellicose Mantle</back>
 				<waist>Swift Belt</waist>
 				<legs>Pantin Churidars</legs>
@@ -53,6 +53,7 @@
 			<set name = "WS" BaseSet = "TP">
 				<lring>Ruby Ring</lring>
 				<rring>Ruby Ring</rring>
+				<waist>Life Belt</waist>
 				<feet>Creek M clomps</feet>
 			</set>
 			<set name = "Rest" BaseSet = "TP">
@@ -70,6 +71,7 @@
 				<lring>Ruby Ring</lring>
 				<rring>Ruby Ring</rring>
 				<neck>Bull Necklace</neck>
+				<waist>Life Belt</waist>
 				<feet>Creek M clomps</feet>
 			</set>
 		</group>
