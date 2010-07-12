@@ -94,6 +94,8 @@
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TimeCheck']/*" />
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
+		<!-- Default melee gears engaged -->
+		<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet" />
 		<!-- Idle gear movement speed, refresh and phys dmg down -->
 		<equip when = "idle" set = "Idle" />
 		<!-- Aftercast rules -->
