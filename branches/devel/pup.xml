@@ -64,6 +64,29 @@
 				<neck>Harmonia's Torque</neck>
 				<lring>Mermaid Ring</lring>
 			</set>
+			<set name = "AGI" BaseSet = "TP">
+				<head>Empress Hairpin</head>
+				<body>Aketon</body>
+			</set>
+			<set name = "CHR" BaseSet = "TP">
+				<body>Errant Hpl.</body>
+				<legs>Mahatma Slops</legs>
+			</set>
+			<set name = "MND" BaseSet = "CHR">
+				<head>Puppetry Taj</head>
+				<lring>Sapphire Ring</lring>
+				<rring>Sapphire Ring</rring>
+				<feet>Pantin Babouches</feet>
+			</set>
+			<set name = "DEX" BaseSet = "TP">
+				<head>Puppetry Taj</head>
+				<lring>Spinel Ring</lring>
+			</set>
+			<set name = "INT" BaseSet = "CHR">
+				<feet>Pantin Babouches</feet>
+			</set>
+			<set name = "STR" BaseSet = "TP"/>
+			<set name = "VIT" BaseSet = "TP"/>
 		</group>
 		<!-- Campaign Battle gear - only used when Allied Tags are on -->
 		<group name = "Camp" inherit = "Standard">
