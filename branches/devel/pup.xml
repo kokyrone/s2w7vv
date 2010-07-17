@@ -46,7 +46,7 @@
 			<set name = "Repair" BaseSet = "$MeleeSet">
 				<feet>Puppetry Babouches</feet>
 			</set>
-			<set name = "Maneuver" BaseSet = "$MeleeSet">
+			<set name = "Maneuver">
 				<hands>Puppetry Dastanas</hands>
 				<neck>Buffoon's Collar</neck>
 			</set>
@@ -64,29 +64,29 @@
 				<neck>Harmonia's Torque</neck>
 				<lring>Mermaid Ring</lring>
 			</set>
-			<set name = "AGI" BaseSet = "TP">
+			<set name = "AGI|Wind" BaseSet = "TP">
 				<head>Empress Hairpin</head>
 				<body>Aketon</body>
 			</set>
-			<set name = "CHR" BaseSet = "TP">
+			<set name = "CHR|Light" BaseSet = "TP">
 				<body>Errant Hpl.</body>
 				<legs>Mahatma Slops</legs>
 			</set>
-			<set name = "MND" BaseSet = "CHR">
+			<set name = "MND|Water" BaseSet = "CHR">
 				<head>Puppetry Taj</head>
 				<lring>Sapphire Ring</lring>
 				<rring>Sapphire Ring</rring>
 				<feet>Pantin Babouches</feet>
 			</set>
-			<set name = "DEX" BaseSet = "TP">
+			<set name = "DEX|Thunder" BaseSet = "TP">
 				<head>Puppetry Taj</head>
 				<lring>Spinel Ring</lring>
 			</set>
-			<set name = "INT" BaseSet = "CHR">
+			<set name = "INT|Ice" BaseSet = "CHR">
 				<feet>Pantin Babouches</feet>
 			</set>
-			<set name = "STR" BaseSet = "TP"/>
-			<set name = "VIT" BaseSet = "TP"/>
+			<set name = "STR|Fire" BaseSet = "TP"/>
+			<set name = "VIT|Earth" BaseSet = "TP"/>
 		</group>
 		<!-- Campaign Battle gear - only used when Allied Tags are on -->
 		<group name = "Camp" inherit = "Standard">
@@ -134,7 +134,8 @@
 			<equip when = "aftercast" Delay = "2" />
 		</if>
 		<if Spell = "*Maneuver">
-			<equip when = "precast" setgroup = "$BattleArea" set = "Maneuver" />
+			<!--<equip when = "precast" setgroup = "$BattleArea" set = "Maneuver" />-->
+			<equip when = "precast" setgroup = "$BattleArea" set = "%spellelement|Maneuver" />
 			<equip when = "aftercast" Delay = "1" />
 		</if>
 		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk">
