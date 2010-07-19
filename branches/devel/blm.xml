@@ -58,7 +58,7 @@
 	<sets>
 		<group default = "true" name = "Standard" >
 			<set name = "Base">
-				<main>$EarthStaff</main>
+				<main>$MagianWeapon</main>
 				<sub>Bugard Strap +1</sub>
 				<ammo>Phantom Tathlum</ammo>
 				<head>Teal Chapeau</head>
@@ -149,6 +149,9 @@
 				<legs>Mahatma Slops</legs>
 				<feet>Cobra Crackows</feet>
 			</set>
+			<set name = "Melee">
+				<main>$MagianWeapon</main>
+			</set>
 		</group>
 		<group name = "Camp" inherit = "Standard" />
 		<group name = "Siege" inherit = "Standard" />
@@ -164,7 +167,7 @@
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='CancelRules']/*" />
 		<!-- Default melee gears engaged -->
-		<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet" />
+		<equip when = "engaged" setgroup = "$BattleArea" set = "Melee" />
 		<!-- Idle gear movement speed, refresh and phys dmg down -->
 		<equip when = "idle" set = "Idle" />
 		<!-- need settings for magian staff -->
