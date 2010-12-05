@@ -58,7 +58,7 @@
 	<sets>
 		<group default = "true" name = "Standard" >
 			<set name = "Base">
-				<main>$MagianWeapon</main>
+				<main>$EarthStaff</main>
 				<sub>Bugard Strap +1</sub>
 				<ammo>Phantom Tathlum</ammo>
 				<head>Teal Chapeau</head>
@@ -92,8 +92,8 @@
 				<neck>Beak Necklace +1</neck>
 				<lear>Antivenom Earring</lear>
 				<body>Errant Hpl.</body>
-				<!--<back>Cortege Cape</back>-->
-				<waist>Qiqirn Sash +1</waist>
+				<back>Felicitas Cape</back>-->
+				<waist>Austerity Belt</waist>
 				<!--<legs>Baron's Slops</legs>
 				<feet>Goliard Clogs</feet>-->
 			</set>
@@ -156,6 +156,7 @@
 		<group name = "Camp" inherit = "Standard" />
 		<group name = "Siege" inherit = "Standard" />
 		<group name = "Assault" inherit = "Standard" />
+		<group name = "Abyssea" inherit = "Standard" />
 	</sets>
 	<rules>
 		<!-- Equip town gears :) -->
@@ -298,7 +299,7 @@
 			<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='CancelRules']/*" />
 			<!-- finally, equip our staff! -->
 			<!-- need settings for magian staff -->
-			<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "16">
+			<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "20">
 				<equip when = "midcast">
 					<main>$MagianWeapon</main>
 				</equip>
