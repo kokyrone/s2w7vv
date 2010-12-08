@@ -274,8 +274,9 @@
 					</else>
 				</if>
 				<elseif Skill = "EnfeeblingMagic">
+					<equip type = "equip" when = "midcast" set = "%skill" />
 					<if mode = "OR" Area = "Dynamis*|Al'Taieu|Grand Palace of Hu'Xzoi|The Garden of Ru'Hmet|Apollyon|Temenos" Advanced='"$NCCheck" = "1"'>
-						<equip type = "equip" when = "midcast" set = "%skill">
+						<equip type = "equip" when = "midcast">
 							<hands>Mst.Cst. Bracelets</hands>
 						</equip>
 					</if>
