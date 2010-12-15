@@ -60,23 +60,36 @@
 		<group default = "true" name = "Standard" >
 			<set name = "Base">
 				<main>$EarthStaff</main>
-				<sub>Bugard Strap +1</sub>
-				<ammo>Phantom Tathlum</ammo>
-				<head>Teal Chapeau</head>
 				<neck>Elemental Torque</neck>
 				<lear>Moldavite Earring</lear>
+			</set>
+			<set name = "INT" BaseSet = "Base">
+				<sub>Bugard Strap +1</sub>
+				<!--<range></range>-->
+				<ammo>Phantom Tathlum</ammo>
+				<head>Teal Chapeau</head>
+				<neck>Goetia Chain</neck>
+				<!--<lear></lear>-->
 				<rear>Phantom Earring</rear>
-				<body>Teal Saio</body>
-				<hands>Wizard's Gloves</hands>
+				<body>Errant Hpl.</body>
+				<hands>Errant Cuffs</hands>
 				<lring>Diamond Ring</lring>
 				<rring>Diamond Ring</rring>
-				<back>Hecate's Cape</back>
+				<back>Rainbow Cape</back>
 				<waist>Penitent's Rope</waist>
-				<legs>Teal Slops</legs>
-				<feet>Cobra Crackows</feet>
+				<legs>Mahatma Slops</legs>
+				<feet>Goetia Sabots</feet>
 			</set>
-			<set name = "Town" BaseSet = "Base"/>
-			<set name = "Idle" BaseSet = "Base">
+			<set name = "MND" BaseSet = "INT">
+				<main lock = "yes">$WaterStaff</main>
+				<sub>Raptor Strap +1</sub>
+				<neck>Promise Badge</neck>
+				<lring>Sapphire Ring</lring>
+				<rring>Sapphire Ring</rring>
+				<feet>Teal Pigaches</feet>
+			</set>
+			<set name = "Town" BaseSet = "INT"/>
+			<set name = "Idle" BaseSet = "INT">
 				<body>Sorcerer's Coat</body>
 				<lring>Jelly Ring</lring>
 				<rear>Sorcerer's Earring</rear>
@@ -87,7 +100,7 @@
 				<rear>Loquac. Earring</rear>
 				-->
 			</set>
-			<set name = "Rest" BaseSet = "Base">
+			<set name = "Rest" BaseSet = "INT">
 				<main>$DarkStaff</main>
 				<sub>Ariesian Grip</sub>
 				<ammo>Clarus Stone</ammo>
@@ -100,6 +113,42 @@
 				<!--<legs>Baron's Slops</legs>
 				<feet>Goliard Clogs</feet>-->
 			</set>
+			<set name = "MAB" BaseSet = "INT">
+				<lear>Moldavite Earring</lear>
+				<body>Teal Saio</body>
+				<back>Hecate's Cape</back>
+				<legs>Teal Slops</legs>
+				<feet>Cobra Crackows</feet>
+			</set>
+			<set name = "HighResist" BaseSet = "INT">
+				<head>Sorcerer's Petas.</head>
+				<neck>Elemental Torque</neck>
+				<body>Sorcerer's Coat</body>
+				<hands>Wizard's Gloves</hands>
+			</set>
+			<set name = "MidResist" BaseSet = "INT">
+				<head>Sorcerer's Petas.</head>
+			</set>
+			<set name = "LightResist" BaseSet = "INT">
+				<head>Sorcerer's Petas.</head>
+			</set>
+			<set name = "DarkMagic" BaseSet = "INT">
+				<hands>Sorcerer's Gloves</hands>
+				<legs>Wizard's Tonban</legs>
+			</set>
+			<set name = "EnfeeblingMagic" BaseSet = "INT">
+				<head>Igqira Tiara</head>
+				<neck>Enfeebling Torque</neck>
+				<body>Wizard's Coat</body>
+				<waist>Witch Sash</waist>
+				<legs>Igqira Lappa</legs>
+			</set>
+			<set name = "HealingMagic" BaseSet = "MND"/>
+			<set name = "DivineMagic" />
+			<set name = "EnhancingMagic" BaseSet = "MND" />
+			<set name = "Eledebuff"  BaseSet = "INT">
+				<main lock = "yes">Kirin's Pole</main>
+			</set>
 			<set name = "MinusHP">
 				<sub>Thunder Grip</sub>
 				<head>Zenith Crown</head>
@@ -107,50 +156,6 @@
 				<lring>Serket Ring</lring>
 				<legs>Zenith Slacks</legs>
 				<feet>Rostrum Pumps</feet>
-			</set>
-			<set name = "FullDamage" BaseSet = "Base">
-				<body>Teal Saio</body>
-			</set>
-			<set name = "HighResist" BaseSet = "FullDamage">
-				<head>Sorcerer's Petas.</head>
-				<feet>Sorcerer's Sabots</feet>
-			</set>
-			<set name = "MidResist" BaseSet = "FullDamage">
-				<head>Sorcerer's Petas.</head>
-			</set>
-			<set name = "LightResist" BaseSet = "FullDamage">
-				<head>Sorcerer's Petas.</head>
-			</set>
-			<set name = "DarkMagic">
-				<hands>Sorcerer's Gloves</hands>
-				<legs>Wizard's Tonban</legs>
-			</set>
-			<set name = "EnfeeblingMagic">
-				<head>Igqira Tiara</head>
-				<neck>Enfeebling Torque</neck>
-				<body>Wizard's Coat</body>
-				<waist>Witch Sash</waist>
-				<legs>Igqira Lappa</legs>
-			</set>
-			<set name = "Eledebuff"  BaseSet = "Base">
-				<main lock = "yes">Kirin's Pole</main>
-				<body>Errant Hpl.</body>
-				<back>Rainbow Cape</back>
-				<legs>Mahatma Slops</legs>
-				<feet>Sorcerer's Sabots</feet>
-			</set>
-			<set name = "HealingMagic" />
-			<set name = "DivineMagic" />
-			<set name = "EnhancingMagic" BaseSet = "Base">
-				<main lock = "yes">$WaterStaff</main>
-				<sub>Raptor Strap +1</sub>
-				<neck>Promise Badge</neck>
-				<body>Errant Hpl.</body>
-				<lring>Sapphire Ring</lring>
-				<rring>Sapphire Ring</rring>
-				<back>Rainbow Cape</back>
-				<legs>Mahatma Slops</legs>
-				<feet>Cobra Crackows</feet>
 			</set>
 			<set name = "Melee">
 				<main>$MagianWeapon</main>
@@ -198,7 +203,7 @@
 		</if>
 		<if Spell = "Stun">
 			<!-- equip gear that helps stun, and nothing else -->
-			<equip set = "FullDamage|DarkMagic|FastCast">
+			<equip set = "MAB|DarkMagic|FastCast">
 				<main lock = "true">$ThunderStaff</main>
 				<if Advanced='"$ThunderGrip" == "1"'>
 					<equip when = "midcast">
@@ -252,11 +257,11 @@
 										<equip when = "midcast" Set = "LightResist" />
 									</if>
 									<else>
-										<equip when = "midcast" Set = "FullDamage" />
+										<equip when = "midcast" Set = "MAB" />
 									</else>
 								</if>
 								<else>
-									<equip when = "midcast" Set = "FullDamage" />
+									<equip when = "midcast" Set = "MAB" />
 								</else>
 								<!-- only equip pendant in situations you would equip full damage gear -->
 								<if MLvlGT = "69">
@@ -284,12 +289,21 @@
 						</equip>
 					</if>
 				</elseif>
+				<elseif Skill = "EnhancingMagic">
+					<if Spell = "*Spikes">
+						<!-- equip gear to decrease resist rate and increase dmg -->
+						<equip when = "midcast" Set = "INT|MAB|EnhancingSkill" />
+					</if>
+					<else>
+						<equip type = "equip" when = "midcast" set = "%skill" />
+					</else>
+				</elseif>
 				<else>
 					<equip type = "equip" when = "midcast" set = "%skill" />
 				</else>
 			</if>
 			<else>
-				<equip when = "precast|midcast" Set = "Base" />
+				<equip when = "precast|midcast" Set = "INT" />
 			</else>
 			<!-- Handle Elemental Obi's -->
 			<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ObiRules']/*" />
