@@ -62,7 +62,8 @@
 		<elseif BuffActive="Besieged">
 			<var cmd="set BattleArea Siege" />
 		</elseif>
-		<elseif BuffActive="Visitant">
+		<elseif area="Abyssea*">
+		<!--<elseif BuffActive="Visitant">-->
 			<var cmd="set BattleArea Abyssea" />
 		</elseif>
 		<elseif area="Nyzul*|Leujaoam*|Mamool*|Periqia|Lebros*|Ilrusi*|*Remnants">

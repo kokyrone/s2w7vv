@@ -30,6 +30,7 @@
 		<var name = "IceStaff">Aquilo's Staff</var>
 		<var name = "DarkStaff">Pluto's Staff</var>
 		<var name = "ThunderStaff">Jupiter's Staff</var>
+		<!--<var name = "ThunderStaff">Teiwaz</var>-->
 		<var name = "WindStaff">Wind Staff</var>
 		<var name = "FireStaff">Fire Staff</var>
 		<var name = "EarthStaff">Earth Staff</var>
@@ -45,15 +46,15 @@
 		<var name = "WaterObi">0</var>
 		<var name = "EarthObi">0</var>
 		<!-- Resist Mob Variables -->
-		<var name = "HighResist">Tiamat|Genbu|Suzaku|Seiryu|Byakko|Kirin|Jormungand|Vrtra|Cerberus|Khimaira|Tyger|Jailer of Love|Sarameya|Proto-Ultima|Kindred*|Vanguard*</var>
-		<var name = "MidResist">Fafnir|Nidhogg|Aspidochelone|King Behemoth|Tinnin|Ouryu|Kaiser Behemoth</var>
+		<var name = "HighResist">Tiamat|Genbu|Suzaku|Seiryu|Byakko|Kirin|Jormungand|Vrtra|Cerberus|Khimaira|Tyger|Jailer of Love|Sarameya|Proto-Ultima|Kindred*|Vanguard*|Overking Appkallu</var>
+		<var name = "MidResist">Peapuck|Fafnir|Nidhogg|Aspidochelone|King Behemoth|Tinnin|Ouryu|Kaiser Behemoth</var>
 		<var name = "LightResist">Lambton Worm|Sandworm|Guivre|King Arthro|Serket</var>
 		<!-- Nation control check for MC Bracelets, macro //sc var set NCCheck 1 for true //sc var set NCCheck 0 for false -->
 		<var name = "NCCheck">0</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
 		<var name="DayOrNight">Day</var>
 		<var name="BattleArea">Standard</var>
-		<var name="MagianWeapon">Crook</var>
+		<var name="MagianWeapon">Teiwaz</var>
 	</variables>
 	<sets>
 		<group default = "true" name = "Standard" >
@@ -78,6 +79,7 @@
 			<set name = "Idle" BaseSet = "Base">
 				<body>Sorcerer's Coat</body>
 				<lring>Jelly Ring</lring>
+				<rear>Sorcerer's Earring</rear>
 			</set>
 			<set name = "FastCast">
 			<!--
@@ -88,6 +90,7 @@
 			<set name = "Rest" BaseSet = "Base">
 				<main>$DarkStaff</main>
 				<sub>Ariesian Grip</sub>
+				<ammo>Clarus Stone</ammo>
 				<head>Cobra Hat</head>
 				<neck>Beak Necklace +1</neck>
 				<lear>Antivenom Earring</lear>
@@ -163,6 +166,7 @@
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='TownSettings']/*" />
 		<!-- Check to see if we are in a battlefield type thing -->
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='BattleArea']/*" />
+		<action type = "command">input /echo $BattleArea</action>
 		<!-- Timecheck -->
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='TimeCheck']/*" />
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
@@ -172,7 +176,7 @@
 		<!-- Idle gear movement speed, refresh and phys dmg down -->
 		<equip when = "idle" set = "Idle" />
 		<!-- need settings for magian staff -->
-		<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "16">
+		<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "50">
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle">
 				<main>$MagianWeapon</main>
 			</equip>
@@ -180,7 +184,6 @@
 		<else>
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
 		</else>
-
 		<!-- utility: if targetting a monster, but casting a spell that can not be cast on monsters, then cast on self (buffs). -->
 		<if SpellTargetType = "MONSTER" NotValidTarget = "*Enemy*" ValidTarget = "*Self*">
 			<action type = "changetarget" target = "&lt;me&gt;" />
@@ -300,7 +303,7 @@
 			<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='CancelRules']/*" />
 			<!-- finally, equip our staff! -->
 			<!-- need settings for magian staff -->
-			<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "20">
+			<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "25">
 				<equip when = "midcast">
 					<main>$MagianWeapon</main>
 				</equip>
