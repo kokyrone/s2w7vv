@@ -16,7 +16,7 @@
 		<!-- use Sorc ring or not? set to 0 if you do not have it or dangerous location -->
 		<var name = "Ring">0</var>
 		<!-- use Ugg Pendant or not? set to 0 if you do not have it. -->
-		<var name = "UggPendant">0</var>
+		<var name = "UggPendant">1</var>
 		<!-- Elemental Grips, set to 1 for each you have -->
 		<var name = "LightGrip">0</var>
 		<var name = "DarkGrip">1</var>
@@ -60,7 +60,7 @@
 		<group default = "true" name = "Standard" >
 			<set name = "Base">
 				<main>$EarthStaff</main>
-				<neck>Elemental Torque</neck>
+				<neck>Wizard's Torque</neck>
 				<lear>Moldavite Earring</lear>
 			</set>
 			<set name = "INT" BaseSet = "Base">
@@ -68,17 +68,18 @@
 				<!--<range></range>-->
 				<ammo>Phantom Tathlum</ammo>
 				<head>Teal Chapeau</head>
-				<neck>Goetia Chain</neck>
+				<!--<neck>Goetia Chain</neck>-->
 				<!--<lear></lear>-->
 				<rear>Phantom Earring</rear>
 				<body>Errant Hpl.</body>
-				<hands>Errant Cuffs</hands>
+				<hands>Wizard's Gloves</hands>
+				<!--<hands>Errant Cuffs</hands>-->
 				<lring>Diamond Ring</lring>
 				<rring>Diamond Ring</rring>
-				<back>Rainbow Cape</back>
+				<!--<back>Rainbow Cape</back>-->
 				<waist>Penitent's Rope</waist>
 				<legs>Mahatma Slops</legs>
-				<feet>Goetia Sabots</feet>
+				<!--<feet>Goetia Sabots</feet>-->
 			</set>
 			<set name = "MND" BaseSet = "INT">
 				<main lock = "yes">$WaterStaff</main>
@@ -86,10 +87,10 @@
 				<neck>Promise Badge</neck>
 				<lring>Sapphire Ring</lring>
 				<rring>Sapphire Ring</rring>
-				<feet>Teal Pigaches</feet>
+				<!--<feet>Teal Pigaches</feet>-->
 			</set>
-			<set name = "Town" BaseSet = "INT"/>
-			<set name = "Idle" BaseSet = "INT">
+			<set name = "Town" BaseSet = "MAB"/>
+			<set name = "Idle" BaseSet = "MAB">
 				<body>Sorcerer's Coat</body>
 				<lring>Jelly Ring</lring>
 				<rear>Sorcerer's Earring</rear>
@@ -100,7 +101,7 @@
 				<rear>Loquac. Earring</rear>
 				-->
 			</set>
-			<set name = "Rest" BaseSet = "INT">
+			<set name = "Rest" BaseSet = "MAB">
 				<main>$DarkStaff</main>
 				<sub>Ariesian Grip</sub>
 				<ammo>Clarus Stone</ammo>
@@ -108,7 +109,7 @@
 				<neck>Beak Necklace +1</neck>
 				<lear>Antivenom Earring</lear>
 				<body>Errant Hpl.</body>
-				<back>Felicitas Cape</back>-->
+				<back>Felicitas Cape</back>
 				<waist>Austerity Belt</waist>
 				<!--<legs>Baron's Slops</legs>
 				<feet>Goliard Clogs</feet>-->
@@ -140,7 +141,6 @@
 				<head>Igqira Tiara</head>
 				<neck>Enfeebling Torque</neck>
 				<body>Wizard's Coat</body>
-				<waist>Witch Sash</waist>
 				<legs>Igqira Lappa</legs>
 			</set>
 			<set name = "HealingMagic" BaseSet = "MND"/>
@@ -292,7 +292,7 @@
 				<elseif Skill = "EnhancingMagic">
 					<if Spell = "*Spikes">
 						<!-- equip gear to decrease resist rate and increase dmg -->
-						<equip when = "midcast" Set = "INT|MAB|EnhancingSkill" />
+						<equip when = "midcast" Set = "INT|MAB|EnhancingMagic" />
 					</if>
 					<else>
 						<equip type = "equip" when = "midcast" set = "%skill" />
