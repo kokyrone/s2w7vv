@@ -178,6 +178,8 @@
 				<return />
 			</if>
 			<equip when = "precast" setgroup = "$BattleArea" set = "RAcc" />
+			<!-- wait until we actually have a ranged weapon equiped -->
+			<castdelay delay = "1" />
 			<equip when = "aftercast" Delay = "1.5" />
 		</if>
 		<if spell="Utsusemi*">
