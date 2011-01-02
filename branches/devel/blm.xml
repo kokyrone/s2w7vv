@@ -46,7 +46,7 @@
 		<var name = "WaterObi">0</var>
 		<var name = "EarthObi">0</var>
 		<!-- Resist Mob Variables -->
-		<var name = "HighResist">Tiamat|Genbu|Suzaku|Seiryu|Byakko|Kirin|Jormungand|Vrtra|Cerberus|Khimaira|Tyger|Jailer of Love|Sarameya|Proto-Ultima|Kindred*|Vanguard*|Overking Appkallu</var>
+		<var name = "HighResist">Tiamat|Genbu|Suzaku|Seiryu|Byakko|Kirin|Jormungand|Vrtra|Cerberus|Khimaira|Tyger|Jailer of Love|Sarameya|Proto-Ultima|Kindred*|Vanguard*|Overking Appkallu|Kampe</var>
 		<var name = "MidResist">Peapuck|Fafnir|Nidhogg|Aspidochelone|King Behemoth|Tinnin|Ouryu|Kaiser Behemoth</var>
 		<var name = "LightResist">Lambton Worm|Sandworm|Guivre|King Arthro|Serket</var>
 		<!-- Nation control check for MC Bracelets, macro //sc var set NCCheck 1 for true //sc var set NCCheck 0 for false -->
@@ -54,7 +54,9 @@
 		<!-- Init with day set will update after first cast/ja etc.-->
 		<var name="DayOrNight">Day</var>
 		<var name="BattleArea">Standard</var>
+		<!--Magian Stuff-->
 		<var name="MagianWeapon">Teiwaz</var>
+		<var name="MagianHP">0</var>
 	</variables>
 	<sets>
 		<group default = "true" name = "Standard" >
@@ -75,15 +77,15 @@
 				<hands>Wizard's Gloves</hands>
 				<!--<hands>Errant Cuffs</hands>-->
 				<lring>Diamond Ring</lring>
-				<rring>Diamond Ring</rring>
+				<rring>Spiral Ring</rring>
 				<!--<back>Rainbow Cape</back>-->
 				<waist>Penitent's Rope</waist>
 				<legs>Mahatma Slops</legs>
 				<!--<feet>Goetia Sabots</feet>-->
 			</set>
 			<set name = "MND" BaseSet = "INT">
-				<main lock = "yes">$WaterStaff</main>
-				<sub>Raptor Strap +1</sub>
+				<!--<main lock = "yes">$WaterStaff</main>-->
+				<!--<sub>Raptor Strap +1</sub>-->
 				<neck>Promise Badge</neck>
 				<lring>Sapphire Ring</lring>
 				<rring>Sapphire Ring</rring>
@@ -91,6 +93,7 @@
 			</set>
 			<set name = "Town" BaseSet = "MAB"/>
 			<set name = "Idle" BaseSet = "MAB">
+				<main>$EarthStaff</main>
 				<body>Sorcerer's Coat</body>
 				<lring>Jelly Ring</lring>
 				<rear>Sorcerer's Earring</rear>
@@ -143,9 +146,11 @@
 				<body>Wizard's Coat</body>
 				<legs>Igqira Lappa</legs>
 			</set>
-			<set name = "HealingMagic" BaseSet = "MND"/>
+			<set name = "HealingMagic" BaseSet = "MND">
+				<main>$LightStaff</main>
+			</set>
 			<set name = "DivineMagic" />
-			<set name = "EnhancingMagic" BaseSet = "MND" />
+			<set name = "EnhancingMagic" />
 			<set name = "Eledebuff"  BaseSet = "INT">
 				<main lock = "yes">Kirin's Pole</main>
 			</set>
@@ -181,7 +186,7 @@
 		<!-- Idle gear movement speed, refresh and phys dmg down -->
 		<equip when = "idle" set = "Idle" />
 		<!-- need settings for magian staff -->
-		<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "50">
+		<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "$MagianHP">
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle">
 				<main>$MagianWeapon</main>
 			</equip>
@@ -292,8 +297,15 @@
 				<elseif Skill = "EnhancingMagic">
 					<if Spell = "*Spikes">
 						<!-- equip gear to decrease resist rate and increase dmg -->
-						<equip when = "midcast" Set = "INT|MAB|EnhancingMagic" />
+						<equip type = "equip" when = "midcast" Set = "INT|MAB|%skill">
+							<main lock="true">$IceStaff</main>
+						</equip>
 					</if>
+					<elseif Spell = "Stoneskin">
+						<equip type = "equip" when = "midcast" set = "MND|%skill">
+							<main lock="true">$WaterStaff</main>
+						</equip>
+					</elseif>
 					<else>
 						<equip type = "equip" when = "midcast" set = "%skill" />
 					</else>
@@ -317,7 +329,7 @@
 			<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='CancelRules']/*" />
 			<!-- finally, equip our staff! -->
 			<!-- need settings for magian staff -->
-			<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "25">
+			<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "$MagianHP">
 				<equip when = "midcast">
 					<main>$MagianWeapon</main>
 				</equip>
