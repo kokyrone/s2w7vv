@@ -101,13 +101,22 @@
 				<feet lock="yes">Iga Kyahan +1</feet>
 			</set>
 			<set name = "RAcc" BaseSet = "$MeleeSet">
-				<!--<ammo>Shuriken</ammo>-->
-				<range>Jr.Msk. Chakram</range>
 				<head>Optical Hat</head>
-				<hands>Ninja Tekko</hands>
+				<hands>Seiryu's Kote</hands>
 				<lring>Behemoth Ring</lring>
 				<rring>Behemoth Ring</rring>
 				<legs>Ninja Hakama</legs>
+			</set>
+			<set name = "Gun" BaseSet = "RAcc">
+				<range>Coffinmaker</range>
+				<ammo>Bronze Bullet</ammo>
+			</set>
+			<set name = "Dart" BaseSet = "RAcc">
+				<ammo>Aht Urhgan Dart</ammo>
+				<!--<ammo>Shuriken</ammo>-->
+			</set>
+			<set name = "Boom" BaseSet = "RAcc">
+				<range>Jr.Msk. Chakram</range>
 			</set>
 		</group>
 		<!-- Campaign Battle gear - only used when Allied Tags are on -->
@@ -132,7 +141,9 @@
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
-		<var name="meleeset">TP</var>
+		<var name="MeleeSet">TP</var>
+		<!-- Ranged Weapon Type -->
+		<var name="RType">Boom</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
 		<var name="DayOrNight">Day</var>
 		<var name="BattleArea">Standard</var>
@@ -174,10 +185,11 @@
 		</if>
 		<if Spell = "Ranged">
 			<if EquipAmmo="Nokizaru Shuriken">
+				<action type = "command">input /echo Nokizaru Shuriken set!</action>
 				<cancelspell />
 				<return />
 			</if>
-			<equip when = "precast" setgroup = "$BattleArea" set = "RAcc" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "$RType" />
 			<!-- wait until we actually have a ranged weapon equiped -->
 			<castdelay delay = "1" />
 			<equip when = "aftercast" Delay = "1.5" />
