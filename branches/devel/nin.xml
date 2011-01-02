@@ -23,12 +23,12 @@
 				<rear>Brutal Earring</rear>
 				<body>Ninja Chainmail</body>
 				<hands>Dusk Gloves</hands>
-				<lring>Spinel Ring</lring>
+				<lring>Rajas Ring</lring>
 				<rring>Ecphoria Ring</rring>
 				<back>Amemet Mantle +1</back>
 				<waist>Swift Belt</waist>
 				<legs>Byakko's Haidate</legs>
-				<feet>Fuma sune-ate</feet>
+				<feet>Iga Kyahan +1</feet>
 			</set>
 			<set name = "Eva">
 				<ammo>Bomb Core</ammo>
@@ -38,12 +38,12 @@
 				<rear>Dodge Earring</rear>
 				<body>Scorpion Harness</body>
 				<hands>Seiryu's Kote</hands>
-				<lring>Spinel Ring</lring>
-				<rring>Ecphoria Ring</rring>
+				<lring>Rajas Ring</lring>
+				<rring>Heed Ring</rring>
 				<back />
 				<waist>Survival Belt</waist>
 				<legs>Koga Hakama</legs>
-				<feet>Fuma sune-ate</feet>
+				<feet>Aurore Gaiters</feet>
 			</set>
 			<set name = "Acc" BaseSet = "TP">
 				<sub />
@@ -61,12 +61,12 @@
 				<rear>Brutal Earring</rear>
 				<body>Scorpion Harness</body>
 				<hands>Dusk Gloves</hands>
-				<lring>Garrulous Ring</lring>
+				<lring>Rajas Ring</lring>
 				<rring>Ecphoria Ring</rring>
 				<back>Amemet Mantle +1</back>
 				<waist>Swift Belt</waist>
 				<legs>Byakko's Haidate</legs>
-				<feet>Fuma sune-ate</feet>
+				<feet>Iga Kyahan +1</feet>
 			</set>
 			<set name = "Enmity" BaseSet = "$MeleeSet">
 				<ammo>Nokizaru Shuriken</ammo>
@@ -84,7 +84,7 @@
 				<rear>Brutal Earring</rear>
 				<body>Haubergeon</body>
 				<hands>Fourth Division Hentzes</hands>
-				<lring>Ruby Ring</lring>
+				<lring>Rajas Ring</lring>
 				<rring>Ruby Ring</rring>
 				<back />
 				<waist>Warwolf Belt</waist>
@@ -98,10 +98,11 @@
 				<hands lock="yes">Dusk Gloves</hands>
 				<waist lock="yes">Swift Belt</waist>
 				<legs lock="yes">Byakko's Haidate</legs>
-				<feet lock="yes">Fuma sune-ate</feet>
+				<feet lock="yes">Iga Kyahan +1</feet>
 			</set>
 			<set name = "RAcc" BaseSet = "$MeleeSet">
-				<ammo>Aht Urhgan Dart</ammo>
+				<!--<ammo>Shuriken</ammo>-->
+				<range>Jr.Msk. Chakram</range>
 				<head>Optical Hat</head>
 				<hands>Ninja Tekko</hands>
 				<lring>Behemoth Ring</lring>
@@ -118,7 +119,7 @@
 				<rear>Brutal Earring</rear>
 				<body>Haubergeon</body>
 				<hands>Fourth Division Hentzes</hands>
-				<lring>Ruby Ring</lring>
+				<lring>Rajas Ring</lring>
 				<rring>Ruby Ring</rring>
 				<back />
 				<waist>Warwolf Belt</waist>
@@ -159,13 +160,13 @@
 		<!-- rules for job abilities and actions -->
 		<if Spell = "Blade:*">
 			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
-			<equip when = "aftercast" Delay = "2" />
+			<equip when = "aftercast" Delay = "4" />
 		</if>
 		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk|Yonin">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity" />
 			<equip when = "aftercast" Delay = "1" />
 		</if>
-		<if Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*">
+		<if Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*|Aisha*">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity|Ninjutsu" />
 		</if>
 		<if Spell = "Doton*|Suiton*|Huton*|Katon*|Hyoton*|Raiton*">
@@ -180,12 +181,21 @@
 			<equip when = "aftercast" Delay = "1.5" />
 		</if>
 		<if spell="Utsusemi*">
-			<equip when = "precast" setgroup = "$BattleArea" set = "Haste|Enmity" />
-			<if HPPLT="76" TPLT="100">
-				<equip when = "precast">
-					<rring>Shinobi ring</rring>
+			<if HPPLT="26">
+				<equip when = "precast" setgroup = "$BattleArea" set = "Eva">
+					<!--just need two pieces for haste cap-->
+					<rear>Shinobi Earring</rear>
+					<legs>Byakko's Haidate</legs>
 				</equip>
 			</if>
+			<else>
+				<equip when = "precast" setgroup = "$BattleArea" set = "Haste|Enmity" />
+				<if HPPLT="76" TPLT="100">
+					<equip when = "precast">
+						<rring>Shinobi ring</rring>
+					</equip>
+				</if>
+			</else>
 			<if spell="Utsusemi: Ichi" BuffActive="Copy Image">
 				<midcastdelay delay="3.0" />
 				<command when = "midcast">cancel 66</command>
