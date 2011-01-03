@@ -39,7 +39,8 @@
 				<body>Scorpion Harness</body>
 				<hands>Seiryu's Kote</hands>
 				<lring>Rajas Ring</lring>
-				<rring>Heed Ring</rring>
+				<!--<rring>Heed Ring</rring>-->
+				<rring>Ecphoria Ring</rring>
 				<back />
 				<waist>Survival Belt</waist>
 				<legs>Koga Hakama</legs>
@@ -191,8 +192,8 @@
 			</if>
 			<equip when = "precast" setgroup = "$BattleArea" set = "$RType" />
 			<!-- wait until we actually have a ranged weapon equiped -->
-			<castdelay delay = "1" />
-			<equip when = "aftercast" Delay = "1.5" />
+			<castdelay delay = "0.5" />
+			<equip when = "aftercast" Delay = "2.5" />
 		</if>
 		<if spell="Utsusemi*">
 			<if HPPLT="26">
