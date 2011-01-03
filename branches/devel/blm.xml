@@ -81,6 +81,7 @@
 				<!--<back>Rainbow Cape</back>-->
 				<waist>Penitent's Rope</waist>
 				<legs>Mahatma Slops</legs>
+				<feet>Sorcerer's Sabots</feet>
 				<!--<feet>Goetia Sabots</feet>-->
 			</set>
 			<set name = "MND" BaseSet = "INT">
@@ -90,6 +91,13 @@
 				<lring>Sapphire Ring</lring>
 				<rring>Sapphire Ring</rring>
 				<!--<feet>Teal Pigaches</feet>-->
+			</set>
+			<set name = "MAB" BaseSet = "INT">
+				<lear>Moldavite Earring</lear>
+				<body>Teal Saio</body>
+				<back>Hecate's Cape</back>
+				<legs>Teal Slops</legs>
+				<feet>Cobra Crackows</feet>
 			</set>
 			<set name = "Town" BaseSet = "MAB"/>
 			<set name = "Idle" BaseSet = "MAB">
@@ -117,12 +125,10 @@
 				<!--<legs>Baron's Slops</legs>
 				<feet>Goliard Clogs</feet>-->
 			</set>
-			<set name = "MAB" BaseSet = "INT">
-				<lear>Moldavite Earring</lear>
-				<body>Teal Saio</body>
-				<back>Hecate's Cape</back>
-				<legs>Teal Slops</legs>
-				<feet>Cobra Crackows</feet>
+			<set name = "ConserveMP" BaseSet = "MAB">
+				<ammo>Clarus Stone</ammo>
+				<waist>Austerity Belt</waist>
+				<feet>Sorcerer's Sabots</feet>
 			</set>
 			<set name = "HighResist" BaseSet = "INT">
 				<head>Sorcerer's Petas.</head>
@@ -238,8 +244,12 @@
 						<!-- equip elemental/INT gear for DoT's -->
 						<equip when = "midcast" Set = "Eledebuff" />
 					</if>
+					<elseif Spell = "Freeze|Flood|Quake|Flare|Burst|Tornado">
+						<!-- throw as much conserve MP gear on as we can -->
+						<equip when = "midcast" Set = "ConserveMP" />
+					</elseif>
 					<else>
-					<action type = "MidcastDelay" Delay = "2.0" />
+						<action type = "MidcastDelay" Delay = "2.0" />
 						<!-- this is an actual nuke. Check target to be a known high resist mob (and that ES is not active) -->
 						<if SpellTargetName = "$HighResist" NotBuffActive = "Elemental Seal">
 							<equip when = "midcast" Set = "HighResist" />
