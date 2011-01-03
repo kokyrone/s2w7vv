@@ -21,7 +21,7 @@
 		<var name = "LightGrip">0</var>
 		<var name = "DarkGrip">1</var>
 		<var name = "ThunderGrip">1</var>
-		<var name = "IceGrip">1</var>
+		<var name = "IceGrip">0</var>
 		<var name = "FireGrip">0</var>
 		<var name = "WindGrip">0</var>
 		<var name = "WaterGrip">0</var>
@@ -66,7 +66,7 @@
 				<lear>Moldavite Earring</lear>
 			</set>
 			<set name = "INT" BaseSet = "Base">
-				<sub>Bugard Strap +1</sub>
+				<sub>Elementa Grip</sub>
 				<!--<range></range>-->
 				<ammo>Phantom Tathlum</ammo>
 				<head>Teal Chapeau</head>
@@ -182,7 +182,6 @@
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='TownSettings']/*" />
 		<!-- Check to see if we are in a battlefield type thing -->
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='BattleArea']/*" />
-		<action type = "command">input /echo $BattleArea</action>
 		<!-- Timecheck -->
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='TimeCheck']/*" />
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
@@ -229,7 +228,7 @@
 			<!-- equip fast cast gear -->
 			<equip when = "precast" Set = "FastCast" />
 			<!-- Elemental Grip checks. Are we casting an enfeeble, or are we casting on a resistant mob? -->
-			<if mode = "OR" NotSkill = "ElementalMagic" NotSpell = "Frost|Drown|Rasp|Burn|Shock|Choke" SpellTargetName = "$HighResist|$MidResist">
+			<if mode = "OR" NotSkill = "ElementalMagic" Spell = "Frost|Drown|Rasp|Burn|Shock|Choke" SpellTargetName = "$HighResist|$MidResist">
 				<if Advanced='"$%SpellElementGrip" == "1"'>
 					<equip when = "midcast">
 						<sub lock = "true">%SpellElement Grip</sub>
