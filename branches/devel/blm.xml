@@ -186,6 +186,8 @@
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='TimeCheck']/*" />
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='CancelRules']/*" />
+		<!-- Check to see what Moon Phase we are in -->
+		<!-- <xi:include href = "/includes/moon.xml" xpointer = "/includes/include[@name='Moon']/*" /> -->
 		<!-- Default melee gears engaged -->
 		<equip when = "engaged" setgroup = "$BattleArea" set = "Melee" />
 		<!-- Idle gear movement speed, refresh and phys dmg down -->
@@ -334,8 +336,6 @@
 					<legs lock = "yes">Sorcerer's Tonban</legs>
 				</equip>
 			</if>
-			<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin -->
-			<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='CancelRules']/*" />
 			<!-- finally, equip our staff! -->
 			<!-- need settings for magian staff -->
 			<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "$MagianHP">
