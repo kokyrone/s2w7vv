@@ -13,25 +13,27 @@
 		</if>
 	</include>
 	<include name="CancelRules">
-		<if Spell="Sneak" BuffActive="Sneak" advanced='"%SpellTargetName"="%PlayerName"'>
-			<action type="command" when="midcast">cancel 71</action>
-			<action type="midcastdelay" delay="2.3" />
+		<if mode="OR" NotSkill="ElementalMagic|EnfeeblingMagic">
+			<if Spell="Sneak" BuffActive="Sneak" advanced='"%SpellTargetName"="%PlayerName"'>
+				<action type="command" when="midcast">cancel 71</action>
+				<action type="midcastdelay" delay="2.3" />
+			</if>
+			<if spell="Monomi: Ichi" BuffActive="Sneak" SpellTargetType="Self">
+				<command when="midcast">cancel 71</command>
+				<midcastdelay delay="3.0" />
+			</if>
+			<if Spell="Stoneskin" BuffActive="Stoneskin">
+				<action type="command" when="midcast">cancel 37</action>
+				<action type="midcastdelay" delay="5.9" />
+			</if>
+			<if Spell="Blink" BuffActive="Blink">
+				<action type="command" when="midcast">cancel 36</action>
+				<action type="midcastdelay" delay="5.2" />
+			</if>
+			<if Spell="Spectral Jig">
+				<command When="PreCast">cancel 71</command>
+			</if>
 		</if>
-		<if spell="Monomi: Ichi" BuffActive="Sneak" SpellTargetType="Self">
-			<command when="midcast">cancel 71</command>
-			<midcastdelay delay="3.0" />
-		</if>
-		<elseif Spell="Stoneskin" BuffActive="Stoneskin">
-			<action type="command" when="midcast">cancel 37</action>
-			<action type="midcastdelay" delay="5.9" />
-		</elseif>
-		<elseif Spell="Blink" BuffActive="Blink">
-			<action type="command" when="midcast">cancel 36</action>
-			<action type="midcastdelay" delay="5.2" />
-		</elseif>
-		<elseif Spell="Spectral Jig">
-			<command When="PreCast">cancel 71</command>
-		</elseif>
 	</include>
 	<include name="TownSettings">
 		<if Area="*San d'Oria*|*Bastok*|*Jeuno*|*Whitegate|Al Zahbi|Nashmau|Selbina|Mhaura|Kazham|Norg|Rabao|Tavnasian safehold" NotArea="Dynamis*|*[S]" NotBuffActive="Allied Tags|Besieged">
@@ -62,8 +64,7 @@
 		<elseif BuffActive="Besieged">
 			<var cmd="set BattleArea Siege" />
 		</elseif>
-		<elseif area="Abyssea*">
-		<!--<elseif BuffActive="Visitant">-->
+		<elseif BuffActive="Visitant">
 			<var cmd="set BattleArea Abyssea" />
 		</elseif>
 		<elseif area="Nyzul*|Leujaoam*|Mamool*|Periqia|Lebros*|Ilrusi*|*Remnants">
@@ -74,15 +75,9 @@
 		</else>
 	</include>
 	<include name="TimeCheck">
-		<!-- Dusk to Dawn -->
-		<if mode="OR" TimeLT="7.00" TimeGT="16.59">
-			<var cmd="set DayOrNight Night+1" />
-		</if>
-		<!-- Night -->
-		<elseif mode="OR" TimeLT="6.00" TimeGT="17.59">
+		<if mode="OR" TimeLT="6.00" TimeGT="17.59">
 			<var cmd="set DayOrNight Night" />
-		</elseif>
-		<!-- Day -->
+		</if>
 		<else>
 			<var cmd="set DayOrNight Day" />
 		</else>
