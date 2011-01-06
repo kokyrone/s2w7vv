@@ -6,7 +6,7 @@
 			<var name="MoonPhase">0</var>
 		</if>
 		<!-- Check for Waxing Moon -->
-		<elseif advanced = '"%MOON == "Waxing Crescent"'>
+		<elseif advanced = '"%MOON" == "Waxing Crescent"'>
 			<!-- If %MOONPCT < 24% we know it's Early, rather than Late -->
 			<if advanced = "%MOONPCT &lt; 24">
 				<var name="MoonPhase">1</var>
@@ -18,7 +18,7 @@
 		<elseif advanced = '"%MOON" == "First Quarter*"'>
 			<var name="MoonPhase">3</var>
 		</elseif>
-		<elseif advanced = '"%MOON == "Waxing Gibbous"'>
+		<elseif advanced = '"%MOON" == "Waxing Gibbous"'>
 			<!-- If %MOONPCT < 74% we know it's Early, rather than Late -->
 			<if advanced = "%MOONPCT &gt; 73">
 				<var name="MoonPhase">4</var>
@@ -31,7 +31,7 @@
 			<var name="MoonPhase">6</var>
 		</elseif>
 		<!-- Check for Waning Moon -->
-		<elseif advanced = '"%MOON == "Waning Gibbous"'>
+		<elseif advanced = '"%MOON" == "Waning Gibbous"'>
 			<!-- If %MOONPCT > 76% we know it's Early, rather than Late -->
 			<if advanced = "%MOONPCT &gt; 76">
 				<!-- Actually Phase 7 in Full Cycle -->
@@ -46,7 +46,7 @@
 			<!-- Actually Phase 9 in Full Cycle -->
 			<var name="MoonPhase">3</var>
 		</elseif>
-		<else advanced = '"%MOON == "*Waning Crescent"'>
+		<else advanced = '"%MOON" == "*Waning Crescent"'>
 			<!-- If %MOONPCT > 26% we know it's Early, rather than Late -->
 			<if advanced = "%MOONPCT &gt; 26">
 				<!-- Actually Phase 10 in Full Cycle -->
