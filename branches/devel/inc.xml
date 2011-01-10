@@ -14,7 +14,7 @@
 	</include>
 	<include name="CancelRules">
 		<if mode="OR" NotSkill="ElementalMagic|EnfeeblingMagic">
-			<if Spell="Sneak" BuffActive="Sneak" advanced='"%SpellTargetName"="%PlayerName"'>
+			<if spell="Sneak" BuffActive="Sneak" advanced='"%SpellTargetName"="%PlayerName"'>
 				<action type="command" when="midcast">cancel 71</action>
 				<action type="midcastdelay" delay="2.3" />
 			</if>
@@ -22,16 +22,22 @@
 				<command when="midcast">cancel 71</command>
 				<midcastdelay delay="3.0" />
 			</if>
-			<if Spell="Stoneskin" BuffActive="Stoneskin">
+			<if spell="Stoneskin" BuffActive="Stoneskin">
 				<action type="command" when="midcast">cancel 37</action>
 				<action type="midcastdelay" delay="5.9" />
 			</if>
-			<if Spell="Blink" BuffActive="Blink">
+			<if spell="Blink" BuffActive="Blink">
 				<action type="command" when="midcast">cancel 36</action>
 				<action type="midcastdelay" delay="5.2" />
 			</if>
-			<if Spell="Spectral Jig">
+			<if spell="Spectral Jig">
 				<command When="PreCast">cancel 71</command>
+			</if>
+		</if>
+		<if Type="WeaponSkill">
+			<if advanced='"%SpellTargetDistanceGT" = 3'>
+				<cancelspell/>
+				<action type = "command">input /echo Out of Range</action>
 			</if>
 		</if>
 	</include>
@@ -81,6 +87,21 @@
 		<else>
 			<var cmd="set DayOrNight Day" />
 		</else>
+	</include>
+	<include name="ReturnRules">
+		<if status = "Dead">
+			<cancelspell/>
+			<return />
+		</if>
+		<elseif BuffActive="Sleep|Petrification|Stun|Terror|Charm">
+			<return />
+		</elseif>
+		<elseif Type="*Magic|BardSong|Ninjutsu" BuffActive="Silence">
+			<return />
+		</elseif>
+		<elseif Type="Weaponskill|JobAbility|PetCommand" BuffActive="Amnesia">
+			<return />
+		</elseif>
 	</include>
 </includes>
 <!-- vim: set ts=4 ff=unix : -->
