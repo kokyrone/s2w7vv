@@ -90,10 +90,12 @@
 				<back />
 				<waist>Warwolf Belt</waist>
 				<legs>Byakko's Haidate</legs>
-				<feet>Creek M clomps</feet>
+				<feet>Iga Kyahan +1</feet>
 			</set>
 			<set name = "Rest" BaseSet = "Idle"/>
-			<set name = "Town" BaseSet = "Idle"/>
+			<set name = "Town" BaseSet = "Idle">
+				<head>Panther Mask</head>
+			</set>
 			<set name = "Haste" BaseSet = "$MeleeSet">
 				<head lock="yes">Walahra Turban</head>
 				<hands lock="yes">Dusk Gloves</hands>
@@ -113,8 +115,7 @@
 				<ammo>Bronze Bullet</ammo>
 			</set>
 			<set name = "Dart" BaseSet = "RAcc">
-				<ammo>Aht Urhgan Dart</ammo>
-				<!--<ammo>Shuriken</ammo>-->
+				<ammo>Shuriken</ammo>
 			</set>
 			<set name = "Boom" BaseSet = "RAcc">
 				<range>Jr.Msk. Chakram</range>
@@ -134,11 +135,17 @@
 				<back />
 				<waist>Warwolf Belt</waist>
 				<legs>Byakko's Haidate</legs>
-				<feet>Creek M clomps</feet>
+				<feet>Iga Kyahan +1</feet>
 			</set>
 		</group>
 		<group name = "Siege" inherit = "Standard" />
 		<group name = "Assault" inherit = "Standard" />
+		<group name = "Abyssea" inherit = "Standard">
+			<set name = "Eva">
+				<range>Jr.Msk. Chakram</range>
+				<ammo></ammo>
+			</set>
+		</group>
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
@@ -150,6 +157,8 @@
 		<var name="BattleArea">Standard</var>
 	</variables>
 	<rules>
+		<!-- Check there's nothing stopping us acting -->
+		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ReturnRules']/*" />
 		<!-- Equip town gears :) -->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TownSettings']/*" />
 		<!-- Check to see if we are in a battlefield type thing -->
@@ -169,6 +178,15 @@
 		<else>
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet" />
 		</else>
+		<!-- rules for situational gear -->
+		<if advanced='"$MeleeSet" == "Eva"'>
+			<if BuffActive="Blind">
+				<rear>Bat Earring</rear>
+			</if>
+			<elseif BuffActive="Song">
+				<rear>Melody Earring</rear>
+			</elseif>
+		</if>
 		<!-- rules for job abilities and actions -->
 		<if Spell = "Blade:*">
 			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
