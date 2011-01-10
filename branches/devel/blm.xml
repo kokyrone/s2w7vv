@@ -52,11 +52,12 @@
 		<!-- Nation control check for MC Bracelets, macro //sc var set NCCheck 1 for true //sc var set NCCheck 0 for false -->
 		<var name = "NCCheck">0</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
+		<var name="MoonPhase">0</var>
 		<var name="DayOrNight">Day</var>
 		<var name="BattleArea">Standard</var>
 		<!--Magian Stuff-->
 		<var name="MagianWeapon">Teiwaz</var>
-		<var name="MagianHP">0</var>
+		<var name="MagianHP">75</var>
 	</variables>
 	<sets>
 		<group default = "true" name = "Standard" >
@@ -76,7 +77,7 @@
 				<body>Errant Hpl.</body>
 				<hands>Wizard's Gloves</hands>
 				<!--<hands>Errant Cuffs</hands>-->
-				<lring>Diamond Ring</lring>
+				<lring>Snow Ring</lring>
 				<rring>Spiral Ring</rring>
 				<!--<back>Rainbow Cape</back>-->
 				<waist>Penitent's Rope</waist>
@@ -119,11 +120,13 @@
 				<head>Cobra Hat</head>
 				<neck>Beak Necklace +1</neck>
 				<lear>Antivenom Earring</lear>
+				<rear>Sorcerer's Earring</rear>
+				<lring>Jelly Ring</lring>
 				<body>Errant Hpl.</body>
 				<back>Felicitas Cape</back>
 				<waist>Austerity Belt</waist>
-				<!--<legs>Baron's Slops</legs>
-				<feet>Goliard Clogs</feet>-->
+				<legs>Sagacity Lappas</legs>
+				<!--<feet>Goliard Clogs</feet>-->
 			</set>
 			<set name = "ConserveMP" BaseSet = "MAB">
 				<ammo>Clarus Stone</ammo>
@@ -172,12 +175,22 @@
 				<main>$MagianWeapon</main>
 			</set>
 		</group>
-		<group name = "Camp" inherit = "Standard" />
+		<group name = "Camp" inherit = "Standard">
+			<set name = "Melee">
+				<main>Jupiter's Staff</main>
+			</set>
+		</group>
 		<group name = "Siege" inherit = "Standard" />
-		<group name = "Assault" inherit = "Standard" />
+		<group name = "Assault" inherit = "Standard">
+			<set name = "Melee">
+				<main>Jupiter's Staff</main>
+			</set>
+		</group>
 		<group name = "Abyssea" inherit = "Standard" />
 	</sets>
 	<rules>
+		<!-- Check there's nothing stopping us acting -->
+		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ReturnRules']/*" />
 		<!-- Equip town gears :) -->
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='TownSettings']/*" />
 		<!-- Check to see if we are in a battlefield type thing -->
@@ -187,7 +200,7 @@
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='CancelRules']/*" />
 		<!-- Check to see what Moon Phase we are in -->
-		<!-- <xi:include href = "/includes/moon.xml" xpointer = "/includes/include[@name='Moon']/*" /> -->
+		<xi:include href = "/includes/moon.xml" xpointer = "/includes/include[@name='Moon']/*" />
 		<!-- Default melee gears engaged -->
 		<equip when = "engaged" setgroup = "$BattleArea" set = "Melee" />
 		<!-- Idle gear movement speed, refresh and phys dmg down -->
@@ -201,6 +214,13 @@
 		<else>
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
 		</else>
+		<if TPGT="75" status="Engaged">
+			<equip when="precast|midcast|aftercast">
+				<main lock="true" />
+				<sub lock="t" />
+				<range lock="t" />
+			</equip>
+		</if>
 		<!-- utility: if targetting a monster, but casting a spell that can not be cast on monsters, then cast on self (buffs). -->
 		<if SpellTargetType = "MONSTER" NotValidTarget = "*Enemy*" ValidTarget = "*Self*">
 			<action type = "changetarget" target = "&lt;me&gt;" />
