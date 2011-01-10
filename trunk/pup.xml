@@ -1,89 +1,155 @@
 <?xml version="1.0" ?>
-<spellcast>
-    <config
-        RestingSet = "Rest"
-        NormalSet = "Idle"
-	EngagedSet = "$meleeset"/>
-    <sets>
-        <group default = "true" name = "Melee">
-            <set name = "TP">
-                <sub/>
-                <range>Turbo Animator</range>
-                <ammo>Automaton Oil +2</ammo>
-                <head>Puppetry Taj</head>
-                <neck>Peacock Charm</neck>
-                <lear>Spike Earring</lear>
-                <rear>Coral Earring</rear>
-                <body>Puppetry Tobe</body>
-                <hands>Tabin Bracers +1</hands>
-                <lring>Garrulous Ring</lring>
-                <rring>Ecphoria Ring</rring>
-                <back>Bellicose Mantle</back>
-                <waist>Swift Belt</waist>
-                <legs>Puppetry Churidars</legs>
-                <feet>Tabin Boots +1</feet>
-            </set>
-	<set name = "Idle" BaseSet = "TP"/>
-            <set name = "Eva" BaseSet="TP">
-                <head>Empress Hairpin</head>
-                <neck>Evasion Torque</neck>
-                <lear>Velocity Earring</lear>
-                <rear>Dodge Earring</rear>
-                <lring>Jelly Ring</lring>
-                <back>Dodge Cape</back>
-                <legs>Combat Caster's Slacks</legs>
-                <feet>Tabin Boots +1</feet>
-            </set>
-            <set name = "Acc" BaseSet="TP">
-                <lring>Sniper's Ring</lring>
-                <waist>Life Belt</waist>
-            </set>
-            <set name = "Repair" BaseSet = "$meleeset">
-                <feet>Puppetry Babouches</feet>
-            </set>
-            <set name = "Maneuver" BaseSet = "$meleeset">
-                <hands>Puppetry Dastanas</hands>
-                <neck>Buffon's Collar</neck>
-            </set>
-            <set name = "Weapon Skill" BaseSet = "TP">
-                <rring>Sun Ring</rring>
-                <waist>Life Belt</waist>
-                <legs>Wonder Braccae</legs>
-                <feet>Creek M clomps</feet>
-            </set>
-            <set name = "Rest" BaseSet = "TP"/>
-        </group>
-    </sets>
-    
-    <variables>
-    	<!-- Engaged Melee Gear -->
-    	<var name="meleeset">TP</var>
-        <!-- Init with day set will update after first cast/ja etc.-->
-    	<var name="DayOrNight">Day</var>
+<spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+	<config
+		RestingSet="Rest"
+		NormalSet="Idle"
+		EngagedSet="$MeleeSet"
+		ShowGearSwaps="false"
+		Debug="True"
+		/>
+	<sets>
+		<group default = "true" name = "Standard">
+			<set name = "TP">
+				<sub />
+				<range>Turbo Animator</range>
+				<ammo>Automaton Oil +2</ammo>
+				<head>Optical Hat</head>
+				<neck>Peacock Charm</neck>
+				<lear>Spike Earring</lear>
+				<rear>Coral Earring</rear>
+				<body>Cobra Unit harness</body>
+				<hands>Tabin Bracers +1</hands>
+				<lring>Ruby Ring</lring>
+				<rring>Ecphoria Ring</rring>
+				<back>Bellicose Mantle</back>
+				<waist>Swift Belt</waist>
+				<legs>Pantin Churidars</legs>
+				<feet>Tabin Boots +1</feet>
+			</set>
+			<set name = "Idle" BaseSet="$MeleeSet"/>
+			<set name = "Eva"  BaseSet = "TP">
+				<head>Empress Hairpin</head>
+				<neck>Evasion Torque</neck>
+				<lear>Velocity Earring</lear>
+				<rear>Dodge Earring</rear>
+				<body>Aketon</body>
+				<lring>Jelly Ring</lring>
+				<rring>Ecphoria Ring</rring>
+				<back>Dodge Cape</back>
+				<legs>Combat Caster's Slacks</legs>
+			</set>
+			<set name = "Acc" BaseSet = "TP">
+				<lring>Sniper's Ring</lring>
+				<rring>Ecphoria Ring</rring>
+				<waist>Life Belt</waist>
+			</set>
+			<set name = "Repair" BaseSet = "$MeleeSet">
+				<feet>Puppetry Babouches</feet>
+			</set>
+			<set name = "Maneuver">
+				<hands>Puppetry Dastanas</hands>
+				<neck>Buffoon's Collar</neck>
+			</set>
+			<set name = "WS" BaseSet = "TP">
+				<lring>Ruby Ring</lring>
+				<rring>Ruby Ring</rring>
+				<waist>Life Belt</waist>
+				<feet>Creek M clomps</feet>
+			</set>
+			<set name = "Rest" BaseSet = "TP">
+				<head>Puppetry Taj</head>
+			</set>
+			<set name = "Town" BaseSet = "TP"/>
+			<set name = "Enmity" BaseSet = "$MeleeSet">
+				<neck>Harmonia's Torque</neck>
+				<lring>Mermaid Ring</lring>
+			</set>
+			<set name = "AGI|Wind" BaseSet = "TP">
+				<head>Empress Hairpin</head>
+				<body>Aketon</body>
+			</set>
+			<set name = "CHR|Light" BaseSet = "TP">
+				<body>Errant Hpl.</body>
+				<legs>Mahatma Slops</legs>
+			</set>
+			<set name = "MND|Water" BaseSet = "CHR">
+				<head>Puppetry Taj</head>
+				<lring>Sapphire Ring</lring>
+				<rring>Sapphire Ring</rring>
+				<feet>Pantin Babouches</feet>
+			</set>
+			<set name = "DEX|Thunder" BaseSet = "TP">
+				<head>Puppetry Taj</head>
+				<lring>Spinel Ring</lring>
+			</set>
+			<set name = "INT|Ice" BaseSet = "CHR">
+				<feet>Pantin Babouches</feet>
+			</set>
+			<set name = "STR|Fire" BaseSet = "TP"/>
+			<set name = "VIT|Earth" BaseSet = "TP"/>
+		</group>
+		<!-- Campaign Battle gear - only used when Allied Tags are on -->
+		<group name = "Camp" inherit = "Standard">
+			<set name = "WS" BaseSet = "TP">
+				<lring>Ruby Ring</lring>
+				<rring>Ruby Ring</rring>
+				<neck>Bull Necklace</neck>
+				<waist>Life Belt</waist>
+				<feet>Creek M clomps</feet>
+			</set>
+		</group>
+		<group name = "Siege" inherit = "Standard" />
+		<group name = "Assault" inherit = "Standard" />
+	</sets>
+	<variables>
+		<!-- Engaged Melee Gear -->
+		<var name="MeleeSet">TP</var>
+		<!-- Init with day set will update after first cast/ja etc.-->
+		<var name="DayOrNight">Day</var>
+		<var name="BattleArea">Standard</var>
 	</variables>
-    
-    <rules>
-		<action type="equip" when="idle" set="Idle" />
-		<action type="equip" when="engaged" set="$meleeset" />
-    	<!-- BEGIN Timecheck-->
-		<if mode="OR" TimeLT="6.00" TimeGT="17.59">
-			<action type="var" cmd="set DayOrNight Night" />
+	<rules>
+		<!-- Equip town gears :) -->
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TownSettings']/*" />
+		<!-- Check to see if we are in a battlefield type thing -->
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='BattleArea']/*" />
+		<!-- Timecheck -->
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TimeCheck']/*" />
+		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
+		<!-- Default melee gears engaged -->
+		<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet" />
+		<!-- Idle gear movement speed, refresh and phys dmg down -->
+		<equip when = "idle" set = "Idle" />
+		<!-- Aftercast rules -->
+		<if NotStatus="engaged">
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
 		</if>
 		<else>
-			<action type="var" cmd="set DayOrNight Day" />
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet" />
 		</else>
-		<!-- END Timecheck -->
-        <rule Spell = "Repair">
-            <action type = "Equip" when = "Before" set = "Repair"/>
-            <action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
-        </rule>
-        <rule Spell = "*Maneuver">
-            <action type = "Equip" when = "Before" set = "Maneuver"/>
-            <action type = "Equip" when = "After" Delay = "1" set = "$meleeset"/>
-        </rule>
-        <rule Spell = "Raging Fists|Howling Fist|Dragon Kick">
-            <action type = "Equip" when = "Before" set = "Weapon Skill"/>
-            <action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
-        </rule>
-    </rules>
+		<!-- rules for job abilities and actions -->
+		<if Spell = "Repair">
+			<equip when = "precast" setgroup = "$BattleArea" set = "Repair" />
+			<equip when = "aftercast" Delay = "2" />
+		</if>
+		<if Spell = "*Maneuver">
+			<!--<equip when = "precast" setgroup = "$BattleArea" set = "Maneuver" />-->
+			<equip when = "precast" setgroup = "$BattleArea" set = "%spellelement|Maneuver" />
+			<equip when = "aftercast" Delay = "1" />
+		</if>
+		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk">
+			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity" />
+			<equip when = "aftercast" Delay = "1" />
+		</if>
+		<if Spell = "Raging Fists">
+			<equip when = "precast" setgroup = "$BattleArea" set = "WS|Acc" />
+			<equip when = "aftercast" Delay = "3" />
+		</if>
+		<if Spell = "Howling Fist|Dragon Kick">
+			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
+			<equip when = "aftercast" Delay = "3" />
+		</if>
+	</rules>
 </spellcast>
+<!-- vim: set ts=4 ff=unix : -->
