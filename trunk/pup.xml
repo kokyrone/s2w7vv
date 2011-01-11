@@ -109,6 +109,8 @@
 		<var name="BattleArea">Standard</var>
 	</variables>
 	<rules>
+		<!-- Check there's nothing stopping us acting -->
+		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ReturnRules']/*" />
 		<!-- Equip town gears :) -->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='IdleSettings']/*" />
 		<!-- Check to see if we are in a battlefield type thing -->
