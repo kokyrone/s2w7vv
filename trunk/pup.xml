@@ -131,24 +131,24 @@
 		<!-- rules for job abilities and actions -->
 		<if Spell = "Repair">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Repair" />
-			<equip when = "aftercast" Delay = "2" />
+			<aftercastdelay delay = "2" />
 		</if>
 		<if Spell = "*Maneuver">
 			<!--<equip when = "precast" setgroup = "$BattleArea" set = "Maneuver" />-->
 			<equip when = "precast" setgroup = "$BattleArea" set = "%spellelement|Maneuver" />
-			<equip when = "aftercast" Delay = "1" />
+			<aftercastdelay delay = "1" />
 		</if>
 		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity" />
-			<equip when = "aftercast" Delay = "1" />
+			<aftercastdelay delay = "1" />
 		</if>
 		<if Spell = "Raging Fists">
 			<equip when = "precast" setgroup = "$BattleArea" set = "WS|Acc" />
-			<equip when = "aftercast" Delay = "3" />
+			<aftercastdelay delay = "3" />
 		</if>
 		<if Spell = "Howling Fist|Dragon Kick">
 			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
-			<equip when = "aftercast" Delay = "3" />
+			<aftercastdelay delay = "3" />
 		</if>
 	</rules>
 </spellcast>
