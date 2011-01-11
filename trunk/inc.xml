@@ -35,7 +35,7 @@
 			</if>
 		</if>
 		<if Type="WeaponSkill">
-			<if advanced='"%SpellTargetDistanceGT" = 3'>
+			<if advanced='%SpellTargetDistance &gt; 3'>
 				<cancelspell/>
 				<action type = "command">input /echo Out of Range</action>
 			</if>
@@ -50,8 +50,6 @@
 				<body lock="true">Federation Aketon</body>
 			</action>
 		</if>
-		<!--<if area="Leujaoam Sanctum|Mamool Ja Training Grounds|Lebros Cavern|Periqia|Ilrusi Atoll|Nyzul Isle">
-		</if>-->
 		<if Area="Windurst Waters [S]" NotBuffActive="Allied Tags">
 			<action type="equip" when="idle" set="Town">
 				<body lock="true">Ptr.Prt. Livery</body>
@@ -73,7 +71,7 @@
 		<elseif BuffActive="Visitant">
 			<var cmd="set BattleArea Abyssea" />
 		</elseif>
-		<elseif area="Nyzul*|Leujaoam*|Mamool*|Periqia|Lebros*|Ilrusi*|*Remnants">
+		<elseif area="Leujaoam Sanctum|Mamool Ja Training Grounds|Lebros Cavern|Periqia|Ilrusi Atoll|Nyzul Isle">
 			<var cmd="set BattleArea Assault" />
 		</elseif>
 		<else>
