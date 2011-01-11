@@ -48,17 +48,17 @@
 		<elseif Area="*Windurst*|Heaven's Tower" NotArea="Dynamis*|*[S]">
 			<equip when="idle" set="Town">
 				<body lock="true">Federation Aketon</body>
-			</action>
+			</equip>
 		</elseif>
 		<elseif Area="Windurst Waters [S]" NotBuffActive="Allied Tags">
 			<equip when="idle" set="Town">
 				<body lock="true">Ptr.Prt. Livery</body>
-			</action>
+			</equip>
 		</elseif>
 		<elseif Area="Bastok Markets [S]" NotBuffActive="Allied Tags">
 			<equip when="idle" set="Town">
 				<body lock="true">Mythril Musketeer Livery</body>
-			</action>
+			</equip>
 		</elseif>
 		<else>
 			<equip when="idle" set="Idle"/>
