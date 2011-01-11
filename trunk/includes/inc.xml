@@ -41,25 +41,28 @@
 			</if>
 		</if>
 	</include>
-	<include name="TownSettings">
+	<include name="IdleSettings">
 		<if Area="*San d'Oria*|*Bastok*|*Jeuno*|*Whitegate|Al Zahbi|Nashmau|Selbina|Mhaura|Kazham|Norg|Rabao|Tavnasian safehold" NotArea="Dynamis*|*[S]" NotBuffActive="Allied Tags|Besieged">
-			<action type="equip" when="idle" set="Town"/>
+			<equip when="idle" set="Town"/>
 		</if>
-		<if Area="*Windurst*|Heaven's Tower" NotArea="Dynamis*|*[S]">
-			<action type="equip" when="idle" set="Town">
+		<elseif Area="*Windurst*|Heaven's Tower" NotArea="Dynamis*|*[S]">
+			<equip when="idle" set="Town">
 				<body lock="true">Federation Aketon</body>
 			</action>
-		</if>
-		<if Area="Windurst Waters [S]" NotBuffActive="Allied Tags">
-			<action type="equip" when="idle" set="Town">
+		</elseif>
+		<elseif Area="Windurst Waters [S]" NotBuffActive="Allied Tags">
+			<equip when="idle" set="Town">
 				<body lock="true">Ptr.Prt. Livery</body>
 			</action>
-		</if>
-		<if Area="Bastok Markets [S]" NotBuffActive="Allied Tags">
-			<action type="equip" when="idle" set="Town">
+		</elseif>
+		<elseif Area="Bastok Markets [S]" NotBuffActive="Allied Tags">
+			<equip when="idle" set="Town">
 				<body lock="true">Mythril Musketeer Livery</body>
 			</action>
-		</if>
+		</elseif>
+		<else>
+			<equip when="idle" set="Idle"/>
+		</else>
 	</include>
 	<include name="BattleArea">
 		<if BuffActive="Allied Tags">

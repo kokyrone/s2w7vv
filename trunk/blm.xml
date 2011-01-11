@@ -100,13 +100,13 @@
 				<legs>Teal Slops</legs>
 				<feet>Cobra Crackows</feet>
 			</set>
-			<set name = "Town" BaseSet = "MAB"/>
 			<set name = "Idle" BaseSet = "MAB">
 				<main>$EarthStaff</main>
 				<body>Sorcerer's Coat</body>
 				<lring>Jelly Ring</lring>
 				<rear>Sorcerer's Earring</rear>
 			</set>
+			<set name = "Town" BaseSet = "Idle"/>
 			<set name = "FastCast">
 			<!--
 				<feet>Rostrum Pumps</feet>
@@ -192,7 +192,7 @@
 		<!-- Check there's nothing stopping us acting -->
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ReturnRules']/*" />
 		<!-- Equip town gears :) -->
-		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='TownSettings']/*" />
+		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='IdleSettings']/*" />
 		<!-- Check to see if we are in a battlefield type thing -->
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='BattleArea']/*" />
 		<!-- Timecheck -->
@@ -203,9 +203,7 @@
 		<xi:include href = "/includes/moon.xml" xpointer = "/includes/include[@name='Moon']/*" />
 		<!-- Default melee gears engaged -->
 		<equip when = "engaged" setgroup = "$BattleArea" set = "Melee" />
-		<!-- Idle gear movement speed, refresh and phys dmg down -->
-		<equip when = "idle" set = "Idle" />
-		<!-- need settings for magian staff -->
+		<!-- need aftercast settings for magian staff -->
 		<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "$MagianHP">
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle">
 				<main>$MagianWeapon</main>
@@ -214,6 +212,7 @@
 		<else>
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
 		</else>
+		<!-- lock weapons when TPing -->
 		<if TPGT="75" status="Engaged">
 			<equip when="precast|midcast|aftercast">
 				<main lock="true" />

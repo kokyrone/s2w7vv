@@ -59,7 +59,7 @@
 			<set name = "Rest" BaseSet = "TP">
 				<head>Puppetry Taj</head>
 			</set>
-			<set name = "Town" BaseSet = "TP"/>
+			<set name = "Town" BaseSet = "Idle"/>
 			<set name = "Enmity" BaseSet = "$MeleeSet">
 				<neck>Harmonia's Torque</neck>
 				<lring>Mermaid Ring</lring>
@@ -110,7 +110,7 @@
 	</variables>
 	<rules>
 		<!-- Equip town gears :) -->
-		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TownSettings']/*" />
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='IdleSettings']/*" />
 		<!-- Check to see if we are in a battlefield type thing -->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='BattleArea']/*" />
 		<!-- Timecheck -->
@@ -119,8 +119,6 @@
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
 		<!-- Default melee gears engaged -->
 		<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet" />
-		<!-- Idle gear movement speed, refresh and phys dmg down -->
-		<equip when = "idle" set = "Idle" />
 		<!-- Aftercast rules -->
 		<if NotStatus="engaged">
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
