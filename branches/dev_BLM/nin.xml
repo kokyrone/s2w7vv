@@ -31,12 +31,11 @@
 				<feet>Iga Kyahan +1</feet>
 			</set>
 			<set name = "DayEva|Eva">
-				<ammo>Bomb Core</ammo>
 				<head>Optical Hat</head>
 				<neck>Evasion Torque</neck>
 				<lear>Velocity Earring</lear>
 				<rear>Dodge Earring</rear>
-				<body>Scorpion Harness</body>
+				<body>Aurore Doublet</body>
 				<hands>Seiryu's Kote</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
@@ -46,12 +45,11 @@
 				<feet>Aurore Gaiters</feet>
 			</set>
 			<set name = "NightEva">
-				<ammo>Bomb Core</ammo>
 				<head>Optical Hat</head>
 				<neck>Evasion Torque</neck>
 				<lear>Velocity Earring</lear>
 				<rear>Dodge Earring</rear>
-				<body>Scorpion Harness</body>
+				<body>Aurore Doublet</body>
 				<hands>Seiryu's Kote</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
@@ -155,7 +153,11 @@
 		<group name = "Siege" inherit = "Standard" />
 		<group name = "Assault" inherit = "Standard" />
 		<group name = "Abyssea" inherit = "Standard">
-			<set name = "Eva" BaseSet = "Eva">
+			<set name = "DayEva|Eva">
+				<range>Jr.Msk. Chakram</range>
+				<ammo></ammo>
+			</set>
+			<set name = "NightEva">
 				<range>Jr.Msk. Chakram</range>
 				<ammo></ammo>
 			</set>
