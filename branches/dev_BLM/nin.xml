@@ -31,6 +31,8 @@
 				<feet>Iga Kyahan +1</feet>
 			</set>
 			<set name = "DayEva|Eva">
+				<range lock="yes">Jr.Msk. Chakram</range>
+				<ammo lock="yes"></ammo>
 				<head>Optical Hat</head>
 				<neck>Evasion Torque</neck>
 				<lear>Velocity Earring</lear>
@@ -45,6 +47,8 @@
 				<feet>Aurore Gaiters</feet>
 			</set>
 			<set name = "NightEva">
+				<range lock="yes">Jr.Msk. Chakram</range>
+				<ammo lock="yes"></ammo>
 				<head>Optical Hat</head>
 				<neck>Evasion Torque</neck>
 				<lear>Velocity Earring</lear>
