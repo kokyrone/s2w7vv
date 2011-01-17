@@ -46,21 +46,8 @@
 				<legs>Byakko's Haidate</legs>
 				<feet>Aurore Gaiters</feet>
 			</set>
-			<set name = "NightEva">
-				<range lock="yes">Jr.Msk. Chakram</range>
-				<ammo lock="yes"></ammo>
-				<head>Optical Hat</head>
-				<neck>Evasion Torque</neck>
-				<lear>Velocity Earring</lear>
-				<rear>Dodge Earring</rear>
-				<body>Aurore Doublet</body>
-				<hands>Seiryu's Kote</hands>
-				<lring>Rajas Ring</lring>
-				<rring>Heed Ring</rring>
-				<back />
-				<waist>Survival Belt</waist>
+			<set name = "NightEva" BaseSet = "DayEva">
 				<legs>Koga Hakama</legs>
-				<feet>Aurore Gaiters</feet>
 			</set>
 			<set name = "DayAcc|NightAcc" BaseSet = "TP">
 				<sub />
@@ -156,16 +143,7 @@
 		</group>
 		<group name = "Siege" inherit = "Standard" />
 		<group name = "Assault" inherit = "Standard" />
-		<group name = "Abyssea" inherit = "Standard">
-			<set name = "DayEva|Eva">
-				<range>Jr.Msk. Chakram</range>
-				<ammo></ammo>
-			</set>
-			<set name = "NightEva">
-				<range>Jr.Msk. Chakram</range>
-				<ammo></ammo>
-			</set>
-		</group>
+		<group name = "Abyssea" inherit = "Standard" />
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
