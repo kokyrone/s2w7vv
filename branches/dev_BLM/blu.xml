@@ -6,67 +6,63 @@
 	<sets>
 		<group default = "true" name = "Melee">
 			<set name = "Idle"  BaseSet = "$meleeset">
-				<hands>Seiryu's Kote</hands>
-				<feet>Ninja Kyahan</feet>
+				<head>remove</head>
+				<body>Vermillion Cloak</body>
 			</set>
 			<set name = "TP">
 				<sub/>
 				<head>Empress Hairpin</head>
 				<neck>Peacock Charm</neck>
 				<lear>Spike Earring</lear>
-				<rear>Spike Earring<</rear>
+				<rear>Spike Earring</rear>
 				<body>Scorpion Harness</body>
-				<hands>Magus Bazubands</hands>
-				<lring>Sniper Ring</lring>
+				<hands>Jaridah Bazubands</hands>
+				<lring>Sniper's Ring</lring>
 				<rring>Ecphoria Ring</rring>
 				<back>Amemet Mantle +1</back>
 				<waist>Swift Belt</waist>
 				<legs>Magus Shalwar</legs>
 				<feet>Magus Charuqs</feet>
 			</set>
-			<set name = "WS">
+			<set name = "WS" BaseSet = "$meleeset">
 				<sub/>
 				<head>Empress Hairpin</head>
-				<neck>Peacock Charm</neck>
+				<neck>Chivalrous Chain</neck>
 				<lear>Spike Earring</lear>
-				<rear>Spike Earring<</rear>
+				<rear>Spike Earring</rear>
 				<body>Scorpion Harness</body>
-				<hands>Magus Bazubands</hands>
+				<hands>Jaridah Bazubands</hands>
 				<lring>Victory Ring</lring>
 				<rring>Victory Ring</rring>
 				<back>Amemet Mantle +1</back>
-				<waist>Swift Belt</waist>
+				<waist>Potent Belt</waist>
 				<legs>Magus Shalwar</legs>
 				<feet>Magus Charuqs</feet>
 			</set>
-			<set name = "PhyBlue">
-				<head>Optical Hat</head>
-				<neck>Evasion Torque</neck>
-				<lear>Velocity Earring</lear>
-				<rear>Dodge Earring</rear>
+			<set name = "PhyBlu" BaseSet = "$meleeset">
+				<head>Empress Hairpin</head>
+				<neck>Chivalrous Chain</neck>
+				<lear>Spike Earring</lear>
+				<rear>Spike Earring</rear>
 				<body>Magus Jubbah</body>
 				<hands>Pallas's Bracelets</hands>
 				<lring>Victory Ring</lring>
 				<rring>Victory Ring</rring>
 				<waist>Potent Belt</waist>
-				<legs></legs>
-				<feet></feet>
 			</set>
-			<set name = "MagicBlue" BaseSet = "$meleeset">
-				<neck>Harmonia's Torque</neck>
-				<rear>Eris' Earring</rear>
-				<waist>Warwolf Belt</waist>
+			<set name = "MagicBlu" BaseSet = "$meleeset">
+				<head>Magus Keffiyeh</head>
 			</set>
 		</group>
 	</sets>
-
+	
 	<variables>
 		<!-- Engaged Melee Gear -->
 		<var name="meleeset">TP</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
 		<var name="DayOrNight">Day</var>
 	</variables>
-
+	
 	<rules>
 		<action type="equip" when="idle" set="Idle" />
 		<action type="equip" when="engaged" set="$meleeset" />
@@ -78,41 +74,53 @@
 			<action type="var" cmd="set DayOrNight Day" />
 		</else>
 		<!-- END Timecheck -->
-		<rule Spell = "Head Butt">
-			<action type = "Equip" when = "Before" set = "PhyBlue"/>
-			<action type = "Equip" when = "After" Delay = "8" set = "$meleeset"/>
-		</rule>
-		<rule Spell = "Cocoon">
-			<action type = "Equip" when = "Before" set = "PhyBlue"/>
-			<action type = "Equip" when = "After" Delay = "8" set = "$meleeset"/>
-		</rule>
-		<rule Spell = "Provoke|Animated Flourish|Warcry">
-			<action type = "Equip" when = "Before" set = "Enmity"/>
-			<action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
-		</rule>
-		<rule Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*">
-			<action type = "Equip" when = "Before" set = "Ninjutsu"/>
-			<action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
-		</rule>
-		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin -->
-		<if Spell="Monomi: Ichi" BuffActive="Sneak" SpellTargetType="Self">
-			<action type="command" when="midcast">cancel 71</action>
-			<action type="midcastdelay" delay="3.0" />
+		<!-- Rule: Blue Magic -->
+		<if skill="BlueMagic">
+			<action type="equip" when="AfterCast" set="$meleeset" />
+	<!-- Rule: Primary STR > Secondary DEX > Tertiary Acc -->
+			<if spell="Foot Kick|Power Attack|Bludgeon|Claw Cyclone|Screwdriver|Grand Slam|Smite of Rage|Jet Stream|Uppercut|Mandibular Bite|Death Schissors|Dimensional Death|Spiral Spin|Body Slam|Spinal Cleave|Frenetic Rip|Hydro Shot|Disseverment|Ram Charge|Vertical Cleave">
+				<action type="equip" set="PhyBlu" />
+			</if>
+	<!-- Rule: Primary Acc -->
+			<elseif spell="Sprout Smack|Wild Oats|Queasyshroom|Battle Dance|Head Butt|Feather Storm|Helldive|Pinecone Bomb|Terror Touch|Frypan|Tail Slap|Asuran Claws">
+				<action type="equip" set="PhyBlu" />
+			</elseif>
+	<!-- Rule: Cannonball -->
+			<elseif spell="Cannonball">
+				<action type="equip" set="PhyBlu" />
+			</elseif>
+	<!-- Rule: Primary DEX > Secondary Acc-->
+			<elseif spell="Sickle Slash|Seedspray|Hysteric Barrage">
+				<action type="equip" set="PhyBlu" />
+			</elseif>
+	<!-- Rule: Magic Stats (MND/INT/CHA) -->
+			<elseif spell="Sandspin|Cursed Sphere|Blastbomb|Bomb Toss|Death Ray|Blitzstrahl|Ice Break|Maelstrom|Firespit|Mysterious Light|Eyes On Me|Pollen|Healing Breeze|Magic Fruit|Corrosive Ooze|Regurgitation|Mind Blast|Magic Hammer">
+				<action type="equip" set="MagicBlu" />
+			</elseif>
+	<!-- Rule: Primary Skill > Secondary Magic Accuracy Macc -->
+			<elseif spell="Sheep Song|Blood Drain|Soporific|Sound Blast|Chaotic Eye|Digest|Blank Gaze|Venom Shell|MP Drainkiss|Stinking Gas|Magnetite Cloud|Geist Wall|Awful Eye|Blood Saber|Jettatura|Frightful Roar|Self-Destruct|Filamented Hold|Cold Wave|Hecatomb Wave|Radiant Breath|Flying Hip Press|Light of Penance|1000 Needles|Feather Tickle|Yawn|Voracious Trunk|Infrasonics|Sandspray|Enervation|Lowing|Temporal Shift|Actinic Burst|">
+				<action type="equip" set="MagicBlu">
+					<body>Magus Jubbah</body>
+				</action>
+			</elseif>
+	<!-- Rule: Primary Skill -->
+			<elseif spell="Metallic Body|Diamondhide">
+				<action type="equip">
+					<body>Magus Jubbah</body>
+				</action>
+			</elseif>	
+	<!-- Rule: Breath -->
+			<elseif spell="Poison Breath|Bad Breath|Frost Breath|Heat Breath|">
+				<action type="equip" set="Breath" />
+			</elseif>
+	<!-- Rule: None -->
+			<else spell="Cocoon|Wild Carrot|Refuling|Feather Barrier|Momento Mori|Zephyr Mantle|Enervation|Warm-Up|Amplification|Saline Coat|Reactor Cool|Plasma Charge|Exuviation">
+			</else>	
 		</if>
-		<if spell="Utsusemi*">
-			<action type = "Equip" when = "Before" set = "Haste"/>
-			<if HPPLT="76" TPLT="100">
-				<action type="Equip" when = "Before"><rring>Shinobi ring</rring></action>
-			</if>
-			<if spell="Utsusemi: Ichi" BuffActive="Copy Image">
-				<action type="midcastdelay" delay="3.0" />
-				<action type="Command" when="midcast">cancel 66</action>
-			</if>
-			<if Status="engaged">
-				<action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
-			</if>
-			<else>
-				<action type = "Equip" when = "After" Delay = "2" set = "Idle"/>
-			</else>
+		<if type="WeaponSkill">
+			<equip when = "Before" set = "Weaponskill" />
+			<equip when = "After" Delay = "3" set = "$meleeset" />
+		</if>
+
 	</rules>
 </spellcast>
