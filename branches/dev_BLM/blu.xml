@@ -1,76 +1,76 @@
 <?xml version="1.0" ?>
 <spellcast>
-    <config
-        RestingSet = "Rest"
-        NormalSet = "Idle"/>
-    <sets>
-        <group default = "true" name = "Melee">
-        	<set name = "Idle"  BaseSet = "$meleeset">
-        		<hands>Seiryu's Kote</hands>
-        		<feet>Ninja Kyahan</feet>
-        	</set>
-            <set name = "TP">
-                <sub/>
-                <head>Empress Hairpin</head>
-                <neck>Peacock Charm</neck>
-                <lear>Spike Earring</lear>
-                <rear>Spike Earring<</rear>
-                <body>Scorpion Harness</body>
-                <hands>Magus Bazubands</hands>
-                <lring>Sniper Ring</lring>
-                <rring>Ecphoria Ring</rring>
-                <back>Amemet Mantle +1</back>
-                <waist>Swift Belt</waist>
-                <legs>Magus Shalwar</legs>
-                <feet>Magus Charuqs</feet>
-            </set>
-            <set name = "WS">
-                <sub/>
-                <head>Empress Hairpin</head>
-                <neck>Peacock Charm</neck>
-                <lear>Spike Earring</lear>
-                <rear>Spike Earring<</rear>
-                <body>Scorpion Harness</body>
-                <hands>Magus Bazubands</hands>
-                <lring>Victory Ring</lring>
-                <rring>Victory Ring</rring>
-                <back>Amemet Mantle +1</back>
-                <waist>Swift Belt</waist>
-                <legs>Magus Shalwar</legs>
-                <feet>Magus Charuqs</feet>
-            </set>
-            <set name = "PhyBlue">
-                <head>Optical Hat</head>
-                <neck>Evasion Torque</neck>
-                <lear>Velocity Earring</lear>
-                <rear>Dodge Earring</rear>
-                <body>Magus Jubbah</body>
-                <hands>Pallas's Bracelets</hands>
-                <lring>Victory Ring</lring>
-                <rring>Victory Ring</rring>
-                <waist>Potent Belt</waist>
-                <legs></legs>
-                <feet></feet>
-            </set>
-            <set name = "MagicBlue" BaseSet = "$meleeset">
-                <neck>Harmonia's Torque</neck>
-                <rear>Eris' Earring</rear>
-                <waist>Warwolf Belt</waist>
-            </set>
-        </group>
-    </sets>
-    
-    <variables>
-    	<!-- Engaged Melee Gear -->
-    	<var name="meleeset">TP</var>
-    	<!-- Init with day set will update after first cast/ja etc.-->
-    	<var name="DayOrNight">Day</var>
+	<config
+		RestingSet = "Rest"
+		NormalSet = "Idle"/>
+	<sets>
+		<group default = "true" name = "Melee">
+			<set name = "Idle"  BaseSet = "$meleeset">
+				<hands>Seiryu's Kote</hands>
+				<feet>Ninja Kyahan</feet>
+			</set>
+			<set name = "TP">
+				<sub/>
+				<head>Empress Hairpin</head>
+				<neck>Peacock Charm</neck>
+				<lear>Spike Earring</lear>
+				<rear>Spike Earring<</rear>
+				<body>Scorpion Harness</body>
+				<hands>Magus Bazubands</hands>
+				<lring>Sniper Ring</lring>
+				<rring>Ecphoria Ring</rring>
+				<back>Amemet Mantle +1</back>
+				<waist>Swift Belt</waist>
+				<legs>Magus Shalwar</legs>
+				<feet>Magus Charuqs</feet>
+			</set>
+			<set name = "WS">
+				<sub/>
+				<head>Empress Hairpin</head>
+				<neck>Peacock Charm</neck>
+				<lear>Spike Earring</lear>
+				<rear>Spike Earring<</rear>
+				<body>Scorpion Harness</body>
+				<hands>Magus Bazubands</hands>
+				<lring>Victory Ring</lring>
+				<rring>Victory Ring</rring>
+				<back>Amemet Mantle +1</back>
+				<waist>Swift Belt</waist>
+				<legs>Magus Shalwar</legs>
+				<feet>Magus Charuqs</feet>
+			</set>
+			<set name = "PhyBlue">
+				<head>Optical Hat</head>
+				<neck>Evasion Torque</neck>
+				<lear>Velocity Earring</lear>
+				<rear>Dodge Earring</rear>
+				<body>Magus Jubbah</body>
+				<hands>Pallas's Bracelets</hands>
+				<lring>Victory Ring</lring>
+				<rring>Victory Ring</rring>
+				<waist>Potent Belt</waist>
+				<legs></legs>
+				<feet></feet>
+			</set>
+			<set name = "MagicBlue" BaseSet = "$meleeset">
+				<neck>Harmonia's Torque</neck>
+				<rear>Eris' Earring</rear>
+				<waist>Warwolf Belt</waist>
+			</set>
+		</group>
+	</sets>
+
+	<variables>
+		<!-- Engaged Melee Gear -->
+		<var name="meleeset">TP</var>
+		<!-- Init with day set will update after first cast/ja etc.-->
+		<var name="DayOrNight">Day</var>
 	</variables>
-    
-    <rules>
+
+	<rules>
 		<action type="equip" when="idle" set="Idle" />
 		<action type="equip" when="engaged" set="$meleeset" />
-    	<!-- BEGIN Timecheck-->
+		<!-- BEGIN Timecheck-->
 		<if mode="OR" TimeLT="6.00" TimeGT="17.59">
 			<action type="var" cmd="set DayOrNight Night" />
 		</if>
@@ -78,23 +78,23 @@
 			<action type="var" cmd="set DayOrNight Day" />
 		</else>
 		<!-- END Timecheck -->
-        <rule Spell = "Head Butt">
-            <action type = "Equip" when = "Before" set = "PhyBlue"/>
-            <action type = "Equip" when = "After" Delay = "8" set = "$meleeset"/>
-        </rule>
-        <rule Spell = "Cocoon">
-            <action type = "Equip" when = "Before" set = "PhyBlue"/>
-            <action type = "Equip" when = "After" Delay = "8" set = "$meleeset"/>
-        </rule>
-        <rule Spell = "Provoke|Animated Flourish|Warcry">
-            <action type = "Equip" when = "Before" set = "Enmity"/>
-            <action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
-        </rule>
-        <rule Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*">
-            <action type = "Equip" when = "Before" set = "Ninjutsu"/>
-            <action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
-        </rule>
-        <!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin -->
+		<rule Spell = "Head Butt">
+			<action type = "Equip" when = "Before" set = "PhyBlue"/>
+			<action type = "Equip" when = "After" Delay = "8" set = "$meleeset"/>
+		</rule>
+		<rule Spell = "Cocoon">
+			<action type = "Equip" when = "Before" set = "PhyBlue"/>
+			<action type = "Equip" when = "After" Delay = "8" set = "$meleeset"/>
+		</rule>
+		<rule Spell = "Provoke|Animated Flourish|Warcry">
+			<action type = "Equip" when = "Before" set = "Enmity"/>
+			<action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
+		</rule>
+		<rule Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*">
+			<action type = "Equip" when = "Before" set = "Ninjutsu"/>
+			<action type = "Equip" when = "After" Delay = "2" set = "$meleeset"/>
+		</rule>
+		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin -->
 		<if Spell="Monomi: Ichi" BuffActive="Sneak" SpellTargetType="Self">
 			<action type="command" when="midcast">cancel 71</action>
 			<action type="midcastdelay" delay="3.0" />
@@ -114,5 +114,5 @@
 			<else>
 				<action type = "Equip" when = "After" Delay = "2" set = "Idle"/>
 			</else>
-    </rules>
+	</rules>
 </spellcast>
