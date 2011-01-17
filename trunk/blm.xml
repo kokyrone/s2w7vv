@@ -67,7 +67,7 @@
 				<sub>Elementa Grip</sub>
 				<!--<range></range>-->
 				<ammo>Phantom Tathlum</ammo>
-				<head>Teal Chapeau</head>
+				<head>Goetia Petasos +1</head>
 				<!--<neck>Goetia Chain</neck>-->
 				<!--<lear></lear>-->
 				<rear>Phantom Earring</rear>
@@ -85,6 +85,7 @@
 			<set name = "MND" BaseSet = "INT">
 				<!--<main lock = "yes">$WaterStaff</main>-->
 				<!--<sub>Raptor Strap +1</sub>-->
+				<head>Teal Chapeau</head>
 				<neck>Promise Badge</neck>
 				<lring>Sapphire Ring</lring>
 				<rring>Sapphire Ring</rring>
@@ -123,7 +124,6 @@
 				<back>Felicitas Cape</back>
 				<waist>Austerity Belt</waist>
 				<legs>Sagacity Lappas</legs>
-				<!--<feet>Goliard Clogs</feet>-->
 			</set>
 			<set name = "ConserveMP" BaseSet = "MAB">
 				<ammo>Clarus Stone</ammo>
@@ -131,16 +131,16 @@
 				<feet>Sorcerer's Sabots</feet>
 			</set>
 			<set name = "HighResist" BaseSet = "INT">
-				<head>Sorcerer's Petas.</head>
+				<head>Goetia Petasos +1</head>
 				<neck>Elemental Torque</neck>
 				<body>Sorcerer's Coat</body>
 				<hands>Wizard's Gloves</hands>
 			</set>
 			<set name = "MidResist" BaseSet = "INT">
-				<head>Sorcerer's Petas.</head>
+				<head>Goetia Petasos +1</head>
 			</set>
 			<set name = "LightResist" BaseSet = "INT">
-				<head>Sorcerer's Petas.</head>
+				<head>Goetia Petasos +1</head>
 			</set>
 			<set name = "DarkMagic" BaseSet = "INT">
 				<hands>Sorcerer's Gloves</hands>
