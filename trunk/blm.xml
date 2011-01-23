@@ -73,7 +73,7 @@
 				<body>Errant Hpl.</body>
 				<hands>Goetia Gloves</hands>
 				<!--<hands>Errant Cuffs</hands>-->
-				<lring>Snow Ring</lring>
+				<lring>Diamond Ring</lring>
 				<rring>Spiral Ring</rring>
 				<!--<back>Rainbow Cape</back>-->
 				<waist>Penitent's Rope</waist>
@@ -295,13 +295,23 @@
 									<equip when = "midcast" Set = "MAB" />
 								</else>
 								<!-- only equip pendant in situations you would equip full damage gear -->
-								<if MLvlGT = "69">
-									<if MPPAfterCastLT = "50" Advanced = "$UggPendant==1">
+								<if MPPAfterCastLT = "50" advanced = "$UggPendant==1">
+									<if advanced = '$MoonPhase &gt; 4'>
 										<equip when = "midcast">
-											<neck lock = "yes">Uggalepih Pendant</neck>
+											<neck lock = "yes">Artemis' Medal</neck>
 										</equip>
 									</if>
+								<else>
+									<equip when = "midcast">
+										<neck lock = "yes">Uggalepih Pendant</neck>
+									</equip>
+								</else>
 								</if>
+								<elseif advanced = '$MoonPhase &gt; 2'>
+										<equip when = "midcast">
+												<neck lock = "yes">Artemis' Medal</neck>
+										</equip>
+								</elseif>
 							</else>
 							<!-- Equip Sorc Ring if mid or low resist mob.-->
 							<if advanced='"$Ring" == "1"'>
