@@ -15,7 +15,7 @@
 				<var cmd="set MoonPhase 2" />
 			</else>
 		</elseif>
-		<elseif advanced = '"%MOON" == "First Quarter*"'>
+		<elseif advanced = '"%MOON" == "First Quarter Moon"'>
 			<var cmd="set MoonPhase 3" />
 		</elseif>
 		<elseif advanced = '"%MOON" == "Waxing Gibbous"'>
@@ -42,11 +42,11 @@
 				<var cmd="set MoonPhase 4" />
 			</else>
 		</elseif>
-		<elseif advanced = '"%MOON" == "Last Quarter*"'>
+		<elseif advanced = '"%MOON" == "Last Quarter Moon"'>
 			<!-- Actually Phase 9 in Full Cycle -->
 			<var cmd="set MoonPhase 3" />
 		</elseif>
-		<else advanced = '"%MOON" == "*Waning Crescent"'>
+		<else advanced = '"%MOON" == "Waning Crescent"'>
 			<!-- If %MOONPCT > 26% we know it's Early, rather than Late -->
 			<if advanced = "%MOONPCT &gt; 26">
 				<!-- Actually Phase 10 in Full Cycle -->
