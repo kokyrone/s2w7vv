@@ -1,84 +1,99 @@
 <?xml version="1.0" ?>
 <spellcast>
 	<config
-		RestingSet = "Rest"
-		NormalSet = "Idle"/>
+		RestingSet="Rest"
+		NormalSet = "Idle"
+		ShowGearSwaps="false"
+		Debug="True"/>
 	<sets>
-		<group default = "true" name = "Melee">
+		<group default = "true" name = "Standard">
 			<set name = "Idle"  BaseSet = "$meleeset">
 				<head>remove</head>
+				<hands>Magus Bazubands</hands>
 				<body>Vermillion Cloak</body>
 			</set>
 			<set name = "TP">
 				<sub/>
-				<head>Empress Hairpin</head>
-				<neck>Peacock Charm</neck>
-				<lear>Spike Earring</lear>
-				<rear>Spike Earring</rear>
-				<body>Scorpion Harness</body>
-				<hands>Jaridah Bazubands</hands>
-				<lring>Sniper's Ring</lring>
-				<rring>Ecphoria Ring</rring>
-				<back>Amemet Mantle +1</back>
-				<waist>Swift Belt</waist>
-				<legs>Magus Shalwar</legs>
-				<feet>Magus Charuqs</feet>
-			</set>
-			<set name = "WS" BaseSet = "$meleeset">
-				<sub/>
-				<head>Empress Hairpin</head>
+				<head>Aurore Beret</head>
 				<neck>Chivalrous Chain</neck>
 				<lear>Spike Earring</lear>
 				<rear>Spike Earring</rear>
-				<body>Scorpion Harness</body>
-				<hands>Jaridah Bazubands</hands>
-				<lring>Victory Ring</lring>
-				<rring>Victory Ring</rring>
+				<body>Aurore Doublet</body>
+				<hands>Dusk Gloves</hands>
+				<lring>Keen Ring</lring>
+				<rring>Ecphoria Ring</rring>
 				<back>Amemet Mantle +1</back>
+				<waist>Swift Belt</waist>
+				<legs>Aurore Brais</legs>
+				<feet>Aurore Gaiters</feet>
+			</set>
+			<set name = "WS" BaseSet = "$meleeset">
+				<sub/>
+				<head>Aurore Beret</head>
+				<neck>Chivalrous Chain</neck>
+				<lear>Spike Earring</lear>
+				<rear>Spike Earring</rear>
+				<body>Aurore Doublet</body>
+				<hands>Aurore Gloves</hands>
+				<lring>Ruby Ring</lring>
+				<rring>Victory Ring</rring>
+				<back>Vigilance Mantle</back>
 				<waist>Potent Belt</waist>
-				<legs>Magus Shalwar</legs>
-				<feet>Magus Charuqs</feet>
+				<legs>Aurore Brais</legs>
+				<feet>Aurore Gaiters</feet>
 			</set>
 			<set name = "PhyBlu" BaseSet = "$meleeset">
-				<head>Empress Hairpin</head>
+				<head>Aurore Beret</head>
 				<neck>Chivalrous Chain</neck>
 				<lear>Spike Earring</lear>
 				<rear>Spike Earring</rear>
 				<body>Magus Jubbah</body>
-				<hands>Pallas's Bracelets</hands>
-				<lring>Victory Ring</lring>
+				<hands>Aurore Gloves</hands>
+				<lring>Ruby Ring</lring>
 				<rring>Victory Ring</rring>
+				<back>Vigilance Mantle</back>
 				<waist>Potent Belt</waist>
+				<legs>Aurore Brais</legs>
+				<feet>Aurore Gaiters</feet>
 			</set>
 			<set name = "MagicBlu" BaseSet = "$meleeset">
 				<head>Magus Keffiyeh</head>
 			</set>
+			<set name = "Rest">
+			</set>
 		</group>
 	</sets>
-	
 	<variables>
 		<!-- Engaged Melee Gear -->
 		<var name="meleeset">TP</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
 		<var name="DayOrNight">Day</var>
 	</variables>
-	
 	<rules>
-		<action type="equip" when="idle" set="Idle" />
-		<action type="equip" when="engaged" set="$meleeset" />
-		<!-- BEGIN Timecheck-->
-		<if mode="OR" TimeLT="6.00" TimeGT="17.59">
-			<action type="var" cmd="set DayOrNight Night" />
+		<!-- Check there's nothing stopping us acting -->
+		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ReturnRules']/*" />
+		<!-- Equip town gears :) -->
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='IdleSettings']/*" />
+		<!-- Check to see if we are in a battlefield type thing -->
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='BattleArea']/*" />
+		<!-- Timecheck -->
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TimeCheck']/*" />
+		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
+		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
+		<!-- Default melee gears engaged -->
+		<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet" />
+		<!-- Aftercast rules -->
+		<if NotStatus="engaged">
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
 		</if>
 		<else>
-			<action type="var" cmd="set DayOrNight Day" />
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet" />
 		</else>
-		<!-- END Timecheck -->
 		<!-- Rule: Blue Magic -->
 		<if skill="BlueMagic">
 			<action type="equip" when="AfterCast" set="$meleeset" />
 	<!-- Rule: Primary STR > Secondary DEX > Tertiary Acc -->
-			<if spell="Foot Kick|Power Attack|Bludgeon|Claw Cyclone|Screwdriver|Grand Slam|Smite of Rage|Jet Stream|Uppercut|Mandibular Bite|Death Schissors|Dimensional Death|Spiral Spin|Body Slam|Spinal Cleave|Frenetic Rip|Hydro Shot|Disseverment|Ram Charge|Vertical Cleave">
+			<if spell="Foot Kick|Power Attack|Bludgeon|Claw Cyclone|Screwdriver|Grand Slam|Smite of Rage|Jet Stream|Uppercut|Mandibular Bite|Death Schissors|Dimensional Death|Spiral Spin|Body Slam|Spinal Cleave|Frenetic Rip|Hydro Shot|Disseverment|Ram Charge|Vertical Cleave|Goblin Rush|Quad. Continuum">
 				<action type="equip" set="PhyBlu" />
 			</if>
 	<!-- Rule: Primary Acc -->
@@ -108,19 +123,18 @@
 				<action type="equip">
 					<body>Magus Jubbah</body>
 				</action>
-			</elseif>	
+			</elseif>
 	<!-- Rule: Breath -->
 			<elseif spell="Poison Breath|Bad Breath|Frost Breath|Heat Breath|">
 				<action type="equip" set="Breath" />
 			</elseif>
 	<!-- Rule: None -->
 			<else spell="Cocoon|Wild Carrot|Refuling|Feather Barrier|Momento Mori|Zephyr Mantle|Enervation|Warm-Up|Amplification|Saline Coat|Reactor Cool|Plasma Charge|Exuviation">
-			</else>	
+			</else>
 		</if>
 		<if type="WeaponSkill">
 			<equip when = "Before" set = "Weaponskill" />
-			<equip when = "After" Delay = "3" set = "$meleeset" />
+			<aftercastdelay delay = "3" />
 		</if>
-
 	</rules>
 </spellcast>
