@@ -91,7 +91,6 @@
 		</else>
 		<!-- Rule: Blue Magic -->
 		<if skill="BlueMagic">
-			<action type="equip" when="AfterCast" set="$meleeset" />
 	<!-- Rule: Primary STR > Secondary DEX > Tertiary Acc -->
 			<if spell="Foot Kick|Power Attack|Bludgeon|Claw Cyclone|Screwdriver|Grand Slam|Smite of Rage|Jet Stream|Uppercut|Mandibular Bite|Death Schissors|Dimensional Death|Spiral Spin|Body Slam|Spinal Cleave|Frenetic Rip|Hydro Shot|Disseverment|Ram Charge|Vertical Cleave|Goblin Rush|Quad. Continuum">
 				<action type="equip" set="PhyBlu" />
@@ -133,7 +132,7 @@
 			</else>
 		</if>
 		<if type="WeaponSkill">
-			<equip when = "Before" set = "Weaponskill" />
+			<equip when = "Before" set = "WS" />
 			<aftercastdelay delay = "3" />
 		</if>
 	</rules>
