@@ -26,7 +26,7 @@
 		<!-- Elemental Staffs, input what staff to use for each element here -->
 		<var name = "IceStaff">Aquilo's Staff</var>
 		<var name = "DarkStaff">Pluto's Staff</var>
-		<var name = "ThunderStaff">Teiwaz</var>
+		<var name = "ThunderStaff">Indra's Staff</var>
 		<var name = "WindStaff">Wind Staff</var>
 		<var name = "FireStaff">Fire Staff</var>
 		<var name = "EarthStaff">Earth Staff</var>
@@ -53,7 +53,7 @@
 		<var name="BattleArea">Standard</var>
 		<!--Magian Stuff-->
 		<var name="MagianWeapon">Teiwaz</var>
-		<var name="MagianHP">50</var>
+		<var name="MagianHP">0</var>
 	</variables>
 	<sets>
 		<group default = "true" name = "Standard" >
