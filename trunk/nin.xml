@@ -17,7 +17,7 @@
 			<set name = "DayTP|NightTP|TP">
 				<sub />
 				<ammo>Bomb Core</ammo>
-				<head>Walahra Turban</head>
+				<head>Iga Zukin +1</head>
 				<neck>Peacock Charm</neck>
 				<lear>Suppanomimi</lear>
 				<rear>Brutal Earring</rear>
@@ -44,7 +44,7 @@
 				<back />
 				<waist>Survival Belt</waist>
 				<legs>Byakko's Haidate</legs>
-				<feet>Aurore Gaiters</feet>
+				<feet>Ballerines</feet>
 			</set>
 			<set name = "NightEva" BaseSet = "DayEva">
 				<legs>Koga Hakama</legs>
@@ -101,7 +101,7 @@
 				<head>Panther Mask</head>
 			</set>
 			<set name = "Haste" BaseSet = "$DayOrNight$MeleeSet">
-				<head lock="yes">Walahra Turban</head>
+				<head lock="yes">Iga Zukin +1</head>
 				<hands lock="yes">Dusk Gloves</hands>
 				<waist lock="yes">Swift Belt</waist>
 				<legs lock="yes">Byakko's Haidate</legs>
