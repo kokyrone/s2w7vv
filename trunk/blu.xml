@@ -3,6 +3,7 @@
 	<config
 		RestingSet="Rest"
 		NormalSet = "Idle"
+		EngagedSet="$MeleeSet"
 		ShowGearSwaps="false"
 		Debug="True"/>
 	<sets>
