@@ -56,21 +56,13 @@
 				<body>Haubergeon</body>
 				<waist>Life Belt</waist>
 			</set>
-			<set name = "*Tnk" BaseSet = "TP">
-				<sub />
-				<ammo>Bomb Core</ammo>
-				<head>Walahra Turban</head>
-				<neck>Peacock Charm</neck>
-				<lear>Suppanomimi</lear>
-				<rear>Brutal Earring</rear>
-				<body>Scorpion Harness</body>
-				<hands>Dusk Gloves</hands>
-				<lring>Rajas Ring</lring>
-				<rring>Ecphoria Ring</rring>
-				<back>Amemet Mantle +1</back>
-				<waist>Swift Belt</waist>
-				<legs>Byakko's Haidate</legs>
-				<feet>Iga Kyahan +1</feet>
+			<set name = "DayTank|Tank" BaseSet = "TP">
+				<body>Aurore Doublet</body>
+				<rring>Heed Ring</rring>
+				<feet>Ballerines</feet>
+			</set>
+			<set name = "NightTank" BaseSet = "Tank">
+				<legs>Koga Hakama</legs>
 			</set>
 			<set name = "Enmity" BaseSet = "$DayOrNight$MeleeSet">
 				<ammo>Nokizaru Shuriken</ammo>
