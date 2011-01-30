@@ -41,10 +41,6 @@
 		<var name = "WindObi">0</var>
 		<var name = "WaterObi">0</var>
 		<var name = "EarthObi">0</var>
-		<!-- Resist Mob Variables -->
-		<var name = "HighResist">Tiamat|Genbu|Suzaku|Seiryu|Byakko|Kirin|Jormungand|Vrtra|Cerberus|Khimaira|Tyger|Jailer of Love|Sarameya|Proto-Ultima|Kindred*|Vanguard*|Overking Appkallu|Kampe</var>
-		<var name = "MidResist">Peapuck|Fafnir|Nidhogg|Aspidochelone|King Behemoth|Tinnin|Ouryu|Kaiser Behemoth</var>
-		<var name = "LightResist">Lambton Worm|Sandworm|Guivre|King Arthro|Serket</var>
 		<!-- Nation control check for MC Bracelets, macro //sc var set NCCheck 1 for true //sc var set NCCheck 0 for false -->
 		<var name = "NCCheck">0</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
@@ -52,8 +48,10 @@
 		<var name="DayOrNight">Day</var>
 		<var name="BattleArea">Standard</var>
 		<!--Magian Stuff-->
-		<var name="MagianWeapon">Teiwaz</var>
+		<var name="MagianWeapon">Indra's Staff</var>
 		<var name="MagianHP">0</var>
+		<!-- Nuking Gear - macros in-game to switch between MAB, and ) -->
+		<var name="NukeSet">MAB</var>
 	</variables>
 	<sets>
 		<group default = "true" name = "Standard" >
@@ -123,6 +121,7 @@
 				<back>Felicitas Cape</back>
 				<waist>Austerity Belt</waist>
 				<legs>Sagacity Lappas</legs>
+				<!--<feet>Goliard Clogs</feet>-->
 			</set>
 			<set name = "ConserveMP" BaseSet = "MAB">
 				<ammo>Clarus Stone</ammo>
@@ -244,8 +243,8 @@
 		<else>
 			<!-- equip fast cast gear -->
 			<equip when = "precast" Set = "FastCast" />
-			<!-- Elemental Grip checks. Are we casting an enfeeble, or are we casting on a resistant mob? -->
-			<if mode = "OR" NotSkill = "ElementalMagic" Spell = "Frost|Drown|Rasp|Burn|Shock|Choke" SpellTargetName = "$HighResist|$MidResist">
+			<!-- Elemental Grip checks. Are we casting non-elemental magic or are we casting on a resistant mob? -->
+			<if mode = "OR" NotSkill = "ElementalMagic" Advanced='"$NukeSet" != "MAB"'>
 				<if Advanced='"$%SpellElementGrip" == "1"'>
 					<equip when = "midcast">
 						<sub lock = "true">%SpellElement Grip</sub>
@@ -254,7 +253,7 @@
 			</if>
 			<!-- if were handling spells -->
 			<if Skill = "*Magic">
-				<!-- if this is elemental magic (nukes/dot's, then do special handling -->
+				<!-- if this is elemental magic then do special handling -->
 				<if Skill = "ElementalMagic">
 					<if Spell = "Frost|Drown|Rasp|Burn|Shock|Choke">
 						<!-- equip elemental/INT gear for DoT's -->
@@ -266,57 +265,59 @@
 					</elseif>
 					<else>
 						<action type = "MidcastDelay" Delay = "2.0" />
-						<!-- this is an actual nuke. Check target to be a known high resist mob (and that ES is not active) -->
-						<if SpellTargetName = "$HighResist" NotBuffActive = "Elemental Seal">
-							<equip when = "midcast" Set = "HighResist" />
+						<!-- check $NukeGear and if ES is up -->
+						<if Advanced='"$NukeSet" == "HighResist"' NotBuffActive = "Elemental Seal">
+							<equip when = "midcast" Set = "$NukeSet" />
 						</if>
 						<else>
-							<!-- check for Sorc Ring if mid or low resist mob. An equip HP down if needed-->
+							<!-- check for Sorc Ring and equip HP down to activate latent if needed-->
 							<if advanced='$Ring == 1'>
 								<if HPPGT = "74">
 									<equip set = "MinusHP" />
 								</if>
 							</if>
-							<!-- if mob is not high resist, is it a mid resist mob? -->
-							<if SpellTargetName = "$MidResist" NotBuffActive = "Elemental Seal">
-								<equip when = "midcast" Set = "MidResist" />
-							</if>
-							<else>
-								<!-- Normal mob, go full damage gear. -->
-								<if mode = "or" Area = "Dynamis *|Hazhalm*" SpellTargetName = "$LightResist">
-									<if NotBuffActive = "Elemental Seal">
-										<equip when = "midcast" Set = "LightResist" />
-									</if>
-									<else>
-										<equip when = "midcast" Set = "MAB" />
-									</else>
+							<!-- Regardless of $NukeSet - if ES is up use MAB and all the trimmings -->
+							<if Advanced='"$NukeSet" != "MAB"'>
+								<if BuffActive = "Elemental Seal">
+									<equip when = "midcast" Set = "MAB" />
 								</if>
 								<else>
-									<equip when = "midcast" Set = "MAB" />
+									<equip when = "midcast" Set = "$NukeSet" />
 								</else>
-								<!-- only equip pendant in situations you would equip full damage gear -->
-								<if MPPAfterCastLT = "50" advanced = "$UggPendant==1">
-									<if advanced = '$MoonPhase &gt; 4'>
-										<equip when = "midcast">
-											<neck lock = "yes">Artemis' Medal</neck>
-										</equip>
-									</if>
+							</if>
+							<else>
+								<equip when = "midcast" Set = "MAB" />
+							</else>
+							<!-- only equip pendant in situations you would equip full damage gear -->
+							<if MPPAfterCastLT = "50" advanced = "$UggPendant==1">
+								<if advanced = '$MoonPhase &gt; 4'>
+									<equip when = "midcast">
+										<neck lock = "yes">Artemis' Medal</neck>
+									</equip>
+								</if>
 								<else>
 									<equip when = "midcast">
 										<neck lock = "yes">Uggalepih Pendant</neck>
 									</equip>
 								</else>
-								</if>
-								<elseif advanced = '$MoonPhase &gt; 2'>
-										<equip when = "midcast">
-												<neck lock = "yes">Artemis' Medal</neck>
-										</equip>
-								</elseif>
-							</else>
-							<!-- Equip Sorc Ring if mid or low resist mob.-->
+							</if>
+							<elseif advanced = '$MoonPhase &gt; 2'>
+									<equip when = "midcast">
+											<neck lock = "yes">Artemis' Medal</neck>
+									</equip>
+							</elseif>
+							<!-- Equip Sorc Ring -->
 							<if advanced='"$Ring" == "1"'>
 								<equip when = "midcast">
 									<lring lock = "yes">Sorcerer's Ring</lring>
+								</equip>
+							</if>
+							<!-- Handle Elemental Obi's -->
+							<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ObiRules']/*" />
+							<!-- Handle AFv2 Pants, but do not equip pants if we already have Weather x2 and day bonuses from obi, as obi alone hits the 35% damage cap. -->
+							<if Advanced='(!((bool)strmatch("* x2","%Weather") AND "%WeatherElement" = "%SpellElement" AND "$%SpellElementObi" = "1") OR !("%WeatherElement" = "%spellElement")) AND ("%SpellElement" = "%DayElement" AND "$BLMAF2Pants" = "1")'>
+								<equip when = "midcast">
+									<legs lock = "yes">Sorcerer's Tonban</legs>
 								</equip>
 							</if>
 						</else>
@@ -346,21 +347,27 @@
 						<equip type = "equip" when = "midcast" set = "%skill" />
 					</else>
 				</elseif>
+				<elseif Skill = "HealingMagic">
+					<equip type = "equip" when = "midcast" set = "%skill" />
+					<if Spell="Cure IV" MPLT="88">
+						<action type="ChangeSpell" Spell="Cure III" />
+					</if>
+					<if Spell="Cure III" MPLT="42">
+						<action type="ChangeSpell" Spell="Cure II" />
+					</if>
+					<if Spell="Cure II" MPLT="22">
+						<action type="CancelSpell" />
+					</if>
+				</elseif>
 				<else>
+					<!-- this leaves Dark and Divine -->
 					<equip type = "equip" when = "midcast" set = "%skill" />
 				</else>
 			</if>
 			<else>
+				<!-- any other sub-job skills -->
 				<equip when = "precast|midcast" Set = "INT" />
 			</else>
-			<!-- Handle Elemental Obi's -->
-			<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ObiRules']/*" />
-			<!-- Handle AFv2 Pants, but do not equip pants if we already have Weather x2 and day bonuses from obi alone as obi alone hits the 35% damage cap. -->
-			<if Advanced='(!((bool)strmatch("* x2","%Weather") AND "%WeatherElement" = "%SpellElement" AND "$%SpellElementObi" = "1") OR !("%WeatherElement" = "%spellElement")) AND ("%SpellElement" = "%DayElement" AND "$BLMAF2Pants" = "1") AND ("%skill" = "ElementalMagic")'>
-				<equip when = "midcast">
-					<legs lock = "yes">Sorcerer's Tonban</legs>
-				</equip>
-			</if>
 			<!-- finally, equip our staff! -->
 			<!-- need settings for magian staff -->
 			<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "$MagianHP">
