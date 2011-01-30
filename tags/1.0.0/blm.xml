@@ -1,0 +1,379 @@
+<?xml version = "1.0" ?>
+<!-- XMLTaru's BLM spellcast, based on Aikairs and Balakirs -->
+<spellcast xmlns:xi = "http://www.w3.org/2001/XInclude">
+	<config
+	RestingSet = "Rest"
+	RequireVersion = "2.22"
+	ShowGearSwaps = "false"
+	Debug = "True"
+	/>
+	<variables>
+		<!-- use BLM AF2 pants or not? Set to 0 if you do not have it -->
+		<var name = "BLMAF2Pants">1</var>
+		<!-- use Sorc ring or not? set to 0 if you do not have it or dangerous location -->
+		<var name = "Ring">0</var>
+		<!-- use Ugg Pendant or not? set to 0 if you do not have it. -->
+		<var name = "UggPendant">1</var>
+		<!-- Elemental Grips, set to 1 for each you have -->
+		<var name = "LightGrip">0</var>
+		<var name = "DarkGrip">1</var>
+		<var name = "ThunderGrip">1</var>
+		<var name = "IceGrip">0</var>
+		<var name = "FireGrip">0</var>
+		<var name = "WindGrip">0</var>
+		<var name = "WaterGrip">0</var>
+		<var name = "EarthGrip">0</var>
+		<!-- Elemental Staffs, input what staff to use for each element here -->
+		<var name = "IceStaff">Aquilo's Staff</var>
+		<var name = "DarkStaff">Pluto's Staff</var>
+		<var name = "ThunderStaff">Indra's Staff</var>
+		<var name = "WindStaff">Wind Staff</var>
+		<var name = "FireStaff">Fire Staff</var>
+		<var name = "EarthStaff">Earth Staff</var>
+		<var name = "LightStaff">Light Staff</var>
+		<var name = "WaterStaff">Water Staff</var>
+		<!-- Elemental Obi's, set to 1 for the ones you have. -->
+		<var name = "DarkObi">0</var>
+		<var name = "LightObi">0</var>
+		<var name = "ThunderObi">1</var>
+		<var name = "IceObi">0</var>
+		<var name = "FireObi">0</var>
+		<var name = "WindObi">0</var>
+		<var name = "WaterObi">0</var>
+		<var name = "EarthObi">0</var>
+		<!-- Resist Mob Variables -->
+		<var name = "HighResist">Tiamat|Genbu|Suzaku|Seiryu|Byakko|Kirin|Jormungand|Vrtra|Cerberus|Khimaira|Tyger|Jailer of Love|Sarameya|Proto-Ultima|Kindred*|Vanguard*|Overking Appkallu|Kampe</var>
+		<var name = "MidResist">Peapuck|Fafnir|Nidhogg|Aspidochelone|King Behemoth|Tinnin|Ouryu|Kaiser Behemoth</var>
+		<var name = "LightResist">Lambton Worm|Sandworm|Guivre|King Arthro|Serket</var>
+		<!-- Nation control check for MC Bracelets, macro //sc var set NCCheck 1 for true //sc var set NCCheck 0 for false -->
+		<var name = "NCCheck">0</var>
+		<!-- Init with day set will update after first cast/ja etc.-->
+		<var name="MoonPhase">0</var>
+		<var name="DayOrNight">Day</var>
+		<var name="BattleArea">Standard</var>
+		<!--Magian Stuff-->
+		<var name="MagianWeapon">Teiwaz</var>
+		<var name="MagianHP">0</var>
+	</variables>
+	<sets>
+		<group default = "true" name = "Standard" >
+			<set name = "Base">
+				<main>$EarthStaff</main>
+				<neck>Wizard's Torque</neck>
+				<lear>Moldavite Earring</lear>
+			</set>
+			<set name = "INT" BaseSet = "Base">
+				<sub>Elementa Grip</sub>
+				<!--<range></range>-->
+				<ammo>Phantom Tathlum</ammo>
+				<head>Goetia Petasos +1</head>
+				<!--<neck>Goetia Chain</neck>-->
+				<!--<lear></lear>-->
+				<rear>Phantom Earring</rear>
+				<body>Errant Hpl.</body>
+				<hands>Goetia Gloves</hands>
+				<!--<hands>Errant Cuffs</hands>-->
+				<lring>Diamond Ring</lring>
+				<rring>Spiral Ring</rring>
+				<!--<back>Rainbow Cape</back>-->
+				<waist>Penitent's Rope</waist>
+				<legs>Mahatma Slops</legs>
+				<feet>Sorcerer's Sabots</feet>
+				<!--<feet>Goetia Sabots</feet>-->
+			</set>
+			<set name = "MND" BaseSet = "INT">
+				<!--<main lock = "yes">$WaterStaff</main>-->
+				<!--<sub>Raptor Strap +1</sub>-->
+				<head>Teal Chapeau</head>
+				<neck>Promise Badge</neck>
+				<lring>Sapphire Ring</lring>
+				<rring>Sapphire Ring</rring>
+				<!--<feet>Teal Pigaches</feet>-->
+			</set>
+			<set name = "MAB" BaseSet = "INT">
+				<lear>Moldavite Earring</lear>
+				<body>Teal Saio</body>
+				<back>Hecate's Cape</back>
+				<legs>Teal Slops</legs>
+				<feet>Cobra Crackows</feet>
+			</set>
+			<set name = "Idle" BaseSet = "MAB">
+				<main>$EarthStaff</main>
+				<body>Sorcerer's Coat</body>
+				<lring>Jelly Ring</lring>
+				<rear>Sorcerer's Earring</rear>
+			</set>
+			<set name = "Town" BaseSet = "Idle"/>
+			<set name = "FastCast">
+			<!--
+				<feet>Rostrum Pumps</feet>
+				<rear>Loquac. Earring</rear>
+				-->
+			</set>
+			<set name = "Rest" BaseSet = "MAB">
+				<main>$DarkStaff</main>
+				<sub>Ariesian Grip</sub>
+				<ammo>Clarus Stone</ammo>
+				<head>Cobra Hat</head>
+				<neck>Beak Necklace +1</neck>
+				<lear>Antivenom Earring</lear>
+				<rear>Sorcerer's Earring</rear>
+				<lring>Jelly Ring</lring>
+				<body>Errant Hpl.</body>
+				<back>Felicitas Cape</back>
+				<waist>Austerity Belt</waist>
+				<legs>Sagacity Lappas</legs>
+			</set>
+			<set name = "ConserveMP" BaseSet = "MAB">
+				<ammo>Clarus Stone</ammo>
+				<waist>Austerity Belt</waist>
+				<feet>Sorcerer's Sabots</feet>
+			</set>
+			<set name = "HighResist" BaseSet = "INT">
+				<head>Goetia Petasos +1</head>
+				<neck>Elemental Torque</neck>
+				<body>Sorcerer's Coat</body>
+				<hands>Wizard's Gloves</hands>
+			</set>
+			<set name = "MidResist" BaseSet = "INT">
+				<head>Goetia Petasos +1</head>
+			</set>
+			<set name = "LightResist" BaseSet = "INT">
+				<head>Goetia Petasos +1</head>
+			</set>
+			<set name = "DarkMagic" BaseSet = "INT">
+				<hands>Sorcerer's Gloves</hands>
+				<legs>Wizard's Tonban</legs>
+			</set>
+			<set name = "EnfeeblingMagic" BaseSet = "INT">
+				<head>Igqira Tiara</head>
+				<neck>Enfeebling Torque</neck>
+				<body>Wizard's Coat</body>
+				<legs>Igqira Lappa</legs>
+			</set>
+			<set name = "HealingMagic" BaseSet = "MND">
+				<main>$LightStaff</main>
+			</set>
+			<set name = "DivineMagic" />
+			<set name = "EnhancingMagic" />
+			<set name = "Eledebuff"  BaseSet = "INT">
+				<main lock = "yes">Kirin's Pole</main>
+			</set>
+			<set name = "MinusHP">
+				<sub>Thunder Grip</sub>
+				<head>Zenith Crown</head>
+				<neck>Morgana's Choker</neck>
+				<lring>Serket Ring</lring>
+				<legs>Zenith Slacks</legs>
+				<feet>Rostrum Pumps</feet>
+			</set>
+			<set name = "Melee">
+				<main>Jupiter's Staff</main>
+			</set>
+		</group>
+		<group name = "Camp" inherit = "Standard">
+			<set name = "Melee">
+				<main>Jupiter's Staff</main>
+			</set>
+		</group>
+		<group name = "Siege" inherit = "Standard" />
+		<group name = "Assault" inherit = "Standard">
+			<set name = "Melee">
+				<main>Jupiter's Staff</main>
+			</set>
+		</group>
+		<group name = "Abyssea" inherit = "Standard" />
+	</sets>
+	<rules>
+		<!-- Check there's nothing stopping us acting -->
+		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ReturnRules']/*" />
+		<!-- Equip town gears :) -->
+		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='IdleSettings']/*" />
+		<!-- Check to see if we are in a battlefield type thing -->
+		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='BattleArea']/*" />
+		<!-- Timecheck -->
+		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='TimeCheck']/*" />
+		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
+		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='CancelRules']/*" />
+		<!-- Check to see what Moon Phase we are in -->
+		<xi:include href = "/includes/moon.xml" xpointer = "/includes/include[@name='Moon']/*" />
+		<!-- Default melee gears engaged -->
+		<equip when = "engaged" setgroup = "$BattleArea" set = "Melee" />
+		<!-- need aftercast settings for magian staff -->
+		<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "$MagianHP">
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle">
+				<main>$MagianWeapon</main>
+			</equip>
+		</if>
+		<else>
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
+		</else>
+		<!-- lock weapons when TPing -->
+		<if TPGT="75" status="Engaged">
+			<equip when="precast|midcast|aftercast">
+				<main lock="true" />
+				<sub lock="t" />
+				<range lock="t" />
+			</equip>
+		</if>
+		<!-- utility: if targetting a monster, but casting a spell that can not be cast on monsters, then cast on self (buffs). -->
+		<if SpellTargetType = "MONSTER" NotValidTarget = "*Enemy*" ValidTarget = "*Self*">
+			<action type = "changetarget" target = "&lt;me&gt;" />
+		</if>
+		<if SpellTargetType = "NONE" ValidTarget = "*Self*">
+			<action type = "changetarget" target = "&lt;me&gt;" />
+		</if>
+		<!-- rules for job abilities and actions -->
+		<if Spell = "Escape|Warp|Warp II|Retrace|Teleport-*|Reraise|Tractor">
+			<equip when = "Precast" set = "FastCast" />
+			<return />
+		</if>
+		<if Spell = "Stun">
+			<!-- equip gear that helps stun, and nothing else -->
+			<equip set = "MAB|DarkMagic|FastCast">
+				<main lock = "true">Jupiter's Staff</main>
+				<if Advanced='"$ThunderGrip" == "1"'>
+					<equip when = "midcast">
+						<sub lock = "true">Thunder Grip</sub>
+					</equip>
+				</if>
+			</equip>
+			<!-- these codes just print Stun in auto translate into chat. -->
+			<action type = "command">input /p \xFD\x07\x02\x12\xFC\xFD %SpellTarget</action>
+		</if>
+		<else>
+			<!-- equip fast cast gear -->
+			<equip when = "precast" Set = "FastCast" />
+			<!-- Elemental Grip checks. Are we casting an enfeeble, or are we casting on a resistant mob? -->
+			<if mode = "OR" NotSkill = "ElementalMagic" Spell = "Frost|Drown|Rasp|Burn|Shock|Choke" SpellTargetName = "$HighResist|$MidResist">
+				<if Advanced='"$%SpellElementGrip" == "1"'>
+					<equip when = "midcast">
+						<sub lock = "true">%SpellElement Grip</sub>
+					</equip>
+				</if>
+			</if>
+			<!-- if were handling spells -->
+			<if Skill = "*Magic">
+				<!-- if this is elemental magic (nukes/dot's, then do special handling -->
+				<if Skill = "ElementalMagic">
+					<if Spell = "Frost|Drown|Rasp|Burn|Shock|Choke">
+						<!-- equip elemental/INT gear for DoT's -->
+						<equip when = "midcast" Set = "Eledebuff" />
+					</if>
+					<elseif Spell = "Freeze|Flood|Quake|Flare|Burst|Tornado">
+						<!-- throw as much conserve MP gear on as we can -->
+						<equip when = "midcast" Set = "ConserveMP" />
+					</elseif>
+					<else>
+						<action type = "MidcastDelay" Delay = "2.0" />
+						<!-- this is an actual nuke. Check target to be a known high resist mob (and that ES is not active) -->
+						<if SpellTargetName = "$HighResist" NotBuffActive = "Elemental Seal">
+							<equip when = "midcast" Set = "HighResist" />
+						</if>
+						<else>
+							<!-- check for Sorc Ring if mid or low resist mob. An equip HP down if needed-->
+							<if advanced='$Ring == 1'>
+								<if HPPGT = "74">
+									<equip set = "MinusHP" />
+								</if>
+							</if>
+							<!-- if mob is not high resist, is it a mid resist mob? -->
+							<if SpellTargetName = "$MidResist" NotBuffActive = "Elemental Seal">
+								<equip when = "midcast" Set = "MidResist" />
+							</if>
+							<else>
+								<!-- Normal mob, go full damage gear. -->
+								<if mode = "or" Area = "Dynamis *|Hazhalm*" SpellTargetName = "$LightResist">
+									<if NotBuffActive = "Elemental Seal">
+										<equip when = "midcast" Set = "LightResist" />
+									</if>
+									<else>
+										<equip when = "midcast" Set = "MAB" />
+									</else>
+								</if>
+								<else>
+									<equip when = "midcast" Set = "MAB" />
+								</else>
+								<!-- only equip pendant in situations you would equip full damage gear -->
+								<if MPPAfterCastLT = "50" advanced = "$UggPendant==1">
+									<if advanced = '$MoonPhase &gt; 4'>
+										<equip when = "midcast">
+											<neck lock = "yes">Artemis' Medal</neck>
+										</equip>
+									</if>
+								<else>
+									<equip when = "midcast">
+										<neck lock = "yes">Uggalepih Pendant</neck>
+									</equip>
+								</else>
+								</if>
+								<elseif advanced = '$MoonPhase &gt; 2'>
+										<equip when = "midcast">
+												<neck lock = "yes">Artemis' Medal</neck>
+										</equip>
+								</elseif>
+							</else>
+							<!-- Equip Sorc Ring if mid or low resist mob.-->
+							<if advanced='"$Ring" == "1"'>
+								<equip when = "midcast">
+									<lring lock = "yes">Sorcerer's Ring</lring>
+								</equip>
+							</if>
+						</else>
+					</else>
+				</if>
+				<elseif Skill = "EnfeeblingMagic">
+					<equip type = "equip" when = "midcast" set = "%skill" />
+					<if mode = "OR" Area = "Dynamis*|Al'Taieu|Grand Palace of Hu'Xzoi|The Garden of Ru'Hmet|Apollyon|Temenos" Advanced='"$NCCheck" = "1"'>
+						<equip type = "equip" when = "midcast">
+							<hands>Mst.Cst. Bracelets</hands>
+						</equip>
+					</if>
+				</elseif>
+				<elseif Skill = "EnhancingMagic">
+					<if Spell = "*Spikes">
+						<!-- equip gear to decrease resist rate and increase dmg -->
+						<equip type = "equip" when = "midcast" Set = "INT|MAB|%skill">
+							<main lock="true">$IceStaff</main>
+						</equip>
+					</if>
+					<elseif Spell = "Stoneskin">
+						<equip type = "equip" when = "midcast" set = "MND|%skill">
+							<main lock="true">$WaterStaff</main>
+						</equip>
+					</elseif>
+					<else>
+						<equip type = "equip" when = "midcast" set = "%skill" />
+					</else>
+				</elseif>
+				<else>
+					<equip type = "equip" when = "midcast" set = "%skill" />
+				</else>
+			</if>
+			<else>
+				<equip when = "precast|midcast" Set = "INT" />
+			</else>
+			<!-- Handle Elemental Obi's -->
+			<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ObiRules']/*" />
+			<!-- Handle AFv2 Pants, but do not equip pants if we already have Weather x2 and day bonuses from obi alone as obi alone hits the 35% damage cap. -->
+			<if Advanced='(!((bool)strmatch("* x2","%Weather") AND "%WeatherElement" = "%SpellElement" AND "$%SpellElementObi" = "1") OR !("%WeatherElement" = "%spellElement")) AND ("%SpellElement" = "%DayElement" AND "$BLMAF2Pants" = "1") AND ("%skill" = "ElementalMagic")'>
+				<equip when = "midcast">
+					<legs lock = "yes">Sorcerer's Tonban</legs>
+				</equip>
+			</if>
+			<!-- finally, equip our staff! -->
+			<!-- need settings for magian staff -->
+			<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "$MagianHP">
+				<equip when = "midcast">
+					<main>$MagianWeapon</main>
+				</equip>
+			</if>
+			<else>
+				<equip when = "midcast">
+					<main>$%SpellElementStaff</main>
+				</equip>
+			</else>
+		</else>
+	</rules>
+</spellcast>
+<!-- vim: set ts=4 ff=unix : -->
