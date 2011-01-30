@@ -35,7 +35,7 @@
 		<!-- Elemental Obi's, set to 1 for the ones you have. -->
 		<var name = "DarkObi">0</var>
 		<var name = "LightObi">0</var>
-		<var name = "ThunderObi">0</var>
+		<var name = "ThunderObi">1</var>
 		<var name = "IceObi">0</var>
 		<var name = "FireObi">0</var>
 		<var name = "WindObi">0</var>
