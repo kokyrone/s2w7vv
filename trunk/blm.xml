@@ -208,7 +208,7 @@
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
 		</else>
 		<!-- lock weapons when TPing -->
-		<if TPGT="75" status="Engaged">
+		<if TPGT="33" status="Engaged">
 			<equip when="precast|midcast|aftercast">
 				<main lock="true" />
 				<sub lock="t" />
@@ -286,7 +286,8 @@
 								</else>
 							</if>
 							<else>
-								<equip when = "midcast" Set = "MAB" />
+								<!-- NukeSet is MAB -->
+								<equip when = "midcast" Set = "$NukeSet" />
 							</else>
 							<!-- only equip pendant in situations you would equip full damage gear -->
 							<if MPPAfterCastLT = "50" advanced = "$UggPendant==1">
@@ -362,6 +363,8 @@
 				<else>
 					<!-- this leaves Dark and Divine -->
 					<equip type = "equip" when = "midcast" set = "%skill" />
+					<!-- Handle Elemental Obi's -->
+					<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ObiRules']/*" />
 				</else>
 			</if>
 			<else>
