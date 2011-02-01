@@ -3,6 +3,7 @@
 <spellcast xmlns:xi = "http://www.w3.org/2001/XInclude">
 	<config
 	RestingSet = "Rest"
+	EngagedSet="Melee"
 	RequireVersion = "2.22"
 	ShowGearSwaps = "false"
 	Debug = "True"
@@ -137,7 +138,7 @@
 			<set name = "MidResist" BaseSet = "INT">
 				<head>Goetia Petasos +1</head>
 			</set>
-			<set name = "LightResist" BaseSet = "INT">
+			<set name = "LowResist" BaseSet = "INT">
 				<head>Goetia Petasos +1</head>
 			</set>
 			<set name = "DarkMagic" BaseSet = "INT">
@@ -166,21 +167,22 @@
 				<legs>Zenith Slacks</legs>
 				<feet>Rostrum Pumps</feet>
 			</set>
-			<set name = "Melee">
-				<main>Jupiter's Staff</main>
+			<set name = "Melee|WS" BaseSet = "Idle">
+				<main>Treat Staff II</main>
+				<sub>Danger Grip</sub>
+				<!--<range></range>-->
+				<ammo>Phantom Tathlum</ammo>
+				<head>Walahra Turban</head>
+				<neck>Peacock Charm</neck>
+				<lear>Brutal Earring</lear>
+				<lring>Rajas Ring</lring>
+				<rring>Sniper's Ring</rring>
+				<waist>Swift Belt</waist>
 			</set>
 		</group>
-		<group name = "Camp" inherit = "Standard">
-			<set name = "Melee">
-				<main>Jupiter's Staff</main>
-			</set>
-		</group>
+		<group name = "Camp" inherit = "Standard" />
 		<group name = "Siege" inherit = "Standard" />
-		<group name = "Assault" inherit = "Standard">
-			<set name = "Melee">
-				<main>Jupiter's Staff</main>
-			</set>
-		</group>
+		<group name = "Assault" inherit = "Standard" />
 		<group name = "Abyssea" inherit = "Standard" />
 	</sets>
 	<rules>
@@ -199,13 +201,19 @@
 		<!-- Default melee gears engaged -->
 		<equip when = "engaged" setgroup = "$BattleArea" set = "Melee" />
 		<!-- need aftercast settings for magian staff -->
-		<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "$MagianHP">
-			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle">
-				<main>$MagianWeapon</main>
-			</equip>
+		<!-- Aftercast rules -->
+		<if NotStatus="engaged">
+			<if advanced='"$BattleArea" == "Standard"' TargetHPPLT = "$MagianHP">
+				<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle">
+					<main>$MagianWeapon</main>
+				</equip>
+			</if>
+			<else>
+				<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
+			</else>
 		</if>
 		<else>
-			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "Melee" />
 		</else>
 		<!-- lock weapons when TPing -->
 		<if TPGT="33" status="Engaged">
@@ -367,6 +375,9 @@
 					<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ObiRules']/*" />
 				</else>
 			</if>
+			<elseif Skill = "WeaponSkill" >
+					<equip when = "precast" set = "WS" />
+			</elseif>
 			<else>
 				<!-- any other sub-job skills -->
 				<equip when = "precast|midcast" Set = "INT" />
