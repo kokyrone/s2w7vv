@@ -31,8 +31,6 @@
 				<feet>Iga Kyahan +1</feet>
 			</set>
 			<set name = "DayEva|Eva">
-				<range lock="yes">Jr.Msk. Chakram</range>
-				<ammo lock="yes"></ammo>
 				<head>Optical Hat</head>
 				<neck>Evasion Torque</neck>
 				<lear>Velocity Earring</lear>
@@ -136,7 +134,27 @@
 		</group>
 		<group name = "Siege" inherit = "Standard" />
 		<group name = "Assault" inherit = "Standard" />
-		<group name = "Abyssea" inherit = "Standard" />
+		<group name = "Abyssea" inherit = "Standard">
+			<set name = "DayEva|Eva">
+				<range lock="yes">Jr.Msk. Chakram</range>
+				<ammo lock="yes"></ammo>
+				<head>Optical Hat</head>
+				<neck>Evasion Torque</neck>
+				<lear>Velocity Earring</lear>
+				<rear>Dodge Earring</rear>
+				<body>Aurore Doublet</body>
+				<hands>Seiryu's Kote</hands>
+				<lring>Rajas Ring</lring>
+				<rring>Heed Ring</rring>
+				<back />
+				<waist>Survival Belt</waist>
+				<legs>Byakko's Haidate</legs>
+				<feet>Ballerines</feet>
+			</set>
+			<set name = "NightEva" BaseSet = "DayEva">
+				<legs>Koga Hakama</legs>
+			</set>
+		</group>
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
@@ -185,7 +203,7 @@
 			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity" />
 			<aftercastdelay delay = "1" />
 		</if>
-		<if Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*|Aisha*">
+		<if Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*|Aisha*|Yurin*">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity|Ninjutsu" />
 		</if>
 		<if Spell = "Doton*|Suiton*|Huton*|Katon*|Hyoton*|Raiton*">
@@ -202,10 +220,11 @@
 			<castdelay delay = "0.2" />
 			<aftercastdelay delay = "4" />
 		</if>
-		<if spell="Utsusemi*">
+		<if spell="Utsusemi*|Migawari*">
 			<if HPPLT="26">
 				<equip when = "precast" setgroup = "$BattleArea" set = "$DayOrNightEva">
 					<!--just need two pieces for haste cap-->
+					<ammo lock="yes"></ammo>
 					<rear>Shinobi Earring</rear>
 					<legs>Byakko's Haidate</legs>
 				</equip>
