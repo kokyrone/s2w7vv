@@ -51,6 +51,7 @@
 				<neck>Buffoon's Collar</neck>
 			</set>
 			<set name = "WS" BaseSet = "TP">
+				<neck>Thunder Gorget</neck>
 				<lring>Ruby Ring</lring>
 				<rring>Ruby Ring</rring>
 				<waist>Life Belt</waist>
