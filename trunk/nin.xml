@@ -196,8 +196,20 @@
 		</if>
 		<!-- rules for job abilities and actions -->
 		<if Spell = "Blade:*">
+			<if Spell = "*Chi|*Jin|*Kamu">
+				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
+					<neck>Thunder Gorget</neck>
+				</equip>
+				<aftercastdelay delay = "4" />
+			</if>
+			<else>
+				<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
+				<aftercastdelay delay = "4" />
+			</else>
+		</if>
+		<if Spell = "*Step">
 			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
-			<aftercastdelay delay = "4" />
+			<aftercastdelay delay = "1" />
 		</if>
 		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk|Yonin">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity" />
