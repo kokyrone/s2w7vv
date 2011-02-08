@@ -327,7 +327,7 @@
 							<!-- Handle AFv2 Pants, but do not equip pants if we already have Weather x2 and day bonuses from obi, as obi alone hits the 35% damage cap. -->
 							<if Advanced='(!((bool)strmatch("* x2","%Weather") AND "%WeatherElement" = "%SpellElement" AND "$%SpellElementObi" = "1") OR !("%WeatherElement" = "%spellElement")) AND ("%SpellElement" = "%DayElement" AND "$BLMAF2Pants" = "1")'>
 								<equip when = "midcast">
-									<back lock="yes">Twilight Cape</back>
+									<back lock = "yes">Twilight Cape</back>
 									<legs lock = "yes">Sorcerer's Tonban</legs>
 								</equip>
 							</if>
