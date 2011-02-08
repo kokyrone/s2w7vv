@@ -24,10 +24,10 @@
 				<body>Ninja Chainmail</body>
 				<hands>Dusk Gloves</hands>
 				<lring>Rajas Ring</lring>
-				<rring>Ecphoria Ring</rring>
+				<rring>Heed Ring</rring>
 				<back>Amemet Mantle +1</back>
-				<waist>Swift Belt</waist>
-				<legs>Byakko's Haidate</legs>
+				<waist>Twilight Belt</waist>
+				<legs>Iga Hakama +1</legs>
 				<feet>Iga Kyahan +1</feet>
 			</set>
 			<set name = "DayEva|Eva">
@@ -41,7 +41,7 @@
 				<rring>Heed Ring</rring>
 				<back />
 				<waist>Survival Belt</waist>
-				<legs>Byakko's Haidate</legs>
+				<legs>Iga Hakama +1</legs>
 				<feet>Ballerines</feet>
 			</set>
 			<set name = "NightEva" BaseSet = "DayEva">
@@ -51,7 +51,7 @@
 				<sub />
 				<head>Optical Hat</head>
 				<neck>Peacock Charm</neck>
-				<body>Haubergeon</body>
+				<body>Aurore Doublet</body>
 				<waist>Life Belt</waist>
 			</set>
 			<set name = "DayTank|Tank" BaseSet = "TP">
@@ -83,7 +83,7 @@
 				<rring>Spiral Ring</rring>
 				<back />
 				<waist>Warwolf Belt</waist>
-				<legs>Byakko's Haidate</legs>
+				<legs>Iga Hakama +1</legs>
 				<feet>Iga Kyahan +1</feet>
 			</set>
 			<set name = "Rest" BaseSet = "Idle"/>
@@ -93,8 +93,8 @@
 			<set name = "Haste" BaseSet = "$DayOrNight$MeleeSet">
 				<head lock="yes">Iga Zukin +1</head>
 				<hands lock="yes">Dusk Gloves</hands>
-				<waist lock="yes">Swift Belt</waist>
-				<legs lock="yes">Byakko's Haidate</legs>
+				<waist lock="yes">Twilight Belt</waist>
+				<legs lock="yes">Iga Hakama +1</legs>
 				<feet lock="yes">Iga Kyahan +1</feet>
 			</set>
 			<set name = "RAcc" BaseSet = "$DayOrNight$MeleeSet">
@@ -199,6 +199,7 @@
 			<if Spell = "*Chi|*Jin|*Kamu">
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
 					<neck>Thunder Gorget</neck>
+					<legs>Byakko's Haidate</legs>
 				</equip>
 				<aftercastdelay delay = "4" />
 			</if>
@@ -237,8 +238,8 @@
 				<equip when = "precast" setgroup = "$BattleArea" set = "$DayOrNightEva">
 					<!--just need two pieces for haste cap-->
 					<ammo lock="yes"></ammo>
+					<head>Iga Zukin +1</head>
 					<rear>Shinobi Earring</rear>
-					<legs>Byakko's Haidate</legs>
 				</equip>
 			</if>
 			<else>
@@ -254,6 +255,10 @@
 				<command when = "midcast">cancel 66</command>
 			</if>
 			<aftercastdelay delay = "2" />
+		</if>
+		<!-- some DNC sub rules -->
+		<if Spell="Curing Waltz III" TPLT="50">
+			<changespell Spell="Curing Waltz II" />
 		</if>
 	</rules>
 </spellcast>
