@@ -37,7 +37,7 @@
 		<var name = "DarkObi">0</var>
 		<var name = "LightObi">0</var>
 		<var name = "ThunderObi">1</var>
-		<var name = "IceObi">0</var>
+		<var name = "IceObi">1</var>
 		<var name = "FireObi">0</var>
 		<var name = "WindObi">0</var>
 		<var name = "WaterObi">0</var>
@@ -98,6 +98,7 @@
 			</set>
 			<set name = "Idle" BaseSet = "MAB">
 				<main>$EarthStaff</main>
+				<neck>Twilight Torque</neck>
 				<body>Sorcerer's Coat</body>
 				<lring>Jelly Ring</lring>
 				<rear>Sorcerer's Earring</rear>
@@ -168,7 +169,7 @@
 				<feet>Rostrum Pumps</feet>
 			</set>
 			<set name = "Melee|WS" BaseSet = "Idle">
-				<main>Treat Staff II</main>
+				<main>Jupiter's Staff</main>
 				<sub>Danger Grip</sub>
 				<!--<range></range>-->
 				<ammo>Phantom Tathlum</ammo>
@@ -326,6 +327,7 @@
 							<!-- Handle AFv2 Pants, but do not equip pants if we already have Weather x2 and day bonuses from obi, as obi alone hits the 35% damage cap. -->
 							<if Advanced='(!((bool)strmatch("* x2","%Weather") AND "%WeatherElement" = "%SpellElement" AND "$%SpellElementObi" = "1") OR !("%WeatherElement" = "%spellElement")) AND ("%SpellElement" = "%DayElement" AND "$BLMAF2Pants" = "1")'>
 								<equip when = "midcast">
+									<back lock="yes">Twilight Cape</back>
 									<legs lock = "yes">Sorcerer's Tonban</legs>
 								</equip>
 							</if>
