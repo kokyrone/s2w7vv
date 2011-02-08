@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
+	<!-- Handling Moon Phase correctly - by XMLTaru -->
 	<include name="Moon">
 		<!-- Assume bonus to effects is symmetrical around New Moon or Full Moon -->
 		<if advanced = '"%MOON" == "New Moon"'>
