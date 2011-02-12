@@ -41,7 +41,7 @@
 			<set name = "Acc" BaseSet = "TP">
 				<lring>Sniper's Ring</lring>
 				<rring>Ecphoria Ring</rring>
-				<waist>Life Belt</waist>
+				<waist>Virtuoso Belt</waist>
 			</set>
 			<set name = "Repair" BaseSet = "$MeleeSet">
 				<feet>Puppetry Babouches</feet>
@@ -54,7 +54,7 @@
 				<neck>Thunder Gorget</neck>
 				<lring>Ruby Ring</lring>
 				<rring>Ruby Ring</rring>
-				<waist>Life Belt</waist>
+				<waist>Virtuoso Belt</waist>
 				<feet>Creek M clomps</feet>
 			</set>
 			<set name = "Rest" BaseSet = "TP">
@@ -95,7 +95,7 @@
 				<lring>Ruby Ring</lring>
 				<rring>Ruby Ring</rring>
 				<neck>Bull Necklace</neck>
-				<waist>Life Belt</waist>
+				<waist>Virtuoso Belt</waist>
 				<feet>Creek M clomps</feet>
 			</set>
 		</group>
