@@ -77,8 +77,7 @@
 				<!--<back>Rainbow Cape</back>-->
 				<waist>Penitent's Rope</waist>
 				<legs>Mahatma Slops</legs>
-				<feet>Sorcerer's Sabots</feet>
-				<!--<feet>Goetia Sabots</feet>-->
+				<feet>Goetia Sabots +1</feet>
 			</set>
 			<set name = "MND" BaseSet = "INT">
 				<!--<main lock = "yes">$WaterStaff</main>-->
@@ -94,7 +93,7 @@
 				<body>Teal Saio</body>
 				<back>Hecate's Cape</back>
 				<legs>Teal Slops</legs>
-				<feet>Cobra Crackows</feet>
+				<feet>Goetia Sabots +1</feet>
 			</set>
 			<set name = "Idle" BaseSet = "MAB">
 				<main>$EarthStaff</main>
@@ -223,6 +222,11 @@
 				<sub lock="t" />
 				<range lock="t" />
 			</equip>
+		</if>
+		<!-- Lock items that affect abilities -->
+		<if BuffActive="Mana Wall">
+			<feet lock="yes">Goetia Sabots +1</feet>
+			<action type = "command">input /echo Mana Wall</action>
 		</if>
 		<!-- utility: if targetting a monster, but casting a spell that can not be cast on monsters, then cast on self (buffs). -->
 		<if SpellTargetType = "MONSTER" NotValidTarget = "*Enemy*" ValidTarget = "*Self*">
