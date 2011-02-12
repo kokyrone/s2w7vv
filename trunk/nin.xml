@@ -52,7 +52,8 @@
 				<head>Optical Hat</head>
 				<neck>Peacock Charm</neck>
 				<body>Aurore Doublet</body>
-				<waist>Life Belt</waist>
+				<rring>Ecphoria Ring</rring>
+				<waist>Virtuoso Belt</waist>
 			</set>
 			<set name = "DayTank|Tank" BaseSet = "TP">
 				<body>Aurore Doublet</body>
@@ -80,9 +81,11 @@
 				<body>Haubergeon</body>
 				<hands>Fourth Division Hentzes</hands>
 				<lring>Rajas Ring</lring>
-				<rring>Spiral Ring</rring>
+				<rring>Ecphoria Ring</rring>
+				<!--<rring>Spiral Ring</rring>-->
 				<back />
-				<waist>Warwolf Belt</waist>
+				<waist>Virtuoso Belt</waist>
+				<!--<waist>Warwolf Belt</waist>-->
 				<legs>Iga Hakama +2</legs>
 				<feet>Iga Kyahan +1</feet>
 			</set>
@@ -109,7 +112,7 @@
 				<ammo>Bullet</ammo>
 			</set>
 			<set name = "Dart" BaseSet = "RAcc">
-				<ammo>Shuriken</ammo>
+				<ammo>Aht Urhgan Dart</ammo>
 			</set>
 			<set name = "Boom" BaseSet = "RAcc">
 				<range>Jr.Msk. Chakram</range>
@@ -223,6 +226,7 @@
 			<equip when = "precast" setgroup = "$BattleArea" set = "Ninjutsu" />
 		</if>
 		<if Spell = "Ranged">
+			<action type = "command">input /echo $RType</action>
 			<if EquipAmmo="Nokizaru Shuriken">
 				<action type = "command">input /echo Nokizaru Shuriken set!</action>
 				<cancelspell />
@@ -231,7 +235,7 @@
 			<equip when = "precast" setgroup = "$BattleArea" set = "$RType" />
 			<!-- wait until we actually have a ranged weapon equiped -->
 			<castdelay delay = "0.2" />
-			<aftercastdelay delay = "4" />
+			<aftercastdelay delay = "2" />
 		</if>
 		<if spell="Utsusemi*|Migawari*">
 			<if HPPLT="26">
@@ -244,11 +248,6 @@
 			</if>
 			<else>
 				<equip when = "precast" setgroup = "$BattleArea" set = "Haste|Enmity" />
-				<if HPPLT="76" TPLT="100">
-					<equip when = "precast">
-						<rring>Shinobi ring</rring>
-					</equip>
-				</if>
 			</else>
 			<if spell="Utsusemi: Ichi" BuffActive="Copy Image">
 				<midcastdelay delay="3.0" />
