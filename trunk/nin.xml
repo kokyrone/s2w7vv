@@ -120,7 +120,7 @@
 				<ammo>Aht Urhgan Dart</ammo>
 			</set>
 			<set name = "Boom" BaseSet = "RAcc">
-				<range>Jr.Msk. Chakram</range>
+				<range>Ungur Boomerang</range>
 			</set>
 		</group>
 		<!-- Campaign Battle gear - only used when Allied Tags are on -->
@@ -212,11 +212,6 @@
 		</if>
 		<if Spell = "Ranged">
 			<action type = "command">input /echo $RType</action>
-			<if EquipAmmo="Nokizaru Shuriken">
-				<action type = "command">input /echo Nokizaru Shuriken set!</action>
-				<cancelspell />
-				<return />
-			</if>
 			<equip when = "precast" setgroup = "$BattleArea" set = "$RType" />
 			<!-- wait until we actually have a ranged weapon equiped -->
 			<castdelay delay = "0.2" />
