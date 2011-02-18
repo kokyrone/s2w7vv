@@ -19,7 +19,7 @@
 				<rear>Coral Earring</rear>
 				<body>Cobra Unit harness</body>
 				<hands>Tabin Bracers +1</hands>
-				<lring>Ruby Ring</lring>
+				<lring>Rajas Ring</lring>
 				<rring>Ecphoria Ring</rring>
 				<back>Bellicose Mantle</back>
 				<waist>Swift Belt</waist>
@@ -52,8 +52,8 @@
 			</set>
 			<set name = "WS" BaseSet = "TP">
 				<neck>Thunder Gorget</neck>
-				<lring>Ruby Ring</lring>
-				<rring>Ruby Ring</rring>
+				<lring>Rajas Ring</lring>
+				<rring>Ecphoria Ring</rring>
 				<waist>Virtuoso Belt</waist>
 				<feet>Creek M clomps</feet>
 			</set>
@@ -88,12 +88,13 @@
 			</set>
 			<set name = "STR|Fire" BaseSet = "TP"/>
 			<set name = "VIT|Earth" BaseSet = "TP"/>
+			<set name = "Dark" BaseSet = "TP"/>
 		</group>
 		<!-- Campaign Battle gear - only used when Allied Tags are on -->
 		<group name = "Camp" inherit = "Standard">
 			<set name = "WS" BaseSet = "TP">
-				<lring>Ruby Ring</lring>
-				<rring>Ruby Ring</rring>
+				<lring>Rajas Ring</lring>
+				<rring>Ecphoria Ring</rring>
 				<neck>Bull Necklace</neck>
 				<waist>Virtuoso Belt</waist>
 				<feet>Creek M clomps</feet>
