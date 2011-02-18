@@ -10,15 +10,18 @@
 		/>
 	<sets>
 		<group default = "true" name = "Standard">
-			<set name = "Idle" BaseSet = "$DayOrNight$MeleeSet">
+			<set name = "DayIdle|Idle" BaseSet = "$DayOrNight$MeleeSet">
 				<hands>Seiryu's Kote</hands>
+				<feet>Danzo Sune-ate</feet>
+			</set>
+			<set name = "NightIdle" BaseSet = "Idle">
 				<feet>Ninja Kyahan</feet>
 			</set>
 			<set name = "DayTP|NightTP|TP">
 				<sub />
 				<ammo>Bomb Core</ammo>
 				<head>Iga Zukin +1</head>
-				<neck>Peacock Charm</neck>
+				<neck>Iga Erimaki</neck>
 				<lear>Suppanomimi</lear>
 				<rear>Brutal Earring</rear>
 				<body>Ninja Chainmail</body>
@@ -31,6 +34,7 @@
 				<feet>Iga Kyahan +1</feet>
 			</set>
 			<set name = "DayEva|Eva">
+				<range>Ungur Boomerang</range>
 				<head>Optical Hat</head>
 				<neck>Evasion Torque</neck>
 				<lear>Velocity Earring</lear>
@@ -50,12 +54,13 @@
 			<set name = "DayAcc|NightAcc" BaseSet = "TP">
 				<sub />
 				<head>Optical Hat</head>
-				<neck>Peacock Charm</neck>
+				<neck>Iga Erimaki</neck>
 				<body>Aurore Doublet</body>
 				<rring>Ecphoria Ring</rring>
 				<waist>Virtuoso Belt</waist>
 			</set>
 			<set name = "DayTank|Tank" BaseSet = "TP">
+				<range>Ungur Boomerang</range>
 				<body>Aurore Doublet</body>
 				<rring>Heed Ring</rring>
 				<feet>Ballerines</feet>
@@ -75,7 +80,7 @@
 			</set>
 			<set name = "WS" BaseSet = "$DayOrNight$MeleeSet">
 				<head>Optical Hat</head>
-				<neck>Peacock Charm</neck>
+				<neck>Iga Erimaki</neck>
 				<lear>Coral Earring</lear>
 				<rear>Brutal Earring</rear>
 				<body>Haubergeon</body>
@@ -84,13 +89,13 @@
 				<rring>Ecphoria Ring</rring>
 				<!--<rring>Spiral Ring</rring>-->
 				<back />
-				<waist>Virtuoso Belt</waist>
-				<!--<waist>Warwolf Belt</waist>-->
+				<!--<waist>Virtuoso Belt</waist>-->
+				<waist>Warwolf Belt</waist>
 				<legs>Iga Hakama +2</legs>
 				<feet>Iga Kyahan +1</feet>
 			</set>
-			<set name = "Rest" BaseSet = "Idle"/>
-			<set name = "Town" BaseSet = "Idle">
+			<set name = "Rest" BaseSet = "$DayOrNightIdle"/>
+			<set name = "Town" BaseSet = "$DayOrNightIdle">
 				<head>Panther Mask</head>
 			</set>
 			<set name = "Haste" BaseSet = "$DayOrNight$MeleeSet">
@@ -183,7 +188,7 @@
 		<equip when = "engaged" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet" />
 		<!-- Aftercast rules -->
 		<if NotStatus="engaged">
-			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "$DayOrNightIdle" />
 		</if>
 		<else>
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet" />
