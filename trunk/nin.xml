@@ -69,7 +69,6 @@
 				<legs>Koga Hakama</legs>
 			</set>
 			<set name = "Enmity" BaseSet = "$DayOrNight$MeleeSet">
-				<ammo>Nokizaru Shuriken</ammo>
 				<neck>Harmonia's Torque</neck>
 				<rear>Eris' Earring</rear>
 				<lring>Mermaid Ring</lring>
