@@ -142,27 +142,7 @@
 		</group>
 		<group name = "Siege" inherit = "Standard" />
 		<group name = "Assault" inherit = "Standard" />
-		<group name = "Abyssea" inherit = "Standard">
-			<set name = "DayEva|Eva">
-				<range lock="yes">Jr.Msk. Chakram</range>
-				<ammo lock="yes"></ammo>
-				<head>Optical Hat</head>
-				<neck>Evasion Torque</neck>
-				<lear>Velocity Earring</lear>
-				<rear>Dodge Earring</rear>
-				<body>Aurore Doublet</body>
-				<hands>Seiryu's Kote</hands>
-				<lring>Rajas Ring</lring>
-				<rring>Heed Ring</rring>
-				<back />
-				<waist>Survival Belt</waist>
-				<legs>Byakko's Haidate</legs>
-				<feet>Ballerines</feet>
-			</set>
-			<set name = "NightEva" BaseSet = "DayEva">
-				<legs>Koga Hakama</legs>
-			</set>
-		</group>
+		<group name = "Abyssea" inherit = "Standard" />
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
