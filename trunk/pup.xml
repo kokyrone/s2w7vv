@@ -17,8 +17,8 @@
 				<neck>Peacock Charm</neck>
 				<lear>Spike Earring</lear>
 				<rear>Coral Earring</rear>
-				<body>Cobra Unit harness</body>
-				<hands>Tabin Bracers +1</hands>
+				<body>Pantin Tobe</body>
+				<hands>Pantin Dastanas</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Ecphoria Ring</rring>
 				<back>Bellicose Mantle</back>
@@ -26,21 +26,22 @@
 				<legs>Pantin Churidars</legs>
 				<feet>Tabin Boots +1</feet>
 			</set>
-			<set name = "Idle" BaseSet="$MeleeSet"/>
+			<set name = "DayIdle|NightIdle|Idle" BaseSet="$MeleeSet"/>
 			<set name = "Eva"  BaseSet = "TP">
 				<head>Empress Hairpin</head>
 				<neck>Evasion Torque</neck>
 				<lear>Velocity Earring</lear>
 				<rear>Dodge Earring</rear>
 				<body>Aketon</body>
+				<hands>Tabin Bracers +1</hands>
 				<lring>Jelly Ring</lring>
 				<rring>Ecphoria Ring</rring>
 				<back>Dodge Cape</back>
 				<legs>Combat Caster's Slacks</legs>
 			</set>
 			<set name = "Acc" BaseSet = "TP">
+				<hands>Tabin Bracers +1</hands>
 				<lring>Sniper's Ring</lring>
-				<rring>Ecphoria Ring</rring>
 				<waist>Virtuoso Belt</waist>
 			</set>
 			<set name = "Repair" BaseSet = "$MeleeSet">
@@ -102,6 +103,7 @@
 		</group>
 		<group name = "Siege" inherit = "Standard" />
 		<group name = "Assault" inherit = "Standard" />
+		<group name = "Abyssea" inherit = "Standard" />
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
