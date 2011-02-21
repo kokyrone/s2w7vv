@@ -63,6 +63,9 @@
 			<set name = "Rest">
 			</set>
 		</group>
+		<group name = "Siege" inherit = "Standard" />
+		<group name = "Assault" inherit = "Standard" />
+		<group name = "Abyssea" inherit = "Standard" />
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
