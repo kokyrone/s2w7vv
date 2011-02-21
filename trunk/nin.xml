@@ -61,7 +61,7 @@
 			</set>
 			<set name = "DayTank|Tank" BaseSet = "TP">
 				<range>Ungur Boomerang</range>
-				<body>Aurore Doublet</body>
+				<ammo></ammo>
 				<rring>Heed Ring</rring>
 				<feet>Ballerines</feet>
 			</set>
@@ -85,7 +85,7 @@
 				<body>Haubergeon</body>
 				<hands>Fourth Division Hentzes</hands>
 				<lring>Rajas Ring</lring>
-				<rring>Ecphoria Ring</rring>
+				<rring>Airy Ring</rring>
 				<!--<rring>Spiral Ring</rring>-->
 				<back />
 				<!--<waist>Virtuoso Belt</waist>-->
@@ -132,7 +132,7 @@
 				<body>Haubergeon</body>
 				<hands>Fourth Division Hentzes</hands>
 				<lring>Rajas Ring</lring>
-				<rring>Spiral Ring</rring>
+				<rring>Airy Ring</rring>
 				<back />
 				<waist>Warwolf Belt</waist>
 				<legs>Byakko's Haidate</legs>
@@ -188,6 +188,7 @@
 					<neck>Thunder Gorget</neck>
 					<legs>Byakko's Haidate</legs>
 				</equip>
+				<castdelay delay = "0.2" />
 				<aftercastdelay delay = "4" />
 			</if>
 			<else>
