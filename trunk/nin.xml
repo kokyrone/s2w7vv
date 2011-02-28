@@ -20,7 +20,7 @@
 			<set name = "DayTP|NightTP|TP">
 				<sub />
 				<ammo>Bomb Core</ammo>
-				<head>Iga Zukin +1</head>
+				<head>Iga Zukin +2</head>
 				<neck>Iga Erimaki</neck>
 				<lear>Suppanomimi</lear>
 				<rear>Brutal Earring</rear>
@@ -78,7 +78,7 @@
 				<head>Ninja Hatsuburi</head>
 			</set>
 			<set name = "WS" BaseSet = "$DayOrNight$MeleeSet">
-				<head>Optical Hat</head>
+				<head>Iga Zukin +2</head>
 				<neck>Iga Erimaki</neck>
 				<lear>Coral Earring</lear>
 				<rear>Brutal Earring</rear>
@@ -98,7 +98,7 @@
 				<head>Panther Mask</head>
 			</set>
 			<set name = "Haste" BaseSet = "$DayOrNight$MeleeSet">
-				<head lock="yes">Iga Zukin +1</head>
+				<head lock="yes">Iga Zukin +2</head>
 				<hands lock="yes">Dusk Gloves</hands>
 				<waist lock="yes">Twilight Belt</waist>
 				<legs lock="yes">Iga Hakama +2</legs>
@@ -222,7 +222,7 @@
 				<equip when = "precast" setgroup = "$BattleArea" set = "$DayOrNightEva">
 					<!--just need two pieces for haste cap-->
 					<ammo lock="yes"></ammo>
-					<head>Iga Zukin +1</head>
+					<head>Iga Zukin +2</head>
 					<rear>Shinobi Earring</rear>
 				</equip>
 			</if>
