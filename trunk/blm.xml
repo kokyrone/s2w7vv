@@ -58,7 +58,7 @@
 		<group default = "true" name = "Standard" >
 			<set name = "Base">
 				<main>$EarthStaff</main>
-				<neck>Wizard's Torque</neck>
+				<neck>Feud Pendant</neck>
 				<lear>Moldavite Earring</lear>
 			</set>
 			<set name = "INT" BaseSet = "Base">
@@ -91,11 +91,12 @@
 			<set name = "MAB" BaseSet = "INT">
 				<lear>Moldavite Earring</lear>
 				<body>Teal Saio</body>
+				<hands>Eradico Mitts</hands>
 				<back>Hecate's Cape</back>
 				<legs>Teal Slops</legs>
 				<feet>Goetia Sabots +1</feet>
 			</set>
-			<set name = "Idle" BaseSet = "MAB">
+			<set name = "DayIdle|NightIdle|Idle" BaseSet = "MAB">
 				<main>$EarthStaff</main>
 				<neck>Twilight Torque</neck>
 				<body>Sorcerer's Coat</body>
