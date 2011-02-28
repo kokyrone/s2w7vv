@@ -9,14 +9,19 @@
 		/>
 	<sets>
 		<group default = "true" name = "Standard">
+			<set name = "DayIdle|NightIdle|Idle" BaseSet="$MeleeSet">
+				<head>Pantin Taj</head>
+				<!--<neck>Twilight Torque</neck>-->
+				<lring>Jelly Ring</lring>
+			</set>
 			<set name = "TP">
 				<sub />
 				<range>Turbo Animator</range>
 				<ammo>Automaton Oil +2</ammo>
-				<head>Optical Hat</head>
-				<neck>Peacock Charm</neck>
-				<lear>Spike Earring</lear>
-				<rear>Coral Earring</rear>
+				<head>Walahra Turban</head>
+				<neck>Chivalrous chain</neck>
+				<lear>Coral Earring</lear>
+				<rear>Brutal Earring</rear>
 				<body>Pantin Tobe</body>
 				<hands>Pantin Dastanas</hands>
 				<lring>Rajas Ring</lring>
@@ -26,7 +31,6 @@
 				<legs>Pantin Churidars</legs>
 				<feet>Tabin Boots +1</feet>
 			</set>
-			<set name = "DayIdle|NightIdle|Idle" BaseSet="$MeleeSet"/>
 			<set name = "Eva"  BaseSet = "TP">
 				<head>Empress Hairpin</head>
 				<neck>Evasion Torque</neck>
@@ -40,6 +44,7 @@
 				<legs>Combat Caster's Slacks</legs>
 			</set>
 			<set name = "Acc" BaseSet = "TP">
+				<head>Optical Hat</head>
 				<hands>Tabin Bracers +1</hands>
 				<lring>Sniper's Ring</lring>
 				<waist>Virtuoso Belt</waist>
@@ -82,14 +87,24 @@
 			</set>
 			<set name = "DEX|Thunder" BaseSet = "TP">
 				<head>Puppetry Taj</head>
-				<lring>Spinel Ring</lring>
+				<lring>Rajas Ring</lring>
 			</set>
 			<set name = "INT|Ice" BaseSet = "CHR">
 				<feet>Pantin Babouches</feet>
 			</set>
-			<set name = "STR|Fire" BaseSet = "TP"/>
+			<set name = "STR|Fire" BaseSet = "TP">
+				<lring>Rajas Ring</lring>
+			</set>
 			<set name = "VIT|Earth" BaseSet = "TP"/>
 			<set name = "Dark" BaseSet = "TP"/>
+			<!-- Automaton Sets-->
+			<set name = "MAB" BaseSet = "TP">
+				<legs>Pantin Churidars</legs>
+				<feet>Pantin Babouches</feet>
+			</set>
+			<set name = "Cure" BaseSet = "TP">
+				<legs>Puppetry Churidars</legs>
+			</set>
 		</group>
 		<!-- Campaign Battle gear - only used when Allied Tags are on -->
 		<group name = "Camp" inherit = "Standard">
@@ -108,6 +123,7 @@
 	<variables>
 		<!-- Engaged Melee Gear -->
 		<var name="MeleeSet">TP</var>
+		<var name="AutoSet">MAB</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
 		<var name="DayOrNight">Day</var>
 		<var name="BattleArea">Standard</var>
@@ -127,10 +143,10 @@
 		<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet" />
 		<!-- Aftercast rules -->
 		<if NotStatus="engaged">
-			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle|$AutoSet" />
 		</if>
 		<else>
-			<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet" />
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet|$AutoSet" />
 		</else>
 		<!-- rules for job abilities and actions -->
 		<if Spell = "Repair">
