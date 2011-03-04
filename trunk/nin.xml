@@ -74,6 +74,10 @@
 				<lring>Mermaid Ring</lring>
 				<waist>Warwolf Belt</waist>
 			</set>
+			<set name = "DayPDT|NightPDT|PDT" BaseSet = "$DayOrNightEva">
+				<neck>Twilight Torque</neck>
+				<lring>Jelly Ring</lring>
+			</set>
 			<set name = "Ninjutsu">
 				<head>Ninja Hatsuburi</head>
 			</set>
