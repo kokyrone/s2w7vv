@@ -11,7 +11,7 @@
 	<sets>
 		<group default = "true" name = "Standard">
 			<set name = "DayIdle|Idle" BaseSet = "$DayOrNight$MeleeSet">
-				<hands>Seiryu's Kote</hands>
+				<hands>Iga Tekko +1</hands>
 				<feet>Danzo Sune-ate</feet>
 			</set>
 			<set name = "NightIdle" BaseSet = "Idle">
@@ -40,7 +40,7 @@
 				<lear>Velocity Earring</lear>
 				<rear>Dodge Earring</rear>
 				<body>Aurore Doublet</body>
-				<hands>Seiryu's Kote</hands>
+				<hands>Iga Tekko +1</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
 				<back />
@@ -56,7 +56,7 @@
 				<head>Optical Hat</head>
 				<neck>Iga Erimaki</neck>
 				<body>Aurore Doublet</body>
-				<rring>Ecphoria Ring</rring>
+				<rring>Heed Ring</rring>
 				<waist>Virtuoso Belt</waist>
 			</set>
 			<set name = "DayTank|Tank" BaseSet = "TP">
@@ -87,7 +87,7 @@
 				<lear>Coral Earring</lear>
 				<rear>Brutal Earring</rear>
 				<body>Haubergeon</body>
-				<hands>Fourth Division Hentzes</hands>
+				<hands>Iga Tekko +1</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Airy Ring</rring>
 				<!--<rring>Spiral Ring</rring>-->
@@ -103,6 +103,7 @@
 			</set>
 			<set name = "Haste" BaseSet = "$DayOrNight$MeleeSet">
 				<head lock="yes">Iga Zukin +2</head>
+				<body lock="yes">Mirke Wardecors</body>
 				<hands lock="yes">Dusk Gloves</hands>
 				<waist lock="yes">Twilight Belt</waist>
 				<legs lock="yes">Iga Hakama +2</legs>
@@ -134,7 +135,7 @@
 				<lear>Coral Earring</lear>
 				<rear>Brutal Earring</rear>
 				<body>Haubergeon</body>
-				<hands>Fourth Division Hentzes</hands>
+				<hands>Iga Tekko +1</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Airy Ring</rring>
 				<back />
@@ -209,10 +210,14 @@
 			<aftercastdelay delay = "1" />
 		</if>
 		<if Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*|Aisha*|Yurin*">
-			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity|Ninjutsu" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity|Ninjutsu">
+				<body>Mirke Wardecors</body>
+			</equip>
 		</if>
 		<if Spell = "Doton*|Suiton*|Huton*|Katon*|Hyoton*|Raiton*">
-			<equip when = "precast" setgroup = "$BattleArea" set = "Ninjutsu" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "Ninjutsu">
+				<hands>Iga Tekko +1</hands>
+			</equip>
 		</if>
 		<if Spell = "Ranged">
 			<action type = "command">input /echo $RType</action>
@@ -221,12 +226,13 @@
 			<castdelay delay = "0.2" />
 			<aftercastdelay delay = "2" />
 		</if>
-		<if spell="Utsusemi*|Migawari*">
+		<if spell="Utsusemi*|Migawari*|Myoshu*">
 			<if HPPLT="26">
 				<equip when = "precast" setgroup = "$BattleArea" set = "$DayOrNightEva">
 					<!--just need two pieces for haste cap-->
 					<ammo lock="yes"></ammo>
 					<head>Iga Zukin +2</head>
+					<body>Mirke Wardecors</body>
 					<rear>Shinobi Earring</rear>
 				</equip>
 			</if>
