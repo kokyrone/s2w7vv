@@ -49,8 +49,8 @@
 		<var name="DayOrNight">Day</var>
 		<var name="BattleArea">Standard</var>
 		<!--Magian Stuff-->
-		<var name="MagianWeapon">Indra's Staff</var>
-		<var name="MagianHP">100</var>
+		<var name="MagianWeapon">Indra's Staff +2</var>
+		<var name="MagianHP">0</var>
 		<!-- Nuking Gear - macros in-game to switch between MAB, and ) -->
 		<var name="NukeSet">MAB</var>
 	</variables>
@@ -64,7 +64,7 @@
 			<set name = "INT" BaseSet = "Base">
 				<sub>Elementa Grip</sub>
 				<!--<range></range>-->
-				<ammo>Phantom Tathlum</ammo>
+				<ammo>Snow Sachet</ammo>
 				<head>Goetia Petasos +1</head>
 				<!--<neck>Goetia Chain</neck>-->
 				<!--<lear></lear>-->
@@ -103,7 +103,9 @@
 				<lring>Jelly Ring</lring>
 				<rear>Sorcerer's Earring</rear>
 			</set>
-			<set name = "Town" BaseSet = "Idle"/>
+			<set name = "Town" BaseSet = "Idle">
+				<main>$ThunderStaff</main>
+			</set>
 			<set name = "FastCast">
 			<!--
 				<feet>Rostrum Pumps</feet>
@@ -168,22 +170,18 @@
 				<legs>Zenith Slacks</legs>
 				<feet>Rostrum Pumps</feet>
 			</set>
-			<set name = "MeleeBase" BaseSet = "Idle">
-				<main>Pole of Trials</main>
-				<sub>Danger Grip</sub>
+			<set name = "Melee|WS" BaseSet = "Idle">
 				<!--<range></range>-->
-				<ammo>Phantom Tathlum</ammo>
-				<head>Walahra Turban</head>
+				<head>Optical Hat</head>
 				<lear>Brutal Earring</lear>
 				<rring>Rajas Ring</rring>
 				<back>Dodge Cape</back>
-				<waist>Swift Belt</waist>
+				<waist>Virtuoso Belt</waist>
 				<legs>Igqira Lappas</legs>
 			</set>
-			<set name = "Melee|WS" BaseSet = "MeleeBase">
-				<head>Optical Hat</head>
-				<rring>Rajas Ring</rring>
-				<waist>Virtuoso Belt</waist>
+			<set name = "Haste" BaseSet = "Melee">
+				<head>Walahra Turban</head>
+				<waist>Swift Belt</waist>
 			</set>
 		</group>
 		<group name = "Camp" inherit = "Standard" />
@@ -284,6 +282,12 @@
 					</elseif>
 					<else>
 						<action type = "MidcastDelay" Delay = "2.0" />
+						<!-- check for HQ+2 Staves -->
+						<if Advanced='(bool)strmatch("$%SpellElementStaff","* +2")'>
+							<equip when = "precast">
+								<main lock = "true">$%SpellElementStaff</main>
+							</equip>
+						</if>
 						<!-- check $NukeGear and if ES is up -->
 						<if Advanced='"$NukeSet" == "HighResist"' NotBuffActive = "Elemental Seal">
 							<equip when = "midcast" Set = "$NukeSet" />
@@ -335,7 +339,7 @@
 							<!-- Handle Elemental Obi's -->
 							<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ObiRules']/*" />
 							<!-- Handle AFv2 Pants, but do not equip pants if we already have Weather x2 and day bonuses from obi, as obi alone hits the 35% damage cap. -->
-							<if Advanced='(!((bool)strmatch("* x2","%Weather") AND "%WeatherElement" = "%SpellElement" AND "$%SpellElementObi" = "1") OR !("%WeatherElement" = "%spellElement")) AND ("%SpellElement" = "%DayElement" AND "$BLMAF2Pants" = "1")'>
+							<if Advanced='(!((bool)strmatch("%Weather","* x2") AND "%WeatherElement" = "%SpellElement" AND "$%SpellElementObi" = "1") OR !("%WeatherElement" = "%spellElement")) AND ("%SpellElement" = "%DayElement" AND "$BLMAF2Pants" = "1")'>
 								<equip when = "midcast">
 									<back lock = "yes">Twilight Cape</back>
 									<legs lock = "yes">Sorcerer's Tonban</legs>
@@ -387,7 +391,7 @@
 					<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ObiRules']/*" />
 				</else>
 			</if>
-			<elseif Spell = "Sunburst|Full Swing|Spirit Taker" >
+			<elseif Spell = "Sunburst|Full Swing|Spirit Taker|Retribution" >
 					<equip when = "precast" set = "WS" />
 			</elseif>
 			<else>
