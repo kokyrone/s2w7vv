@@ -17,7 +17,7 @@
 		<var name = "UggPendant">1</var>
 		<!-- Elemental Grips, set to 1 for each you have -->
 		<var name = "LightGrip">0</var>
-		<var name = "DarkGrip">1</var>
+		<var name = "DarkGrip">0</var>
 		<var name = "ThunderGrip">1</var>
 		<var name = "IceGrip">0</var>
 		<var name = "FireGrip">0</var>
@@ -70,13 +70,12 @@
 				<!--<lear></lear>-->
 				<rear>Phantom Earring</rear>
 				<body>Errant Hpl.</body>
-				<hands>Goetia Gloves</hands>
-				<!--<hands>Errant Cuffs</hands>-->
+				<hands>Goetia Gloves +1</hands>
 				<lring>Diamond Ring</lring>
 				<rring>Spiral Ring</rring>
 				<!--<back>Rainbow Cape</back>-->
 				<waist>Penitent's Rope</waist>
-				<legs>Mahatma Slops</legs>
+				<legs>Teal Slops</legs>
 				<feet>Goetia Sabots +1</feet>
 			</set>
 			<set name = "MND" BaseSet = "INT">
@@ -86,15 +85,13 @@
 				<neck>Promise Badge</neck>
 				<lring>Sapphire Ring</lring>
 				<rring>Sapphire Ring</rring>
+				<legs>Sagacity Lappas</legs>
 				<!--<feet>Teal Pigaches</feet>-->
 			</set>
 			<set name = "MAB" BaseSet = "INT">
 				<lear>Moldavite Earring</lear>
 				<body>Teal Saio</body>
-				<hands>Eradico Mitts</hands>
 				<back>Hecate's Cape</back>
-				<legs>Teal Slops</legs>
-				<feet>Goetia Sabots +1</feet>
 			</set>
 			<set name = "DayIdle|NightIdle|Idle" BaseSet = "MAB">
 				<main>$EarthStaff</main>
@@ -186,7 +183,14 @@
 		</group>
 		<group name = "Camp" inherit = "Standard" />
 		<group name = "Siege" inherit = "Standard" />
-		<group name = "Assault" inherit = "Standard" />
+		<group name = "Assault" inherit = "Standard">
+			<set name = "Base">
+				<main>$EarthStaff</main>
+				<neck>Feud Pendant</neck>
+				<lear>Moldavite Earring</lear>
+				<rring lock="yes">Balrahn's Ring</rring>
+			</set>
+		</group>
 		<group name = "Abyssea" inherit = "Standard" />
 	</sets>
 	<rules>
@@ -355,6 +359,9 @@
 							<hands>Mst.Cst. Bracelets</hands>
 						</equip>
 					</if>
+					<if advanced = '$MoonPhase &lt; 2'>
+						<neck>Artemis' Medal</neck>
+					</if>
 				</elseif>
 				<elseif Skill = "EnhancingMagic">
 					<if Spell = "*Spikes">
@@ -384,8 +391,15 @@
 						<action type="CancelSpell" />
 					</if>
 				</elseif>
+				<elseif Skill = "DarkMagic">
+					<equip type = "equip" when = "midcast" set = "%skill">
+						<if advanced = '$MoonPhase &lt; 2'>
+							<neck>Artemis' Medal</neck>
+						</if>
+					</equip>
+				</elseif>
 				<else>
-					<!-- this leaves Dark and Divine -->
+					<!-- this leaves Divine -->
 					<equip type = "equip" when = "midcast" set = "%skill" />
 					<!-- Handle Elemental Obi's -->
 					<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ObiRules']/*" />
@@ -393,6 +407,15 @@
 			</if>
 			<elseif Spell = "Sunburst|Full Swing|Spirit Taker|Retribution" >
 					<equip when = "precast" set = "WS" />
+			</elseif>
+			<elseif Spell = "Cataclysm" >
+					<if advanced = '$MoonPhase &gt; 2'>
+						<equip when = "precast">
+							<neck lock = "yes">Artemis' Medal</neck>
+						</equip>
+					</if>
+					<equip when = "precast" set = "WS|MAB" />
+					<aftercastdelay delay = "4" />
 			</elseif>
 			<else>
 				<!-- any other sub-job skills -->
