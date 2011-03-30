@@ -190,15 +190,11 @@
 			</elseif>
 		</if>
 		<!-- rules for job abilities and actions -->
-		<if Spell = "Raging Fists">
-			<equip when = "precast" setgroup = "$BattleArea" set = "WS|Acc" />
-			<aftercastdelay delay = "3" />
-		</if>
-		<if Spell = "Howling Fist|Dragon Kick">
+		<if Spell = "One Inch Punch|Backhand Blow">
 			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
 			<aftercastdelay delay = "3" />
 		</if>
-		<if Spell = "*Chi|*Jin|*Kamu">
+		<if Spell = "Combo|Shoulder Tackle|Raging Fists|Spinning Attack|Howling Fist|Dragon Kick|Tornado Kick|Victory Smite">
 			<equip when = "precast" setgroup = "$BattleArea" set = "WS">
 				<neck>Thunder Gorget</neck>
 				<legs>Byakko's Haidate</legs>
@@ -206,11 +202,24 @@
 			<castdelay delay = "0.2" />
 			<aftercastdelay delay = "4" />
 		</if>
+		<if Spell = "Asuran Fists">
+			<equip when = "precast" setgroup = "$BattleArea" set = "WS|Acc">
+				<neck>Soil Gorget</neck>
+				<legs>Byakko's Haidate</legs>
+			</equip>
+			<castdelay delay = "0.2" />
+			<aftercastdelay delay = "4" />
+		</if>
+		<if Spell = "Acetics Fury">
+			<equip when = "precast" setgroup = "$BattleArea" set = "WS|Acc"/>
+			<castdelay delay = "0.2" />
+			<aftercastdelay delay = "4" />
+		</if>
 		<if Spell = "*Step">
 			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
 			<aftercastdelay delay = "1" />
 		</if>
-		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk|Yonin">
+		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity" />
 			<aftercastdelay delay = "1" />
 		</if>
