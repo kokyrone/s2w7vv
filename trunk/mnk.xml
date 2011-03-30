@@ -53,11 +53,16 @@
 			</set>
 			<set name = "DayAcc|NightAcc" BaseSet = "TP">
 				<sub />
-				<head>Optical Hat</head>
-				<neck>Iga Erimaki</neck>
+				<ammo>Tantra Tathlum</ammo>
+				<head>Tokon Hachimaki</head>
+				<neck>Faith Torque</neck>
+				<lear>Kemas Earring</lear>
 				<body>Aurore Doublet</body>
+				<hands>Tantra Gloves +1</hands>
 				<rring>Heed Ring</rring>
 				<waist>Virtuoso Belt</waist>
+				<legs>Tantra Hose +1</legs>
+				<feet>Tantra Gaiters +1</feet>
 			</set>
 			<set name = "DayTank|Tank" BaseSet = "TP">
 				<range>Ungur Boomerang</range>
