@@ -28,7 +28,7 @@
 				<hands>Dusk Gloves</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
-				<back>Amemet Mantle +1</back>
+				<back>Atheling Mantle</back>
 				<waist>Twilight Belt</waist>
 				<legs>Iga Hakama +2</legs>
 				<feet>Iga Kyahan +1</feet>
@@ -208,6 +208,11 @@
 		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk|Yonin">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity" />
 			<aftercastdelay delay = "1" />
+		</if>
+		<if Spell = "Futae">
+			<equip when = "precast">
+				<hands>Iga Tekko +1</hands>
+			</equip>
 		</if>
 		<if Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*|Aisha*|Yurin*">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity|Ninjutsu">
