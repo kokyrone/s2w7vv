@@ -98,11 +98,12 @@
 			<set name = "VIT|Earth" BaseSet = "TP"/>
 			<set name = "Dark" BaseSet = "TP"/>
 			<!-- Automaton Sets-->
-			<set name = "MAB" BaseSet = "TP">
+			<set name = "BLM" BaseSet = "TP">
+				<body>Mirke Wardecors</body>
 				<legs>Pantin Churidars</legs>
 				<feet>Pantin Babouches</feet>
 			</set>
-			<set name = "Cure" BaseSet = "TP">
+			<set name = "WHM" BaseSet = "TP">
 				<legs>Puppetry Churidars</legs>
 			</set>
 		</group>
@@ -123,7 +124,7 @@
 	<variables>
 		<!-- Engaged Melee Gear -->
 		<var name="MeleeSet">TP</var>
-		<var name="AutoSet">MAB</var>
+		<var name="AutoSet">$MeleeSet</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
 		<var name="DayOrNight">Day</var>
 		<var name="BattleArea">Standard</var>
