@@ -19,7 +19,7 @@
 				<range>Turbo Animator</range>
 				<ammo>Automaton Oil +2</ammo>
 				<head>Walahra Turban</head>
-				<neck>Chivalrous chain</neck>
+				<neck>Chivalrous Chain</neck>
 				<lear>Coral Earring</lear>
 				<rear>Brutal Earring</rear>
 				<body>Pantin Tobe</body>
@@ -82,7 +82,7 @@
 			<set name = "MND|Water" BaseSet = "CHR">
 				<head>Puppetry Taj</head>
 				<lring>Sapphire Ring</lring>
-				<rring>Sapphire Ring</rring>
+				<rring>Solemn Ring</rring>
 				<feet>Pantin Babouches</feet>
 			</set>
 			<set name = "DEX|Thunder" BaseSet = "TP">
@@ -170,6 +170,10 @@
 		<if Spell = "Howling Fist|Dragon Kick">
 			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
 			<aftercastdelay delay = "3" />
+		</if>
+		<!-- some DNC sub rules -->
+		<if Spell="Curing Waltz II" TPGT="49" MainJobLvl="90" >
+			<changespell Spell="Curing Waltz III" />
 		</if>
 	</rules>
 </spellcast>
