@@ -251,8 +251,8 @@
 			<aftercastdelay delay = "2" />
 		</if>
 		<!-- some DNC sub rules -->
-		<if Spell="Curing Waltz III" TPLT="50">
-			<changespell Spell="Curing Waltz II" />
+		<if Spell="Curing Waltz II" TPGT="49" MainJobLvl="90" >
+			<changespell Spell="Curing Waltz III" />
 		</if>
 	</rules>
 </spellcast>
