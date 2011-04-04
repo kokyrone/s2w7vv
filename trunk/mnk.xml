@@ -3,133 +3,110 @@
 	<config
 		RestingSet="Idle"
 		NormalSet="Idle"
-		EngagedSet="$DayOrNight$MeleeSet"
+		EngagedSet="$MeleeSet"
 		RequireVersion="2.22"
 		ShowGearSwaps="false"
 		Debug="True"
 		/>
 	<sets>
 		<group default = "true" name = "Standard">
-			<set name = "DayIdle|Idle" BaseSet = "$DayOrNight$MeleeSet">
-				<hands>Iga Tekko +1</hands>
-				<feet>Danzo Sune-ate</feet>
+			<set name = "DayIdle|NightIdle|Idle" BaseSet = "$MeleeSet">
+				<head>Tokon Hachimaki</head>
+				<neck>Twilight Torque</neck>
+				<body>Mirke Wardecors</body>
+				<hands>Temple Gloves</hands>
+				<lring>Jelly Ring</lring>
+				<feet>Hermes Sandals</feet>
 			</set>
-			<set name = "NightIdle" BaseSet = "Idle">
-				<feet>Ninja Kyahan</feet>
-			</set>
-			<set name = "DayTP|NightTP|TP">
+			<set name = "TP">
 				<sub />
-				<ammo>Bomb Core</ammo>
-				<head>Iga Zukin +2</head>
-				<neck>Iga Erimaki</neck>
-				<lear>Suppanomimi</lear>
+				<ammo />
+				<head>Brisk Mask</head>
+				<neck>Chivalrous Chain</neck>
+				<lear>Kemas Earring</lear>
 				<rear>Brutal Earring</rear>
-				<body>Ninja Chainmail</body>
-				<hands>Dusk Gloves</hands>
+				<body>Aurore Doublet</body>
+				<hands>Aurore Gloves</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
-				<back>Atheling Mantle</back>
-				<waist>Twilight Belt</waist>
-				<legs>Iga Hakama +2</legs>
-				<feet>Iga Kyahan +1</feet>
+				<back>Amemet Mantle +1</back>
+				<waist>Purple Belt</waist>
+				<legs>Tantra Hose +1</legs>
+				<feet>Fuma Sune-ate</feet>
 			</set>
-			<set name = "DayEva|Eva">
-				<range>Ungur Boomerang</range>
+			<set name = "Eva">
 				<head>Optical Hat</head>
 				<neck>Evasion Torque</neck>
 				<lear>Velocity Earring</lear>
 				<rear>Dodge Earring</rear>
 				<body>Aurore Doublet</body>
-				<hands>Iga Tekko +1</hands>
+				<hands>Seiryu's Kote</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
 				<back />
 				<waist>Survival Belt</waist>
-				<legs>Iga Hakama +2</legs>
-				<feet>Ballerines</feet>
+				<legs>Ambusher's Hose</legs>
+				<feet>Tabin Boots +1</feet>
+				<!--<feet>Temple Gaiters +1</feet>-->
 			</set>
-			<set name = "NightEva" BaseSet = "DayEva">
-				<legs>Koga Hakama</legs>
-			</set>
-			<set name = "DayAcc|NightAcc" BaseSet = "TP">
+			<set name = "Acc" BaseSet = "TP">
 				<sub />
-				<ammo>Tantra Tathlum</ammo>
+				<ammo />
 				<head>Tokon Hachimaki</head>
-				<neck>Faith Torque</neck>
-				<lear>Kemas Earring</lear>
-				<body>Aurore Doublet</body>
-				<hands>Tantra Gloves +1</hands>
-				<rring>Heed Ring</rring>
 				<waist>Virtuoso Belt</waist>
 				<legs>Tantra Hose +1</legs>
 				<feet>Tantra Gaiters +1</feet>
 			</set>
-			<set name = "DayTank|Tank" BaseSet = "TP">
-				<range>Ungur Boomerang</range>
-				<ammo></ammo>
-				<rring>Heed Ring</rring>
-				<feet>Ballerines</feet>
+			<set name = "Tank" BaseSet = "TP"/>
+			<set name = "Kick" BaseSet = "TP">
+				<feet>Poise Shoes</feet>
 			</set>
-			<set name = "NightTank" BaseSet = "Tank">
-				<legs>Koga Hakama</legs>
-			</set>
-			<set name = "Enmity" BaseSet = "$DayOrNight$MeleeSet">
-				<neck>Harmonia's Torque</neck>
-				<rear>Eris' Earring</rear>
-				<lring>Mermaid Ring</lring>
-				<waist>Warwolf Belt</waist>
-			</set>
-			<set name = "DayPDT|NightPDT|PDT" BaseSet = "$DayOrNightEva">
-				<neck>Twilight Torque</neck>
+			<set name = "PDT" BaseSet = "TP">
+				<ammo>Bibiki Seashell</ammo>
+				<head>Arhat's Jinpachi</head>
+				<!--<neck>Twilight Torque</neck>-->
 				<lring>Jelly Ring</lring>
 			</set>
-			<set name = "VIT" BaseSet = "$DayOrNight$MeleeSet">
+			<set name = "Enmity" BaseSet = "$MeleeSet">
 				<neck>Harmonia's Torque</neck>
 				<rear>Eris' Earring</rear>
 				<lring>Mermaid Ring</lring>
 				<waist>Warwolf Belt</waist>
 			</set>
-			<set name = "MND" BaseSet = "$DayOrNight$MeleeSet">
-				<neck>Harmonia's Torque</neck>
-				<rear>Eris' Earring</rear>
-				<lring>Mermaid Ring</lring>
-				<waist>Warwolf Belt</waist>
+			<set name = "VIT" BaseSet = "$MeleeSet">
+				<ammo>Bibiki Seashell</ammo>
+				<lear>Kemas Earring</lear>
+				<feet>Creek M clomps</feet>
 			</set>
-			<set name = "WS" BaseSet = "$DayOrNight$MeleeSet">
-				<head>Iga Zukin +2</head>
-				<neck>Iga Erimaki</neck>
+			<set name = "MND" BaseSet = "$MeleeSet">
+				<legs>Ambusher's Hose</legs>
+			</set>
+			<set name = "WS" BaseSet = "$MeleeSet">
+				<head>Tokon Hachimaki</head>
 				<lear>Coral Earring</lear>
 				<rear>Brutal Earring</rear>
-				<body>Haubergeon</body>
-				<hands>Iga Tekko +1</hands>
-				<lring>Rajas Ring</lring>
-				<rring>Airy Ring</rring>
-				<!--<rring>Spiral Ring</rring>-->
-				<back />
-				<!--<waist>Virtuoso Belt</waist>-->
+				<rring>Spiral Ring</rring>
+				<waist>Virtuoso Belt</waist>
 				<waist>Warwolf Belt</waist>
-				<legs>Iga Hakama +2</legs>
-				<feet>Iga Kyahan +1</feet>
+				<feet>Creek M clomps</feet>
 			</set>
-			<set name = "Rest" BaseSet = "$DayOrNightIdle"/>
-			<set name = "Town" BaseSet = "$DayOrNightIdle">
-				<head>Panther Mask</head>
-			</set>
-			<set name = "Haste" BaseSet = "$DayOrNight$MeleeSet">
-				<head lock="yes">Iga Zukin +2</head>
+			<set name = "Rest" BaseSet = "Idle"/>
+			<set name = "Town" BaseSet = "Idle"/>
+			<set name = "Haste" BaseSet = "$MeleeSet">
+				<head lock="yes">Brisk Mask</head>
 				<body lock="yes">Mirke Wardecors</body>
-				<hands lock="yes">Dusk Gloves</hands>
-				<waist lock="yes">Twilight Belt</waist>
-				<legs lock="yes">Iga Hakama +2</legs>
-				<feet lock="yes">Iga Kyahan +1</feet>
+				<hands lock="yes">Aurore Gloves</hands>
+				<waist lock="yes">Purple Belt</waist>
+				<legs lock="yes">Tantra Hose +1</legs>
+				<feet lock="yes">Fuma Sune-Ate</feet>
 			</set>
-			<set name = "Boost" BaseSet = "$DayOrNight$MeleeSet">
+			<set name = "Boost" BaseSet = "$MeleeSet">
 				<hands>Temple Gloves</hands>
 			</set>
-			<set name = "Dodge" BaseSet = "$DayOrNight$MeleeSet">
+			<set name = "Dodge" BaseSet = "$MeleeSet">
 				<feet>Temple Gaiters</feet>
 			</set>
-			<set name = "Focus" BaseSet = "$DayOrNight$MeleeSet">
+			<set name = "Focus" BaseSet = "$MeleeSet">
 				<head>Temple Crown</head>
 			</set>
 			<set name = "Chakra" BaseSet = "VIT">
@@ -172,18 +149,16 @@
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='IdleSettings']/*" />
 		<!-- Check to see if we are in a battlefield type thing -->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='BattleArea']/*" />
-		<!-- Timecheck -->
-		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TimeCheck']/*" />
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
 		<!-- Default melee gears engaged -->
-		<equip when = "engaged" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet" />
+		<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet" />
 		<!-- Aftercast rules -->
 		<if NotStatus="engaged">
-			<equip when = "aftercast" setgroup = "$BattleArea" set = "$DayOrNightIdle" />
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
 		</if>
 		<else>
-			<equip when = "aftercast" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet" />
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet" />
 		</else>
 		<!-- rules for situational gear -->
 		<if advanced='"$MeleeSet" == "Eva"'>
@@ -201,16 +176,14 @@
 		</if>
 		<if Spell = "Combo|Shoulder Tackle|Raging Fists|Spinning Attack|Howling Fist|Dragon Kick|Tornado Kick|Victory Smite">
 			<equip when = "precast" setgroup = "$BattleArea" set = "WS">
-				<neck>Thunder Gorget</neck>
-				<legs>Byakko's Haidate</legs>
+				<neck lock="yes">Thunder Gorget</neck>
 			</equip>
 			<castdelay delay = "0.2" />
 			<aftercastdelay delay = "4" />
 		</if>
 		<if Spell = "Asuran Fists">
 			<equip when = "precast" setgroup = "$BattleArea" set = "WS|Acc">
-				<neck>Soil Gorget</neck>
-				<legs>Byakko's Haidate</legs>
+				<neck lock="yes">Soil Gorget</neck>
 			</equip>
 			<castdelay delay = "0.2" />
 			<aftercastdelay delay = "4" />
@@ -234,7 +207,7 @@
 		</if>
 		<if spell="Utsusemi*">
 			<if HPPLT="26">
-				<equip when = "precast" setgroup = "$BattleArea" set = "$DayOrNightEva">
+				<equip when = "precast" setgroup = "$BattleArea" set = "Eva">
 					<!--just need two pieces for haste cap-->
 					<ammo lock="yes"></ammo>
 					<head>Iga Zukin +2</head>
@@ -252,8 +225,8 @@
 			<aftercastdelay delay = "2" />
 		</if>
 		<!-- some DNC sub rules -->
-		<if Spell="Curing Waltz III" TPLT="50">
-			<changespell Spell="Curing Waltz II" />
+		<if Spell="Curing Waltz II" TPGT="49" MainJobLvl="90" >
+			<changespell Spell="Curing Waltz III" />
 		</if>
 	</rules>
 </spellcast>
