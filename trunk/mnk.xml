@@ -19,7 +19,6 @@
 				<feet>Hermes Sandals</feet>
 			</set>
 			<set name = "TP">
-				<sub />
 				<ammo />
 				<head>Brisk Mask</head>
 				<neck>Chivalrous Chain</neck>
@@ -50,7 +49,6 @@
 				<!--<feet>Temple Gaiters +1</feet>-->
 			</set>
 			<set name = "Acc" BaseSet = "TP">
-				<sub />
 				<ammo />
 				<head>Tokon Hachimaki</head>
 				<waist>Virtuoso Belt</waist>
@@ -76,9 +74,15 @@
 			<set name = "VIT" BaseSet = "$MeleeSet">
 				<ammo>Bibiki Seashell</ammo>
 				<lear>Kemas Earring</lear>
+				<body>Temple Cyclas</body>
+				<rring>Spiral Ring</rring>
+				<waist>Warwolf Belt</waist>
 				<feet>Creek M clomps</feet>
 			</set>
 			<set name = "MND" BaseSet = "$MeleeSet">
+				<head>Temple Crown</head>
+				<lring>Sapphire Ring</lring>
+				<rring>Solemn Ring</rring>
 				<legs>Ambusher's Hose</legs>
 			</set>
 			<set name = "WS" BaseSet = "$MeleeSet">
@@ -206,18 +210,7 @@
 			<aftercastdelay delay = "1" />
 		</if>
 		<if spell="Utsusemi*">
-			<if HPPLT="26">
-				<equip when = "precast" setgroup = "$BattleArea" set = "Eva">
-					<!--just need two pieces for haste cap-->
-					<ammo lock="yes"></ammo>
-					<head>Iga Zukin +2</head>
-					<body>Mirke Wardecors</body>
-					<rear>Shinobi Earring</rear>
-				</equip>
-			</if>
-			<else>
-				<equip when = "precast" setgroup = "$BattleArea" set = "Haste|Enmity" />
-			</else>
+			<equip when = "precast" setgroup = "$BattleArea" set = "Haste" />
 			<if spell="Utsusemi: Ichi" BuffActive="Copy Image">
 				<midcastdelay delay="3.0" />
 				<command when = "midcast">cancel 66</command>
