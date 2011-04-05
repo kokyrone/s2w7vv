@@ -63,6 +63,7 @@
 				<ammo>Bibiki Seashell</ammo>
 				<head>Arhat's Jinpachi</head>
 				<!--<neck>Twilight Torque</neck>-->
+				<hands>Seiryu's Kote</hands>
 				<lring>Jelly Ring</lring>
 				<legs>Temple Hose</legs>
 				<feet>Creek M clomps</feet>
@@ -73,7 +74,10 @@
 				<lring>Mermaid Ring</lring>
 				<waist>Warwolf Belt</waist>
 			</set>
-			<set name = "STR" BaseSet = "$MeleeSet" />
+			<set name = "STR" BaseSet = "$MeleeSet">
+				<hands>Temple Gloves</hands>
+				<rring>Spiral Ring</rring>
+			</set>
 			<set name = "VIT" BaseSet = "$MeleeSet">
 				<ammo>Bibiki Seashell</ammo>
 				<lear>Kemas Earring</lear>
@@ -88,14 +92,12 @@
 				<rring>Solemn Ring</rring>
 				<legs>Ambusher's Hose</legs>
 			</set>
-			<set name = "WS" BaseSet = "$MeleeSet">
+			<set name = "WS" BaseSet = "TP">
 				<head>Tokon Hachimaki</head>
-				<lear>Kemas Earring</lear>
-				<rear>Brutal Earring</rear>
+				<hands>Temple Gloves</hands>
 				<rring>Spiral Ring</rring>
 				<waist>Virtuoso Belt</waist>
-				<waist>Warwolf Belt</waist>
-				<feet>Creek M clomps</feet>
+				<feet>Tantra Gaiters +1</feet>
 			</set>
 			<set name = "Rest" BaseSet = "Idle"/>
 			<set name = "Town" BaseSet = "Idle"/>
@@ -124,18 +126,12 @@
 		<!-- Campaign Battle gear - only used when Allied Tags are on -->
 		<group name = "Camp" inherit = "Standard">
 			<set name = "WS" BaseSet = "TP">
-				<head>Optical Hat</head>
+				<head>Tokon Hachimaki</head>
 				<neck>Bull Necklace</neck>
-				<lear>Coral Earring</lear>
-				<rear>Brutal Earring</rear>
-				<body>Haubergeon</body>
-				<hands>Iga Tekko +1</hands>
-				<lring>Rajas Ring</lring>
-				<rring>Airy Ring</rring>
-				<back />
-				<waist>Warwolf Belt</waist>
-				<legs>Byakko's Haidate</legs>
-				<feet>Iga Kyahan +1</feet>
+				<hands>Temple Gloves</hands>
+				<rring>Spiral Ring</rring>
+				<waist>Virtuoso Belt</waist>
+				<feet>Tantra Gaiters +1</feet>
 			</set>
 		</group>
 		<group name = "Siege" inherit = "Standard" />
@@ -169,31 +165,25 @@
 		</else>
 		<!-- rules for situational gear -->
 		<!-- rules for job abilities and actions -->
-		<if Spell = "One Inch Punch|Backhand Blow">
-			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
-			<aftercastdelay delay = "3" />
-		</if>
-		<if Spell = "Combo|Shoulder Tackle|Raging Fists|Spinning Attack|Howling Fist|Dragon Kick|Tornado Kick|Victory Smite">
-			<equip when = "precast" setgroup = "$BattleArea" set = "WS">
-				<neck lock="yes">Thunder Gorget</neck>
-			</equip>
-			<castdelay delay = "0.2" />
-			<aftercastdelay delay = "4" />
-		</if>
-		<if Spell = "Asuran Fists">
-			<equip when = "precast" setgroup = "$BattleArea" set = "WS|Acc">
-				<neck lock="yes">Soil Gorget</neck>
-			</equip>
-			<castdelay delay = "0.2" />
-			<aftercastdelay delay = "4" />
-		</if>
-		<if Spell = "Acetics Fury">
-			<equip when = "precast" setgroup = "$BattleArea" set = "WS|Acc"/>
+		<if type = "Weaponskill">
+			<if Spell = "Combo|Shoulder Tackle|Raging Fists|Spinning Attack|Howling Fist|Dragon Kick|Tornado Kick|Victory Smite">
+				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
+					<neck lock="yes">Thunder Gorget</neck>
+				</equip>
+			</if>
+			<elseif Spell = "Asuran Fists">
+				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
+					<neck lock="yes">Soil Gorget</neck>
+				</equip>
+			</elseif>
+			<else>
+				<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
+			</else>
 			<castdelay delay = "0.2" />
 			<aftercastdelay delay = "4" />
 		</if>
 		<if Spell = "*Step">
-			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "Acc" />
 			<aftercastdelay delay = "1" />
 		</if>
 		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk">
