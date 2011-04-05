@@ -12,7 +12,7 @@
 		<group default = "true" name = "Standard">
 			<set name = "DayIdle|NightIdle|Idle" BaseSet = "$MeleeSet">
 				<head>Tokon Hachimaki</head>
-				<neck>Twilight Torque</neck>
+				<!--<neck>Twilight Torque</neck>-->
 				<body>Mirke Wardecors</body>
 				<hands>Temple Gloves</hands>
 				<lring>Jelly Ring</lring>
@@ -64,6 +64,8 @@
 				<head>Arhat's Jinpachi</head>
 				<!--<neck>Twilight Torque</neck>-->
 				<lring>Jelly Ring</lring>
+				<legs>Temple Hose</legs>
+				<feet>Creek M clomps</feet>
 			</set>
 			<set name = "Enmity" BaseSet = "$MeleeSet">
 				<neck>Harmonia's Torque</neck>
@@ -71,6 +73,7 @@
 				<lring>Mermaid Ring</lring>
 				<waist>Warwolf Belt</waist>
 			</set>
+			<set name = "STR" BaseSet = "$MeleeSet" />
 			<set name = "VIT" BaseSet = "$MeleeSet">
 				<ammo>Bibiki Seashell</ammo>
 				<lear>Kemas Earring</lear>
@@ -87,7 +90,7 @@
 			</set>
 			<set name = "WS" BaseSet = "$MeleeSet">
 				<head>Tokon Hachimaki</head>
-				<lear>Coral Earring</lear>
+				<lear>Kemas Earring</lear>
 				<rear>Brutal Earring</rear>
 				<rring>Spiral Ring</rring>
 				<waist>Virtuoso Belt</waist>
@@ -165,14 +168,6 @@
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet" />
 		</else>
 		<!-- rules for situational gear -->
-		<if advanced='"$MeleeSet" == "Eva"'>
-			<if BuffActive="Blind">
-				<rear>Bat Earring</rear>
-			</if>
-			<elseif BuffActive="Song">
-				<rear>Melody Earring</rear>
-			</elseif>
-		</if>
 		<!-- rules for job abilities and actions -->
 		<if Spell = "One Inch Punch|Backhand Blow">
 			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
