@@ -16,7 +16,7 @@
 				<body>Mirke Wardecors</body>
 				<hands>Temple Gloves</hands>
 				<lring>Jelly Ring</lring>
-				<feet>Hermes Sandals</feet>
+				<feet>Hermes' Sandals</feet>
 			</set>
 			<set name = "TP">
 				<ammo />
@@ -56,9 +56,6 @@
 				<feet>Tantra Gaiters +1</feet>
 			</set>
 			<set name = "Tank" BaseSet = "TP"/>
-			<set name = "Kick" BaseSet = "TP">
-				<feet>Poise Shoes</feet>
-			</set>
 			<set name = "PDT" BaseSet = "TP">
 				<ammo>Bibiki Seashell</ammo>
 				<head>Arhat's Jinpachi</head>
@@ -155,7 +152,14 @@
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
 		<!-- Default melee gears engaged -->
-		<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet" />
+		<if BuffActive = "Footwork">
+			<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet">
+				<feet lock="yes">Poise Shoes</feet>
+			</equip>
+		</if>
+		<else>
+			<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet" />
+		</else>
 		<!-- Aftercast rules -->
 		<if NotStatus="engaged">
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
