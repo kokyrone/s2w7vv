@@ -29,7 +29,7 @@
 				<back>Bellicose Mantle</back>
 				<waist>Swift Belt</waist>
 				<legs>Pantin Churidars</legs>
-				<feet>Tabin Boots +1</feet>
+				<feet>Puppetry Babouches +1</feet>
 			</set>
 			<set name = "Eva"  BaseSet = "TP">
 				<head>Empress Hairpin</head>
@@ -50,7 +50,7 @@
 				<waist>Virtuoso Belt</waist>
 			</set>
 			<set name = "Repair" BaseSet = "$MeleeSet">
-				<feet>Puppetry Babouches</feet>
+				<feet>Puppetry Babouches +1</feet>
 			</set>
 			<set name = "Maneuver">
 				<hands>Puppetry Dastanas</hands>
