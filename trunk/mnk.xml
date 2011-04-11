@@ -13,7 +13,7 @@
 			<set name = "DayIdle|NightIdle|Idle" BaseSet = "$MeleeSet">
 				<head>Tokon Hachimaki</head>
 				<!--<neck>Twilight Torque</neck>-->
-				<body>Mirke Wardecors</body>
+				<body>Temple Cyclas</body>
 				<hands>Tantra Gloves +1</hands>
 				<lring>Jelly Ring</lring>
 				<feet>Hermes' Sandals</feet>
@@ -206,6 +206,10 @@
 		</if>
 		<if Spell = "Boost|Dodge|Focus|Chakra">
 			<equip when = "precast" setgroup = "$BattleArea" set = "%Spell" />
+			<aftercastdelay delay = "1" />
+		</if>
+		<if Spell = "Chi Blast">
+			<equip when = "precast" setgroup = "$BattleArea" set = "ChiBlast" />
 			<aftercastdelay delay = "1" />
 		</if>
 		<if spell="Utsusemi*">
