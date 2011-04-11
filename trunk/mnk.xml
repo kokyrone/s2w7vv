@@ -14,18 +14,18 @@
 				<head>Tokon Hachimaki</head>
 				<!--<neck>Twilight Torque</neck>-->
 				<body>Mirke Wardecors</body>
-				<hands>Temple Gloves</hands>
+				<hands>Tantra Gloves +1</hands>
 				<lring>Jelly Ring</lring>
 				<feet>Hermes' Sandals</feet>
 			</set>
 			<set name = "TP">
 				<ammo />
-				<head>Brisk Mask</head>
+				<head>Tantra Crown +1</head>
 				<neck>Chivalrous Chain</neck>
 				<lear>Kemas Earring</lear>
 				<rear>Brutal Earring</rear>
 				<body>Aurore Doublet</body>
-				<hands>Aurore Gloves</hands>
+				<hands>Tantra Gloves +1</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
 				<back>Amemet Mantle +1</back>
@@ -62,7 +62,7 @@
 				<!--<neck>Twilight Torque</neck>-->
 				<hands>Seiryu's Kote</hands>
 				<lring>Jelly Ring</lring>
-				<legs>Temple Hose</legs>
+				<!--<legs>Temple Hose</legs>-->
 				<feet>Creek M clomps</feet>
 			</set>
 			<set name = "Enmity" BaseSet = "$MeleeSet">
@@ -89,6 +89,9 @@
 				<rring>Solemn Ring</rring>
 				<legs>Ambusher's Hose</legs>
 			</set>
+			<set name = "MAB" BaseSet = "INT">
+				<lear>Moldavite Earring</lear>
+			</set>
 			<set name = "WS" BaseSet = "TP">
 				<head>Tokon Hachimaki</head>
 				<hands>Temple Gloves</hands>
@@ -99,9 +102,9 @@
 			<set name = "Rest" BaseSet = "Idle"/>
 			<set name = "Town" BaseSet = "Idle"/>
 			<set name = "Haste" BaseSet = "$MeleeSet">
-				<head lock="yes">Brisk Mask</head>
+				<head lock="yes">Tantra Crown +1</head>
 				<body lock="yes">Mirke Wardecors</body>
-				<hands lock="yes">Aurore Gloves</hands>
+				<hands lock="yes">Tantra Gloves +1</hands>
 				<waist lock="yes">Purple Belt</waist>
 				<legs lock="yes">Tantra Hose +1</legs>
 				<feet lock="yes">Fuma Sune-Ate</feet>
@@ -180,10 +183,17 @@
 					<neck lock="yes">Soil Gorget</neck>
 				</equip>
 			</elseif>
+			<elseif Spell ="Cataclysm">
+				<equip when = "precast" setgroup = "$BattleArea" set = "WS|MAB">
+					<if advanced = '$MoonPhase &gt; 2'>
+						<neck lock = "yes">Artemis' Medal</neck>
+					</if>
+				</equip>
+			</elseif>
 			<else>
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
 			</else>
-			<castdelay delay = "0.2" />
+			<castdelay delay = "0.5" />
 			<aftercastdelay delay = "4" />
 		</if>
 		<if Spell = "*Step">
@@ -207,7 +217,7 @@
 			<aftercastdelay delay = "2" />
 		</if>
 		<!-- some DNC sub rules -->
-		<if Spell="Curing Waltz II" TPGT="49" MainJobLvl="90" >
+		<if mode="AND" Spell="Curing Waltz II" TPGT="49" MainJobLvl="90" >
 			<changespell Spell="Curing Waltz III" />
 		</if>
 	</rules>
