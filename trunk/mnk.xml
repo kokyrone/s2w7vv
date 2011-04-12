@@ -99,6 +99,9 @@
 				<waist>Virtuoso Belt</waist>
 				<feet>Tantra Gaiters +1</feet>
 			</set>
+			<set name = "OtherWS" BaseSet = "WS">
+				<head>Optical Hat</head>
+			</set>
 			<set name = "Rest" BaseSet = "Idle"/>
 			<set name = "Town" BaseSet = "Idle"/>
 			<set name = "Haste" BaseSet = "$MeleeSet">
@@ -143,6 +146,8 @@
 		<var name="MeleeSet">TP</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
 		<var name="DayOrNight">Day</var>
+		<!-- Init with New Moon set will update after first cast/ja etc.-->
+		<var name="MoonPhase">0</var>
 		<var name="BattleArea">Standard</var>
 	</variables>
 	<rules>
@@ -177,6 +182,9 @@
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
 					<neck lock="yes">Thunder Gorget</neck>
 				</equip>
+				<if Spell = "Tornado Kick">
+					<waist lock="yes">Snow Belt</neck>
+				</if>
 			</if>
 			<elseif Spell = "Asuran Fists">
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
@@ -184,14 +192,14 @@
 				</equip>
 			</elseif>
 			<elseif Spell ="Cataclysm">
-				<equip when = "precast" setgroup = "$BattleArea" set = "WS|MAB">
+				<equip when = "precast" setgroup = "$BattleArea" set = "OtherWS|MAB">
 					<if advanced = '$MoonPhase &gt; 2'>
 						<neck lock = "yes">Artemis' Medal</neck>
 					</if>
 				</equip>
 			</elseif>
 			<else>
-				<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
+				<equip when = "precast" setgroup = "$BattleArea" set = "OtherWS" />
 			</else>
 			<castdelay delay = "0.5" />
 			<aftercastdelay delay = "4" />
@@ -221,7 +229,7 @@
 			<aftercastdelay delay = "2" />
 		</if>
 		<!-- some DNC sub rules -->
-		<if mode="AND" Spell="Curing Waltz II" TPGT="49" MainJobLvl="90" >
+		<if Spell="Curing Waltz II" TPGT="49" MainJobLvl="90" >
 			<changespell Spell="Curing Waltz III" />
 		</if>
 	</rules>
