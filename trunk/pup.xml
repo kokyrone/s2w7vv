@@ -165,13 +165,22 @@
 			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity" />
 			<aftercastdelay delay = "1" />
 		</if>
-		<if Spell = "Raging Fists">
-			<equip when = "precast" setgroup = "$BattleArea" set = "WS|Acc" />
-			<aftercastdelay delay = "3" />
-		</if>
-		<if Spell = "Howling Fist|Dragon Kick">
-			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
-			<aftercastdelay delay = "3" />
+		<if type = "Weaponskill">
+			<if Spell = "Combo|Shoulder Tackle|Raging Fists|Spinning Attack|Howling Fist|Dragon Kick|Tornado Kick|Victory Smite">
+				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
+					<neck lock="yes">Thunder Gorget</neck>
+				</equip>
+				<if Spell = "Tornado Kick">
+					<equip when = "precast">
+						<waist lock="yes">Snow Belt</waist>
+					</equip>
+				</if>
+			</if>
+			<else>
+				<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
+			</else>
+			<castdelay delay = "0.5" />
+			<aftercastdelay delay = "4" />
 		</if>
 		<!-- some DNC sub rules -->
 		<if Spell="Curing Waltz II" TPGT="49" MainJobLvl="90" >
