@@ -183,7 +183,9 @@
 					<neck lock="yes">Thunder Gorget</neck>
 				</equip>
 				<if Spell = "Tornado Kick">
-					<waist lock="yes">Snow Belt</neck>
+					<equip when = "precast">
+						<waist lock="yes">Snow Belt</waist>
+					</equip>
 				</if>
 			</if>
 			<elseif Spell = "Asuran Fists">
