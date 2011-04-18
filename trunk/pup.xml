@@ -13,6 +13,7 @@
 				<head>Pantin Taj</head>
 				<!--<neck>Twilight Torque</neck>-->
 				<lring>Jelly Ring</lring>
+				<rring>Dark Ring</rring>
 			</set>
 			<set name = "TP">
 				<sub />
@@ -28,7 +29,7 @@
 				<rring>Ecphoria Ring</rring>
 				<back>Bellicose Mantle</back>
 				<waist>Shaolin Belt</waist>
-				<legs>Pantin Churidars</legs>
+				<legs>Aurore Brais</legs>
 				<feet>Puppetry Babouches +1</feet>
 			</set>
 			<set name = "Eva"  BaseSet = "TP">
@@ -45,7 +46,7 @@
 			</set>
 			<set name = "Acc" BaseSet = "TP">
 				<head>Tokon Hachimaki</head>
-				<neck>Chivalrous Chain</neck>
+				<neck>Cirque Necklace</neck>
 				<hands>Tabin Bracers +1</hands>
 				<lring>Sniper's Ring</lring>
 				<waist>Virtuoso Belt</waist>
@@ -121,7 +122,25 @@
 		</group>
 		<group name = "Siege" inherit = "Standard" />
 		<group name = "Assault" inherit = "Standard" />
-		<group name = "Abyssea" inherit = "Standard" />
+		<group name = "Abyssea" inherit = "Standard">
+			<set name = "TP">
+				<sub />
+				<range>Turbo Animator</range>
+				<ammo>Automaton Oil +2</ammo>
+				<head>Brisk Mask</head>
+				<neck>Cirque Necklace</neck>
+				<lear>Coral Earring</lear>
+				<rear>Brutal Earring</rear>
+				<body>Pantin Tobe</body>
+				<hands>Pantin Dastanas</hands>
+				<lring>Rajas Ring</lring>
+				<rring>Ecphoria Ring</rring>
+				<back>Cavaros Mantle</back>
+				<waist>Shaolin Belt</waist>
+				<legs>Aurore Brais</legs>
+				<feet>Puppetry Babouches +1</feet>
+			</set>
+		</group>
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
@@ -143,7 +162,7 @@
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
 		<!-- Default melee gears engaged -->
-		<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet" />
+		<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet|$AutoSet" />
 		<!-- Aftercast rules -->
 		<if NotStatus="engaged">
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle|$AutoSet" />
@@ -152,11 +171,15 @@
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet|$AutoSet" />
 		</else>
 		<!-- rules for job abilities and actions -->
+		<if Spell = "Deploy">
+			<action type = "command">input /echo TP: &lt;pettp&gt; HP: &lt;pethpp&gt; MP: &lt;petmpp&gt;</action>
+		</if>
 		<if Spell = "Repair">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Repair" />
 			<aftercastdelay delay = "2" />
 		</if>
 		<if Spell = "*Maneuver">
+			<action type = "command">input /echo %spellelement - TP: &lt;pettp&gt; HP: &lt;pethpp&gt; MP: &lt;petmpp&gt;</action>
 			<!--<equip when = "precast" setgroup = "$BattleArea" set = "Maneuver" />-->
 			<equip when = "precast" setgroup = "$BattleArea" set = "%spellelement|Maneuver" />
 			<aftercastdelay delay = "1" />
