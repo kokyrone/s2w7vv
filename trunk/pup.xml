@@ -172,14 +172,14 @@
 		</else>
 		<!-- rules for job abilities and actions -->
 		<if Spell = "Deploy">
-			<action type = "command">input /echo TP: &lt;pettp&gt; HP: &lt;pethpp&gt; MP: &lt;petmpp&gt;</action>
+			<action type = "command">input /echo Automaton - TP: &lt;pettp&gt; HP: &lt;pethpp&gt; MP: &lt;petmpp&gt;</action>
 		</if>
 		<if Spell = "Repair">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Repair" />
 			<aftercastdelay delay = "2" />
 		</if>
 		<if Spell = "*Maneuver">
-			<action type = "command">input /echo %spellelement - TP: &lt;pettp&gt; HP: &lt;pethpp&gt; MP: &lt;petmpp&gt;</action>
+			<action type = "command">input /echo %spellelement Maneuver - TP: &lt;pettp&gt; HP: &lt;pethpp&gt; MP: &lt;petmpp&gt;</action>
 			<!--<equip when = "precast" setgroup = "$BattleArea" set = "Maneuver" />-->
 			<equip when = "precast" setgroup = "$BattleArea" set = "%spellelement|Maneuver" />
 			<aftercastdelay delay = "1" />
