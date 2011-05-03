@@ -98,6 +98,7 @@
 				<neck>Twilight Torque</neck>
 				<body>Sorcerer's Coat</body>
 				<lring>Jelly Ring</lring>
+				<rring>Dark Ring</rring>
 				<rear>Sorcerer's Earring</rear>
 			</set>
 			<set name = "Town" BaseSet = "Idle">
@@ -252,11 +253,6 @@
 			<!-- equip gear that helps stun, and nothing else -->
 			<equip set = "MAB|DarkMagic|FastCast">
 				<main lock = "true">Jupiter's Staff</main>
-				<if Advanced='"$ThunderGrip" == "1"'>
-					<equip when = "midcast">
-						<sub lock = "true">Thunder Grip</sub>
-					</equip>
-				</if>
 			</equip>
 			<!-- these codes just print Stun in auto translate into chat. -->
 			<action type = "command">input /p \xFD\x07\x02\x12\xFC\xFD %SpellTarget</action>
