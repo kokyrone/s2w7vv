@@ -71,7 +71,7 @@
 			<set name = "Enmity" BaseSet = "$DayOrNight$MeleeSet">
 				<neck>Harmonia's Torque</neck>
 				<rear>Eris' Earring</rear>
-				<lring>Mermaid Ring</lring>
+				<lring>Odium Ring</lring>
 				<waist>Warwolf Belt</waist>
 			</set>
 			<set name = "DayPDT|NightPDT|PDT" BaseSet = "$DayOrNightEva">
