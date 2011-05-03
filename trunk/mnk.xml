@@ -12,12 +12,13 @@
 		<group default = "true" name = "Standard">
 			<set name = "DayIdle|NightIdle|Idle" BaseSet = "$MeleeSet">
 				<head>Tokon Hachimaki</head>
-				<!--<neck>Twilight Torque</neck>-->
+				<neck>Twilight Torque</neck>
+				<rear>Mercen. Earring</rear>
 				<body>Temple Cyclas</body>
 				<hands>Tantra Gloves +1</hands>
 				<lring>Jelly Ring</lring>
 				<rring>Dark Ring</rring>
-				<feet>Hermes' Sandals</feet>
+				<feet>Tantra Gaiters +1</feet>
 			</set>
 			<set name = "TP">
 				<ammo />
@@ -28,9 +29,9 @@
 				<body>Aurore Doublet</body>
 				<hands>Tantra Gloves +1</hands>
 				<lring>Rajas Ring</lring>
-				<rring>Heed Ring</rring>
-				<back>Amemet Mantle +1</back>
-				<waist>Purple Belt</waist>
+				<rring>Keen Ring</rring>
+				<back>Atheling Mantle</back>
+				<waist>Twilight Belt</waist>
 				<legs>Tantra Hose +1</legs>
 				<feet>Fuma Sune-ate</feet>
 			</set>
@@ -60,7 +61,7 @@
 			<set name = "PDT" BaseSet = "TP">
 				<ammo>Bibiki Seashell</ammo>
 				<head>Arhat's Jinpachi +1</head>
-				<!--<neck>Twilight Torque</neck>-->
+				<neck>Twilight Torque</neck>
 				<body>Arhat's Gi +1</body>
 				<hands>Seiryu's Kote</hands>
 				<lring>Jelly Ring</lring>
@@ -73,7 +74,7 @@
 			<set name = "Enmity" BaseSet = "$MeleeSet">
 				<neck>Harmonia's Torque</neck>
 				<rear>Eris' Earring</rear>
-				<lring>Mermaid Ring</lring>
+				<lring>Odium Ring</lring>
 				<waist>Warwolf Belt</waist>
 			</set>
 			<set name = "STR" BaseSet = "$MeleeSet">
