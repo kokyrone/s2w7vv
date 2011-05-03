@@ -14,6 +14,7 @@
 				<!--<neck>Twilight Torque</neck>-->
 				<lring>Jelly Ring</lring>
 				<rring>Dark Ring</rring>
+				<feet>Cirque Scarpe +1</feet>
 			</set>
 			<set name = "TP">
 				<sub />
@@ -21,15 +22,20 @@
 				<ammo>Automaton Oil +2</ammo>
 				<head>Brisk Mask</head>
 				<neck>Cirque Necklace</neck>
-				<lear>Coral Earring</lear>
+				<lear>Kemas Earring</lear>
 				<rear>Brutal Earring</rear>
 				<body>Pantin Tobe</body>
 				<hands>Pantin Dastanas</hands>
 				<lring>Rajas Ring</lring>
-				<rring>Ecphoria Ring</rring>
+				<rring>Heed Ring</rring>
 				<back>Bellicose Mantle</back>
 				<waist>Shaolin Belt</waist>
-				<legs>Aurore Brais</legs>
+				<legs>Cirque Pantaloni +1</legs>
+				<feet>Cirque Scarpe +1</feet>
+			</set>
+			<set name = "Tank" BaseSet = "TP">
+				<head>Tokon Hachimaki</head>
+				<body>Aurore Doublet</body>
 				<feet>Puppetry Babouches +1</feet>
 			</set>
 			<set name = "Eva"  BaseSet = "TP">
@@ -40,30 +46,25 @@
 				<body>Aurore Doublet</body>
 				<hands>Tabin Bracers +1</hands>
 				<lring>Jelly Ring</lring>
-				<rring>Ecphoria Ring</rring>
+				<rring>Heed Ring</rring>
 				<back>Dodge Cape</back>
-				<legs>Combat Caster's Slacks</legs>
+				<legs>Ambusher's Hose</legs>
+				<feet>Puppetry Babouches +1</feet>
 			</set>
 			<set name = "Acc" BaseSet = "TP">
 				<head>Tokon Hachimaki</head>
 				<neck>Cirque Necklace</neck>
 				<hands>Tabin Bracers +1</hands>
 				<lring>Sniper's Ring</lring>
+				<rring>Ecphoria Ring</rring>
 				<waist>Virtuoso Belt</waist>
-			</set>
-			<set name = "Repair" BaseSet = "$MeleeSet">
-				<feet>Puppetry Babouches +1</feet>
-			</set>
-			<set name = "Maneuver">
-				<hands>Puppetry Dastanas</hands>
-				<neck>Buffoon's Collar</neck>
 			</set>
 			<set name = "WS" BaseSet = "Acc">
 				<neck>Thunder Gorget</neck>
 				<lring>Rajas Ring</lring>
 				<rring>Ecphoria Ring</rring>
 				<waist>Virtuoso Belt</waist>
-				<feet>Creek M clomps</feet>
+				<legs>Aurore Brais</legs>
 			</set>
 			<set name = "Rest" BaseSet = "$MeleeSet">
 				<head>Puppetry Taj</head>
@@ -71,33 +72,52 @@
 			<set name = "Town" BaseSet = "Idle"/>
 			<set name = "Enmity" BaseSet = "$MeleeSet">
 				<neck>Harmonia's Torque</neck>
-				<lring>Mermaid Ring</lring>
+				<lring>Odium Ring</lring>
+			</set>
+			<set name = "Maneuver">
+				<hands>Puppetry Dastanas</hands>
+				<neck>Buffoon's Collar</neck>
 			</set>
 			<set name = "AGI|Wind" BaseSet = "$MeleeSet">
 				<head>Empress Hairpin</head>
 				<body>Aketon</body>
+				<rring>Solemn Ring</rring>
+				<legs>Ambusher's Hose</legs>
 			</set>
 			<set name = "CHR|Light" BaseSet = "$MeleeSet">
 				<body>Errant Hpl.</body>
+				<rring>Airy Ring</rring>
 				<legs>Mahatma Slops</legs>
 			</set>
 			<set name = "MND|Water" BaseSet = "CHR">
 				<head>Puppetry Taj</head>
 				<lring>Sapphire Ring</lring>
 				<rring>Solemn Ring</rring>
+				<legs>Ambusher's Hose</legs>
 				<feet>Pantin Babouches</feet>
 			</set>
 			<set name = "DEX|Thunder" BaseSet = "$MeleeSet">
 				<head>Puppetry Taj</head>
 				<lring>Rajas Ring</lring>
+				<rring>Airy Ring</rring>
+				<feet>Cirque Scarpe +1</feet>
 			</set>
 			<set name = "INT|Ice" BaseSet = "CHR">
-				<feet>Pantin Babouches</feet>
+				<rring>Spiral Ring</rring>
+				<feet>Cirque Scarpe +1</feet>
 			</set>
 			<set name = "STR|Fire" BaseSet = "$MeleeSet">
+				<lear>Kemas Earring</lear>
 				<lring>Rajas Ring</lring>
+				<rring>Spiral Ring</rring>
+				<feet>Cirque Scarpe +1</feet>
 			</set>
-			<set name = "VIT|Earth" BaseSet = "$MeleeSet"/>
+			<set name = "VIT|Earth" BaseSet = "$MeleeSet">
+				<lear>Kemas Earring</lear>
+				<rear>Mercen. Earring</rear>
+				<rring>Spiral Ring</rring>
+				<feet>Creek M clomps</feet>
+			</set>
 			<set name = "Dark" BaseSet = "$MeleeSet"/>
 			<!-- Automaton Sets-->
 			<set name = "BLM">
@@ -117,7 +137,7 @@
 				<rring>Ecphoria Ring</rring>
 				<neck>Bull Necklace</neck>
 				<waist>Virtuoso Belt</waist>
-				<feet>Creek M clomps</feet>
+				<feet>Puppetry Babouches +1</feet>
 			</set>
 		</group>
 		<group name = "Siege" inherit = "Standard" />
@@ -145,7 +165,7 @@
 	<variables>
 		<!-- Engaged Melee Gear -->
 		<var name="MeleeSet">TP</var>
-		<var name="AutoSet">$MeleeSet</var>
+		<var name="AutoSet">VE</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
 		<var name="DayOrNight">Day</var>
 		<var name="BattleArea">Standard</var>
@@ -175,7 +195,15 @@
 			<action type = "command">input /echo Automaton - TP: &lt;pettp&gt; HP: &lt;pethpp&gt; MP: &lt;petmpp&gt;</action>
 		</if>
 		<if Spell = "Repair">
-			<equip when = "precast" setgroup = "$BattleArea" set = "Repair" />
+			<equip when = "precast" setgroup = "$BattleArea">
+				<feet>Puppetry Babouches +1</feet>
+			</equip>
+			<aftercastdelay delay = "2" />
+		</if>
+		<if Spell = "Tactical Switch">
+			<equip when = "precast" setgroup = "$BattleArea">
+				<feet>Cirque Scarpe +1</feet>
+			</equip>
 			<aftercastdelay delay = "2" />
 		</if>
 		<if Spell = "*Maneuver">
@@ -199,6 +227,10 @@
 					</equip>
 				</if>
 			</if>
+			<elseif Spell = "Backhand Blow">
+				<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
+				<aftercastdelay delay = "4" />
+			</elseif>
 			<else>
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
 			</else>
