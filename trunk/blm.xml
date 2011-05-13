@@ -363,12 +363,12 @@
 					<if Spell = "*Spikes">
 						<!-- equip gear to decrease resist rate and increase dmg -->
 						<equip type = "equip" when = "midcast" Set = "INT|MAB|%skill">
-							<main lock="true">$IceStaff</main>
+							<main lock="true">Kirin's Pole</main>
 						</equip>
 					</if>
 					<elseif Spell = "Stoneskin">
 						<equip type = "equip" when = "midcast" set = "MND|%skill">
-							<main lock="true">$WaterStaff</main>
+							<main lock="true">Kirin's Pole</main>
 						</equip>
 					</elseif>
 					<else>
