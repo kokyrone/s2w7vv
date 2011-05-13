@@ -11,10 +11,10 @@
 		<group default = "true" name = "Standard">
 			<set name = "DayIdle|NightIdle|Idle" BaseSet="$MeleeSet">
 				<head>Pantin Taj</head>
+				<neck>Faith Torque</neck>
 				<!--<neck>Twilight Torque</neck>-->
 				<lring>Jelly Ring</lring>
 				<rring>Dark Ring</rring>
-				<feet>Cirque Scarpe +1</feet>
 			</set>
 			<set name = "TP">
 				<sub />
@@ -60,7 +60,7 @@
 				<waist>Virtuoso Belt</waist>
 			</set>
 			<set name = "WS" BaseSet = "Acc">
-				<neck>Thunder Gorget</neck>
+				<neck>Faith Torque</neck>
 				<lring>Rajas Ring</lring>
 				<rring>Ecphoria Ring</rring>
 				<waist>Virtuoso Belt</waist>
@@ -73,6 +73,7 @@
 			<set name = "Enmity" BaseSet = "$MeleeSet">
 				<neck>Harmonia's Torque</neck>
 				<lring>Odium Ring</lring>
+				<back>Cavaros Mantle</back>
 			</set>
 			<set name = "Maneuver">
 				<hands>Puppetry Dastanas</hands>
@@ -149,16 +150,16 @@
 				<ammo>Automaton Oil +2</ammo>
 				<head>Brisk Mask</head>
 				<neck>Cirque Necklace</neck>
-				<lear>Coral Earring</lear>
+				<lear>Kemas Earring</lear>
 				<rear>Brutal Earring</rear>
 				<body>Pantin Tobe</body>
 				<hands>Pantin Dastanas</hands>
 				<lring>Rajas Ring</lring>
-				<rring>Ecphoria Ring</rring>
+				<rring>Heed Ring</rring>
 				<back>Cavaros Mantle</back>
 				<waist>Shaolin Belt</waist>
-				<legs>Aurore Brais</legs>
-				<feet>Puppetry Babouches +1</feet>
+				<legs>Cirque Pantaloni +1</legs>
+				<feet>Cirque Scarpe +1</feet>
 			</set>
 		</group>
 	</sets>
