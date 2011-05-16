@@ -34,7 +34,7 @@
 				<feet>Cirque Scarpe +1</feet>
 			</set>
 			<set name = "Tank" BaseSet = "TP">
-				<head>Tokon Hachimaki</head>
+				<head>Cirque Capello +1</head>
 				<body>Aurore Doublet</body>
 				<feet>Puppetry Babouches +1</feet>
 			</set>
@@ -183,13 +183,13 @@
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
 		<!-- Default melee gears engaged -->
-		<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet|$AutoSet" />
+		<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet" />
 		<!-- Aftercast rules -->
 		<if NotStatus="engaged">
-			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle|$AutoSet" />
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
 		</if>
 		<else>
-			<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet|$AutoSet" />
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet" />
 		</else>
 		<!-- rules for job abilities and actions -->
 		<if Spell = "Deploy">
