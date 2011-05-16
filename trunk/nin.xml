@@ -17,7 +17,7 @@
 			<set name = "NightIdle" BaseSet = "Idle">
 				<feet>Ninja Kyahan</feet>
 			</set>
-			<set name = "DayTP|NightTP|TP">
+			<set name = "DayTP|TP">
 				<sub />
 				<ammo>Bomb Core</ammo>
 				<head>Iga Zukin +2</head>
@@ -32,6 +32,9 @@
 				<waist>Twilight Belt</waist>
 				<legs>Iga Hakama +2</legs>
 				<feet>Iga Kyahan +1</feet>
+			</set>
+			<set name = "NightTP" BaseSet = "DayTP">
+				<hands>Koga Tekko</hands>
 			</set>
 			<set name = "DayEva|Eva">
 				<range>Ungur Boomerang</range>
@@ -51,7 +54,7 @@
 			<set name = "NightEva" BaseSet = "DayEva">
 				<legs>Koga Hakama</legs>
 			</set>
-			<set name = "DayAcc|NightAcc" BaseSet = "TP">
+			<set name = "DayAcc|NightAcc|Acc" BaseSet = "TP">
 				<sub />
 				<head>Optical Hat</head>
 				<neck>Iga Erimaki</neck>
@@ -80,6 +83,7 @@
 			</set>
 			<set name = "Ninjutsu">
 				<head>Ninja Hatsuburi</head>
+				<hands>Koga Tekko</hands>
 			</set>
 			<set name = "WS" BaseSet = "$DayOrNight$MeleeSet">
 				<head>Iga Zukin +2</head>
@@ -193,6 +197,11 @@
 					<neck>Thunder Gorget</neck>
 					<legs>Byakko's Haidate</legs>
 				</equip>
+				<if Spell = "*Kamu" advanced='"$DayOrNight" == "Night"'>
+					<equip when = "precast">
+						<hands>Koga Tekko</hands>
+					</equip>
+				</if>
 				<castdelay delay = "0.2" />
 				<aftercastdelay delay = "4" />
 			</if>
