@@ -7,6 +7,7 @@
 	RequireVersion = "2.22"
 	ShowGearSwaps = "false"
 	Debug = "True"
+	FishingSet="GoFish"
 	/>
 	<variables>
 		<!-- use BLM AF2 pants or not? Set to 0 if you do not have it -->
@@ -73,7 +74,7 @@
 				<hands>Goetia Gloves +1</hands>
 				<lring>Diamond Ring</lring>
 				<rring>Spiral Ring</rring>
-				<!--<back>Rainbow Cape</back>-->
+				<back>Goetia Mantle</back>
 				<waist>Penitent's Rope</waist>
 				<legs>Teal Slops</legs>
 				<feet>Goetia Sabots +1</feet>
@@ -91,7 +92,7 @@
 			<set name = "MAB" BaseSet = "INT">
 				<lear>Moldavite Earring</lear>
 				<body>Teal Saio</body>
-				<back>Hecate's Cape</back>
+				<back>Goetia Mantle</back>
 			</set>
 			<set name = "DayIdle|NightIdle|Idle" BaseSet = "MAB">
 				<main>$EarthStaff</main>
@@ -180,6 +181,13 @@
 			<set name = "Haste" BaseSet = "Melee">
 				<head>Walahra Turban</head>
 				<waist>Swift Belt</waist>
+			</set>
+			<set name = "GoFish">
+				<head>Trainee's Spectacles</head>
+				<body>Fisherman's tunica</body>
+				<hands>Fisherman's gloves</hands>
+				<legs>Angler's Hose</legs>
+				<feet>Fisherman's Boots</feet>
 			</set>
 		</group>
 		<group name = "Camp" inherit = "Standard" />
