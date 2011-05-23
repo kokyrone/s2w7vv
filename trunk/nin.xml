@@ -7,6 +7,7 @@
 		RequireVersion="2.22"
 		ShowGearSwaps="false"
 		Debug="True"
+		FishingSet="GoFish"
 		/>
 	<sets>
 		<group default = "true" name = "Standard">
@@ -69,6 +70,7 @@
 				<feet>Ballerines</feet>
 			</set>
 			<set name = "NightTank" BaseSet = "Tank">
+				<hands>Koga Tekko</hands>
 				<legs>Koga Hakama</legs>
 			</set>
 			<set name = "Enmity" BaseSet = "$DayOrNight$MeleeSet">
@@ -129,6 +131,13 @@
 			</set>
 			<set name = "Boom" BaseSet = "RAcc">
 				<range>Ungur Boomerang</range>
+			</set>
+			<set name = "GoFish">
+				<head>Trainee's Spectacles</head>
+				<body>Fisherman's tunica</body>
+				<hands>Fisherman's gloves</hands>
+				<legs>Angler's Hose</legs>
+				<feet>Fisherman's Boots</feet>
 			</set>
 		</group>
 		<!-- Campaign Battle gear - only used when Allied Tags are on -->
@@ -205,6 +214,14 @@
 				<castdelay delay = "0.2" />
 				<aftercastdelay delay = "4" />
 			</if>
+			<if Spell = "*Ku|*Ten">
+				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
+					<neck>Soil Gorget</neck>
+					<legs>Byakko's Haidate</legs>
+				</equip>
+				<castdelay delay = "0.2" />
+				<aftercastdelay delay = "4" />
+			</if>
 			<else>
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
 				<aftercastdelay delay = "4" />
@@ -233,13 +250,6 @@
 				<hands>Iga Tekko +1</hands>
 			</equip>
 		</if>
-		<if Spell = "Ranged">
-			<action type = "command">input /echo $RType</action>
-			<equip when = "precast" setgroup = "$BattleArea" set = "$RType" />
-			<!-- wait until we actually have a ranged weapon equiped -->
-			<castdelay delay = "0.2" />
-			<aftercastdelay delay = "2" />
-		</if>
 		<if spell="Utsusemi*|Migawari*|Myoshu*">
 			<if HPPLT="26">
 				<equip when = "precast" setgroup = "$BattleArea" set = "$DayOrNightEva">
@@ -257,6 +267,18 @@
 				<midcastdelay delay="3.0" />
 				<command when = "midcast">cancel 66</command>
 			</if>
+			<aftercastdelay delay = "2" />
+		</if>
+		<if Spell = "Tonko*|Monomi*">
+			<equip when = "precast" setgroup = "$BattleArea" set = "Ninjutsu">
+				<body>Mirke Wardecors</body>
+			</equip>
+		</if>
+		<if Spell = "Ranged">
+			<action type = "command">input /echo $RType</action>
+			<equip when = "precast" setgroup = "$BattleArea" set = "$RType" />
+			<!-- wait until we actually have a ranged weapon equiped -->
+			<castdelay delay = "0.2" />
 			<aftercastdelay delay = "2" />
 		</if>
 		<!-- some DNC sub rules -->
