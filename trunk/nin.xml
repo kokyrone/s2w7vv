@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
 	<config
-		RestingSet="Idle"
+		RestingSet="$DayOrNightIdle"
 		NormalSet="Idle"
 		EngagedSet="$DayOrNight$MeleeSet"
 		RequireVersion="2.22"
@@ -103,24 +103,24 @@
 				<legs>Iga Hakama +2</legs>
 				<feet>Iga Kyahan +1</feet>
 			</set>
-			<set name = "Rest" BaseSet = "$DayOrNightIdle"/>
+			<set name = "Rest" />
 			<set name = "Town" BaseSet = "$DayOrNightIdle">
 				<head>Panther Mask</head>
 			</set>
-			<set name = "Haste" BaseSet = "$DayOrNight$MeleeSet">
-				<head lock="yes">Iga Zukin +2</head>
-				<body lock="yes">Mirke Wardecors</body>
-				<hands lock="yes">Dusk Gloves</hands>
-				<waist lock="yes">Twilight Belt</waist>
-				<legs lock="yes">Iga Hakama +2</legs>
-				<feet lock="yes">Iga Kyahan +1</feet>
+			<set name = "DayHaste|Haste" BaseSet = "$DayOrNight$MeleeSet">
+				<head>Iga Zukin +2</head>
+				<body>Mirke Wardecors</body>
+				<hands>Dusk Gloves</hands>
+				<waist>Twilight Belt</waist>
+				<legs>Iga Hakama +2</legs>
+				<feet>Iga Kyahan +1</feet>
+			</set>
+			<set name = "NightHaste" BaseSet = "Haste">
+				<hands>Koga Tekko</hands>
 			</set>
 			<set name = "RAcc" BaseSet = "$DayOrNight$MeleeSet">
 				<head>Optical Hat</head>
 				<hands>Seiryu's Kote</hands>
-				<lring>Behemoth Ring</lring>
-				<rring>Behemoth Ring</rring>
-				<legs>Ninja Hakama</legs>
 			</set>
 			<set name = "Gun" BaseSet = "RAcc">
 				<range>Coffinmaker</range>
@@ -204,6 +204,7 @@
 			<if Spell = "*Chi|*Jin|*Kamu">
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
 					<neck>Thunder Gorget</neck>
+					<waist>Thunder Belt</waist>
 					<legs>Byakko's Haidate</legs>
 				</equip>
 				<if Spell = "*Kamu" advanced='"$DayOrNight" == "Night"'>
@@ -261,7 +262,7 @@
 				</equip>
 			</if>
 			<else>
-				<equip when = "precast" setgroup = "$BattleArea" set = "Haste|Enmity" />
+				<equip when = "precast" setgroup = "$BattleArea" set = "Enmity|$DayOrNightHaste" />
 			</else>
 			<if spell="Utsusemi: Ichi" BuffActive="Copy Image">
 				<midcastdelay delay="3.0" />
@@ -282,8 +283,8 @@
 			<aftercastdelay delay = "2" />
 		</if>
 		<!-- some DNC sub rules -->
-		<if Spell="Curing Waltz II" TPGT="49" MainJobLvl="90" >
-			<changespell Spell="Curing Waltz III" />
+		<if Spell="Curing Waltz III" TPLT="50">
+			<changespell Spell="Curing Waltz II" />
 		</if>
 	</rules>
 </spellcast>
