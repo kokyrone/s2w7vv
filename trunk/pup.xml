@@ -220,13 +220,9 @@
 		<if type = "Weaponskill">
 			<if Spell = "Combo|Shoulder Tackle|Raging Fists|Spinning Attack|Howling Fist|Dragon Kick|Tornado Kick|Victory Smite">
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
-					<neck lock="yes">Thunder Gorget</neck>
+					<neck>Thunder Gorget</neck>
+					<waist>Thunder Belt</waist>
 				</equip>
-				<if Spell = "Tornado Kick">
-					<equip when = "precast">
-						<waist lock="yes">Snow Belt</waist>
-					</equip>
-				</if>
 			</if>
 			<elseif Spell = "Backhand Blow">
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
