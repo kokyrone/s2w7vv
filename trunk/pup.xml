@@ -16,7 +16,7 @@
 				<lring>Jelly Ring</lring>
 				<rring>Dark Ring</rring>
 			</set>
-			<set name = "TP">
+			<set name = "MeleeTP|TP">
 				<sub />
 				<range>Turbo Animator</range>
 				<ammo>Automaton Oil +2</ammo>
@@ -32,6 +32,10 @@
 				<waist>Shaolin Belt</waist>
 				<legs>Cirque Pantaloni +1</legs>
 				<feet>Cirque Scarpe +1</feet>
+			</set>
+			<set name = "MageTP" BaseSet = "MeleeTP">
+				<hands>Cirque Guanti +1</hands>
+				<waist>Cirque Sash</waist>
 			</set>
 			<set name = "Tank" BaseSet = "TP">
 				<head>Cirque Capello +1</head>
@@ -75,6 +79,7 @@
 				<lring>Odium Ring</lring>
 				<back>Cavaros Mantle</back>
 			</set>
+			<!-- Maneuver sets -->
 			<set name = "Maneuver">
 				<hands>Puppetry Dastanas</hands>
 				<neck>Buffoon's Collar</neck>
@@ -167,6 +172,7 @@
 		<!-- Engaged Melee Gear -->
 		<var name="MeleeSet">TP</var>
 		<var name="AutoSet">VE</var>
+		<var name="AutoType">Melee</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
 		<var name="DayOrNight">Day</var>
 		<var name="BattleArea">Standard</var>
@@ -189,7 +195,12 @@
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
 		</if>
 		<else>
-			<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet" />
+			<if advanced='"$MeleeSet" == "TP"'>
+				<equip when = "aftercast" setgroup = "$BattleArea" set = "$AutoType$MeleeSet" />
+			</if>
+			<else>
+				<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet" />
+			</else>
 		</else>
 		<!-- rules for job abilities and actions -->
 		<if Spell = "Deploy">
@@ -235,8 +246,8 @@
 			<aftercastdelay delay = "4" />
 		</if>
 		<!-- some DNC sub rules -->
-		<if Spell="Curing Waltz II" TPGT="49" MainJobLvl="90" >
-			<changespell Spell="Curing Waltz III" />
+		<if Spell="Curing Waltz III" TPLT="50">
+			<changespell Spell="Curing Waltz II" />
 		</if>
 	</rules>
 </spellcast>
