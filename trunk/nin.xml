@@ -86,6 +86,23 @@
 			<set name = "Ninjutsu">
 				<head>Ninja Hatsuburi</head>
 				<hands>Koga Tekko</hands>
+				<!--<feet>Koga Kyahan</feet>-->
+			</set>
+			<set name = "EleNin" BaseSet="Ninjutsu">
+				<!--<range></range>-->
+				<ammo>Snow Sachet</ammo>
+				<!--<head>Koga Hatsuburi</head>-->
+				<!--<neck></neck>-->
+				<lear>Moldavite Earring</lear>
+				<rear>Phantom Earring</rear>
+				<!--<body></body>-->
+				<hands>Iga Tekko +1</hands>
+				<lring>Diamond Ring</lring>
+				<rring>Spiral Ring</rring>
+				<!--<back></back>
+				<waist></waist>
+				<legs></legs>-->
+				<!--<feet>Ninja Kyahan +1</feet>-->
 			</set>
 			<set name = "WS" BaseSet = "$DayOrNight$MeleeSet">
 				<head>Iga Zukin +2</head>
@@ -169,6 +186,9 @@
 		<!-- Init with day set will update after first cast/ja etc.-->
 		<var name="DayOrNight">Day</var>
 		<var name="BattleArea">Standard</var>
+		<!-- Obi Rules -->
+		<var name = "ThunderObi">1</var>
+		<var name = "IceObi">1</var>
 	</variables>
 	<rules>
 		<!-- Check there's nothing stopping us acting -->
@@ -253,9 +273,9 @@
 			</equip>
 		</if>
 		<if Spell = "Doton*|Suiton*|Huton*|Katon*|Hyoton*|Raiton*">
-			<equip when = "precast" setgroup = "$BattleArea" set = "Ninjutsu">
-				<hands>Iga Tekko +1</hands>
-			</equip>
+			<equip when = "precast" setgroup = "$BattleArea" set = "EleNin" />
+			<!-- Handle Elemental Obi's -->
+			<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ObiRules']/*" />
 		</if>
 		<if spell="Utsusemi*|Migawari*|Myoshu*">
 			<if HPPLT="26">
