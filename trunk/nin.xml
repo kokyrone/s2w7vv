@@ -163,7 +163,7 @@
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
-		<var name="MeleeSet">TP</var>
+		<var name="MeleeSet">Tank</var>
 		<!-- Ranged Weapon Type -->
 		<var name="RType">Boom</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
@@ -228,10 +228,15 @@
 				<aftercastdelay delay = "4" />
 			</else>
 		</if>
+		<!-- some DNC sub rules -->
+		<if Spell="Curing Waltz III" TPLT="50">
+			<changespell Spell="Curing Waltz II" />
+		</if>
 		<if Spell = "*Step">
 			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
 			<aftercastdelay delay = "1" />
 		</if>
+		<!-- Job Abilities -->
 		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk|Yonin">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity" />
 			<aftercastdelay delay = "1" />
@@ -241,6 +246,7 @@
 				<hands>Iga Tekko +1</hands>
 			</equip>
 		</if>
+		<!-- Ninjutsu Rules -->
 		<if Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*|Aisha*|Yurin*">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity|Ninjutsu">
 				<body>Mirke Wardecors</body>
@@ -281,10 +287,6 @@
 			<!-- wait until we actually have a ranged weapon equiped -->
 			<castdelay delay = "0.2" />
 			<aftercastdelay delay = "2" />
-		</if>
-		<!-- some DNC sub rules -->
-		<if Spell="Curing Waltz III" TPLT="50">
-			<changespell Spell="Curing Waltz II" />
 		</if>
 	</rules>
 </spellcast>
