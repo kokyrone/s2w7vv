@@ -14,14 +14,14 @@
 				<head>Tokon Hachimaki</head>
 				<neck>Twilight Torque</neck>
 				<rear>Mercen. Earring</rear>
-				<body>Temple Cyclas</body>
+				<body>Melee Cyclas</body>
 				<hands>Tantra Gloves +1</hands>
 				<lring>Jelly Ring</lring>
 				<rring>Dark Ring</rring>
 				<feet>Hermes' Sandals</feet>
 			</set>
 			<set name = "TP">
-				<ammo />
+				<ammo>Tantra Tathlum</ammo>
 				<head>Tantra Crown +1</head>
 				<neck>Faith Torque</neck>
 				<lear>Kemas Earring</lear>
@@ -51,7 +51,6 @@
 				<!--<feet>Temple Gaiters +1</feet>-->
 			</set>
 			<set name = "Acc" BaseSet = "TP">
-				<ammo />
 				<head>Tokon Hachimaki</head>
 				<waist>Virtuoso Belt</waist>
 				<legs>Tantra Hose +1</legs>
@@ -83,11 +82,12 @@
 				<waist>Warwolf Belt</waist>
 			</set>
 			<set name = "STR" BaseSet = "$MeleeSet">
+				<ammo>Tantra Tathlum</ammo>
 				<hands>Temple Gloves</hands>
 				<rring>Spiral Ring</rring>
 			</set>
 			<set name = "VIT" BaseSet = "$MeleeSet">
-				<ammo>Bibiki Seashell</ammo>
+				<ammo>Tantra Tathlum</ammo>
 				<lear>Kemas Earring</lear>
 				<rear>Mercen. Earring</rear>
 				<body>Temple Cyclas</body>
