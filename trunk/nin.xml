@@ -20,7 +20,7 @@
 			</set>
 			<set name = "DayTP|TP">
 				<sub />
-				<ammo>Bomb Core</ammo>
+				<ammo>Qirmiz Tathlum</ammo>
 				<head>Iga Zukin +2</head>
 				<neck>Iga Erimaki</neck>
 				<lear>Suppanomimi</lear>
@@ -59,7 +59,7 @@
 				<sub />
 				<head>Optical Hat</head>
 				<neck>Iga Erimaki</neck>
-				<body>Aurore Doublet</body>
+				<body>Koga Chainmail</body>
 				<rring>Heed Ring</rring>
 				<waist>Virtuoso Belt</waist>
 			</set>
@@ -92,7 +92,7 @@
 				<!--<range></range>-->
 				<ammo>Snow Sachet</ammo>
 				<!--<head>Koga Hatsuburi</head>-->
-				<!--<neck></neck>-->
+				<neck>Artemis' Medal</neck>
 				<lear>Moldavite Earring</lear>
 				<rear>Phantom Earring</rear>
 				<!--<body></body>-->
@@ -137,6 +137,7 @@
 			</set>
 			<set name = "RAcc" BaseSet = "$DayOrNight$MeleeSet">
 				<head>Optical Hat</head>
+				<body>Koga Chainmail</body>
 				<hands>Seiryu's Kote</hands>
 			</set>
 			<set name = "Gun" BaseSet = "RAcc">
@@ -201,6 +202,13 @@
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TimeCheck']/*" />
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
+		<!-- lock weapons -->
+		<if TPGT="19">
+			<equip when="precast|midcast|aftercast">
+				<range lock="t" />
+				<ammo lock="t" />
+			</equip>
+		</if>
 		<!-- Default melee gears engaged -->
 		<equip when = "engaged" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet" />
 		<!-- Aftercast rules -->
