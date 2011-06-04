@@ -91,6 +91,7 @@
 			</set>
 			<set name = "MAB" BaseSet = "INT">
 				<lear>Moldavite Earring</lear>
+				<rear>Goetia Earring</rear>
 				<body>Teal Saio</body>
 				<back>Goetia Mantle</back>
 			</set>
@@ -170,6 +171,7 @@
 				<feet>Rostrum Pumps</feet>
 			</set>
 			<set name = "Melee|WS" BaseSet = "Idle">
+				<main>Celeritas Pole</main>
 				<!--<range></range>-->
 				<head>Optical Hat</head>
 				<lear>Brutal Earring</lear>
