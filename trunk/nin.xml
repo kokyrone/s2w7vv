@@ -28,7 +28,7 @@
 				<body>Ninja Chainmail</body>
 				<hands>Dusk Gloves</hands>
 				<lring>Rajas Ring</lring>
-				<rring>Heed Ring</rring>
+				<rring>Keen Ring</rring>
 				<back>Atheling Mantle</back>
 				<waist>Twilight Belt</waist>
 				<legs>Iga Hakama +2</legs>
@@ -74,7 +74,7 @@
 				<legs>Koga Hakama</legs>
 			</set>
 			<set name = "Enmity" BaseSet = "$DayOrNight$MeleeSet">
-				<neck>Harmonia's Torque</neck>
+				<neck>Invidia Torque</neck>
 				<rear>Eris' Earring</rear>
 				<lring>Odium Ring</lring>
 				<waist>Warwolf Belt</waist>
@@ -82,6 +82,7 @@
 			<set name = "DayPDT|NightPDT|PDT" BaseSet = "$DayOrNightEva">
 				<neck>Twilight Torque</neck>
 				<lring>Jelly Ring</lring>
+				<rring>Dark Ring</rring>
 			</set>
 			<set name = "Ninjutsu">
 				<head>Ninja Hatsuburi</head>
@@ -121,9 +122,7 @@
 				<feet>Iga Kyahan +1</feet>
 			</set>
 			<set name = "Rest" />
-			<set name = "Town" BaseSet = "$DayOrNightIdle">
-				<head>Panther Mask</head>
-			</set>
+			<set name = "Town" BaseSet = "$DayOrNightIdle" />
 			<set name = "DayHaste|Haste" BaseSet = "$DayOrNight$MeleeSet">
 				<head>Iga Zukin +2</head>
 				<body>Mirke Wardecors</body>
@@ -218,15 +217,6 @@
 		<else>
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet" />
 		</else>
-		<!-- rules for situational gear -->
-		<if advanced='"$MeleeSet" == "Eva"'>
-			<if BuffActive="Blind">
-				<rear>Bat Earring</rear>
-			</if>
-			<elseif BuffActive="Song">
-				<rear>Melody Earring</rear>
-			</elseif>
-		</if>
 		<!-- rules for job abilities and actions -->
 		<if Spell = "Blade:*">
 			<if Spell = "*Chi|*Jin|*Kamu">
@@ -302,7 +292,7 @@
 				<midcastdelay delay="3.0" />
 				<command when = "midcast">cancel 66</command>
 			</if>
-			<aftercastdelay delay = "2" />
+			<aftercastdelay delay = "1" />
 		</if>
 		<if Spell = "Tonko*|Monomi*">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Ninjutsu">
