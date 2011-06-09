@@ -32,7 +32,7 @@
 				<back>Atheling Mantle</back>
 				<waist>Twilight Belt</waist>
 				<legs>Iga Hakama +2</legs>
-				<feet>Iga Kyahan +1</feet>
+				<feet>Iga Kyahan +2</feet>
 			</set>
 			<set name = "NightTP" BaseSet = "DayTP">
 				<hands>Koga Tekko</hands>
@@ -119,7 +119,7 @@
 				<!--<waist>Virtuoso Belt</waist>-->
 				<waist>Warwolf Belt</waist>
 				<legs>Iga Hakama +2</legs>
-				<feet>Iga Kyahan +1</feet>
+				<feet>Iga Kyahan +2</feet>
 			</set>
 			<set name = "Rest" />
 			<set name = "Town" BaseSet = "$DayOrNightIdle" />
@@ -129,7 +129,7 @@
 				<hands>Dusk Gloves</hands>
 				<waist>Twilight Belt</waist>
 				<legs>Iga Hakama +2</legs>
-				<feet>Iga Kyahan +1</feet>
+				<feet>Iga Kyahan +2</feet>
 			</set>
 			<set name = "NightHaste" BaseSet = "Haste">
 				<hands>Koga Tekko</hands>
@@ -171,7 +171,7 @@
 				<back />
 				<waist>Warwolf Belt</waist>
 				<legs>Byakko's Haidate</legs>
-				<feet>Iga Kyahan +1</feet>
+				<feet>Iga Kyahan +2</feet>
 			</set>
 		</group>
 		<group name = "Siege" inherit = "Standard" />
@@ -281,8 +281,9 @@
 					<!--just need two pieces for haste cap-->
 					<ammo lock="yes"></ammo>
 					<head>Iga Zukin +2</head>
-					<body>Mirke Wardecors</body>
 					<rear>Shinobi Earring</rear>
+					<body>Mirke Wardecors</body>
+					<feet>Iga Kyahan +2</feet>
 				</equip>
 			</if>
 			<else>
