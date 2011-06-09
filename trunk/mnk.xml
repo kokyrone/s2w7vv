@@ -76,10 +76,11 @@
 				<legs>Temple Hose</legs>
 			</set>
 			<set name = "Enmity" BaseSet = "$MeleeSet">
-				<neck>Harmonia's Torque</neck>
+				<neck>Invidia Torque</neck>
 				<rear>Eris' Earring</rear>
 				<lring>Odium Ring</lring>
 				<waist>Warwolf Belt</waist>
+				<feet>Hermes' Sandals</feet>
 			</set>
 			<set name = "STR" BaseSet = "$MeleeSet">
 				<ammo>Tantra Tathlum</ammo>
