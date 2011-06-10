@@ -71,7 +71,6 @@
 			</set>
 			<set name = "NightTank" BaseSet = "Tank">
 				<hands>Koga Tekko</hands>
-				<legs>Koga Hakama</legs>
 			</set>
 			<set name = "Enmity" BaseSet = "$DayOrNight$MeleeSet">
 				<neck>Invidia Torque</neck>
@@ -144,7 +143,7 @@
 				<ammo>Bullet</ammo>
 			</set>
 			<set name = "Dart" BaseSet = "RAcc">
-				<ammo>Aht Urhgan Dart</ammo>
+				<ammo>Pinwheel</ammo>
 			</set>
 			<set name = "Boom" BaseSet = "RAcc">
 				<range>Ungur Boomerang</range>
@@ -180,9 +179,9 @@
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
-		<var name="MeleeSet">Tank</var>
+		<var name="MeleeSet">TP</var>
 		<!-- Ranged Weapon Type -->
-		<var name="RType">Boom</var>
+		<var name="RType">Dart</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
 		<var name="DayOrNight">Day</var>
 		<var name="BattleArea">Standard</var>
@@ -202,11 +201,17 @@
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
 		<!-- lock weapons -->
-		<if TPGT="19">
-			<equip when="precast|midcast|aftercast">
-				<range lock="t" />
-				<ammo lock="t" />
-			</equip>
+		<if TPGT="9">
+			<if advanced='"$MeleeSet" == "Eva" OR "$MeleeSet" == "Tank"'>
+				<equip when="precast|midcast|aftercast">
+					<ammo lock="t" />
+				</equip>
+			</if>
+			<else>
+				<equip when="precast|midcast|aftercast">
+					<range lock="t" />
+				</equip>
+			</else>
 		</if>
 		<!-- Default melee gears engaged -->
 		<equip when = "engaged" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet" />
