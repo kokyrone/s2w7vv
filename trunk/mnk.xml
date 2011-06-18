@@ -35,6 +35,11 @@
 				<legs>Tantra Hose +1</legs>
 				<feet>Fuma Sune-ate</feet>
 			</set>
+			<set name = "OtherTP" BaseSet = "TP">
+				<lear>Suppanomimi</lear>
+				<lring>Lava's Ring</lring>
+				<rring>Kusha's Ring</rring>
+			</set>
 			<set name = "Eva">
 				<head>Optical Hat</head>
 				<neck>Evasion Torque</neck>
@@ -55,6 +60,11 @@
 				<waist>Virtuoso Belt</waist>
 				<legs>Tantra Hose +1</legs>
 				<feet>Tantra Gaiters +1</feet>
+			</set>
+			<set name = "OtherAcc" BaseSet = "Acc">
+				<head>Optical Hat</head>
+				<lring>Lava's Ring</lring>
+				<rring>Kusha's Ring</rring>
 			</set>
 			<set name = "Tank" BaseSet = "TP"/>
 			<set name = "PDT" BaseSet = "TP">
