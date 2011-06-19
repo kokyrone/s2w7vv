@@ -76,7 +76,7 @@
 				<rring>Keen Ring</rring>
 				<legs>Aurore Brais</legs>
 			</set>
-			<set name = "Rest" BaseSet = "$MeleeSet">
+			<set name = "Rest">
 				<head>Puppetry Taj</head>
 			</set>
 			<set name = "Town" BaseSet = "Idle">
@@ -87,7 +87,7 @@
 				<lring>Lava's Ring</lring>
 				<rring>Kusha's Ring</rring>
 			</set>
-			<set name = "Enmity" BaseSet = "$MeleeSet">
+			<set name = "Enmity">
 				<neck>Invidia Torque</neck>
 				<lring>Odium Ring</lring>
 				<back>Cavaros Mantle</back>
