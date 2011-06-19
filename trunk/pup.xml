@@ -9,7 +9,7 @@
 		/>
 	<sets>
 		<group default = "true" name = "Standard">
-			<set name = "DayIdle|NightIdle|Idle" BaseSet="$MeleeSet">
+			<set name = "DayIdle|NightIdle|Idle" BaseSet="$AutoType$MeleeSet">
 				<head>Pantin Taj</head>
 				<neck>Twilight Torque</neck>
 				<lring>Jelly Ring</lring>
