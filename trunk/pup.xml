@@ -245,6 +245,12 @@
 					<waist>Thunder Belt</waist>
 				</equip>
 			</if>
+			<if Spell = "Stringing Pummel">
+				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
+					<neck>Soil Gorget</neck>
+					<!--<waist>Soil Belt</waist>-->
+				</equip>
+			</if>
 			<elseif Spell = "Backhand Blow">
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
 				<aftercastdelay delay = "4" />
