@@ -183,6 +183,25 @@
 				<feet>Cirque Scarpe +1</feet>
 			</set>
 		</group>
+		<group name = "Dynamis" inherit = "Standard">
+			<set name = "MeleeTP|TP">
+				<sub />
+				<range>Turbo Animator</range>
+				<ammo>Automaton Oil +2</ammo>
+				<head>Cirque Capello +2</head>
+				<neck>Cirque Necklace</neck>
+				<lear>Kemas Earring</lear>
+				<rear>Brutal Earring</rear>
+				<body>Cirque Farsetto +1</body>
+				<hands>Pantin Dastanas</hands>
+				<lring>Rajas Ring</lring>
+				<rring>Heed Ring</rring>
+				<back>Karagoz Mantle</back>
+				<waist>Shaolin Belt</waist>
+				<legs>Cirque Pantaloni +1</legs>
+				<feet>Cirque Scarpe +1</feet>
+			</set>
+		</group>
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
