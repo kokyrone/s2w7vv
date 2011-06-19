@@ -3,7 +3,7 @@
 	<config
 		RestingSet="Rest"
 		NormalSet="Idle"
-		EngagedSet="$MeleeSet"
+		EngagedSet="$AutoType$MeleeSet"
 		ShowGearSwaps="false"
 		Debug="True"
 		/>
@@ -48,7 +48,7 @@
 				<hands>Cirque Guanti +1</hands>
 				<waist>Twilight Belt</waist>
 			</set>
-			<set name = "Eva"  BaseSet = "TP">
+			<set name = "MeleeEva|Eva"  BaseSet = "TP">
 				<head>Optical Hat</head>
 				<neck>Evasion Torque</neck>
 				<lear>Velocity Earring</lear>
@@ -58,11 +58,14 @@
 				<lring>Jelly Ring</lring>
 				<rring>Heed Ring</rring>
 				<back>Dodge Cape</back>
-				<waist>Cirque Sash</waist>
+				<waist>Shaolin Belt</waist>
 				<legs>Ambusher's Hose</legs>
 				<feet>Puppetry Babouches +1</feet>
 			</set>
-			<set name = "Acc" BaseSet = "TP">
+			<set name = "MageEva"  BaseSet = "MeleeEva">
+				<waist>Twilight Belt</waist>
+			</set>
+			<set name = "MeleeAcc|MageAcc|Acc" BaseSet = "TP">
 				<head>Tokon Hachimaki</head>
 				<neck>Cirque Necklace</neck>
 				<hands>Tabin Bracers +1</hands>
@@ -76,6 +79,12 @@
 				<rring>Keen Ring</rring>
 				<legs>Aurore Brais</legs>
 			</set>
+			<set name = "Enmity">
+				<neck>Invidia Torque</neck>
+				<lring>Odium Ring</lring>
+				<back>Cavaros Mantle</back>
+				<feet>Hermes' Sandals</feet>
+			</set>
 			<set name = "Rest">
 				<head>Puppetry Taj</head>
 			</set>
@@ -86,12 +95,6 @@
 				<hands>Cirque Guanti +1</hands>
 				<lring>Lava's Ring</lring>
 				<rring>Kusha's Ring</rring>
-			</set>
-			<set name = "Enmity">
-				<neck>Invidia Torque</neck>
-				<lring>Odium Ring</lring>
-				<back>Cavaros Mantle</back>
-				<feet>Hermes' Sandals</feet>
 			</set>
 			<!-- Maneuver sets -->
 			<set name = "Maneuver">
@@ -124,6 +127,7 @@
 				<feet>Cirque Scarpe +1</feet>
 			</set>
 			<set name = "INT|Ice" BaseSet = "CHR">
+				<lring>Diamond Ring</lring>
 				<rring>Spiral Ring</rring>
 				<feet>Cirque Scarpe +1</feet>
 			</set>
@@ -230,12 +234,7 @@
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
 		</if>
 		<else>
-			<if advanced='"$MeleeSet" == "TP" OR "$MeleeSet" == "Tank"'>
-				<equip when = "aftercast" setgroup = "$BattleArea" set = "$AutoType$MeleeSet" />
-			</if>
-			<else>
-				<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet" />
-			</else>
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "$AutoType$MeleeSet" />
 		</else>
 		<!-- rules for job abilities and actions -->
 		<if type = "Weaponskill">
