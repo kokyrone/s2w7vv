@@ -11,8 +11,7 @@
 		<group default = "true" name = "Standard">
 			<set name = "DayIdle|NightIdle|Idle" BaseSet="$MeleeSet">
 				<head>Pantin Taj</head>
-				<neck>Faith Torque</neck>
-				<!--<neck>Twilight Torque</neck>-->
+				<neck>Twilight Torque</neck>
 				<lring>Jelly Ring</lring>
 				<rring>Dark Ring</rring>
 				<feet>Hermes' Sandals</feet>
@@ -21,7 +20,7 @@
 				<sub />
 				<range>Turbo Animator</range>
 				<ammo>Automaton Oil +2</ammo>
-				<head>Brisk Mask</head>
+				<head>Cirque Capello +2</head>
 				<neck>Cirque Necklace</neck>
 				<lear>Kemas Earring</lear>
 				<rear>Brutal Earring</rear>
@@ -29,28 +28,28 @@
 				<hands>Pantin Dastanas</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
-				<back>Bellicose Mantle</back>
+				<back>Karagoz Mantle</back>
 				<waist>Shaolin Belt</waist>
 				<legs>Cirque Pantaloni +1</legs>
 				<feet>Cirque Scarpe +1</feet>
 			</set>
 			<set name = "MageTP" BaseSet = "MeleeTP">
+				<body>Cirque Farsetto +1</body>
 				<hands>Cirque Guanti +1</hands>
-				<waist>Cirque Sash</waist>
+				<waist>Twilight Belt</waist>
 			</set>
 			<set name = "MeleeTank|Tank" BaseSet = "TP">
-				<head>Cirque Capello +1</head>
-				<body>Aurore Doublet</body>
+				<!--<body>Aurore Doublet</body>-->
 				<lring>Lava's Ring</lring>
 				<rring>Kusha's Ring</rring>
 				<feet>Puppetry Babouches +1</feet>
 			</set>
 			<set name = "MageTank" BaseSet = "MeleeTank">
 				<hands>Cirque Guanti +1</hands>
-				<waist>Cirque Sash</waist>
+				<waist>Twilight Belt</waist>
 			</set>
 			<set name = "Eva"  BaseSet = "TP">
-				<head>Empress Hairpin</head>
+				<head>Optical Hat</head>
 				<neck>Evasion Torque</neck>
 				<lear>Velocity Earring</lear>
 				<rear>Dodge Earring</rear>
@@ -67,21 +66,27 @@
 				<head>Tokon Hachimaki</head>
 				<neck>Cirque Necklace</neck>
 				<hands>Tabin Bracers +1</hands>
-				<lring>Sniper's Ring</lring>
-				<rring>Ecphoria Ring</rring>
+				<lring>Lava's Ring</lring>
+				<rring>Kusha's Ring</rring>
 				<waist>Virtuoso Belt</waist>
 			</set>
 			<set name = "WS" BaseSet = "Acc">
 				<neck>Faith Torque</neck>
 				<lring>Rajas Ring</lring>
-				<rring>Ecphoria Ring</rring>
-				<waist>Virtuoso Belt</waist>
+				<rring>Keen Ring</rring>
 				<legs>Aurore Brais</legs>
 			</set>
 			<set name = "Rest" BaseSet = "$MeleeSet">
 				<head>Puppetry Taj</head>
 			</set>
-			<set name = "Town" BaseSet = "Idle"/>
+			<set name = "Town" BaseSet = "Idle">
+				<head>Tokon Hachimaki</head>
+				<neck>Faith Torque</neck>
+				<body>Cirque Farsetto +1</body>
+				<hands>Cirque Guanti +1</hands>
+				<lring>Lava's Ring</lring>
+				<rring>Kusha's Ring</rring>
+			</set>
 			<set name = "Enmity" BaseSet = "$MeleeSet">
 				<neck>Invidia Torque</neck>
 				<lring>Odium Ring</lring>
@@ -90,11 +95,12 @@
 			</set>
 			<!-- Maneuver sets -->
 			<set name = "Maneuver">
-				<hands>Puppetry Dastanas</hands>
 				<neck>Buffoon's Collar</neck>
+				<body>Cirque Farsetto +1</body>
+				<hands>Puppetry Dastanas</hands>
 			</set>
 			<set name = "AGI|Wind" BaseSet = "$MeleeSet">
-				<head>Empress Hairpin</head>
+				<head>Pantin Taj</head>
 				<body>Aketon</body>
 				<rring>Solemn Ring</rring>
 				<legs>Ambusher's Hose</legs>
@@ -122,6 +128,7 @@
 				<feet>Cirque Scarpe +1</feet>
 			</set>
 			<set name = "STR|Fire" BaseSet = "$MeleeSet">
+				<head>Pantin Taj</head>
 				<lear>Kemas Earring</lear>
 				<lring>Rajas Ring</lring>
 				<rring>Spiral Ring</rring>
@@ -162,7 +169,7 @@
 				<sub />
 				<range>Turbo Animator</range>
 				<ammo>Automaton Oil +2</ammo>
-				<head>Brisk Mask</head>
+				<head>Cirque Capello +2</head>
 				<neck>Cirque Necklace</neck>
 				<lear>Kemas Earring</lear>
 				<rear>Brutal Earring</rear>
@@ -170,7 +177,7 @@
 				<hands>Pantin Dastanas</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
-				<back>Cavaros Mantle</back>
+				<back>Karagoz Mantle</back>
 				<waist>Shaolin Belt</waist>
 				<legs>Cirque Pantaloni +1</legs>
 				<feet>Cirque Scarpe +1</feet>
