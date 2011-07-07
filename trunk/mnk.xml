@@ -50,7 +50,7 @@
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
 				<back />
-				<waist>Survival Belt</waist>
+				<waist>Sveltesse Gouriz</waist>
 				<legs>Ambusher's Hose</legs>
 				<feet>Tabin Boots +1</feet>
 				<!--<feet>Temple Gaiters +1</feet>-->
@@ -128,12 +128,13 @@
 			<set name = "Rest" BaseSet = "Idle"/>
 			<set name = "Town" BaseSet = "Idle"/>
 			<set name = "Haste" BaseSet = "$MeleeSet">
-				<head lock="yes">Tantra Crown +1</head>
-				<body lock="yes">Mirke Wardecors</body>
-				<hands lock="yes">Tantra Gloves +1</hands>
-				<waist lock="yes">Purple Belt</waist>
-				<legs lock="yes">Tantra Hose +1</legs>
-				<feet lock="yes">Fuma Sune-Ate</feet>
+				<head>Tantra Crown +1</head>
+				<!--Only affects Cast Time, not Recast Time.  -->
+				<body>Mirke Wardecors</body>
+				<hands>Tantra Gloves +1</hands>
+				<waist>Twilight Belt</waist>
+				<legs>Tantra Hose +1</legs>
+				<feet>Fuma Sune-Ate</feet>
 			</set>
 			<set name = "Boost" BaseSet = "$MeleeSet">
 				<hands>Temple Gloves</hands>
@@ -163,6 +164,7 @@
 		<group name = "Siege" inherit = "Standard" />
 		<group name = "Assault" inherit = "Standard" />
 		<group name = "Abyssea" inherit = "Standard" />
+		<group name = "Dynamis" inherit = "Standard" />
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
@@ -210,7 +212,8 @@
 			</if>
 			<elseif Spell = "Asuran Fists">
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
-					<neck lock="yes">Soil Gorget</neck>
+					<neck>Soil Gorget</neck>
+					<!--<waist>Soil Belt</waist>-->
 				</equip>
 				<aftercastdelay delay = "4" />
 			</elseif>
@@ -232,10 +235,15 @@
 			</else>
 			<castdelay delay = "0.5" />
 		</if>
+		<!-- some DNC sub rules -->
+		<if Spell="Curing Waltz II" TPGT="49">
+			<changespell Spell="Curing Waltz III" />
+		</if>
 		<if Spell = "*Step">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Acc" />
 			<aftercastdelay delay = "1" />
 		</if>
+		<!-- Job Abilities -->
 		<if Spell = "Provoke|Animated Flourish|Warcry|Berserk">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity" />
 			<aftercastdelay delay = "1" />
@@ -249,16 +257,14 @@
 			<aftercastdelay delay = "1" />
 		</if>
 		<if spell="Utsusemi*">
-			<equip when = "precast" setgroup = "$BattleArea" set = "Haste" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "Haste">
+				<neck>Magoraga Beads</neck>
+			</equip>
 			<if spell="Utsusemi: Ichi" BuffActive="Copy Image">
 				<midcastdelay delay="3.0" />
 				<command when = "midcast">cancel 66</command>
 			</if>
-			<aftercastdelay delay = "2" />
-		</if>
-		<!-- some DNC sub rules -->
-		<if Spell="Curing Waltz II" TPGT="49" MainJobLvl="90" >
-			<changespell Spell="Curing Waltz III" />
+			<aftercastdelay delay = "1" />
 		</if>
 	</rules>
 </spellcast>
