@@ -2,7 +2,7 @@
 <includes>
 	<include name="ObiRules">
 		<if advanced='("%SpellElement" = "%WeatherElement" OR "%SpellElement" = "%DayElement") AND "$%SpellElementObi" = "1"'>
-			<equip when="midcast"><back lock="yes">Twilight Cape</back></equip>
+			<if MainJob = "WHM|BLM|RDM|BRD|SMN|BLU|PUP|SCH"><equip when="midcast"><back lock="yes">Twilight Cape</back></equip></if>
 			<if	  Element="Dark"><action type="equip" when="midcast"><waist lock="yes">Anrin Obi</waist></action></if>
 			<elseif Element="Light"><action type="equip" when="midcast"><waist lock="yes">Korin Obi</waist></action></elseif>
 			<elseif Element="Thunder"><action type="equip" when="midcast"><waist lock="yes">Rairin Obi</waist></action></elseif>
@@ -36,7 +36,7 @@
 			</if>
 		</if>
 		<if Type="WeaponSkill">
-			<if advanced='%SpellTargetDistance &gt; 4'>
+			<if advanced='%SpellTargetDistance &gt; 5'>
 				<cancelspell/>
 				<action type = "command">input /echo Out of Range</action>
 			</if>
@@ -62,7 +62,7 @@
 			</equip>
 		</elseif>
 		<else>
-			<equip when="idle" set="Idle"/>
+			<equip when="idle" set="$DayOrNightIdle"/>
 		</else>
 	</include>
 	<include name="BattleArea">
@@ -75,8 +75,11 @@
 		<elseif BuffActive="Visitant">
 			<var cmd="set BattleArea Abyssea" />
 		</elseif>
-		<elseif area="Leujaoam Sanctum|Mamool Ja Training Grounds|Lebros Cavern|Periqia|Ilrusi Atoll|Nyzul Isle">
+		<elseif Area="Leujaoam Sanctum|Mamool Ja Training Grounds|Lebros Cavern|Periqia|Ilrusi Atoll|Nyzul Isle">
 			<var cmd="set BattleArea Assault" />
+		</elseif>
+		<elseif Area="Dynamis*">
+			<var cmd="set BattleArea Dynamis" />
 		</elseif>
 		<else>
 			<var cmd="set BattleArea Standard" />
