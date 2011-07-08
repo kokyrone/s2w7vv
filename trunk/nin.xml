@@ -48,7 +48,7 @@
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
 				<back />
-				<waist>Survival Belt</waist>
+				<waist>Sveltesse Gouriz</waist>
 				<legs>Iga Hakama +2</legs>
 				<feet>Ballerines</feet>
 			</set>
@@ -56,7 +56,6 @@
 				<legs>Koga Hakama</legs>
 			</set>
 			<set name = "DayAcc|NightAcc|Acc" BaseSet = "TP">
-				<sub />
 				<head>Optical Hat</head>
 				<neck>Iga Erimaki</neck>
 				<body>Koga Chainmail</body>
@@ -85,6 +84,8 @@
 			</set>
 			<set name = "Ninjutsu">
 				<head>Ninja Hatsuburi</head>
+				<!-- for MAcc until Torque -->
+				<neck>Artemis' Medal</neck>
 				<hands>Koga Tekko</hands>
 				<!--<feet>Koga Kyahan</feet>-->
 			</set>
@@ -114,7 +115,7 @@
 				<lring>Rajas Ring</lring>
 				<rring>Airy Ring</rring>
 				<!--<rring>Spiral Ring</rring>-->
-				<back />
+				<back>Iga Dochugappa</back>back>
 				<!--<waist>Virtuoso Belt</waist>-->
 				<waist>Warwolf Belt</waist>
 				<legs>Iga Hakama +2</legs>
@@ -124,6 +125,7 @@
 			<set name = "Town" BaseSet = "$DayOrNightIdle" />
 			<set name = "DayHaste|Haste" BaseSet = "$DayOrNight$MeleeSet">
 				<head>Iga Zukin +2</head>
+				<!--Only affects Cast Time, not Recast Time.  -->
 				<body>Mirke Wardecors</body>
 				<hands>Dusk Gloves</hands>
 				<waist>Twilight Belt</waist>
@@ -176,6 +178,7 @@
 		<group name = "Siege" inherit = "Standard" />
 		<group name = "Assault" inherit = "Standard" />
 		<group name = "Abyssea" inherit = "Standard" />
+		<group name = "Dynamis" inherit = "Standard" />
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
@@ -200,7 +203,7 @@
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TimeCheck']/*" />
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
-		<!-- lock weapons -->
+		<!-- lock ranged weapons when we have TP-->
 		<if TPGT="9">
 			<if advanced='"$MeleeSet" == "Eva" OR "$MeleeSet" == "Tank"'>
 				<equip when="precast|midcast|aftercast">
@@ -241,6 +244,7 @@
 			<if Spell = "*Ku|*Ten">
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
 					<neck>Soil Gorget</neck>
+					<!--<waist>Soil Belt</waist>-->
 					<legs>Byakko's Haidate</legs>
 				</equip>
 				<castdelay delay = "0.2" />
@@ -252,11 +256,11 @@
 			</else>
 		</if>
 		<!-- some DNC sub rules -->
-		<if Spell="Curing Waltz III" TPLT="50">
-			<changespell Spell="Curing Waltz II" />
+		<if Spell="Curing Waltz II" TPGT="49">
+			<changespell Spell="Curing Waltz III" />
 		</if>
 		<if Spell = "*Step">
-			<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
+			<equip when = "precast" setgroup = "$BattleArea" set = "Acc" />
 			<aftercastdelay delay = "1" />
 		</if>
 		<!-- Job Abilities -->
@@ -294,9 +298,14 @@
 			<else>
 				<equip when = "precast" setgroup = "$BattleArea" set = "Enmity|$DayOrNightHaste" />
 			</else>
-			<if spell="Utsusemi: Ichi" BuffActive="Copy Image">
-				<midcastdelay delay="3.0" />
-				<command when = "midcast">cancel 66</command>
+			<if spell="Utsusemi*">
+				<equip when = "precast">
+					<neck>Magoraga Beads</neck>
+				</equip>
+				<if spell="Utsusemi: Ichi" BuffActive="Copy Image">
+					<midcastdelay delay="3.0" />
+					<command when = "midcast">cancel 66</command>
+				</if>
 			</if>
 			<aftercastdelay delay = "1" />
 		</if>
