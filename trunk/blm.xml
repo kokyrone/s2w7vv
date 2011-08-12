@@ -414,9 +414,20 @@
 					<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ObiRules']/*" />
 				</else>
 			</if>
-			<elseif Spell = "Sunburst|Full Swing|Spirit Taker|Retribution" >
+			<!-- rules for job abilities and actions -->
+			<if Spell = "Mana Wall">
+				<equip when = "precast">
+					<feet>Goetia Sabots +1</feet>
+				</equip>
+			</if>
+			<if Spell = "Enmity Douse">
+				<equip when = "precast">
+					<hands>Goetia Gloves +2</hands>
+				</equip>
+			</if>
+			<if Spell = "Sunburst|Full Swing|Spirit Taker|Retribution" >
 					<equip when = "precast" set = "WS" />
-			</elseif>
+			</if>
 			<elseif Spell = "Cataclysm" >
 					<if advanced = '$MoonPhase &gt; 2'>
 						<equip when = "precast">
