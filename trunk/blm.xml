@@ -50,8 +50,8 @@
 		<var name="DayOrNight">Day</var>
 		<var name="BattleArea">Standard</var>
 		<!--Magian Stuff-->
-		<var name="MagianWeapon">Crook</var>
-		<var name="MagianHP">0</var>
+		<var name="MagianWeapon">Teiwaz</var>
+		<var name="MagianHP">65</var>
 		<!-- Nuking Gear - macros in-game to switch between MAB, and ) -->
 		<var name="NukeSet">MAB</var>
 	</variables>
@@ -63,7 +63,7 @@
 				<lear>Moldavite Earring</lear>
 			</set>
 			<set name = "INT" BaseSet = "Base">
-				<sub>Elementa Grip</sub>
+				<sub>Wise Strap</sub>
 				<!--<range></range>-->
 				<ammo>Snow Sachet</ammo>
 				<head>Goetia Petasos +1</head>
@@ -87,7 +87,7 @@
 				<lring>Sapphire Ring</lring>
 				<rring>Solemn Ring</rring>
 				<legs>Sagacity Lappas</legs>
-				<!--<feet>Teal Pigaches</feet>-->
+				<feet>Teal Pigaches</feet>
 			</set>
 			<set name = "MAB" BaseSet = "INT">
 				<lear>Moldavite Earring</lear>
