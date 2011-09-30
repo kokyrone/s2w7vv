@@ -12,7 +12,7 @@
 	<sets>
 		<group default = "true" name = "Standard">
 			<set name = "DayIdle|Idle" BaseSet = "$DayOrNight$MeleeSet">
-				<hands>Iga Tekko +1</hands>
+				<hands>Iga Tekko +2</hands>
 				<feet>Danzo Sune-ate</feet>
 			</set>
 			<set name = "NightIdle" BaseSet = "Idle">
@@ -44,7 +44,7 @@
 				<lear>Velocity Earring</lear>
 				<rear>Dodge Earring</rear>
 				<body>Aurore Doublet</body>
-				<hands>Iga Tekko +1</hands>
+				<hands>Iga Tekko +2</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
 				<back />
@@ -58,7 +58,7 @@
 			<set name = "DayAcc|NightAcc|Acc" BaseSet = "TP">
 				<head>Optical Hat</head>
 				<neck>Iga Erimaki</neck>
-				<body>Koga Chainmail</body>
+				<body>Iga Ningi +2</body>
 				<rring>Heed Ring</rring>
 				<waist>Virtuoso Belt</waist>
 			</set>
@@ -78,9 +78,25 @@
 				<waist>Warwolf Belt</waist>
 			</set>
 			<set name = "DayPDT|NightPDT|PDT" BaseSet = "$DayOrNightEva">
+				<head>Arhat's Jinpachi +1</head>
 				<neck>Twilight Torque</neck>
+				<body>Arhat's Gi +1</body>
+				<hands>Seiryu's Kote</hands>
 				<lring>Jelly Ring</lring>
 				<rring>Dark Ring</rring>
+			</set>
+			<set name = "DayParry|NightParry|Parry" BaseSet = "PDT">
+				<head>Brisk Mask</head>
+				<neck>Twilight Torque</neck>
+				<lear>Beetle Earring +1</lear>
+				<rear>Beetle Earring +1</rear>
+				<body>Haubergeon</body>
+				<hands>Seiryu's Kote</hands>
+				<lring>Jelly Ring</lring>
+				<rring>Dark Ring</rring>
+				<waist>Warwolf Belt</waist>
+				<legs>Ambusher's Hose</legs>
+				<feet>Ninja Kyahan</feet>
 			</set>
 			<set name = "Ninjutsu">
 				<head>Ninja Hatsuburi</head>
@@ -95,9 +111,9 @@
 				<!--<head>Koga Hatsuburi</head>-->
 				<neck>Artemis' Medal</neck>
 				<lear>Moldavite Earring</lear>
-				<rear>Phantom Earring</rear>
+				<rear>Hecate's Earring</rear>
 				<!--<body></body>-->
-				<hands>Iga Tekko +1</hands>
+				<hands>Iga Tekko +2</hands>
 				<lring>Diamond Ring</lring>
 				<rring>Spiral Ring</rring>
 				<!--<back></back>
@@ -110,8 +126,8 @@
 				<neck>Iga Erimaki</neck>
 				<lear>Coral Earring</lear>
 				<rear>Brutal Earring</rear>
-				<body>Haubergeon</body>
-				<hands>Iga Tekko +1</hands>
+				<body>Iga Ningi +2</body>
+				<hands>Iga Tekko +2</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Airy Ring</rring>
 				<!--<rring>Spiral Ring</rring>-->
@@ -166,7 +182,7 @@
 				<lear>Coral Earring</lear>
 				<rear>Brutal Earring</rear>
 				<body>Haubergeon</body>
-				<hands>Iga Tekko +1</hands>
+				<hands>Iga Tekko +2</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Airy Ring</rring>
 				<back />
@@ -177,7 +193,24 @@
 		</group>
 		<group name = "Siege" inherit = "Standard" />
 		<group name = "Assault" inherit = "Standard" />
-		<group name = "Abyssea" inherit = "Standard" />
+		<group name = "Abyssea" inherit = "Standard">
+			<set name = "WS" BaseSet = "$DayOrNight$MeleeSet">
+				<head>Iga Zukin +2</head>
+				<neck>Iga Erimaki</neck>
+				<lear>Coral Earring</lear>
+				<rear>Brutal Earring</rear>
+				<body>Iga Ningi +2</body>
+				<hands>Iga Tekko +2</hands>
+				<lring>Lava's Ring</lring>
+				<rring>Kusha's Ring</rring>
+				<!--<rring>Spiral Ring</rring>-->
+				<back>Iga Dochugappa</back>back>
+				<!--<waist>Virtuoso Belt</waist>-->
+				<waist>Warwolf Belt</waist>
+				<legs>Iga Hakama +2</legs>
+				<feet>Iga Kyahan +2</feet>
+			</set>
+		</group>
 		<group name = "Dynamis" inherit = "Standard" />
 	</sets>
 	<variables>
@@ -203,6 +236,22 @@
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TimeCheck']/*" />
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
+		<!-- Check to see what Moon Phase we are in -->
+		<xi:include href = "/includes/moon.xml" xpointer = "/includes/include[@name='Moon']/*" />
+		<!-- Default melee gears engaged -->
+		<equip when = "engaged" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet">
+			<if BuffActive="Migawari">
+				<body lock="true">Iga Ningi +2</body>
+				<action type = "command">input /echo Migawari</action>
+			</if>
+		</equip>
+		<!-- Aftercast rules -->
+		<if NotStatus="engaged">
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "$DayOrNightIdle" />
+		</if>
+		<else>
+			<equip when = "aftercast" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet" />
+		</else>
 		<!-- lock ranged weapons when we have TP-->
 		<if TPGT="9">
 			<if advanced='"$MeleeSet" == "Eva" OR "$MeleeSet" == "Tank"'>
@@ -216,15 +265,11 @@
 				</equip>
 			</else>
 		</if>
-		<!-- Default melee gears engaged -->
-		<equip when = "engaged" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet" />
-		<!-- Aftercast rules -->
-		<if NotStatus="engaged">
-			<equip when = "aftercast" setgroup = "$BattleArea" set = "$DayOrNightIdle" />
+		<!-- Lock items that affect abilities -->
+		<if BuffActive="Migawari">
+			<body lock="true">Iga Ningi +2</body>
+			<action type = "command">input /echo Migawari</action>
 		</if>
-		<else>
-			<equip when = "aftercast" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet" />
-		</else>
 		<!-- rules for job abilities and actions -->
 		<if Spell = "Blade:*">
 			<if Spell = "*Chi|*Jin|*Kamu">
@@ -241,7 +286,7 @@
 				<castdelay delay = "0.2" />
 				<aftercastdelay delay = "4" />
 			</if>
-			<if Spell = "*Ku|*Ten">
+			<elseif Spell = "*Ku|*Ten">
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
 					<neck>Soil Gorget</neck>
 					<!--<waist>Soil Belt</waist>-->
@@ -249,11 +294,19 @@
 				</equip>
 				<castdelay delay = "0.2" />
 				<aftercastdelay delay = "4" />
-			</if>
+			</elseif>
 			<else>
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
 				<aftercastdelay delay = "4" />
 			</else>
+		</if>
+		<if Spell ="Cataclysm|Aeolian Edge">
+				<equip when = "precast" setgroup = "$BattleArea" set = "WS|EleNin">
+					<if advanced = '$MoonPhase &gt; 2'>
+						<neck lock = "yes">Artemis' Medal</neck>
+					</if>
+				</equip>
+				<aftercastdelay delay = "2" />
 		</if>
 		<!-- some DNC sub rules -->
 		<if Spell="Curing Waltz II" TPGT="49">
@@ -270,7 +323,7 @@
 		</if>
 		<if Spell = "Futae">
 			<equip when = "precast">
-				<hands>Iga Tekko +1</hands>
+				<hands>Iga Tekko +2</hands>
 			</equip>
 		</if>
 		<!-- Ninjutsu Rules -->
