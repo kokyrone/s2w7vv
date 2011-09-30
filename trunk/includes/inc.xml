@@ -17,7 +17,7 @@
 		<if mode="OR" NotSkill="ElementalMagic|EnfeeblingMagic">
 			<if spell="Sneak" BuffActive="Sneak" advanced='"%SpellTargetName"="%PlayerName"'>
 				<action type="command" when="midcast">cancel 71</action>
-				<action type="midcastdelay" delay="2.3" />
+				<action type="midcastdelay" delay="2.1" />
 			</if>
 			<if spell="Monomi: Ichi" BuffActive="Sneak" SpellTargetType="Self">
 				<command when="midcast">cancel 71</command>
