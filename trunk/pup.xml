@@ -28,14 +28,14 @@
 				<hands>Pantin Dastanas</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
-				<back>Karagoz Mantle</back>
+				<back>Cavaros Mantle</back>
 				<waist>Shaolin Belt</waist>
 				<legs>Cirque Pantaloni +1</legs>
 				<feet>Cirque Scarpe +1</feet>
 			</set>
 			<set name = "MageTP" BaseSet = "MeleeTP">
-				<body>Cirque Farsetto +1</body>
-				<hands>Cirque Guanti +1</hands>
+				<body>Cirque Farsetto +2</body>
+				<hands>Cirque Guanti +2</hands>
 				<waist>Twilight Belt</waist>
 			</set>
 			<set name = "MeleeTank|Tank" BaseSet = "TP">
@@ -44,9 +44,10 @@
 				<rring>Kusha's Ring</rring>
 				<feet>Puppetry Babouches +1</feet>
 			</set>
-			<set name = "MageTank" BaseSet = "MeleeTank">
-				<hands>Cirque Guanti +1</hands>
-				<waist>Twilight Belt</waist>
+			<set name = "MageTank" BaseSet = "MageTP">
+				<lring>Lava's Ring</lring>
+				<rring>Kusha's Ring</rring>
+				<feet>Puppetry Babouches +1</feet>
 			</set>
 			<set name = "MeleeEva|Eva"  BaseSet = "TP">
 				<head>Optical Hat</head>
@@ -75,10 +76,17 @@
 			</set>
 			<set name = "WS" BaseSet = "Acc">
 				<neck>Faith Torque</neck>
-				<body>Cirque Farsetto +1</body>
+				<body>Cirque Farsetto +2</body>
 				<lring>Rajas Ring</lring>
 				<rring>Keen Ring</rring>
 				<legs>Aurore Brais</legs>
+			</set>
+			<set name = "Haste">
+				<head>Cirque Capello +2</head>
+				<body>Cirque Farsetto +2</body>
+				<hands>Cirque Guanti +2</hands>
+				<waist>Twilight Belt</waist>
+				<legs>Cirque Pantaloni +1</legs>
 			</set>
 			<set name = "Enmity">
 				<neck>Invidia Torque</neck>
@@ -92,15 +100,15 @@
 			<set name = "Town" BaseSet = "Idle">
 				<head>Tokon Hachimaki</head>
 				<neck>Faith Torque</neck>
-				<body>Cirque Farsetto +1</body>
-				<hands>Cirque Guanti +1</hands>
+				<body>Cirque Farsetto +2</body>
+				<hands>Cirque Guanti +2</hands>
 				<lring>Lava's Ring</lring>
 				<rring>Kusha's Ring</rring>
 			</set>
 			<!-- Maneuver sets -->
 			<set name = "Maneuver">
 				<neck>Buffoon's Collar</neck>
-				<body>Cirque Farsetto +1</body>
+				<body>Cirque Farsetto +2</body>
 				<hands>Puppetry Dastanas</hands>
 			</set>
 			<set name = "AGI|Wind" BaseSet = "$MeleeSet">
@@ -159,12 +167,12 @@
 		</group>
 		<!-- Campaign Battle gear - only used when Allied Tags are on -->
 		<group name = "Camp" inherit = "Standard">
-			<set name = "WS" BaseSet = "TP">
-				<lring>Rajas Ring</lring>
-				<rring>Ecphoria Ring</rring>
+			<set name = "WS" BaseSet = "Acc">
 				<neck>Bull Necklace</neck>
-				<waist>Virtuoso Belt</waist>
-				<feet>Puppetry Babouches +1</feet>
+				<body>Cirque Farsetto +2</body>
+				<lring>Rajas Ring</lring>
+				<rring>Keen Ring</rring>
+				<legs>Aurore Brais</legs>
 			</set>
 		</group>
 		<group name = "Siege" inherit = "Standard" />
@@ -180,9 +188,9 @@
 				<rear>Brutal Earring</rear>
 				<body>Pantin Tobe</body>
 				<hands>Pantin Dastanas</hands>
-				<lring>Rajas Ring</lring>
-				<rring>Heed Ring</rring>
-				<back>Karagoz Mantle</back>
+				<lring>Lava's Ring</lring>
+				<rring>Kusha's Ring</rring>
+				<back>Cavaros Mantle</back>
 				<waist>Shaolin Belt</waist>
 				<legs>Cirque Pantaloni +1</legs>
 				<feet>Cirque Scarpe +1</feet>
@@ -197,11 +205,11 @@
 				<neck>Cirque Necklace</neck>
 				<lear>Kemas Earring</lear>
 				<rear>Brutal Earring</rear>
-				<body>Cirque Farsetto +1</body>
+				<body>Cirque Farsetto +2</body>
 				<hands>Pantin Dastanas</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
-				<back>Karagoz Mantle</back>
+				<back>Cavaros Mantle</back>
 				<waist>Shaolin Belt</waist>
 				<legs>Cirque Pantaloni +1</legs>
 				<feet>Cirque Scarpe +1</feet>
@@ -218,6 +226,7 @@
 		<var name="BattleArea">Standard</var>
 	</variables>
 	<rules>
+		<action type = "command">input /echo Frame: $AutoType Gear: $MeleeSet</action>
 		<!-- Check there's nothing stopping us acting -->
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ReturnRules']/*" />
 		<!-- Equip town gears :) -->
@@ -228,6 +237,8 @@
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='TimeCheck']/*" />
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
+		<!-- Check to see what Moon Phase we are in -->
+		<xi:include href = "/includes/moon.xml" xpointer = "/includes/include[@name='Moon']/*" />
 		<!-- Default melee gears engaged -->
 		<equip when = "engaged" setgroup = "$BattleArea" set = "$AutoType$MeleeSet" />
 		<!-- Aftercast rules -->
@@ -255,6 +266,15 @@
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
 				<aftercastdelay delay = "4" />
 			</elseif>
+			<elseif Spell ="Cataclysm|Aeolian Edge">
+				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
+					<if advanced = '$MoonPhase &gt; 2'>
+						<neck lock = "yes">Artemis' Medal</neck>
+					</if>
+					<lear>Moldavite Earring</lear>
+				</equip>
+				<aftercastdelay delay = "2" />
+			</elseif>
 			<else>
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS" />
 			</else>
@@ -275,6 +295,7 @@
 		</if>
 		<if Spell = "Repair">
 			<equip when = "precast" setgroup = "$BattleArea">
+				<lear>Guignol earring</lear>
 				<feet>Puppetry Babouches +1</feet>
 			</equip>
 			<aftercastdelay delay = "2" />
