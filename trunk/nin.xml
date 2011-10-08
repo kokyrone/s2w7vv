@@ -12,6 +12,7 @@
 	<sets>
 		<group default = "true" name = "Standard">
 			<set name = "DayIdle|Idle" BaseSet = "$DayOrNight$MeleeSet">
+				<body>Iga Ningi +2</body>
 				<hands>Iga Tekko +2</hands>
 				<feet>Danzo Sune-ate</feet>
 			</set>
@@ -194,6 +195,22 @@
 		<group name = "Siege" inherit = "Standard" />
 		<group name = "Assault" inherit = "Standard" />
 		<group name = "Abyssea" inherit = "Standard">
+			<set name = "DayTP|TP">
+				<sub />
+				<ammo>Qirmiz Tathlum</ammo>
+				<head>Iga Zukin +2</head>
+				<neck>Iga Erimaki</neck>
+				<lear>Suppanomimi</lear>
+				<rear>Brutal Earring</rear>
+				<body>Ninja Chainmail</body>
+				<hands>Dusk Gloves</hands>
+				<lring>Lava's Ring</lring>
+				<rring>Kusha's Ring</rring>
+				<back>Atheling Mantle</back>
+				<waist>Twilight Belt</waist>
+				<legs>Iga Hakama +2</legs>
+				<feet>Iga Kyahan +2</feet>
+			</set>
 			<set name = "WS" BaseSet = "$DayOrNight$MeleeSet">
 				<head>Iga Zukin +2</head>
 				<neck>Iga Erimaki</neck>
@@ -239,12 +256,7 @@
 		<!-- Check to see what Moon Phase we are in -->
 		<xi:include href = "/includes/moon.xml" xpointer = "/includes/include[@name='Moon']/*" />
 		<!-- Default melee gears engaged -->
-		<equip when = "engaged" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet">
-			<if BuffActive="Migawari">
-				<body lock="true">Iga Ningi +2</body>
-				<action type = "command">input /echo Migawari</action>
-			</if>
-		</equip>
+		<equip when = "engaged" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet" />
 		<!-- Aftercast rules -->
 		<if NotStatus="engaged">
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "$DayOrNightIdle" />
@@ -267,8 +279,16 @@
 		</if>
 		<!-- Lock items that affect abilities -->
 		<if BuffActive="Migawari">
-			<body lock="true">Iga Ningi +2</body>
-			<action type = "command">input /echo Migawari</action>
+			<equip when = "engaged" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet">
+				<body lock="true">Iga Ningi +2</body>
+				<action type = "command">input /echo Migawari</action>
+			</equip>
+		</if>
+		<if BuffActive="March">
+			<equip when = "engaged" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet">
+				<body lock="true">Iga Ningi +2</body>
+				<action type = "command">input /echo March</action>
+			</equip>
 		</if>
 		<!-- rules for job abilities and actions -->
 		<if Spell = "Blade:*">
@@ -289,7 +309,7 @@
 			<elseif Spell = "*Ku|*Ten">
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
 					<neck>Soil Gorget</neck>
-					<!--<waist>Soil Belt</waist>-->
+					<waist>Soil Belt</waist>
 					<legs>Byakko's Haidate</legs>
 				</equip>
 				<castdelay delay = "0.2" />
@@ -329,6 +349,7 @@
 		<!-- Ninjutsu Rules -->
 		<if Spell = "Kurayami*|Dokumori*|Hojo*|Jubaku*|Aisha*|Yurin*">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Enmity|Ninjutsu">
+				<rear>Loquac. Earring</rear>
 				<body>Mirke Wardecors</body>
 			</equip>
 		</if>
@@ -343,7 +364,8 @@
 					<!--just need two pieces for haste cap-->
 					<ammo lock="yes"></ammo>
 					<head>Iga Zukin +2</head>
-					<rear>Shinobi Earring</rear>
+					<lear>Shinobi Earring</lear>
+					<rear>Loquac. Earring</rear>
 					<body>Mirke Wardecors</body>
 					<feet>Iga Kyahan +2</feet>
 				</equip>
@@ -354,6 +376,7 @@
 			<if spell="Utsusemi*">
 				<equip when = "precast">
 					<neck>Magoraga Beads</neck>
+					<rear>Loquac. Earring</rear>
 				</equip>
 				<if spell="Utsusemi: Ichi" BuffActive="Copy Image">
 					<midcastdelay delay="3.0" />
@@ -364,6 +387,7 @@
 		</if>
 		<if Spell = "Tonko*|Monomi*">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Ninjutsu">
+				<rear>Loquac. Earring</rear>
 				<body>Mirke Wardecors</body>
 			</equip>
 		</if>
