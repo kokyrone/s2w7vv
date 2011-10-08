@@ -13,7 +13,6 @@
 			<set name = "DayIdle|NightIdle|Idle" BaseSet = "$MeleeSet">
 				<head>Tokon Hachimaki</head>
 				<neck>Twilight Torque</neck>
-				<rear>Mercen. Earring</rear>
 				<body>Melee Cyclas</body>
 				<hands>Tantra Gloves +1</hands>
 				<lring>Jelly Ring</lring>
@@ -57,6 +56,8 @@
 			</set>
 			<set name = "Acc" BaseSet = "TP">
 				<head>Tokon Hachimaki</head>
+				<lring>Lava's Ring</lring>
+				<rring>Kusha's Ring</rring>
 				<waist>Virtuoso Belt</waist>
 				<legs>Tantra Hose +1</legs>
 				<feet>Tantra Gaiters +1</feet>
@@ -185,14 +186,7 @@
 		<!-- auto cancel sneak/utsu/stoneskin/blink when recasting them. Requires Cancel Plugin-->
 		<xi:include href="/includes/inc.xml" xpointer="/includes/include[@name='CancelRules']/*" />
 		<!-- Default melee gears engaged -->
-		<if BuffActive = "Footwork">
-			<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet">
-				<feet lock="yes">Poise Shoes</feet>
-			</equip>
-		</if>
-		<else>
-			<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet" />
-		</else>
+		<equip when = "engaged" setgroup = "$BattleArea" set = "$MeleeSet" />
 		<!-- Aftercast rules -->
 		<if NotStatus="engaged">
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "Idle" />
@@ -213,7 +207,7 @@
 			<elseif Spell = "Asuran Fists">
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
 					<neck>Soil Gorget</neck>
-					<!--<waist>Soil Belt</waist>-->
+					<waist>Soil Belt</waist>
 				</equip>
 				<aftercastdelay delay = "4" />
 			</elseif>
@@ -259,6 +253,7 @@
 		<if spell="Utsusemi*">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Haste">
 				<neck>Magoraga Beads</neck>
+				<rear>Loquac. Earring</rear>
 			</equip>
 			<if spell="Utsusemi: Ichi" BuffActive="Copy Image">
 				<midcastdelay delay="3.0" />
