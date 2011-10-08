@@ -108,6 +108,7 @@
 				<main>$ThunderStaff</main>
 			</set>
 			<set name = "FastCast">
+				<rear>Loquac. Earring</rear>
 			<!--
 				<feet>Rostrum Pumps</feet>
 				<rear>Loquac. Earring</rear>
@@ -250,8 +251,10 @@
 		</if>
 		<!-- Lock items that affect abilities -->
 		<if BuffActive="Mana Wall">
-			<feet lock="yes">Goetia Sabots +1</feet>
-			<action type = "command">input /echo Mana Wall</action>
+			<equip>
+				<feet lock="yes">Goetia Sabots +1</feet>
+				<action type = "command">input /echo Mana Wall</action>
+			</equip>
 		</if>
 		<!-- utility: if targetting a monster, but casting a spell that can not be cast on monsters, then cast on self (buffs). -->
 		<if SpellTargetType = "MONSTER" NotValidTarget = "*Enemy*" ValidTarget = "*Self*">
