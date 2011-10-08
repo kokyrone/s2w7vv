@@ -38,6 +38,9 @@
 				<hands>Cirque Guanti +2</hands>
 				<waist>Twilight Belt</waist>
 			</set>
+			<set name = "RangedTP" BaseSet = "MeleeTP">
+				<neck>Puppetry Torque</neck>
+			</set>
 			<set name = "MeleeTank|Tank" BaseSet = "TP">
 				<!--<body>Aurore Doublet</body>-->
 				<lring>Lava's Ring</lring>
@@ -259,7 +262,7 @@
 			<if Spell = "Stringing Pummel">
 				<equip when = "precast" setgroup = "$BattleArea" set = "WS">
 					<neck>Soil Gorget</neck>
-					<!--<waist>Soil Belt</waist>-->
+					<waist>Soil Belt</waist>
 				</equip>
 			</if>
 			<elseif Spell = "Backhand Blow">
