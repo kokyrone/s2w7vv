@@ -30,7 +30,7 @@
 				<rring>Heed Ring</rring>
 				<back>Cavaros Mantle</back>
 				<waist>Shaolin Belt</waist>
-				<legs>Cirque Pantaloni +1</legs>
+				<legs>Cirque Pantaloni +2</legs>
 				<feet>Cirque Scarpe +1</feet>
 			</set>
 			<set name = "MageTP" BaseSet = "MeleeTP">
@@ -89,7 +89,7 @@
 				<body>Cirque Farsetto +2</body>
 				<hands>Cirque Guanti +2</hands>
 				<waist>Twilight Belt</waist>
-				<legs>Cirque Pantaloni +1</legs>
+				<legs>Cirque Pantaloni +2</legs>
 			</set>
 			<set name = "Enmity">
 				<neck>Invidia Torque</neck>
@@ -195,9 +195,10 @@
 				<rring>Kusha's Ring</rring>
 				<back>Cavaros Mantle</back>
 				<waist>Shaolin Belt</waist>
-				<legs>Cirque Pantaloni +1</legs>
+				<legs>Cirque Pantaloni +2</legs>
 				<feet>Cirque Scarpe +1</feet>
 			</set>
+			<set name = "Fire|Earth|Water|Wind|Ice|Thunder|Light|Dark" />
 		</group>
 		<group name = "Dynamis" inherit = "Standard">
 			<set name = "MeleeTP|TP">
@@ -214,7 +215,7 @@
 				<rring>Heed Ring</rring>
 				<back>Cavaros Mantle</back>
 				<waist>Shaolin Belt</waist>
-				<legs>Cirque Pantaloni +1</legs>
+				<legs>Cirque Pantaloni +2</legs>
 				<feet>Cirque Scarpe +1</feet>
 			</set>
 		</group>
@@ -293,9 +294,6 @@
 			<aftercastdelay delay = "1" />
 		</if>
 		<!-- Job Abilities -->
-		<if Spell = "Deploy">
-			<command>input /echo Automaton - TP: &lt;pettp&gt; HP: &lt;pethpp&gt; MP: &lt;petmpp&gt;</command>
-		</if>
 		<if Spell = "Repair">
 			<equip when = "precast" setgroup = "$BattleArea">
 				<lear>Guignol earring</lear>
@@ -322,6 +320,8 @@
 		<if spell="Utsusemi*">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Haste">
 				<neck>Magoraga Beads</neck>
+				<rear>Loquac. Earring</rear>
+				<body>Mirke Wardecors</body>
 			</equip>
 			<if spell="Utsusemi: Ichi" BuffActive="Copy Image">
 				<midcastdelay delay="3.0" />
