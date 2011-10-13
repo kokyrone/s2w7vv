@@ -25,8 +25,9 @@
 		<var name = "WindGrip">0</var>
 		<var name = "WaterGrip">0</var>
 		<var name = "EarthGrip">0</var>
-		<!-- Elemental Staffs, input what staff to use for each element here -->
-		<var name = "IceStaff">Aquilo's Staff</var>
+		<!-- Elemental Staffs, input what staff to use for each element here
+				<var name = "IceStaff">Aquilo's Staff</var>-->
+		<var name = "IceStaff">Teiwaz</var>
 		<var name = "DarkStaff">Pluto's Staff</var>
 		<var name = "ThunderStaff">Indra's Staff +2</var>
 		<var name = "WindStaff">Wind Staff</var>
@@ -69,24 +70,21 @@
 				<head>Goetia Petasos +1</head>
 				<!--<neck>Goetia Chain</neck>-->
 				<!--<lear></lear>-->
-				<rear>Phantom Earring</rear>
-				<body>Errant Hpl.</body>
+				<body>Augur's Jaseran</body>
 				<hands>Goetia Gloves +2</hands>
 				<lring>Diamond Ring</lring>
 				<rring>Spiral Ring</rring>
 				<back>Goetia Mantle</back>
 				<waist>Penitent's Rope</waist>
+				<legs>Nisse Slacks</legs>
 				<feet>Goetia Sabots +1</feet>
 			</set>
 			<set name = "MND" BaseSet = "INT">
 				<!--<main lock = "yes">$WaterStaff</main>-->
 				<!--<sub>Raptor Strap +1</sub>-->
-				<head>Teal Chapeau</head>
 				<neck>Promise Badge</neck>
 				<lring>Sapphire Ring</lring>
 				<rring>Solemn Ring</rring>
-				<legs>Sagacity Lappas</legs>
-				<feet>Teal Pigaches</feet>
 			</set>
 			<set name = "MAB" BaseSet = "INT">
 				<ammo>Witchstone</ammo>
@@ -126,7 +124,7 @@
 				<body>Goetia Coat +2</body>
 				<back>Felicitas Cape</back>
 				<waist>Austerity Belt</waist>
-				<legs>Sagacity Lappas</legs>
+				<legs>Nisse Slacks</legs>
 				<!--<feet>Goliard Clogs</feet>-->
 			</set>
 			<set name = "ConserveMP" BaseSet = "MAB">
@@ -384,13 +382,8 @@
 						<main lock="true">Kirin's Pole</main>
 					</equip>
 				</if>
-				<elseif Spell = "Stoneskin">
-					<equip type = "equip" when = "midcast" set = "MND|%skill">
-						<main lock="true">Kirin's Pole</main>
-					</equip>
-				</elseif>
 				<else>
-					<equip type = "equip" when = "midcast" set = "%skill" />
+					<equip type = "equip" when = "midcast" set = "MND|%skill" />
 				</else>
 			</elseif>
 			<elseif Skill = "HealingMagic">
