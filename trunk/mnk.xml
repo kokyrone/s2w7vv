@@ -31,7 +31,7 @@
 				<rring>Keen Ring</rring>
 				<back>Atheling Mantle</back>
 				<waist>Twilight Belt</waist>
-				<legs>Tantra Hose +1</legs>
+				<legs>Tantra Hose +2</legs>
 				<feet>Fuma Sune-ate</feet>
 			</set>
 			<set name = "OtherTP" BaseSet = "TP">
@@ -59,7 +59,7 @@
 				<lring>Lava's Ring</lring>
 				<rring>Kusha's Ring</rring>
 				<waist>Virtuoso Belt</waist>
-				<legs>Tantra Hose +1</legs>
+				<legs>Tantra Hose +2</legs>
 				<feet>Tantra Gaiters +1</feet>
 			</set>
 			<set name = "OtherAcc" BaseSet = "Acc">
@@ -134,7 +134,7 @@
 				<body>Mirke Wardecors</body>
 				<hands>Tantra Gloves +1</hands>
 				<waist>Twilight Belt</waist>
-				<legs>Tantra Hose +1</legs>
+				<legs>Tantra Hose +2</legs>
 				<feet>Fuma Sune-Ate</feet>
 			</set>
 			<set name = "Boost" BaseSet = "$MeleeSet">
