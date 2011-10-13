@@ -60,7 +60,8 @@
 				<head>Optical Hat</head>
 				<neck>Iga Erimaki</neck>
 				<body>Iga Ningi +2</body>
-				<rring>Heed Ring</rring>
+				<lring>Lava's Ring</lring>
+				<rring>Kusha's Ring</rring>
 				<waist>Virtuoso Belt</waist>
 			</set>
 			<set name = "DayTank|Tank" BaseSet = "TP">
