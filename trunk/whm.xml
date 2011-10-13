@@ -50,7 +50,7 @@
 				<ammo>Aqua Sachet</ammo>
 				<head>Orison Cap +1</head>
 				<neck>Promise Badge</neck>
-				<body>Errant Hpl.</body>
+				<body>Augur's Jaseran</body>
 				<hands>Blessed Mitts</hands>
 				<lring>Sapphire Ring</lring>
 				<rring>Solemn Ring</rring>
@@ -63,10 +63,10 @@
 				<ammo>Snow Sachet</ammo>
 				<!--<neck></neck>-->
 				<!--<lear></lear>-->
-				<rear>Phantom Earring</rear>
 				<lring>Diamond Ring</lring>
 				<rring>Spiral Ring</rring>
 				<waist>Penitent's Rope</waist>
+				<legs>Nisse Slacks</legs>
 			</set>
 			<set name = "HealingMagic" BaseSet = "MND">
 				<main>$LightStaff</main>
@@ -107,7 +107,7 @@
 				<body>Errant Hpl.</body>
 				<back>Felicitas Cape</back>
 				<waist>Austerity Belt</waist>
-				<legs>Sagacity Lappas</legs>
+				<legs>Nisse Slacks</legs>
 				<!--<feet>Goliard Clogs</feet>-->
 			</set>
 			<set name = "ConserveMP" BaseSet = "MND">
@@ -119,7 +119,7 @@
 				<body>Healer's Briault</body>
 			</set>
 			<set name = "DivineMagic" />
-			<set name = "EnhancingMagic">
+			<set name = "EnhancingMagic" BaseSet = "MND">
 				<waist>Siegel Sash</waist>
 			</set>
 			<set name = "MinusHP">
@@ -256,16 +256,11 @@
 					</if>
 				</elseif>
 				<elseif Skill = "EnhancingMagic">
-					<if Spell = "Stoneskin">
-						<equip type = "equip" when = "midcast" set = "MND|%skill">
-							<main lock="true">Kirin's Pole</main>
-						</equip>
-					</if>
-					<elseif Spell = "Auspice">
-						<equip type = "equip" when = "midcast" set = "MND|%skill">
+					<if Spell = "Auspice">
+						<equip type = "equip" when = "midcast" set = "%skill">
 							<feet lock="true">Orison Duckbills +1</feet>
 						</equip>
-					</elseif>
+					</if>
 					<else>
 						<equip type = "equip" when = "midcast" set = "%skill" />
 						<if Spell="Regen*">
