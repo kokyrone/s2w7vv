@@ -7,58 +7,98 @@
 		ShowGearSwaps="false"
 		Debug="True"/>
 	<sets>
-		<group default = "true" name = "Standard">
+		<group default = "true" name = "standard">
 			<set name = "Idle"  BaseSet = "$meleeset">
-				<head>remove</head>
-				<hands>Magus Bazubands</hands>
-				<body>Vermillion Cloak</body>
+					<hands>Aurore Gloves</hands>
 			</set>
 			<set name = "TP">
 				<sub/>
-				<head>Aurore Beret</head>
-				<neck>Chivalrous Chain</neck>
-				<lear>Spike Earring</lear>
+				<head>Mavi Kavuk +1</head>
+				<neck>Mavi Scarf</neck>
+				<lear>Suppanomimi</lear>
 				<rear>Spike Earring</rear>
-				<body>Aurore Doublet</body>
+				<body>Mavi mintan +2</body>
 				<hands>Dusk Gloves</hands>
 				<lring>Keen Ring</lring>
 				<rring>Ecphoria Ring</rring>
-				<back>Amemet Mantle +1</back>
-				<waist>Swift Belt</waist>
-				<legs>Aurore Brais</legs>
+				<back>Atheling Mantle</back>
+				<waist>Twilight belt</waist>
+				<legs>Mavi tayt +2</legs>
 				<feet>Aurore Gaiters</feet>
 			</set>
 			<set name = "WS" BaseSet = "$meleeset">
-				<sub/>
-				<head>Aurore Beret</head>
-				<neck>Chivalrous Chain</neck>
+				<head>Mavi Kavuk +1</head>
+				<neck>Peacock Charm</neck>
 				<lear>Spike Earring</lear>
 				<rear>Spike Earring</rear>
-				<body>Aurore Doublet</body>
+				<body>Mavi minton +1</body>
 				<hands>Aurore Gloves</hands>
 				<lring>Ruby Ring</lring>
 				<rring>Victory Ring</rring>
-				<back>Vigilance Mantle</back>
+				<back>Cuchulain's Mantle</back>
 				<waist>Potent Belt</waist>
-				<legs>Aurore Brais</legs>
+				<legs>Mavi tayt +2</legs>
 				<feet>Aurore Gaiters</feet>
 			</set>
 			<set name = "PhyBlu" BaseSet = "$meleeset">
-				<head>Aurore Beret</head>
-				<neck>Chivalrous Chain</neck>
-				<lear>Spike Earring</lear>
+				<head>Mavi Kavuk +1</head>
+				<neck>Mavi Scarf</neck>
+				<lear>Suppanomimi</lear>
 				<rear>Spike Earring</rear>
 				<body>Magus Jubbah</body>
 				<hands>Aurore Gloves</hands>
 				<lring>Ruby Ring</lring>
-				<rring>Victory Ring</rring>
-				<back>Vigilance Mantle</back>
-				<waist>Potent Belt</waist>
-				<legs>Aurore Brais</legs>
-				<feet>Aurore Gaiters</feet>
+				<rring>Spiral Ring</rring>
+				<back>Cuchulain's Mantle</back>
+				<waist>Warwolf Belt</waist>
+				<legs>Mavi tayt +2</legs>
+				<feet>Mederi Brogues</feet>
+				<ammo>Mavi tathlum</ammo>
 			</set>
 			<set name = "MagicBlu" BaseSet = "$meleeset">
-				<head>Magus Keffiyeh</head>
+				<ammo>Mavi Tathlum</ammo>
+				<head>Teal Chapeau</head>
+				<neck>mavi Scarf</neck>
+				<lear>Moldavite Earring</lear>
+				<body>Teal Saio</body>
+				<hands>Teal Cuffs</hands>
+				<lring>Diamond Ring</lring>
+				<rring>Spiral Ring</rring>
+				<waist>Potent Belt</waist>
+				<legs>Mavi Tayt +2</legs>
+				<feet>Mavi Basmak +1</feet>
+			</set>
+			<set name = "Whisker" BaseSet = "$meleeset">
+				<main>Jupiter's Staff</main>
+				<ammo>Mavi Tathlum</ammo>
+				<head>Teal Chapeau</head>
+				<neck>mavi Scarf</neck>
+				<lear>Moldavite Earring</lear>
+				<body>Teal Saio</body>
+				<hands>Teal Cuffs</hands>
+				<lring>Diamond Ring</lring>
+				<rring>Spiral Ring</rring>
+				<waist>Warwolf Belt</waist>
+				<legs>Mavi Tayt +2</legs>
+				<feet>Mavi Basmak +1</feet>
+				<back>Potentia Cape</back>
+			</set>
+			<set name="Turtle" BaseSet="TP">
+				<Main>Magnus Sword</Main>
+				<ammo>Bibiki Seashell</ammo>
+				<Sub>Genbu's Shield</Sub>
+				<head>Mavi Kavuk +1</head>
+				<neck>mavi Scarf</neck>
+				<lear>Moldavite Earring</lear>
+				<rear>Emerald Earring</rear>
+				<body>Aurore Doublet</body>
+				<hands>Aurore Gloves</hands>
+				<lring>Jelly Ring</lring>
+				<rring>Spiral Ring</rring>
+				<waist>Warwolf Belt</waist>
+				<legs>Mavi Tayt +2</legs>
+				<feet>Aurore Gaiters</feet>
+				<back>Cheviot cape</back>
 			</set>
 			<set name = "Rest">
 			</set>
@@ -95,43 +135,48 @@
 		</else>
 		<!-- Rule: Blue Magic -->
 		<if skill="BlueMagic">
-	<!-- Rule: Primary STR > Secondary DEX > Tertiary Acc -->
-			<if spell="Foot Kick|Power Attack|Bludgeon|Claw Cyclone|Screwdriver|Grand Slam|Smite of Rage|Jet Stream|Uppercut|Mandibular Bite|Death Schissors|Dimensional Death|Spiral Spin|Body Slam|Spinal Cleave|Frenetic Rip|Hydro Shot|Disseverment|Ram Charge|Vertical Cleave|Goblin Rush|Quad. Continuum">
-				<action type="equip" set="PhyBlu" />
+			<!-- Rule: Primary STR > Secondary DEX > Tertiary Acc -->
+			<if spell="Foot Kick|Power Attack|Bludgeon|Claw Cyclone|Screwdriver|Grand Slam|Smite of Rage|Jet Stream|Uppercut|Mandibular Bite|Death Schissors|Dimensional Death|Spiral Spin|Body Slam|Spinal Cleave|Frenetic Rip|Hydro Shot|Disseverment|Ram Charge|Vertical Cleave|Goblin Rush|Quad. Continuum|Heavy Strike">
+				<equip set="PhyBlu" />
 			</if>
-	<!-- Rule: Primary Acc -->
-			<elseif spell="Sprout Smack|Wild Oats|Queasyshroom|Battle Dance|Head Butt|Feather Storm|Helldive|Pinecone Bomb|Terror Touch|Frypan|Tail Slap|Asuran Claws">
-				<action type="equip" set="PhyBlu" />
+			<!-- Rule: Primary Acc -->
+			<elseif spell="Sprout Smack|Wild Oats|Queasyshroom|Battle Dance|Head Butt|Feather Storm|Helldive|Pinecone Bomb|Terror Touch|Frypan|Tail Slap|Asuran Claws|Sudden Louge">
+				<equip set="PhyBlu" />
 			</elseif>
-	<!-- Rule: Cannonball -->
+			<!-- Rule: Cannonball -->
 			<elseif spell="Cannonball">
-				<action type="equip" set="PhyBlu" />
+				<equip set="PhyBlu" />
 			</elseif>
-	<!-- Rule: Primary DEX > Secondary Acc-->
+			<!-- Rule: Primary DEX > Secondary Acc-->
 			<elseif spell="Sickle Slash|Seedspray|Hysteric Barrage">
-				<action type="equip" set="PhyBlu" />
+				<equip set="PhyBlu" />
 			</elseif>
-	<!-- Rule: Magic Stats (MND/INT/CHA) -->
+			<!-- Rule: Magic Stats (MND/INT/CHA) -->
 			<elseif spell="Sandspin|Cursed Sphere|Blastbomb|Bomb Toss|Death Ray|Blitzstrahl|Ice Break|Maelstrom|Firespit|Mysterious Light|Eyes On Me|Pollen|Healing Breeze|Magic Fruit|Corrosive Ooze|Regurgitation|Mind Blast|Magic Hammer">
-				<action type="equip" set="MagicBlu" />
+				<equip set="MagicBlu" />
 			</elseif>
-	<!-- Rule: Primary Skill > Secondary Magic Accuracy Macc -->
+			<!-- Rule: Primary Skill > Secondary Magic Accuracy Macc -->
 			<elseif spell="Sheep Song|Blood Drain|Soporific|Sound Blast|Chaotic Eye|Digest|Blank Gaze|Venom Shell|MP Drainkiss|Stinking Gas|Magnetite Cloud|Geist Wall|Awful Eye|Blood Saber|Jettatura|Frightful Roar|Self-Destruct|Filamented Hold|Cold Wave|Hecatomb Wave|Radiant Breath|Flying Hip Press|Light of Penance|1000 Needles|Feather Tickle|Yawn|Voracious Trunk|Infrasonics|Sandspray|Enervation|Lowing|Temporal Shift|Actinic Burst|">
-				<action type="equip" set="MagicBlu">
+				<equip set="MagicBlu">
 					<body>Magus Jubbah</body>
 				</action>
 			</elseif>
-	<!-- Rule: Primary Skill -->
+			<!-- Rule: Primary Skill -->
 			<elseif spell="Metallic Body|Diamondhide">
-				<action type="equip">
+				<equip>
 					<body>Magus Jubbah</body>
 				</action>
 			</elseif>
-	<!-- Rule: Breath -->
-			<elseif spell="Poison Breath|Bad Breath|Frost Breath|Heat Breath|">
-				<action type="equip" set="Breath" />
+			<!-- Rule: Primary Skill -->
+			<elseif spell="Charged Whisker">
+				<equip set="Whisker">
+				</action>
 			</elseif>
-	<!-- Rule: None -->
+			<!-- Rule: Breath -->
+			<elseif spell="Poison Breath|Bad Breath|Frost Breath|Heat Breath|">
+				<equip set="Breath" />
+			</elseif>
+			<!-- Rule: None -->
 			<else spell="Cocoon|Wild Carrot|Refuling|Feather Barrier|Momento Mori|Zephyr Mantle|Enervation|Warm-Up|Amplification|Saline Coat|Reactor Cool|Plasma Charge|Exuviation">
 			</else>
 		</if>
