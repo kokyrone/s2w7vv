@@ -41,6 +41,9 @@
 				<feet>Aurore Gaiters</feet>
 			</set>
 			<set name = "PhyBlu" BaseSet = "$meleeset">
+				<Main>Isador</Main>
+				<ammo>Bibiki Seashell</ammo>
+				<Sub>Genbu's Shield</Sub>
 				<head>Mavi Kavuk +1</head>
 				<neck>Mavi Scarf</neck>
 				<lear>Suppanomimi</lear>
@@ -70,31 +73,32 @@
 			</set>
 			<set name = "Whisker" BaseSet = "$meleeset">
 				<main>Jupiter's Staff</main>
+				<sub>Brass grip +1</sub>
 				<ammo>Mavi Tathlum</ammo>
 				<head>Teal Chapeau</head>
-				<neck>mavi Scarf</neck>
+				<neck>Artemis' Medal</neck>
 				<lear>Moldavite Earring</lear>
-				<body>Teal Saio</body>
-				<hands>Teal Cuffs</hands>
-				<lring>Diamond Ring</lring>
+				<body>Loki's Kaftan</body>
+				<hands>Mavi Bazubands +1</hands>
+				<lring>Airy Ring</lring>
 				<rring>Spiral Ring</rring>
-				<waist>Warwolf Belt</waist>
+				<waist>Pipilaka Belt</waist>
 				<legs>Mavi Tayt +2</legs>
 				<feet>Mavi Basmak +1</feet>
-				<back>Potentia Cape</back>
+				<back>Romanus Cape</back>
 			</set>
 			<set name="Turtle" BaseSet="TP">
-				<Main>Magnus Sword</Main>
+				<Main>Isador</Main>
 				<ammo>Bibiki Seashell</ammo>
 				<Sub>Genbu's Shield</Sub>
 				<head>Mavi Kavuk +1</head>
-				<neck>mavi Scarf</neck>
-				<lear>Moldavite Earring</lear>
-				<rear>Emerald Earring</rear>
-				<body>Aurore Doublet</body>
+				<neck>Twilight torque</neck>
+				<lear>Emerald Earring</lear>
+				<rear>Brutal Earring</rear>
+				<body>Mavi Mintan +2</body>
 				<hands>Aurore Gloves</hands>
 				<lring>Jelly Ring</lring>
-				<rring>Spiral Ring</rring>
+				<rring>Dark Ring</rring>
 				<waist>Warwolf Belt</waist>
 				<legs>Mavi Tayt +2</legs>
 				<feet>Aurore Gaiters</feet>
@@ -135,8 +139,13 @@
 		</else>
 		<!-- Rule: Blue Magic -->
 		<if skill="BlueMagic">
-			<if BuffActive = "Burst Affinity" NotSpell = "Charged Whisker">
-				<equip set="MagicBlu" />
+			<if BuffActive = "Burst Affinity">
+				<if spell = "Charged Whisker">
+					<equip set="DEX|Whisker" />
+				</if>
+				<else>
+					<equip set="MagicBlu" />
+				</else>
 			</if>
 			<else>
 				<!-- Rule: Primary STR > Secondary DEX > Tertiary Acc -->
@@ -144,7 +153,7 @@
 					<equip set="PhyBlu" />
 				</if>
 				<!-- Rule: Primary Acc -->
-				<elseif spell="Sprout Smack|Wild Oats|Queasyshroom|Battle Dance|Head Butt|Feather Storm|Helldive|Pinecone Bomb|Terror Touch|Frypan|Tail Slap|Asuran Claws|Sudden Louge">
+				<elseif spell="Sprout Smack|Wild Oats|Queasyshroom|Battle Dance|Head Butt|Feather Storm|Helldive|Pinecone Bomb|Terror Touch|Frypan|Tail Slap|Asuran Claws|Sudden Louge|Whirl of Rage">
 					<equip set="PhyBlu" />
 				</elseif>
 				<!-- Rule: Cannonball -->
@@ -163,18 +172,17 @@
 				<elseif spell="Sheep Song|Blood Drain|Soporific|Sound Blast|Chaotic Eye|Digest|Blank Gaze|Venom Shell|MP Drainkiss|Stinking Gas|Magnetite Cloud|Geist Wall|Awful Eye|Blood Saber|Jettatura|Frightful Roar|Self-Destruct|Filamented Hold|Cold Wave|Hecatomb Wave|Radiant Breath|Flying Hip Press|Light of Penance|1000 Needles|Feather Tickle|Yawn|Voracious Trunk|Infrasonics|Sandspray|Enervation|Lowing|Temporal Shift|Actinic Burst|">
 					<equip set="MagicBlu">
 						<body>Magus Jubbah</body>
-					</action>
+					</equip>
 				</elseif>
 				<!-- Rule: Primary Skill -->
 				<elseif spell="Metallic Body|Diamondhide">
 					<equip>
 						<body>Magus Jubbah</body>
-					</action>
+					</equip>
 				</elseif>
 				<!-- Rule: Primary Skill -->
 				<elseif spell="Charged Whisker">
-					<equip set="Whisker">
-					</action>
+					<equip set="Whisker" />
 				</elseif>
 				<!-- Rule: Breath -->
 				<elseif spell="Poison Breath|Bad Breath|Frost Breath|Heat Breath|">
