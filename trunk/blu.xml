@@ -135,49 +135,54 @@
 		</else>
 		<!-- Rule: Blue Magic -->
 		<if skill="BlueMagic">
-			<!-- Rule: Primary STR > Secondary DEX > Tertiary Acc -->
-			<if spell="Foot Kick|Power Attack|Bludgeon|Claw Cyclone|Screwdriver|Grand Slam|Smite of Rage|Jet Stream|Uppercut|Mandibular Bite|Death Schissors|Dimensional Death|Spiral Spin|Body Slam|Spinal Cleave|Frenetic Rip|Hydro Shot|Disseverment|Ram Charge|Vertical Cleave|Goblin Rush|Quad. Continuum|Heavy Strike">
-				<equip set="PhyBlu" />
-			</if>
-			<!-- Rule: Primary Acc -->
-			<elseif spell="Sprout Smack|Wild Oats|Queasyshroom|Battle Dance|Head Butt|Feather Storm|Helldive|Pinecone Bomb|Terror Touch|Frypan|Tail Slap|Asuran Claws|Sudden Louge">
-				<equip set="PhyBlu" />
-			</elseif>
-			<!-- Rule: Cannonball -->
-			<elseif spell="Cannonball">
-				<equip set="PhyBlu" />
-			</elseif>
-			<!-- Rule: Primary DEX > Secondary Acc-->
-			<elseif spell="Sickle Slash|Seedspray|Hysteric Barrage">
-				<equip set="PhyBlu" />
-			</elseif>
-			<!-- Rule: Magic Stats (MND/INT/CHA) -->
-			<elseif spell="Sandspin|Cursed Sphere|Blastbomb|Bomb Toss|Death Ray|Blitzstrahl|Ice Break|Maelstrom|Firespit|Mysterious Light|Eyes On Me|Pollen|Healing Breeze|Magic Fruit|Corrosive Ooze|Regurgitation|Mind Blast|Magic Hammer">
+			<if BuffActive = "Burst Affinity" NotSpell = "Charged Whisker">
 				<equip set="MagicBlu" />
-			</elseif>
-			<!-- Rule: Primary Skill > Secondary Magic Accuracy Macc -->
-			<elseif spell="Sheep Song|Blood Drain|Soporific|Sound Blast|Chaotic Eye|Digest|Blank Gaze|Venom Shell|MP Drainkiss|Stinking Gas|Magnetite Cloud|Geist Wall|Awful Eye|Blood Saber|Jettatura|Frightful Roar|Self-Destruct|Filamented Hold|Cold Wave|Hecatomb Wave|Radiant Breath|Flying Hip Press|Light of Penance|1000 Needles|Feather Tickle|Yawn|Voracious Trunk|Infrasonics|Sandspray|Enervation|Lowing|Temporal Shift|Actinic Burst|">
-				<equip set="MagicBlu">
-					<body>Magus Jubbah</body>
-				</action>
-			</elseif>
-			<!-- Rule: Primary Skill -->
-			<elseif spell="Metallic Body|Diamondhide">
-				<equip>
-					<body>Magus Jubbah</body>
-				</action>
-			</elseif>
-			<!-- Rule: Primary Skill -->
-			<elseif spell="Charged Whisker">
-				<equip set="Whisker">
-				</action>
-			</elseif>
-			<!-- Rule: Breath -->
-			<elseif spell="Poison Breath|Bad Breath|Frost Breath|Heat Breath|">
-				<equip set="Breath" />
-			</elseif>
-			<!-- Rule: None -->
-			<else spell="Cocoon|Wild Carrot|Refuling|Feather Barrier|Momento Mori|Zephyr Mantle|Enervation|Warm-Up|Amplification|Saline Coat|Reactor Cool|Plasma Charge|Exuviation">
+			</if>
+			<else>
+				<!-- Rule: Primary STR > Secondary DEX > Tertiary Acc -->
+				<if spell="Foot Kick|Power Attack|Bludgeon|Claw Cyclone|Screwdriver|Grand Slam|Smite of Rage|Jet Stream|Uppercut|Mandibular Bite|Death Schissors|Dimensional Death|Spiral Spin|Body Slam|Spinal Cleave|Frenetic Rip|Hydro Shot|Disseverment|Ram Charge|Vertical Cleave|Goblin Rush|Quad. Continuum|Heavy Strike">
+					<equip set="PhyBlu" />
+				</if>
+				<!-- Rule: Primary Acc -->
+				<elseif spell="Sprout Smack|Wild Oats|Queasyshroom|Battle Dance|Head Butt|Feather Storm|Helldive|Pinecone Bomb|Terror Touch|Frypan|Tail Slap|Asuran Claws|Sudden Louge">
+					<equip set="PhyBlu" />
+				</elseif>
+				<!-- Rule: Cannonball -->
+				<elseif spell="Cannonball">
+					<equip set="PhyBlu" />
+				</elseif>
+				<!-- Rule: Primary DEX > Secondary Acc-->
+				<elseif spell="Sickle Slash|Seedspray|Hysteric Barrage">
+					<equip set="PhyBlu" />
+				</elseif>
+				<!-- Rule: Magic Stats (MND/INT/CHA) -->
+				<elseif spell="Sandspin|Cursed Sphere|Blastbomb|Bomb Toss|Death Ray|Blitzstrahl|Ice Break|Maelstrom|Firespit|Mysterious Light|Eyes On Me|Pollen|Healing Breeze|Magic Fruit|Corrosive Ooze|Regurgitation|Mind Blast|Magic Hammer">
+					<equip set="MagicBlu" />
+				</elseif>
+				<!-- Rule: Primary Skill > Secondary Magic Accuracy Macc -->
+				<elseif spell="Sheep Song|Blood Drain|Soporific|Sound Blast|Chaotic Eye|Digest|Blank Gaze|Venom Shell|MP Drainkiss|Stinking Gas|Magnetite Cloud|Geist Wall|Awful Eye|Blood Saber|Jettatura|Frightful Roar|Self-Destruct|Filamented Hold|Cold Wave|Hecatomb Wave|Radiant Breath|Flying Hip Press|Light of Penance|1000 Needles|Feather Tickle|Yawn|Voracious Trunk|Infrasonics|Sandspray|Enervation|Lowing|Temporal Shift|Actinic Burst|">
+					<equip set="MagicBlu">
+						<body>Magus Jubbah</body>
+					</action>
+				</elseif>
+				<!-- Rule: Primary Skill -->
+				<elseif spell="Metallic Body|Diamondhide">
+					<equip>
+						<body>Magus Jubbah</body>
+					</action>
+				</elseif>
+				<!-- Rule: Primary Skill -->
+				<elseif spell="Charged Whisker">
+					<equip set="Whisker">
+					</action>
+				</elseif>
+				<!-- Rule: Breath -->
+				<elseif spell="Poison Breath|Bad Breath|Frost Breath|Heat Breath|">
+					<equip set="Breath" />
+				</elseif>
+				<!-- Rule: None -->
+				<else spell="Cocoon|Wild Carrot|Refuling|Feather Barrier|Momento Mori|Zephyr Mantle|Enervation|Warm-Up|Amplification|Saline Coat|Reactor Cool|Plasma Charge|Exuviation">
+				</else>
 			</else>
 		</if>
 		<if type="WeaponSkill">
