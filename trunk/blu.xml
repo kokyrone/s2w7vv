@@ -145,7 +145,7 @@
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet" />
 		</else>
 		<!-- if were handling spells -->
-		<elseif Skill = "*Magic">
+		<if Skill = "*Magic">
 			<!-- equip fast cast gear -->
 			<equip when = "precast" Set = "FastCast" />
 			<!-- Rule: Blue Magic -->
