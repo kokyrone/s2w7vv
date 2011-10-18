@@ -8,7 +8,7 @@
 		Debug="True"/>
 	<sets>
 		<group default = "true" name = "standard">
-			<set name = "Idle"  BaseSet = "$meleeset">
+			<set name = "Refresh"  BaseSet = "$meleeset">
 					<hands>Aurore Gloves</hands>
 			</set>
 			<set name = "TP">
@@ -40,8 +40,14 @@
 				<legs>Mavi tayt +2</legs>
 				<feet>Aurore Gaiters</feet>
 			</set>
+			<set name = "Evasion" BaseSet = "TP">
+				<body>Aurore Doublet</body>
+			</set>
+			<set name = "FastCast" BaseSet = "$meleeset">
+				<rear>Loquac. Earring</rear>
+			</set>
 			<set name = "PhyBlu" BaseSet = "$meleeset">
-				<Main>Isador</Main>
+				<Main>Shamshir</Main>
 				<ammo>Bibiki Seashell</ammo>
 				<Sub>Genbu's Shield</Sub>
 				<head>Mavi Kavuk +1</head>
@@ -87,8 +93,8 @@
 				<feet>Mavi Basmak +1</feet>
 				<back>Romanus Cape</back>
 			</set>
-			<set name="Turtle" BaseSet="TP">
-				<Main>Isador</Main>
+			<set name = "Turtle" BaseSet = "TP">
+				<Main>Shamshir</Main>
 				<ammo>Bibiki Seashell</ammo>
 				<Sub>Genbu's Shield</Sub>
 				<head>Mavi Kavuk +1</head>
@@ -104,14 +110,15 @@
 				<feet>Aurore Gaiters</feet>
 				<back>Cheviot cape</back>
 			</set>
-			<set name = "Rest">
-			</set>
+			<set name = "Rest" />
 		</group>
 		<group name = "Siege" inherit = "Standard" />
 		<group name = "Assault" inherit = "Standard" />
 		<group name = "Abyssea" inherit = "Standard" />
 	</sets>
 	<variables>
+		<!-- Idle Gear -->
+		<var name="idleset">Refresh</var>
 		<!-- Engaged Melee Gear -->
 		<var name="meleeset">TP</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
@@ -137,65 +144,71 @@
 		<else>
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "$MeleeSet" />
 		</else>
-		<!-- Rule: Blue Magic -->
-		<if skill="BlueMagic">
-			<if BuffActive = "Burst Affinity">
-				<if spell = "Charged Whisker">
-					<equip set="DEX|Whisker" />
+		<!-- if were handling spells -->
+		<elseif Skill = "*Magic">
+			<!-- equip fast cast gear -->
+			<equip when = "precast" Set = "FastCast" />
+			<!-- Rule: Blue Magic -->
+			<if skill="BlueMagic">
+				<if BuffActive = "Burst Affinity">
+					<if spell = "Charged Whisker">
+						<equip when = "midcast" set="DEX|Whisker" />
+					</if>
+					<else>
+						<equip when = "midcast" set="MagicBlu" />
+					</else>
 				</if>
 				<else>
-					<equip set="MagicBlu" />
+					<!-- Rule: Primary STR > Secondary DEX > Tertiary Acc -->
+					<if spell="Foot Kick|Power Attack|Bludgeon|Claw Cyclone|Screwdriver|Grand Slam|Smite of Rage|Jet Stream|Uppercut|Mandibular Bite|Death Schissors|Dimensional Death|Spiral Spin|Body Slam|Spinal Cleave|Frenetic Rip|Hydro Shot|Disseverment|Ram Charge|Vertical Cleave|Goblin Rush|Quad. Continuum|Heavy Strike">
+						<equip when = "midcast" set="PhyBlu" />
+					</if>
+					<!-- Rule: Primary Acc -->
+					<elseif spell="Sprout Smack|Wild Oats|Queasyshroom|Battle Dance|Head Butt|Feather Storm|Helldive|Pinecone Bomb|Terror Touch|Frypan|Tail Slap|Asuran Claws|Sudden Louge|Whirl of Rage">
+						<equip when = "midcast" set="PhyBlu" />
+					</elseif>
+					<!-- Rule: Cannonball -->
+					<elseif spell="Cannonball">
+						<equip when = "midcast" set="PhyBlu" />
+					</elseif>
+					<!-- Rule: Primary DEX > Secondary Acc-->
+					<elseif spell="Sickle Slash|Seedspray|Hysteric Barrage">
+						<equip when = "midcast" set="PhyBlu" />
+					</elseif>
+					<!-- Rule: Magic Stats (MND/INT/CHA) -->
+					<elseif spell="Sandspin|Cursed Sphere|Blastbomb|Bomb Toss|Death Ray|Blitzstrahl|Ice Break|Maelstrom|Firespit|Mysterious Light|Eyes On Me|Pollen|Healing Breeze|Magic Fruit|Corrosive Ooze|Regurgitation|Mind Blast|Magic Hammer">
+						<equip when = "midcast" set="MagicBlu" />
+					</elseif>
+					<!-- Rule: Primary Skill > Secondary Magic Accuracy Macc -->
+					<elseif spell="Sheep Song|Blood Drain|Soporific|Sound Blast|Chaotic Eye|Digest|Blank Gaze|Venom Shell|MP Drainkiss|Stinking Gas|Magnetite Cloud|Geist Wall|Awful Eye|Blood Saber|Jettatura|Frightful Roar|Self-Destruct|Filamented Hold|Cold Wave|Hecatomb Wave|Radiant Breath|Flying Hip Press|Light of Penance|1000 Needles|Feather Tickle|Yawn|Voracious Trunk|Infrasonics|Sandspray|Enervation|Lowing|Temporal Shift|Actinic Burst|">
+						<equip when = "midcast" set="MagicBlu">
+							<body>Magus Jubbah</body>
+						</equip>
+					</elseif>
+					<!-- Rule: Primary Skill -->
+					<elseif spell="Metallic Body|Diamondhide">
+						<equip>
+							<body>Magus Jubbah</body>
+						</equip>
+					</elseif>
+					<!-- Rule: Primary Skill -->
+					<elseif spell="Charged Whisker">
+						<equip when = "midcast" set="Whisker" />
+					</elseif>
+					<!-- Rule: Breath -->
+					<elseif spell="Poison Breath|Bad Breath|Frost Breath|Heat Breath|">
+						<equip when = "midcast" set="Breath" />
+					</elseif>
+					<!-- Rule: None -->
+					<else spell="Cocoon|Wild Carrot|Refuling|Feather Barrier|Momento Mori|Zephyr Mantle|Enervation|Warm-Up|Amplification|Saline Coat|Reactor Cool|Plasma Charge|Exuviation">
+					</else>
 				</else>
 			</if>
-			<else>
-				<!-- Rule: Primary STR > Secondary DEX > Tertiary Acc -->
-				<if spell="Foot Kick|Power Attack|Bludgeon|Claw Cyclone|Screwdriver|Grand Slam|Smite of Rage|Jet Stream|Uppercut|Mandibular Bite|Death Schissors|Dimensional Death|Spiral Spin|Body Slam|Spinal Cleave|Frenetic Rip|Hydro Shot|Disseverment|Ram Charge|Vertical Cleave|Goblin Rush|Quad. Continuum|Heavy Strike">
-					<equip set="PhyBlu" />
-				</if>
-				<!-- Rule: Primary Acc -->
-				<elseif spell="Sprout Smack|Wild Oats|Queasyshroom|Battle Dance|Head Butt|Feather Storm|Helldive|Pinecone Bomb|Terror Touch|Frypan|Tail Slap|Asuran Claws|Sudden Louge|Whirl of Rage">
-					<equip set="PhyBlu" />
-				</elseif>
-				<!-- Rule: Cannonball -->
-				<elseif spell="Cannonball">
-					<equip set="PhyBlu" />
-				</elseif>
-				<!-- Rule: Primary DEX > Secondary Acc-->
-				<elseif spell="Sickle Slash|Seedspray|Hysteric Barrage">
-					<equip set="PhyBlu" />
-				</elseif>
-				<!-- Rule: Magic Stats (MND/INT/CHA) -->
-				<elseif spell="Sandspin|Cursed Sphere|Blastbomb|Bomb Toss|Death Ray|Blitzstrahl|Ice Break|Maelstrom|Firespit|Mysterious Light|Eyes On Me|Pollen|Healing Breeze|Magic Fruit|Corrosive Ooze|Regurgitation|Mind Blast|Magic Hammer">
-					<equip set="MagicBlu" />
-				</elseif>
-				<!-- Rule: Primary Skill > Secondary Magic Accuracy Macc -->
-				<elseif spell="Sheep Song|Blood Drain|Soporific|Sound Blast|Chaotic Eye|Digest|Blank Gaze|Venom Shell|MP Drainkiss|Stinking Gas|Magnetite Cloud|Geist Wall|Awful Eye|Blood Saber|Jettatura|Frightful Roar|Self-Destruct|Filamented Hold|Cold Wave|Hecatomb Wave|Radiant Breath|Flying Hip Press|Light of Penance|1000 Needles|Feather Tickle|Yawn|Voracious Trunk|Infrasonics|Sandspray|Enervation|Lowing|Temporal Shift|Actinic Burst|">
-					<equip set="MagicBlu">
-						<body>Magus Jubbah</body>
-					</equip>
-				</elseif>
-				<!-- Rule: Primary Skill -->
-				<elseif spell="Metallic Body|Diamondhide">
-					<equip>
-						<body>Magus Jubbah</body>
-					</equip>
-				</elseif>
-				<!-- Rule: Primary Skill -->
-				<elseif spell="Charged Whisker">
-					<equip set="Whisker" />
-				</elseif>
-				<!-- Rule: Breath -->
-				<elseif spell="Poison Breath|Bad Breath|Frost Breath|Heat Breath|">
-					<equip set="Breath" />
-				</elseif>
-				<!-- Rule: None -->
-				<else spell="Cocoon|Wild Carrot|Refuling|Feather Barrier|Momento Mori|Zephyr Mantle|Enervation|Warm-Up|Amplification|Saline Coat|Reactor Cool|Plasma Charge|Exuviation">
-				</else>
-			</else>
 		</if>
 		<if type="WeaponSkill">
-			<equip when = "Before" set = "WS" />
-			<aftercastdelay delay = "3" />
+			<equip when = "precast" set = "WS" />
+			<castdelay delay = "0.5" />
+			<aftercastdelay delay = "4" />
 		</if>
 	</rules>
 </spellcast>
