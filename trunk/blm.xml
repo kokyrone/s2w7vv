@@ -67,7 +67,7 @@
 				<sub>Wise Strap</sub>
 				<!--<range></range>-->
 				<ammo>Snow Sachet</ammo>
-				<head>Goetia Petasos +1</head>
+				<head>Goetia Petasos +2</head>
 				<!--<neck>Goetia Chain</neck>-->
 				<!--<lear></lear>-->
 				<body>Augur's Jaseran</body>
@@ -91,7 +91,7 @@
 				<lear>Moldavite Earring</lear>
 				<rear>Hecate's Earring</rear>
 				<body>Goetia Coat +2</body>
-				<back>Goetia Mantle</back>
+				<back>Searing Cape</back>
 				<legs>Goetia Chausses +1</legs>
 			</set>
 			<set name = "DayIdle|NightIdle|Idle" BaseSet = "MAB">
@@ -133,16 +133,16 @@
 				<feet>Sorcerer's Sabots</feet>
 			</set>
 			<set name = "HighResist" BaseSet = "INT">
-				<head>Goetia Petasos +1</head>
+				<head>Goetia Petasos +2</head>
 				<neck>Elemental Torque</neck>
 				<rear>Goetia Earring</rear>
 				<hands>Wizard's Gloves</hands>
 			</set>
 			<set name = "MidResist" BaseSet = "INT">
-				<head>Goetia Petasos +1</head>
+				<head>Goetia Petasos +2</head>
 			</set>
 			<set name = "LowResist" BaseSet = "INT">
-				<head>Goetia Petasos +1</head>
+				<head>Goetia Petasos +2</head>
 			</set>
 			<set name = "DarkMagic" BaseSet = "INT">
 				<lear>Goetia Earring</lear>
@@ -365,14 +365,15 @@
 				</else>
 			</if>
 			<elseif Skill = "EnfeeblingMagic">
-				<equip type = "equip" when = "midcast" set = "%skill" />
+				<equip type = "equip" when = "midcast" set = "%skill">
+					<if advanced = '$MoonPhase &lt; 2'>
+						<neck>Artemis' Medal</neck>
+					</if>
+				</equip>
 				<if mode = "OR" Area = "Dynamis*|Al'Taieu|Grand Palace of Hu'Xzoi|The Garden of Ru'Hmet|Apollyon|Temenos" Advanced='"$NCCheck" = "1"'>
 					<equip type = "equip" when = "midcast">
 						<hands>Mst.Cst. Bracelets</hands>
 					</equip>
-				</if>
-				<if advanced = '$MoonPhase &lt; 2'>
-					<neck>Artemis' Medal</neck>
 				</if>
 			</elseif>
 			<elseif Skill = "EnhancingMagic">
