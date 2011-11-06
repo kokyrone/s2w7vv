@@ -55,7 +55,7 @@
 				<lring>Sapphire Ring</lring>
 				<rring>Solemn Ring</rring>
 				<waist>Penitent's Rope</waist>
-				<legs>Blessed Trousers</legs>
+				<legs>Orison Pantaloons +1</legs>
 				<feet>Orison Duckbills +1</feet>
 			</set>
 			<set name = "INT" BaseSet = "MND">
@@ -131,14 +131,11 @@
 				<feet>Rostrum Pumps</feet>
 			</set>
 			<set name = "Melee|WS" BaseSet = "Idle">
-				<main>$EarthStaff</main>
-				<!--<range></range>-->
 				<head>Optical Hat</head>
 				<lear>Brutal Earring</lear>
-				<rring>Rajas Ring</rring>
-				<back>Dodge Cape</back>
+				<lring>Lava's Ring</lring>
+				<rring>Kusha's Ring</rring>
 				<waist>Virtuoso Belt</waist>
-				<legs>Igqira Lappas</legs>
 			</set>
 			<set name = "Haste" BaseSet = "Melee">
 				<head>Walahra Turban</head>
@@ -245,7 +242,11 @@
 					</if>
 				</if>
 				<elseif Skill = "EnfeeblingMagic">
-					<equip type = "equip" when = "midcast" set = "%skill" />
+					<equip type = "equip" when = "midcast" set = "%skill">
+						<if advanced = '$MoonPhase &lt; 2'>
+							<neck>Artemis' Medal</neck>
+						</if>
+					</equip>
 					<if mode = "OR" Area = "Dynamis*|Al'Taieu|Grand Palace of Hu'Xzoi|The Garden of Ru'Hmet|Apollyon|Temenos" Advanced='"$NCCheck" = "1"'>
 						<equip type = "equip" when = "midcast">
 							<hands>Mst.Cst. Bracelets</hands>
@@ -261,11 +262,13 @@
 							<feet lock="true">Orison Duckbills +1</feet>
 						</equip>
 					</if>
+					<elseif Spell = "Regen*">
+						<equip type = "equip" when = "midcast" set = "%skill">
+							<body lock="yes">Cleric's briault</body>
+						</equip>
+					</elseif>
 					<else>
 						<equip type = "equip" when = "midcast" set = "%skill" />
-						<if Spell="Regen*">
-							<body lock="yes">Cleric's briault</body>
-						</if>
 					</else>
 				</elseif>
 				<elseif Skill = "DarkMagic">
