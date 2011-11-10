@@ -82,7 +82,6 @@
 			<set name = "MND" BaseSet = "INT">
 				<!--<main lock = "yes">$WaterStaff</main>-->
 				<!--<sub>Raptor Strap +1</sub>-->
-				<neck>Promise Badge</neck>
 				<lring>Sapphire Ring</lring>
 				<rring>Solemn Ring</rring>
 			</set>
@@ -117,7 +116,7 @@
 				<sub>Ariesian Grip</sub>
 				<ammo>Clarus Stone</ammo>
 				<head>Cobra Hat</head>
-				<neck>Beak Necklace +1</neck>
+				<neck>Eidolon Pendant</neck>
 				<lear>Antivenom Earring</lear>
 				<rear>Sorcerer's Earring</rear>
 				<lring>Jelly Ring</lring>
@@ -374,6 +373,9 @@
 					<equip type = "equip" when = "midcast">
 						<hands>Mst.Cst. Bracelets</hands>
 					</equip>
+				</if>
+				<if advanced = '$MoonPhase &lt; 2'>
+					<neck>Artemis' Medal</neck>
 				</if>
 			</elseif>
 			<elseif Skill = "EnhancingMagic">
