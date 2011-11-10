@@ -82,7 +82,6 @@
 				<body>Cirque Farsetto +2</body>
 				<lring>Rajas Ring</lring>
 				<rring>Keen Ring</rring>
-				<legs>Aurore Brais</legs>
 			</set>
 			<set name = "Haste">
 				<head>Cirque Capello +2</head>
@@ -94,7 +93,6 @@
 			<set name = "Enmity">
 				<neck>Invidia Torque</neck>
 				<lring>Odium Ring</lring>
-				<back>Cavaros Mantle</back>
 				<feet>Hermes' Sandals</feet>
 			</set>
 			<set name = "Rest">
@@ -175,7 +173,6 @@
 				<body>Cirque Farsetto +2</body>
 				<lring>Rajas Ring</lring>
 				<rring>Keen Ring</rring>
-				<legs>Aurore Brais</legs>
 			</set>
 		</group>
 		<group name = "Siege" inherit = "Standard" />
