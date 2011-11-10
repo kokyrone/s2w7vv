@@ -49,7 +49,6 @@
 				<sub>Raptor Strap +1</sub>
 				<ammo>Aqua Sachet</ammo>
 				<head>Orison Cap +1</head>
-				<neck>Promise Badge</neck>
 				<body>Augur's Jaseran</body>
 				<hands>Blessed Mitts</hands>
 				<lring>Sapphire Ring</lring>
@@ -72,7 +71,7 @@
 				<main>$LightStaff</main>
 				<head>Orison Cap +1</head>
 				<neck>Healer's Torque</neck>
-				<lear>Orison Earring</lear>
+				<rear>Orison Earring</rear>
 				<body>Facio Bliaut</body>
 				<back>Orison Cape</back>
 			</set>
@@ -90,7 +89,8 @@
 			<set name = "FastCast">
 				<ammo>Incantor Stone</ammo>
 				<neck>Orison Locket</neck>
-				<rear>Loquac. Earring</rear>
+				<lear>Loquac. Earring</lear>
+				<legs>Orison Pantaloons +1</legs>
 			<!--
 				<feet>Rostrum Pumps</feet>
 				-->
@@ -100,7 +100,7 @@
 				<sub>Ariesian Grip</sub>
 				<ammo>Clarus Stone</ammo>
 				<head>Cobra Hat</head>
-				<neck>Beak Necklace +1</neck>
+				<neck>Eidolon Pendant</neck>
 				<lear>Antivenom Earring</lear>
 				<rear></rear>
 				<lring>Jelly Ring</lring>
@@ -113,7 +113,6 @@
 			<set name = "ConserveMP" BaseSet = "MND">
 				<ammo>Clarus Stone</ammo>
 				<waist>Austerity Belt</waist>
-				<feet>Sorcerer's Sabots</feet>
 			</set>
 			<set name = "EnfeeblingMagic" BaseSet = "INT">
 				<body>Healer's Briault</body>
