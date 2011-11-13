@@ -48,7 +48,7 @@
 				<hands>Seiryu's Kote</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
-				<back />
+				<back>Boxer's Mantle</back>
 				<waist>Sveltesse Gouriz</waist>
 				<legs>Ambusher's Hose</legs>
 				<feet>Tabin Boots +1</feet>
@@ -83,7 +83,7 @@
 			</set>
 			<set name = "Guarding" BaseSet = "PDT">
 				<hands>Tantra Gloves +1</hands>
-				<back>Atheling Mantle</back>
+				<back>Boxer's Mantle</back>
 				<legs>Temple Hose</legs>
 			</set>
 			<set name = "Enmity" BaseSet = "$MeleeSet">
