@@ -29,7 +29,7 @@
 				<var name = "IceStaff">Aquilo's Staff</var>-->
 		<var name = "IceStaff">Teiwaz</var>
 		<var name = "DarkStaff">Pluto's Staff</var>
-		<var name = "ThunderStaff">Indra's Staff +2</var>
+		<var name = "ThunderStaff">Indra's Staff +3</var>
 		<var name = "WindStaff">Wind Staff</var>
 		<var name = "FireStaff">Maleficus</var>
 		<var name = "EarthStaff">Earth Staff</var>
@@ -82,7 +82,7 @@
 			<set name = "MND" BaseSet = "INT">
 				<!--<main lock = "yes">$WaterStaff</main>-->
 				<!--<sub>Raptor Strap +1</sub>-->
-				<lring>Sapphire Ring</lring>
+				<lring>Sirona's Ring</lring>
 				<rring>Solemn Ring</rring>
 			</set>
 			<set name = "MAB" BaseSet = "INT">
@@ -91,15 +91,19 @@
 				<rear>Hecate's Earring</rear>
 				<body>Goetia Coat +2</body>
 				<back>Searing Cape</back>
-				<legs>Goetia Chausses +1</legs>
+				<legs>Goetia Chausses +2</legs>
 			</set>
-			<set name = "DayIdle|NightIdle|Idle" BaseSet = "MAB">
+			<set name = "DayIdle|Idle" BaseSet = "MAB">
 				<main>$EarthStaff</main>
 				<neck>Twilight Torque</neck>
 				<lear>Hecate's Earring</lear>
 				<lring>Jelly Ring</lring>
 				<rring>Dark Ring</rring>
 				<rear>Sorcerer's Earring</rear>
+				<feet>Serpentes Sabots</feet>
+			</set>
+			<set name = "NightIdle" BaseSet = "Idle">
+				<hands>Serpentes Cuffs</hands>
 			</set>
 			<set name = "Town" BaseSet = "Idle">
 				<main>$ThunderStaff</main>
@@ -108,7 +112,6 @@
 				<rear>Loquac. Earring</rear>
 			<!--
 				<feet>Rostrum Pumps</feet>
-				<rear>Loquac. Earring</rear>
 				-->
 			</set>
 			<set name = "Rest" BaseSet = "MAB">
@@ -296,9 +299,9 @@
 					<equip when = "midcast" Set = "ConserveMP" />
 				</elseif>
 				<else>
-					<action type = "MidcastDelay" Delay = "2.0" />
+					<action type = "MidcastDelay" Delay = "1.5" />
 					<!-- check for HQ+2 Staves -->
-					<if Advanced='(bool)strmatch("$%SpellElementStaff","* +2")'>
+					<if mode = "OR" Advanced='(bool)strmatch("$%SpellElementStaff","* +2")' Advanced='(bool)strmatch("$%SpellElementStaff","* +3")'>
 						<equip when = "precast">
 							<main lock = "true">$%SpellElementStaff</main>
 						</equip>
