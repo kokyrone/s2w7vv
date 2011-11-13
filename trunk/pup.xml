@@ -61,7 +61,7 @@
 				<hands>Tabin Bracers +1</hands>
 				<lring>Jelly Ring</lring>
 				<rring>Heed Ring</rring>
-				<back>Dodge Cape</back>
+				<back>Boxer's Mantle</back>
 				<waist>Shaolin Belt</waist>
 				<legs>Ambusher's Hose</legs>
 				<feet>Puppetry Babouches +1</feet>
@@ -125,7 +125,7 @@
 			</set>
 			<set name = "MND|Water" BaseSet = "CHR">
 				<head>Puppetry Taj</head>
-				<lring>Sapphire Ring</lring>
+				<lring>Sirona's Ring</lring>
 				<rring>Solemn Ring</rring>
 				<legs>Ambusher's Hose</legs>
 				<feet>Pantin Babouches</feet>
