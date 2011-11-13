@@ -51,9 +51,9 @@
 				<head>Orison Cap +1</head>
 				<body>Augur's Jaseran</body>
 				<hands>Blessed Mitts</hands>
-				<lring>Sapphire Ring</lring>
+				<lring>Sirona's Ring</lring>
 				<rring>Solemn Ring</rring>
-				<waist>Penitent's Rope</waist>
+				<waist>Cleric's Belt</waist>
 				<legs>Orison Pantaloons +1</legs>
 				<feet>Orison Duckbills +1</feet>
 			</set>
@@ -64,7 +64,6 @@
 				<!--<lear></lear>-->
 				<lring>Diamond Ring</lring>
 				<rring>Spiral Ring</rring>
-				<waist>Penitent's Rope</waist>
 				<legs>Nisse Slacks</legs>
 			</set>
 			<set name = "HealingMagic" BaseSet = "MND">
@@ -73,14 +72,20 @@
 				<neck>Healer's Torque</neck>
 				<rear>Orison Earring</rear>
 				<body>Facio Bliaut</body>
+				<hands>Serpentes Cuffs</hands>
 				<back>Orison Cape</back>
+				<feet>Serpentes Sabots</feet>
 			</set>
-			<set name = "DayIdle|NightIdle|Idle" BaseSet = "HealingMagic">
+			<set name = "DayIdle|Idle" BaseSet = "HealingMagic">
 				<main>$EarthStaff</main>
 				<neck>Twilight Torque</neck>
 				<body>Cleric's briault</body>
 				<lring>Jelly Ring</lring>
 				<rring>Dark Ring</rring>
+				<feet>Serpentes Sabots</feet>
+			</set>
+			<set name = "NightIdle" BaseSet = "Idle">
+				<hands>Serpentes Cuffs</hands>
 			</set>
 			<set name = "Town" BaseSet = "Idle">
 				<head>Charity Cap</head>
