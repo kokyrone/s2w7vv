@@ -48,7 +48,7 @@
 				<hands>Iga Tekko +2</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
-				<back />
+				<back>Boxer's Mantle</back>
 				<waist>Sveltesse Gouriz</waist>
 				<legs>Iga Hakama +2</legs>
 				<feet>Ballerines</feet>
@@ -68,6 +68,7 @@
 				<range>Ungur Boomerang</range>
 				<ammo></ammo>
 				<rring>Heed Ring</rring>
+				<back>Boxer's Mantle</back>
 				<feet>Ballerines</feet>
 			</set>
 			<set name = "NightTank" BaseSet = "Tank">
@@ -96,6 +97,7 @@
 				<hands>Seiryu's Kote</hands>
 				<lring>Jelly Ring</lring>
 				<rring>Dark Ring</rring>
+				<back>Boxer's Mantle</back>
 				<waist>Warwolf Belt</waist>
 				<legs>Ambusher's Hose</legs>
 				<feet>Ninja Kyahan</feet>
@@ -282,14 +284,14 @@
 		<if BuffActive="Migawari">
 			<equip when = "engaged" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet">
 				<body lock="true">Iga Ningi +2</body>
-				<action type = "command">input /echo Migawari</action>
 			</equip>
+			<action type = "command">input /echo Migawari</action>
 		</if>
 		<if BuffActive="March">
 			<equip when = "engaged" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet">
 				<body lock="true">Iga Ningi +2</body>
-				<action type = "command">input /echo March</action>
 			</equip>
+			<action type = "command">input /echo March</action>
 		</if>
 		<!-- rules for job abilities and actions -->
 		<if Spell = "Blade:*">
