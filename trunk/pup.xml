@@ -9,7 +9,7 @@
 		/>
 	<sets>
 		<group default = "true" name = "Standard">
-			<set name = "DayIdle|NightIdle|Idle" BaseSet="$AutoType$MeleeSet">
+			<set name = "DayIdle|DawnDuskIdle|NightIdle|Idle" BaseSet="$AutoType$MeleeSet">
 				<head>Pantin Taj</head>
 				<neck>Twilight Torque</neck>
 				<lring>Jelly Ring</lring>
@@ -18,23 +18,22 @@
 			</set>
 			<set name = "MeleeTP|TP">
 				<sub />
-				<range>Turbo Animator</range>
-				<ammo>Automaton Oil +2</ammo>
+				<!--<range>Turbo Animator</range>
+				<ammo>Automaton Oil +2</ammo>-->
 				<head>Cirque Capello +2</head>
 				<neck>Cirque Necklace</neck>
 				<lear>Kemas Earring</lear>
 				<rear>Brutal Earring</rear>
-				<body>Pantin Tobe</body>
+				<body>Cirque Farsetto +2</body>
 				<hands>Pantin Dastanas</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
 				<back>Pantin Cape</back>
 				<waist>Shaolin Belt</waist>
 				<legs>Cirque Pantaloni +2</legs>
-				<feet>Cirque Scarpe +1</feet>
+				<feet>Cirque Scarpe +2</feet>
 			</set>
 			<set name = "MageTP" BaseSet = "MeleeTP">
-				<body>Cirque Farsetto +2</body>
 				<hands>Cirque Guanti +2</hands>
 				<waist>Twilight Belt</waist>
 			</set>
@@ -58,7 +57,7 @@
 				<lear>Velocity Earring</lear>
 				<rear>Dodge Earring</rear>
 				<body>Aurore Doublet</body>
-				<hands>Tabin Bracers +1</hands>
+				<hands>Slither Gloves</hands>
 				<lring>Jelly Ring</lring>
 				<rring>Heed Ring</rring>
 				<back>Boxer's Mantle</back>
@@ -124,29 +123,27 @@
 				<legs>Mahatma Slops</legs>
 			</set>
 			<set name = "MND|Water" BaseSet = "CHR">
-				<head>Puppetry Taj</head>
 				<lring>Sirona's Ring</lring>
 				<rring>Solemn Ring</rring>
 				<legs>Ambusher's Hose</legs>
 				<feet>Pantin Babouches</feet>
 			</set>
 			<set name = "DEX|Thunder" BaseSet = "$MeleeSet">
-				<head>Puppetry Taj</head>
 				<lring>Rajas Ring</lring>
 				<rring>Airy Ring</rring>
-				<feet>Cirque Scarpe +1</feet>
+				<feet>Cirque Scarpe +2</feet>
 			</set>
 			<set name = "INT|Ice" BaseSet = "CHR">
 				<lring>Diamond Ring</lring>
 				<rring>Spiral Ring</rring>
-				<feet>Cirque Scarpe +1</feet>
+				<feet>Cirque Scarpe +2</feet>
 			</set>
 			<set name = "STR|Fire" BaseSet = "$MeleeSet">
 				<head>Pantin Taj</head>
 				<lear>Kemas Earring</lear>
 				<lring>Rajas Ring</lring>
 				<rring>Spiral Ring</rring>
-				<feet>Cirque Scarpe +1</feet>
+				<feet>Cirque Scarpe +2</feet>
 			</set>
 			<set name = "VIT|Earth" BaseSet = "$MeleeSet">
 				<lear>Kemas Earring</lear>
@@ -178,30 +175,30 @@
 		<group name = "Siege" inherit = "Standard" />
 		<group name = "Assault" inherit = "Standard" />
 		<group name = "Abyssea" inherit = "Standard">
-			<set name = "TP">
+			<set name = "MeleeTP|TP">
 				<sub />
-				<range>Turbo Animator</range>
-				<ammo>Automaton Oil +2</ammo>
+				<!--<range>Turbo Animator</range>
+				<ammo>Automaton Oil +2</ammo>-->
 				<head>Cirque Capello +2</head>
 				<neck>Cirque Necklace</neck>
 				<lear>Kemas Earring</lear>
 				<rear>Brutal Earring</rear>
-				<body>Pantin Tobe</body>
+				<body>Cirque Farsetto +2</body>
 				<hands>Pantin Dastanas</hands>
 				<lring>Lava's Ring</lring>
 				<rring>Kusha's Ring</rring>
 				<back>Pantin Cape</back>
 				<waist>Shaolin Belt</waist>
 				<legs>Cirque Pantaloni +2</legs>
-				<feet>Cirque Scarpe +1</feet>
+				<feet>Cirque Scarpe +2</feet>
 			</set>
 			<set name = "Fire|Earth|Water|Wind|Ice|Thunder|Light|Dark" />
 		</group>
 		<group name = "Dynamis" inherit = "Standard">
 			<set name = "MeleeTP|TP">
 				<sub />
-				<range>Turbo Animator</range>
-				<ammo>Automaton Oil +2</ammo>
+				<!--<range>Turbo Animator</range>
+				<ammo>Automaton Oil +2</ammo>-->
 				<head>Cirque Capello +2</head>
 				<neck>Cirque Necklace</neck>
 				<lear>Kemas Earring</lear>
@@ -213,7 +210,7 @@
 				<back>Pantin Cape</back>
 				<waist>Shaolin Belt</waist>
 				<legs>Cirque Pantaloni +2</legs>
-				<feet>Cirque Scarpe +1</feet>
+				<feet>Cirque Scarpe +2</feet>
 			</set>
 		</group>
 	</sets>
@@ -227,7 +224,6 @@
 		<var name="BattleArea">Standard</var>
 	</variables>
 	<rules>
-		<action type = "command">input /echo Frame: $AutoType Gear: $MeleeSet</action>
 		<!-- Check there's nothing stopping us acting -->
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ReturnRules']/*" />
 		<!-- Equip town gears :) -->
@@ -300,7 +296,7 @@
 		</if>
 		<if Spell = "Tactical Switch">
 			<equip when = "precast" setgroup = "$BattleArea">
-				<feet>Cirque Scarpe +1</feet>
+				<feet>Cirque Scarpe +2</feet>
 			</equip>
 			<aftercastdelay delay = "2" />
 		</if>
