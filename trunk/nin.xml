@@ -1,5 +1,8 @@
 <?xml version="1.0" ?>
 <spellcast xmlns:xi="http://www.w3.org/2001/XInclude">
+	<!-- Useful notes -->
+	<!-- Fastcast: precast -->
+	<!-- Haste: midcast -->
 	<config
 		RestingSet="$DayOrNightIdle"
 		NormalSet="Idle"
@@ -11,7 +14,7 @@
 		/>
 	<sets>
 		<group default = "true" name = "Standard">
-			<set name = "DayIdle|Idle" BaseSet = "$DayOrNight$MeleeSet">
+			<set name = "DayIdle|DawnDuskIdle|Idle" BaseSet = "$DayOrNight$MeleeSet">
 				<body>Iga Ningi +2</body>
 				<hands>Iga Tekko +2</hands>
 				<feet>Danzo Sune-ate</feet>
@@ -35,12 +38,12 @@
 				<legs>Iga Hakama +2</legs>
 				<feet>Iga Kyahan +2</feet>
 			</set>
-			<set name = "NightTP" BaseSet = "DayTP">
-				<hands>Koga Tekko</hands>
+			<set name = "DawnDuskTP|NightTP" BaseSet = "DayTP">
+				<hands>Koga Tekko +1</hands>
 			</set>
-			<set name = "DayEva|Eva">
+			<set name = "DayEva|DawnDuskEva|Eva">
 				<range>Ungur Boomerang</range>
-				<head>Optical Hat</head>
+				<head>Rasetsu Jinpachi</head>
 				<neck>Evasion Torque</neck>
 				<lear>Velocity Earring</lear>
 				<rear>Dodge Earring</rear>
@@ -56,7 +59,7 @@
 			<set name = "NightEva" BaseSet = "DayEva">
 				<legs>Koga Hakama</legs>
 			</set>
-			<set name = "DayAcc|NightAcc|Acc" BaseSet = "TP">
+			<set name = "DayAcc|DawnDuskAcc|NightAcc|Acc" BaseSet = "TP">
 				<head>Optical Hat</head>
 				<neck>Iga Erimaki</neck>
 				<body>Iga Ningi +2</body>
@@ -71,8 +74,8 @@
 				<back>Boxer's Mantle</back>
 				<feet>Ballerines</feet>
 			</set>
-			<set name = "NightTank" BaseSet = "Tank">
-				<hands>Koga Tekko</hands>
+			<set name = "DawnDuskTank|NightTank" BaseSet = "Tank">
+				<hands>Koga Tekko +1</hands>
 			</set>
 			<set name = "Enmity" BaseSet = "$DayOrNight$MeleeSet">
 				<neck>Invidia Torque</neck>
@@ -80,7 +83,7 @@
 				<lring>Odium Ring</lring>
 				<waist>Warwolf Belt</waist>
 			</set>
-			<set name = "DayPDT|NightPDT|PDT" BaseSet = "$DayOrNightEva">
+			<set name = "DayPDT|DawnDuskPDT|NightPDT|PDT" BaseSet = "$DayOrNightEva">
 				<head>Arhat's Jinpachi +1</head>
 				<neck>Twilight Torque</neck>
 				<body>Arhat's Gi +1</body>
@@ -88,31 +91,32 @@
 				<lring>Jelly Ring</lring>
 				<rring>Dark Ring</rring>
 			</set>
-			<set name = "DayParry|NightParry|Parry" BaseSet = "PDT">
-				<head>Brisk Mask</head>
+			<set name = "DayParry|DawnDuskParry|Parry" BaseSet = "TP">
+				<head>Arhat's Jinpachi +1</head>
 				<neck>Twilight Torque</neck>
-				<lear>Beetle Earring +1</lear>
-				<rear>Beetle Earring +1</rear>
-				<body>Haubergeon</body>
+				<body>Arhat's Gi +1</body>
 				<hands>Seiryu's Kote</hands>
 				<lring>Jelly Ring</lring>
 				<rring>Dark Ring</rring>
-				<back>Boxer's Mantle</back>
+				<back>Metallon Mantle</back>
 				<waist>Warwolf Belt</waist>
 				<legs>Ambusher's Hose</legs>
 				<feet>Ninja Kyahan</feet>
+			</set>
+			<set name = "NightParry" BaseSet = "Parry">
+				<head>Koga Hatsuburi</head>
 			</set>
 			<set name = "Ninjutsu">
 				<head>Ninja Hatsuburi</head>
 				<!-- for MAcc until Torque -->
 				<neck>Artemis' Medal</neck>
-				<hands>Koga Tekko</hands>
+				<hands>Koga Tekko +1</hands>
 				<!--<feet>Koga Kyahan</feet>-->
 			</set>
 			<set name = "EleNin" BaseSet="Ninjutsu">
 				<!--<range></range>-->
 				<ammo>Snow Sachet</ammo>
-				<!--<head>Koga Hatsuburi</head>-->
+				<head>Koga Hatsuburi</head>
 				<neck>Artemis' Medal</neck>
 				<lear>Moldavite Earring</lear>
 				<rear>Hecate's Earring</rear>
@@ -131,10 +135,10 @@
 				<lear>Coral Earring</lear>
 				<rear>Brutal Earring</rear>
 				<body>Iga Ningi +2</body>
-				<hands>Iga Tekko +2</hands>
+				<hands>Heafoc Mitts</hands>
 				<lring>Rajas Ring</lring>
-				<rring>Airy Ring</rring>
-				<!--<rring>Spiral Ring</rring>-->
+				<!--<rring>Airy Ring</rring>-->
+				<rring>Spiral Ring</rring>
 				<back>Iga Dochugappa</back>
 				<!--<waist>Virtuoso Belt</waist>-->
 				<waist>Warwolf Belt</waist>
@@ -143,7 +147,7 @@
 			</set>
 			<set name = "Rest" />
 			<set name = "Town" BaseSet = "$DayOrNightIdle" />
-			<set name = "DayHaste|Haste" BaseSet = "$DayOrNight$MeleeSet">
+			<set name = "DayHaste|DawnDuskHaste|Haste" BaseSet = "$DayOrNight$MeleeSet">
 				<head>Iga Zukin +2</head>
 				<!--Only affects Cast Time, not Recast Time.  -->
 				<body>Mirke Wardecors</body>
@@ -152,8 +156,8 @@
 				<legs>Iga Hakama +2</legs>
 				<feet>Iga Kyahan +2</feet>
 			</set>
-			<set name = "NightHaste" BaseSet = "Haste">
-				<hands>Koga Tekko</hands>
+			<set name = "DawnDuskHaste|NightHaste" BaseSet = "Haste">
+				<hands>Koga Tekko +1</hands>
 			</set>
 			<set name = "RAcc" BaseSet = "$DayOrNight$MeleeSet">
 				<head>Optical Hat</head>
@@ -185,8 +189,8 @@
 				<neck>Bull Necklace</neck>
 				<lear>Coral Earring</lear>
 				<rear>Brutal Earring</rear>
-				<body>Haubergeon</body>
-				<hands>Iga Tekko +2</hands>
+				<body>Iga Ningi +2</body>
+				<hands>Heafoc Mitts</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Airy Ring</rring>
 				<back />
@@ -224,7 +228,7 @@
 				<lring>Lava's Ring</lring>
 				<rring>Kusha's Ring</rring>
 				<!--<rring>Spiral Ring</rring>-->
-				<back>Iga Dochugappa</back>back>
+				<back>Iga Dochugappa</back>
 				<!--<waist>Virtuoso Belt</waist>-->
 				<waist>Warwolf Belt</waist>
 				<legs>Iga Hakama +2</legs>
@@ -282,13 +286,13 @@
 		</if>
 		<!-- Lock items that affect abilities -->
 		<if BuffActive="Migawari">
-			<equip when = "engaged" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet">
+			<equip when = "midcast|aftercast" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet">
 				<body lock="true">Iga Ningi +2</body>
 			</equip>
 			<action type = "command">input /echo Migawari</action>
 		</if>
 		<if BuffActive="March">
-			<equip when = "engaged" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet">
+			<equip when = "midcast|aftercast" setgroup = "$BattleArea" set = "$DayOrNight$MeleeSet">
 				<body lock="true">Iga Ningi +2</body>
 			</equip>
 			<action type = "command">input /echo March</action>
@@ -303,7 +307,7 @@
 				</equip>
 				<if Spell = "*Kamu" advanced='"$DayOrNight" == "Night"'>
 					<equip when = "precast">
-						<hands>Koga Tekko</hands>
+						<hands>Koga Tekko +1</hands>
 					</equip>
 				</if>
 				<castdelay delay = "0.2" />
@@ -335,7 +339,7 @@
 		<if Spell="Curing Waltz II" TPGT="49">
 			<changespell Spell="Curing Waltz III" />
 		</if>
-		<if Spell = "*Step">
+		<if Spell = "*Step|*Flourish">
 			<equip when = "precast" setgroup = "$BattleArea" set = "Acc" />
 			<aftercastdelay delay = "1" />
 		</if>
@@ -361,7 +365,7 @@
 			<!-- Handle Elemental Obi's -->
 			<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ObiRules']/*" />
 		</if>
-		<if spell="Utsusemi*|Migawari*|Myoshu*">
+		<if spell="Utsusemi*|Migawari*|Myoshu*|Kakka*">
 			<if HPPLT="26">
 				<equip when = "precast" setgroup = "$BattleArea" set = "$DayOrNightEva">
 					<!--just need two pieces for haste cap-->
