@@ -76,7 +76,7 @@
 				<back>Orison Cape</back>
 				<feet>Serpentes Sabots</feet>
 			</set>
-			<set name = "DayIdle|Idle" BaseSet = "HealingMagic">
+			<set name = "DayIdle|DawnDuskIdle|Idle" BaseSet = "HealingMagic">
 				<main>$EarthStaff</main>
 				<neck>Twilight Torque</neck>
 				<body>Cleric's briault</body>
