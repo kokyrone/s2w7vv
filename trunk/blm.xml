@@ -75,7 +75,7 @@
 				<lring>Diamond Ring</lring>
 				<rring>Spiral Ring</rring>
 				<back>Goetia Mantle</back>
-				<waist>Penitent's Rope</waist>
+				<waist>Sorcerer's Belt</waist>
 				<legs>Nisse Slacks</legs>
 				<feet>Goetia Sabots +1</feet>
 			</set>
@@ -93,17 +93,15 @@
 				<back>Searing Cape</back>
 				<legs>Goetia Chausses +2</legs>
 			</set>
-			<set name = "DayIdle|Idle" BaseSet = "MAB">
+			<set name = "DayIdle|NightIdle|DawnDuskIdle|Idle" BaseSet = "MAB">
 				<main>$EarthStaff</main>
 				<neck>Twilight Torque</neck>
 				<lear>Hecate's Earring</lear>
+				<hands>Serpentes Cuffs</hands>
 				<lring>Jelly Ring</lring>
 				<rring>Dark Ring</rring>
 				<rear>Sorcerer's Earring</rear>
 				<feet>Serpentes Sabots</feet>
-			</set>
-			<set name = "NightIdle" BaseSet = "Idle">
-				<hands>Serpentes Cuffs</hands>
 			</set>
 			<set name = "Town" BaseSet = "Idle">
 				<main>$ThunderStaff</main>
@@ -122,11 +120,13 @@
 				<neck>Eidolon Pendant</neck>
 				<lear>Antivenom Earring</lear>
 				<rear>Sorcerer's Earring</rear>
-				<lring>Jelly Ring</lring>
 				<body>Goetia Coat +2</body>
+				<hands>Serpentes Cuffs</hands>
+				<lring>Jelly Ring</lring>
 				<back>Felicitas Cape</back>
 				<waist>Austerity Belt</waist>
 				<legs>Nisse Slacks</legs>
+				<feet>Serpentes Sabots</feet>
 				<!--<feet>Goliard Clogs</feet>-->
 			</set>
 			<set name = "ConserveMP" BaseSet = "MAB">
@@ -181,8 +181,8 @@
 				<!--<range></range>-->
 				<head>Optical Hat</head>
 				<lear>Brutal Earring</lear>
-				<rring>Rajas Ring</rring>
-				<back>Dodge Cape</back>
+				<lring>Lava's Ring</lring>
+				<rring>Kusha's Ring</rring>
 				<waist>Virtuoso Belt</waist>
 				<legs>Igqira Lappas</legs>
 			</set>
@@ -207,11 +207,22 @@
 				<lear>Moldavite Earring</lear>
 				<rring lock="yes">Balrahn's Ring</rring>
 			</set>
+			<set name = "DayIdle|Idle" BaseSet = "MAB">
+				<main>$EarthStaff</main>
+				<neck>Twilight Torque</neck>
+				<lear>Hecate's Earring</lear>
+				<hands>Serpentes Cuffs</hands>
+				<lring>Dark Ring</lring>
+				<rring lock="yes">Balrahn's Ring</rring>
+				<rear>Sorcerer's Earring</rear>
+				<feet>Serpentes Sabots</feet>
+			</set>
 		</group>
 		<group name = "Abyssea" inherit = "Standard" />
 		<group name = "Dynamis" inherit = "Standard" />
 	</sets>
 	<rules>
+		<action type = "command">input /echo $BattleArea</action>
 		<!-- Check there's nothing stopping us acting -->
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ReturnRules']/*" />
 		<!-- Equip town gears :) -->
@@ -301,7 +312,7 @@
 				<else>
 					<action type = "MidcastDelay" Delay = "1.5" />
 					<!-- check for HQ+2 Staves -->
-					<if mode = "OR" Advanced='(bool)strmatch("$%SpellElementStaff","* +2")' Advanced='(bool)strmatch("$%SpellElementStaff","* +3")'>
+					<if Advanced='(bool)strmatch("$%SpellElementStaff","* +2") OR (bool)strmatch("$%SpellElementStaff","* +3")'>
 						<equip when = "precast">
 							<main lock = "true">$%SpellElementStaff</main>
 						</equip>
@@ -433,18 +444,35 @@
 			<return />
 		</elseif>
 		<elseif Type = "WeaponSkill">
-			<if Spell = "Cataclysm" >
-					<if advanced = '$MoonPhase &gt; 2'>
-						<equip when = "precast">
-							<neck lock = "yes">Artemis' Medal</neck>
-						</equip>
-					</if>
+			<if Spell = "Cataclysm|Vidohunir" >
+				<if advanced = '$MoonPhase &gt; 2'>
+					<equip when = "precast">
+						<neck lock = "yes">Artemis' Medal</neck>
+					</equip>
+				</if>
+				<if Spell = "Vidohunir" >
+					<equip when = "precast" set = "WS|MAB">
+						<neck>Thunder Gorget</neck>
+						<waist>Thunder Belt</waist>
+					</equip>
+				</if>
+				<else>
 					<equip when = "precast" set = "WS|MAB" />
-					<aftercastdelay delay = "4" />
+				</else>
 			</if>
+			<elseif Spell = "Spirit Taker" >
+				<equip when = "precast" set = "WS|INT" />
+			</elseif>
+			<elseif Spell = "Retribution" >
+				<equip when = "precast" set = "WS|MND">
+					<neck>Soil Gorget</neck>
+					<waist>Soil Belt</waist>
+				</equip>
+			</elseif>
 			<else>
 				<equip when = "precast" set = "WS" />
 			</else>
+			<aftercastdelay delay = "5" />
 			<return />
 		</elseif>
 		<else>
