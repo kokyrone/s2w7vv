@@ -31,7 +31,7 @@
 				<back>Pantin Cape</back>
 				<waist>Shaolin Belt</waist>
 				<legs>Cirque Pantaloni +2</legs>
-				<feet>Cirque Scarpe +2</feet>
+				<feet>Savateur's Gaiters</feet>
 			</set>
 			<set name = "MageTP" BaseSet = "MeleeTP">
 				<hands>Cirque Guanti +2</hands>
@@ -75,12 +75,15 @@
 				<lring>Lava's Ring</lring>
 				<rring>Kusha's Ring</rring>
 				<waist>Virtuoso Belt</waist>
+				<feet>Cirque Scarpe +2</feet>
 			</set>
 			<set name = "WS" BaseSet = "Acc">
-				<neck>Faith Torque</neck>
+				<neck>Rancor Collar</neck>
 				<body>Cirque Farsetto +2</body>
+				<hands>Cirque Guanti +2</hands>
 				<lring>Rajas Ring</lring>
-				<rring>Keen Ring</rring>
+				<rring>Spiral Ring</rring>
+				<legs>Kokugetsu Haidate</legs>
 			</set>
 			<set name = "Haste">
 				<head>Cirque Capello +2</head>
@@ -88,6 +91,7 @@
 				<hands>Cirque Guanti +2</hands>
 				<waist>Twilight Belt</waist>
 				<legs>Cirque Pantaloni +2</legs>
+				<feet>Savateur's Gaiters</feet>
 			</set>
 			<set name = "Enmity">
 				<neck>Invidia Torque</neck>
@@ -113,15 +117,10 @@
 			</set>
 			<set name = "AGI|Wind" BaseSet = "$MeleeSet">
 				<head>Pantin Taj</head>
-				<body>Aketon</body>
 				<rring>Solemn Ring</rring>
 				<legs>Ambusher's Hose</legs>
 			</set>
-			<set name = "CHR|Light" BaseSet = "$MeleeSet">
-				<body>Errant Hpl.</body>
-				<rring>Airy Ring</rring>
-				<legs>Mahatma Slops</legs>
-			</set>
+			<set name = "CHR|Light" BaseSet = "$MeleeSet" />
 			<set name = "MND|Water" BaseSet = "CHR">
 				<lring>Sirona's Ring</lring>
 				<rring>Solemn Ring</rring>
@@ -130,7 +129,7 @@
 			</set>
 			<set name = "DEX|Thunder" BaseSet = "$MeleeSet">
 				<lring>Rajas Ring</lring>
-				<rring>Airy Ring</rring>
+				<rring>Jupiter's Ring</rring>
 				<feet>Cirque Scarpe +2</feet>
 			</set>
 			<set name = "INT|Ice" BaseSet = "CHR">
@@ -155,11 +154,13 @@
 			<!-- Automaton Sets-->
 			<set name = "BLM">
 				<body>Mirke Wardecors</body>
+				<lear>Cirque Earring</lear>
 				<legs>Pantin Churidars</legs>
 				<feet>Pantin Babouches</feet>
 			</set>
 			<set name = "WHM">
 				<legs>Puppetry Churidars</legs>
+				<feet>Cirque Scarpe +2</feet>
 			</set>
 			<set name = "VE" />
 		</group>
@@ -190,7 +191,7 @@
 				<back>Pantin Cape</back>
 				<waist>Shaolin Belt</waist>
 				<legs>Cirque Pantaloni +2</legs>
-				<feet>Cirque Scarpe +2</feet>
+				<feet>Savateur's Gaiters</feet>
 			</set>
 			<set name = "Fire|Earth|Water|Wind|Ice|Thunder|Light|Dark" />
 		</group>
@@ -210,14 +211,13 @@
 				<back>Pantin Cape</back>
 				<waist>Shaolin Belt</waist>
 				<legs>Cirque Pantaloni +2</legs>
-				<feet>Cirque Scarpe +2</feet>
+				<feet>Savateur's Gaiters</feet>
 			</set>
 		</group>
 	</sets>
 	<variables>
 		<!-- Engaged Melee Gear -->
 		<var name="MeleeSet">TP</var>
-		<var name="AutoSet">VE</var>
 		<var name="AutoType">Melee</var>
 		<!-- Init with day set will update after first cast/ja etc.-->
 		<var name="DayOrNight">Day</var>
@@ -287,6 +287,17 @@
 			<aftercastdelay delay = "1" />
 		</if>
 		<!-- Job Abilities -->
+		<if Spell = "Activate">
+			<cmd>input /echo \x1F\xCFAutomaton \x1F\x8DType:\x1F\xCE $AutoType \x1E\x01</cmd>
+		</if>
+		<if Spell = "Deactivate">
+			<if PetIsValid = "False">
+				<changespell Spell="Activate" />
+			</if>
+		</if>
+		<if Spell = "Deploy">
+			<cmd>input /echo \x1F\xCFAutomaton \x1F\x8DTP:\x1F\xCE &lt;pettp&gt; \x1F\x8DHP:\x1F\xCE &lt;pethpp&gt; \x1F\x8DMP:\x1F\xCE &lt;petmpp&gt;\x1E\x01</cmd>
+		</if>
 		<if Spell = "Repair">
 			<equip when = "precast" setgroup = "$BattleArea">
 				<lear>Guignol earring</lear>
@@ -301,7 +312,7 @@
 			<aftercastdelay delay = "2" />
 		</if>
 		<if Spell = "*Maneuver">
-			<command>input /echo %spellelement Maneuver - TP: &lt;pettp&gt; HP: &lt;pethpp&gt; MP: &lt;petmpp&gt;</command>
+			<cmd>input /echo \x1F\xCF%spellelement Maneuver \x1F\x8DTP:\x1F\xCE &lt;pettp&gt; \x1F\x8DHP:\x1F\xCE &lt;pethpp&gt; \x1F\x8DMP:\x1F\xCE &lt;petmpp&gt;\x1E\x01</cmd>
 			<!--<equip when = "precast" setgroup = "$BattleArea" set = "Maneuver" />-->
 			<equip when = "precast" setgroup = "$BattleArea" set = "%spellelement|Maneuver" />
 			<aftercastdelay delay = "1" />
