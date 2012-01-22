@@ -80,6 +80,7 @@
 				<main>$EarthStaff</main>
 				<neck>Twilight Torque</neck>
 				<body>Cleric's briault</body>
+				<hands>Serpentes Cuffs</hands>
 				<lring>Jelly Ring</lring>
 				<rring>Dark Ring</rring>
 				<feet>Serpentes Sabots</feet>
@@ -108,12 +109,14 @@
 				<neck>Eidolon Pendant</neck>
 				<lear>Antivenom Earring</lear>
 				<rear></rear>
-				<lring>Jelly Ring</lring>
 				<body>Errant Hpl.</body>
+				<hands>Serpentes Cuffs</hands>
+				<lring>Jelly Ring</lring>
 				<back>Felicitas Cape</back>
 				<waist>Austerity Belt</waist>
 				<legs>Nisse Slacks</legs>
 				<!--<feet>Goliard Clogs</feet>-->
+				<feet>Serpentes Sabots</feet>
 			</set>
 			<set name = "ConserveMP" BaseSet = "MND">
 				<ammo>Clarus Stone</ammo>
@@ -135,6 +138,7 @@
 				<feet>Rostrum Pumps</feet>
 			</set>
 			<set name = "Melee|WS" BaseSet = "Idle">
+				<sub>Danger Grip</sub>
 				<head>Optical Hat</head>
 				<lear>Brutal Earring</lear>
 				<lring>Lava's Ring</lring>
@@ -196,8 +200,9 @@
 		<else>
 			<equip when = "aftercast" setgroup = "$BattleArea" set = "Melee" />
 		</else>
-		<!-- lock weapons when TPing -->
-		<if TPGT="9" status="Engaged">
+		<!-- lock weapons when TPing
+		<if TPGT="9" status="Engaged">-->
+		<if TPGT="9">
 			<equip when="precast|midcast|aftercast">
 				<main lock="true" />
 				<sub lock="t" />
