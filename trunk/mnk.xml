@@ -30,7 +30,7 @@
 				<lring>Rajas Ring</lring>
 				<rring>Keen Ring</rring>
 				<back>Atheling Mantle</back>
-				<waist>Twilight Belt</waist>
+				<waist>Brown Belt</waist>
 				<legs>Tantra Hose +2</legs>
 				<feet>Fuma Sune-ate</feet>
 			</set>
@@ -40,18 +40,17 @@
 				<rring>Kusha's Ring</rring>
 			</set>
 			<set name = "Eva">
-				<head>Optical Hat</head>
+				<head>Rasetsu Jinpachi</head>
 				<neck>Evasion Torque</neck>
 				<lear>Velocity Earring</lear>
 				<rear>Dodge Earring</rear>
 				<body>Aurore Doublet</body>
-				<hands>Seiryu's Kote</hands>
+				<hands>Slither Gloves</hands>
 				<lring>Rajas Ring</lring>
 				<rring>Heed Ring</rring>
 				<back>Boxer's Mantle</back>
 				<waist>Sveltesse Gouriz</waist>
 				<legs>Ambusher's Hose</legs>
-				<feet>Tabin Boots +1</feet>
 				<!--<feet>Temple Gaiters +1</feet>-->
 			</set>
 			<set name = "Acc" BaseSet = "TP">
@@ -133,7 +132,7 @@
 				<!--Only affects Cast Time, not Recast Time.  -->
 				<body>Mirke Wardecors</body>
 				<hands>Tantra Gloves +1</hands>
-				<waist>Twilight Belt</waist>
+				<waist>Brown Belt</waist>
 				<legs>Tantra Hose +2</legs>
 				<feet>Fuma Sune-Ate</feet>
 			</set>
