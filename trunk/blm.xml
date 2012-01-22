@@ -148,7 +148,7 @@
 			</set>
 			<set name = "DarkMagic" BaseSet = "INT">
 				<lear>Goetia Earring</lear>
-				<hands>Sorcerer's Gloves</hands>
+				<hands>Sorcerer's Gloves +1</hands>
 				<legs>Wizard's Tonban</legs>
 			</set>
 			<set name = "EnfeeblingMagic" BaseSet = "INT">
@@ -178,6 +178,8 @@
 			</set>
 			<set name = "Melee|WS" BaseSet = "Idle">
 				<main>$MagianWeapon</main>
+				<sub>Danger Grip</sub>
+				<!--<main>$MagianWeapon</main>-->
 				<!--<range></range>-->
 				<head>Optical Hat</head>
 				<lear>Brutal Earring</lear>
@@ -222,7 +224,6 @@
 		<group name = "Dynamis" inherit = "Standard" />
 	</sets>
 	<rules>
-		<action type = "command">input /echo $BattleArea</action>
 		<!-- Check there's nothing stopping us acting -->
 		<xi:include href = "/includes/inc.xml" xpointer = "/includes/include[@name='ReturnRules']/*" />
 		<!-- Equip town gears :) -->
@@ -459,20 +460,22 @@
 				<else>
 					<equip when = "precast" set = "WS|MAB" />
 				</else>
+				<aftercastdelay delay = "4" />
 			</if>
 			<elseif Spell = "Spirit Taker" >
 				<equip when = "precast" set = "WS|INT" />
+				<aftercastdelay delay = "4" />
 			</elseif>
 			<elseif Spell = "Retribution" >
 				<equip when = "precast" set = "WS|MND">
 					<neck>Soil Gorget</neck>
 					<waist>Soil Belt</waist>
 				</equip>
+				<aftercastdelay delay = "4" />
 			</elseif>
 			<else>
 				<equip when = "precast" set = "WS" />
 			</else>
-			<aftercastdelay delay = "5" />
 			<return />
 		</elseif>
 		<else>
